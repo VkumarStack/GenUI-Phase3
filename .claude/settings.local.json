@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(conda run:*)",
+      "Bash(conda activate:*)",
+      "Bash(conda info:*)",
+      "Bash(/Users/vivek/miniforge3/envs/GenUI/bin/python3 --version)",
+      "Bash(/Users/vivek/miniforge3/envs/GenUI/bin/pip3 install:*)",
+      "Bash(conda install:*)",
+      "Bash(/Users/vivek/miniforge3/envs/GenUI/bin/pip install:*)",
+      "Bash(/Users/vivek/miniforge3/envs/GenUI/bin/python -m playwright install chromium)",
+      "Bash(/Users/vivek/miniforge3/envs/GenUI/bin/python screenshot.py)",
+      "Bash(/Users/vivek/miniforge3/envs/GenUI/bin/python evaluate.py)",
+      "Bash(/Users/vivek/miniforge3/envs/GenUI/bin/python /Users/vivek/Projects/GenUI/evaluate.py)"
+    ]
+  }
+}
