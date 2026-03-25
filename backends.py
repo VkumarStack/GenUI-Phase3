@@ -116,24 +116,27 @@ class HuggingFaceBackend:
         self.torch = torch
 
     def evaluate(self, example_dir: Path) -> dict:
+        from PIL import Image
         from qwen_vl_utils import process_vision_info
 
         ex = load_example(example_dir)
         prompt = build_prompt(ex["task"], ex["before_code"], ex["after_code"])
 
-        # Qwen2.5-VL uses a chat message format where images are separate content
-        # blocks. Passing file:// URIs lets the processor load and tile them.
-        # max_pixels caps the resolution to control VRAM usage during inference;
-        # 512*512 is sufficient to judge layout-level UI changes.
+        # Pass images as PIL Image objects to avoid any file URI / path issues.
+        # Resizing to 512x512 max before handing off reduces the number of vision
+        # tokens and keeps VRAM usage predictable during inference.
+        def load_image(path: Path) -> Image.Image:
+            img = Image.open(path).convert("RGB")
+            img.thumbnail((512, 512))
+            return img
+
         messages = [{
             "role": "user",
             "content": [
                 {"type": "text",  "text": "Before screenshot:"},
-                {"type": "image", "image": ex["before_image"].resolve().as_uri(),
-                 "max_pixels": 512 * 512},
+                {"type": "image", "image": load_image(ex["before_image"])},
                 {"type": "text",  "text": "After screenshot:"},
-                {"type": "image", "image": ex["after_image"].resolve().as_uri(),
-                 "max_pixels": 512 * 512},
+                {"type": "image", "image": load_image(ex["after_image"])},
                 {"type": "text",  "text": prompt},
             ],
         }]
