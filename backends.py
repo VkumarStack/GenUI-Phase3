@@ -129,10 +129,10 @@ class HuggingFaceBackend:
             "role": "user",
             "content": [
                 {"type": "text",  "text": "Before screenshot:"},
-                {"type": "image", "image": ex["before_image"].as_uri(),
+                {"type": "image", "image": ex["before_image"].resolve().as_uri(),
                  "max_pixels": 512 * 512},
                 {"type": "text",  "text": "After screenshot:"},
-                {"type": "image", "image": ex["after_image"].as_uri(),
+                {"type": "image", "image": ex["after_image"].resolve().as_uri(),
                  "max_pixels": 512 * 512},
                 {"type": "text",  "text": prompt},
             ],
