@@ -1,0 +1,23 @@
+--- a/index.html
++++ b/index.html
+@@ -28,9 +28,8 @@
+       border-radius: 4px;
+     }
+ 
+-    /* Submit button is left-aligned because the form uses flex-direction: column
+-       and align-items defaults to stretch, but the button has a fixed width so
+-       it naturally sits on the left. */
++    /* Submit button is now centered within the form by using align-self: center.
++       This is the only change from the Before version. */
+     button[type="submit"] {
+       width: fit-content;
+       padding: 8px 16px;
+@@ -40,7 +39,7 @@
+       border-radius: 4px;
+       cursor: pointer;
+       font-size: 14px;
+-      align-self: flex-start;
++      align-self: center;
+     }
+   </style>
+ </head>
