@@ -16,26 +16,32 @@ def load_code(variant_dir: Path) -> str:
     return "\n\n".join(parts)
 
 
-def build_prompt(task: str, before_code: str, after_code: str) -> str:
+def build_prompt(task: str, before_code: str = None, after_code: str = None, diff: str = None) -> str:
+    """Build the evaluation prompt.
+
+    Pass before_code + after_code for full-code mode, or diff for diff mode.
+    Exactly one of the two modes must be supplied.
+    """
+    if diff is not None:
+        code_section = f"--- Code Diff (unified diff of Before → After) ---\n{diff}"
+        code_description = "2. A screenshot of the UI after the revision\n3. A unified diff of the code changes made in the revision"
+    else:
+        code_section = f"--- Before Code ---\n{before_code}\n\n--- After Code ---\n{after_code}"
+        code_description = "2. The full code of the UI before the revision\n3. A screenshot of the UI after the revision\n4. The full code of the UI after the revision"
+
     return f"""You are evaluating a UI revision.
 
 Revision task: {task}
 
 You are provided:
 1. A screenshot of the UI before the revision
-2. The code of the UI before the revision
-3. A screenshot of the UI after the revision
-4. The code of the UI after the revision
+{code_description}
 
 Did the revision correctly implement the task based on the UI output and code?
 
 Respond with PASS or FAIL on the first line, followed by a brief explanation.
 
---- Before Code ---
-{before_code}
-
---- After Code ---
-{after_code}
+{code_section}
 """
 
 
@@ -54,11 +60,16 @@ def load_example(example_dir: Path) -> dict:
     before_dir = example_dir / "Before"
     after_dir = example_dir / "After"
     task = (example_dir / "Task.txt").read_text().strip()
+
+    diff_path = after_dir / "diff.txt"
+    diff = diff_path.read_text() if diff_path.exists() else None
+
     return {
         "name": example_dir.name,
         "task": task,
         "before_image": before_dir / "screenshot.png",
-        "after_image": after_dir / "screenshot.png",
+        "after_image":  after_dir / "screenshot.png",
         "before_code": load_code(before_dir),
-        "after_code": load_code(after_dir),
+        "after_code":  load_code(after_dir),
+        "diff": diff,
     }

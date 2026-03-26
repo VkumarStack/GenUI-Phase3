@@ -32,11 +32,11 @@ class GeminiBackend:
         self.model = model
         self.client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
 
-    def evaluate(self, example_dir: Path) -> dict:
+    def evaluate(self, example_dir: Path, use_diff: bool = False) -> dict:
         from google.genai import types
 
         ex = load_example(example_dir)
-        prompt = build_prompt(ex["task"], ex["before_code"], ex["after_code"])
+        prompt = build_prompt(ex["task"], diff=ex["diff"]) if use_diff else build_prompt(ex["task"], ex["before_code"], ex["after_code"])
 
         response = self.client.models.generate_content(
             model=self.model,
@@ -66,9 +66,9 @@ class OllamaBackend:
         self.model = model
         self._ollama = _ollama
 
-    def evaluate(self, example_dir: Path) -> dict:
+    def evaluate(self, example_dir: Path, use_diff: bool = False) -> dict:
         ex = load_example(example_dir)
-        prompt = build_prompt(ex["task"], ex["before_code"], ex["after_code"])
+        prompt = build_prompt(ex["task"], diff=ex["diff"]) if use_diff else build_prompt(ex["task"], ex["before_code"], ex["after_code"])
 
         # Ollama accepts images as base64 strings in the `images` list field.
         before_b64 = base64.b64encode(ex["before_image"].read_bytes()).decode()
@@ -115,12 +115,12 @@ class HuggingFaceBackend:
         self.processor = AutoProcessor.from_pretrained(model)
         self.torch = torch
 
-    def evaluate(self, example_dir: Path) -> dict:
+    def evaluate(self, example_dir: Path, use_diff: bool = False) -> dict:
         from PIL import Image
         from qwen_vl_utils import process_vision_info
 
         ex = load_example(example_dir)
-        prompt = build_prompt(ex["task"], ex["before_code"], ex["after_code"])
+        prompt = build_prompt(ex["task"], diff=ex["diff"]) if use_diff else build_prompt(ex["task"], ex["before_code"], ex["after_code"])
 
         # Pass images as PIL Image objects to avoid any file URI / path issues.
         # Resizing to 512x512 max before handing off reduces the number of vision
