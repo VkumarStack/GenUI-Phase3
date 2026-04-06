@@ -1,0 +1,71 @@
+--- a/index.html
++++ b/index.html
+@@ -47,7 +47,7 @@
+ <div class="flex items-center gap-3">
+ <!-- Profile on Left (Unconventional) -->
+ <div class="relative">
+-<div class="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 bg-cover bg-center" data-alt="User profile picture in header" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCAMRsFCL_dCCoWcUYAHe7Dw-9Y_io_3c9p6JdHQQnMsy44uySTcbkLJE9MpU1HrjeSgHTPKrWDGpPHm-G2tRu6qxePT4LNJL9gQLJb_ZyKeugA3PivbDUqXBVwjSxo48lEQYaXDQWFf1Uruy1b_WDZVYVDX0YvM-rEq5HTvI-Bayl9CBcu0X2G732LzwyQcnpTL0eCSrQauJRwzXBXfIbEdatHZbF1WIGL24stTCtPMlTvPx-ACRmVNPFYcJrGWdWEPZUkIJBLIYMF')"></div>
++<div class="w-9 h-9 rounded-full bg-slate-200 dark:bg-slate-700 bg-cover bg-center" data-alt="User profile picture in header" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCAMRsFCL_dCCoWcUYAHe7Dw-9Y_io_3c9p6JdHQQnMsy44uySTcbkLJE9MpU1HrjeSgHTPKrWDGpPHm-G2tRu6qxePT4LNJL9gQLJb_ZyKeugA3PivbDUqXBVwjSxo48lEQYaXDQWFf1Uruy1b_WDZVYVDX0YvM-rEq5HTvI-Bayl9CBcu0X2G732LzwyQcnpTL0eCSrQauJRwzXBXfIbEdatHZbF1WIGL24stTCvPMlTvPx-ACRmVNPFYcJrGWdWEPZUkIJBLIYMF')"></div>
+ <!-- Notification badge: Low contrast against header background (Slate vs Dark Background) -->
+ <div class="absolute -top-1 -right-1 w-4 h-4 bg-slate-500 dark:bg-slate-600 rounded-full border-2 border-background-dark flex items-center justify-center text-[8px] text-white">3</div>
+ </div>
+@@ -74,13 +74,13 @@
+ </div>
+ <div class="flex flex-col items-center gap-1 shrink-0">
+ <div class="w-16 h-16 rounded-full p-0.5 border-2 border-primary">
+-<div class="w-full h-full rounded-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Jordan story bubble profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuiYQsTBrRqROmNE762nTOjnsno7k8UMrUBJumEF4g8iQnFlYaB_ClsC0OpFyAzgNfqhnFgcOHmmOhZ-UJ3UbYjk3OeaWuXTFB3wSEtZXJnU5zjkXeQf8r8lNM1c5AkqQDXthX2cgOwy9LQnL5BDrglKZ_P8MjW9KKSk2tzcqj5hYMflHRYIdd9yG3wibt5BHJPOWzYeUYKnlBzz9OCqbSyp7TuxoD9sC1Xr__ccxXnFRxVdyUPeKIoTL6qmWWGQKqEUsW-jQG64O2')"></div>
++<div class="w-full h-full rounded-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Jordan story bubble profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuiYQsTBrRqROmNE762nTOjnsno7k8UMrUBJumEF4g8iQnFlYaB_ClsC0OpFyAzgNfqhnFgcOHmmOhZ-UJ3UbYjk3OeaWuXTFB3wSEtZXJnU5zjkXeQf8r8lNM1c5AkqQDXthX2cgOwy9LQnL5BDrglKZ_P8MjW9KKSk2tzcqj5hYMflHRYIdd9yG3wibt5BHJPOWzYeUYKnlBzz9OCqbSyp7TuxoD9sC1Xr__ccxXnFRxVdyUPyKIoTL6qmWWGQKqEUsW-jQG64O2')"></div>
+ </div>
+ <span class="text-[11px] font-medium">Jordan</span>
+ </div>
+ <div class="flex flex-col items-center gap-1 shrink-0">
+ <div class="w-16 h-16 rounded-full p-0.5 border-2 border-slate-300">
+-<div class="w-full h-full rounded-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Taylor story bubble profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhvoFQYto20CHz4Y0av_G-i0EbvnDZeV5qH102iboysZYTI9WyTlwnGRfTFDWoDL7wyXdzYf9b2HujojaOFHAkTyckVE2Kl1FI7bQYadqJeO5wHoOV93BzS03E1DbWCP59WLJwq3m1jUCDxv-wjZYOAvhteBnoiVneb2HqzYPzsrlhb7HozL1g4Am-mI43V_UXcwODEBOF9XOvRwigOTGQ_bE_bBfYdcahLFEfcTrS4t2278ik7EfWrzD92mKwZtn648I6h0ZolCnY')"></div>
++<div class="w-full h-full rounded-full bg-slate-200 dark:bg-slate-800 bg-cover bg-center" data-alt="Taylor story bubble profile" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBhvoFQYto20CHz4Y0av_G-i0EbvnDZeV5qH102iboysZYTI9WyTlwnGRfTFDWoDL7wyXdzYf9b2HujojaOFHAkTyckVE2Kl1FI7bQYadqJeO5wHoOV93BzS03E1DbWCP59WLJwq3m1jUCDxv-wjZYOAvhteBnoiVneb2HqzYPzsrlhb7HozL1g4Am-mI43V_UXcwODEBOF9XOvRwigOTGQ_bB_bBfYdcahLFEfcTrS4t2278ik7EfWrzD92mKwZtn648I6h0ZolCnY')"></div>
+ </div>
+ <span class="text-[11px] font-medium text-slate-400">Taylor</span>
+ </div>
+@@ -103,21 +103,21 @@
+ </button>
+ </div>
+ <!-- Post Image -->
+-<div class="w-full aspect-square bg-slate-100 dark:bg-slate-900 bg-cover bg-center" data-alt="High quality photography landscape post image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvdekmxo8KwTieBN-j20zXx4n2WGLNfOHjSLvBZI2D_-waE3EaD4JGquIQRlxbi8hn2A1bQX7SNSkjPt-Ic9S7jyGsA_9lyrEw8QRqVyNjudTOeM4_FT4HxxY75Wpk2opuN0Y4td6i6TOfEU7FPcm_IlBqr0oF7rX_aT3cvdPT3BzTRZSCnr6RzN-VzeSEjd9FowdKJbXjgBmygaq1ElGw2A9bdFkz5LpgawAW_wXFCZuKrSdDCyF24qH18DeeNePJRUowfQ_80zvE')"></div>
++<div class="w-full aspect-square bg-slate-100 dark:bg-slate-900 bg-cover bg-center" data-alt="High quality photography landscape post image" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvdekmxo8KwTieBN-j20zXx4n2WGLNfOHjSLvBZI2D_-waE3EaD4JGquIQRlxbi8hn2A1bQX3SNSkjPt-Ic9S7jyGsA_9lyrEw8QRqVyNjudTOeM4_FT4HxxY75Wpk2opuN0Y4td6i6TOfEU7FPcm_IlBqr0oF7rX_aT3cvdPT3BzTRZSCnr6RzN-VzeSEjd9FowdKJbXjgBmygaq1ElGw2A9bdFkz5LpgawAW_wXFCZuKrSdDCyF24qH18DeeNePJRUowfQ_80zvE')"></div>
+ <!-- Post Actions: Inconsistent styles (Filled vs Outlined) -->
+ <div class="flex items-center justify-between px-4 py-3">
+ <div class="flex items-center gap-4">
+-<button class="text-primary">
++<button class="text-primary hover:text-blue-400 transition-colors duration-200">
+ <span class="material-symbols-filled text-2xl">favorite</span>
+ </button>
+-<button class="text-slate-600 dark:text-slate-400">
++<button class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors duration-200">
+ <span class="material-symbols-outlined text-2xl">chat_bubble</span>
+ </button>
+-<button class="text-slate-600 dark:text-slate-400">
++<button class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors duration-200">
+ <span class="material-symbols-outlined text-[30px] font-thin">send</span>
+ </button>
+ </div>
+-<button class="text-slate-600 dark:text-slate-400">
++<button class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors duration-200">
+ <span class="material-symbols-filled text-2xl">bookmark</span>
+ </button>
+ </div>
+@@ -147,13 +147,13 @@
+ <div class="w-full aspect-[4/5] bg-slate-100 dark:bg-slate-900 bg-cover bg-center" data-alt="Travel destination mountain view photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSnTOlOTQh0a5l0rtSlqtGQ4XjuYUlRZ4cqN7Ig62_zbp6M687TNRv_DDcDxo3L4lKQ2Fm1eWVlb9LM2wj1FZUmJRXZ9VLw4ToPwpacX-FZ_ngqXEI-lu16anBaPxCA6ezrwuxIVvmVryCATeLdR56_BcSTP4oW0HLGfO0hxMktmyJ_opsFRYiTnT1V_m_12bCAxF-S92Vdqb4JNQ6jMLm-AYQgXmurPRwKnIat8MhpC1s_xUtiOgFeK5PObVKxUzuI4-RdvBD0ekI')"></div>
+ <div class="flex items-center justify-between px-4 py-3">
+ <div class="flex items-center gap-4">
+-<button class="text-slate-600 dark:text-slate-400">
++<button class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors duration-200">
+ <span class="material-symbols-outlined text-2xl">favorite</span>
+ </button>
+-<button class="text-slate-600 dark:text-slate-400">
++<button class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors duration-200">
+ <span class="material-symbols-outlined text-2xl">chat_bubble</span>
+ </button>
+-<button class="text-slate-600 dark:text-slate-400">
++<button class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors duration-200">
+ <span class="material-symbols-filled text-2xl">send</span>
+ </button>
+ </div>

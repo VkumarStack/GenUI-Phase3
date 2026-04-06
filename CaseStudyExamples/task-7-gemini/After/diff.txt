@@ -1,0 +1,32 @@
+--- a/index.html
++++ b/index.html
+@@ -65,7 +65,7 @@
+ <!-- User 3 -->
+ <div class="flex-shrink-0 flex flex-col items-center w-20">
+ <div class="w-16 h-16 rounded-full bg-gray-200 p-0.5">
+-<img alt="Profile" class="rounded-full border-2 border-white w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzwXrP_haT9301vr0M_skF81Xf_LWkHrUGqntkRFwZyxgKMJlPNmUOQby9S8MS5UDFX_BbGACGqR8PAD-AKj3iClPQXSJnvAtBzWr1uyQkfUiX7u2ck7rwgwOE4q3azr83POdU_RuJSzcItYJ6sUhmSAquhmiGlGjJXUR01Py66uAF_AdRVRxRs2zK8khD6u3ZwyYKFjmLAGolAvxLemF8Uwvubg1jgtdtU_U1gqfLWGzZG5biUHnbMiXFds93QWcnuJur85dSIsdv"/>
++<img alt="Profile" class="rounded-full border-2 border-white w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzwXrP_haT9301vr0M_skF81Xf_LWkHrUGqntkRFwZyxgKMJlPNmUOQby9S8MS5UDFX_BbGACGqR8PAD-AKj3iClPQXSJnvAtBzWr1uyQkfUiX7u2ck7rwgwOE4q3azr83POdU_RuJSzcItYJ6sUhmSAquhmiGlGjJXUR01Py66uAF_AdRVRxRs2zK8khD6u3ZwyYKFmmLAGolAvxLemF8Uwvubg1jgtdtT_U1gqfLWGzZG5biUHnbMiXFds93QWcnuJur85dSIsdv"/>
+ </div>
+ <span class="text-[10px] mt-1 text-center truncate w-full">travel_bug</span>
+ <button class="mt-2 w-full py-1 rounded text-[11px] font-semibold transition-colors">Follow</button>
+@@ -79,17 +79,17 @@
+ <div class="grid grid-cols-3 gap-0.5">
+ <!-- Row 1 -->
+ <div class="aspect-square bg-gray-200 relative">
+-<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaeMERXLDh74qhxxAE18iv7G-m6V5DvCbXwuW5MUlgGapfl-_V3M3xc8Wa9M6m2Qt4EAwf-9_43XuC24bg9VSdSAYD8TUMst22UrFNCyEnCTJTb4IvHjmLcMQNRtHgxZ9i4Cc2t7Qwsazm0uAQyfxZHoDe-02qbR5NVssr2_mQ01tHvXLmX1eYlWNgQbGIfnsKQjQxYIbIZsfXf6DH5pOsTRuImwJN1lTdJYeEEl3LkoUCae1i0fhvxbiiSppgiMEilNWWbyIw6E0C"/>
++<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaeMERXLDh74qhxxAE18iv7G-m6V5DvCbXwuW5MUlgGapfl-_V3M3xc8Wa9M6m2Qt4EAwf-9_43XuC24bg9VSdSAYD8TUMst22UrFNCyEnCTJTb4IvHjmLcMQNRnTHgxZ9i4Cc2t7Qwsazm0uAQyfxZHoDe-02qbR5NVssr2_mQ01tHvXLmX1eYlWNgQbGIfnsKQjQxYIbIZsfXf6DH5pOsTRuImwJN1lTdJYeEEl3LkoUCae1i0fhvxbiiSppgiMEilNWWbyIw6E0C"/>
+ <!-- Icon Style 3 (Hand-drawn look/different weight) -->
+ <div class="absolute top-1 right-1">
+-<svg fill="white" height="18" viewbox="0 0 24 24" width="18"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></svg>
++<svg class="border border-black" fill="white" height="18" viewbox="0 0 24 24" width="18"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"></path></svg>
+ </div>
+ </div>
+ <div class="aspect-square bg-gray-200">
+ <img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrn3dRElX1o198VlKe6v8FYzK5TBDLphwZSZ4BeywyrVMl3Y7ceLwrlOMPO2Ixw09V4nn8XXubuuV1N62Y5p94HNWvxerh9oXXp8cbngshO_z8_9-Q542PU4q20jy3WT0mTt9POLBGJKLj-4MlEgmpT4r_CnoDTLSQZStthDmUkIXt-TEq3DwC99VIYKqWb5NVlSKRS2Q4ybyiSpV_BgERaiWkkNQaT4smnvUcXv_-3e0KcSqwDQ1qIWcjSZrDN32C80fQa15cLBRd"/>
+ </div>
+ <div class="aspect-square bg-gray-200">
+-<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5sGPnYtlflsQIh16snjNyZDqu2mlZGhGbMYQ-QJs1rsF5QZplVvS-qp5OpRduWbGzvPqTFcB8_nIAx8T1WK_xziAqsmBXQFT7h-kptk_R6lUuyQ-mLbU8IhRCs2BQGhF-vWtX6_I0YuH8ZVJcA97VSxMI9FGITLroaCrrtmHr9RBOaCAseDtmVPNAFsN5fcEgbyk-EB4fMFdrpMUCjcTKIsX1A8ZSPCB6-gL0vME8htlHiTu9UURm9AFCtLg74CG7lKJU8lvhfYJc"/>
++<img alt="Trending" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5sGPnYtlflsQIh16snjNyZDqu2mlZGhGbMYQ-QJs1rsF5QZplVvS-qp5OpRduWbGzvPqTFcB8_nIAx8T1WK_xziAqsmBXQFT7h-kptk_R6lUuyQ-mLbU8IhRCs2BQGhF-vWtX6_I0YuH8ZVJcA97VSxMI9FGITLroaCrrtmHr9RBOaCAseDtmVPNAFsN5fcEgbyk-EB4fMFdrpMUCjcTKIsX1A8ZSPCB6-gL0vME8htlJuyQ-mLbU8IhRCs2BQGhF-vWtX6_I0YuH8ZVJcA97VSxMI9FGITLroaCrrtmHr9RBOaCAseDtmVPNAFsN5fcEgbyk-EB4fMFdrpMUCjcTKIsX1A8ZSPCB6-gL0vME8htlJu_18AoOQvRvusQuW5dOJnJEaeA9qZIA_k-8Ih_jJ95mapcK3_yU0cr-lpjLwG3iC2IB93nd4xJ6CpuuML93pmY35WHHyNQ2fyVMMs5NLQBk2xspt8B23fk7ehlZudKxhsG-A_GpA8-CwSD"/>
+ </div>
+ <!-- Row 2 (Tall item) -->
+ <div class="col-span-2 row-span-2 bg-gray-200">

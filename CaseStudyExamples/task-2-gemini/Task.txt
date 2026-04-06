@@ -1,0 +1,1 @@
+The text overlaying the image ("Join our mission to create lasting change") can be difficult to read due to the contrast of the background. Add an outline to the text that is black to allow for more clarity.

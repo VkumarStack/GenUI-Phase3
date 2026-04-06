@@ -16,42 +16,84 @@ def load_code(variant_dir: Path) -> str:
     return "\n\n".join(parts)
 
 
-def build_prompt(task: str, before_code: str = None, after_code: str = None, diff: str = None) -> str:
-    """Build the evaluation prompt.
+def build_code_analysis_prompt(task: str, before_code: str = None, after_code: str = None, diff: str = None) -> str:
+    """Step 1 prompt: reason about the code only, no images.
 
-    Pass before_code + after_code for full-code mode, or diff for diff mode.
-    Exactly one of the two modes must be supplied.
+    Asks the model to determine whether the code change is a correct implementation
+    of the task and to produce a concrete, visually observable expectation — e.g.
+    'the footer text should be white' — that Step 2 can use for targeted visual lookup.
     """
     if diff is not None:
         code_section = f"--- Code Diff (unified diff of Before → After) ---\n{diff}"
-        code_description = "2. A screenshot of the UI after the revision\n3. A unified diff of the code changes made in the revision"
     else:
         code_section = f"--- Before Code ---\n{before_code}\n\n--- After Code ---\n{after_code}"
-        code_description = "2. The full code of the UI before the revision\n3. A screenshot of the UI after the revision\n4. The full code of the UI after the revision"
 
-    return f"""You are evaluating a UI revision.
+    return f"""You are analyzing a UI code revision.
 
 Revision task: {task}
 
-You are provided:
-1. A screenshot of the UI before the revision
-{code_description}
-
-Did the revision correctly implement the task based on the UI output and code?
-
-Respond with PASS or FAIL on the first line, followed by a brief explanation.
-
 {code_section}
+
+Answer the following:
+1. Does the code change correctly implement the task? Explain briefly.
+2. If the implementation is correct, what specific and concrete visual change should
+   be visible in the after screenshot? Name the exact element and property
+   (e.g. "the footer text color should be white", "the submit button border-radius
+   should appear pill-shaped / highly rounded").
+   If the implementation is incorrect, describe what you would still expect to see
+   visually (i.e. no change, or an unintended change).
+
+Be precise — your answer will be used to direct a visual inspection of the screenshots.
+"""
+
+
+def build_visual_verification_prompt(task: str, expectation: str) -> str:
+    """Step 2 prompt: visual verification conditioned on the Step 1 expectation.
+
+    The expectation string from Step 1 is used to explicitly direct the model's
+    attention to the right element and property, which is the key finding from
+    testing: open-ended image comparison fails on subtle changes, but targeted
+    lookup ("look at the footer text color") succeeds.
+
+    Critically, the verdict is always whether the TASK was accomplished in the
+    rendered UI — not whether the model's code-level expectation was accurate.
+    This prevents a false PASS when Step 1 correctly predicts "no change due to
+    a bug" and Step 2 confirms no change, which would otherwise appear as
+    expectation-met but is actually a task failure.
+    """
+    return f"""You are verifying whether a UI revision was correctly implemented.
+
+Revision task: {task}
+
+A code analysis identified the following about the expected visual change.
+Use this to direct your attention to the right element and property:
+{expectation}
+
+You are provided a before screenshot and an after screenshot.
+
+1. Focus specifically on the element and property described above.
+   Describe precisely what you see in that area in each screenshot.
+2. Based solely on what is visible in the screenshots, was the revision task
+   successfully accomplished in the rendered UI?
+
+PASS means the task is visibly done in the after screenshot.
+FAIL means it is not — regardless of whether the code attempted it.
+
+Conclude with PASS or FAIL on its own line, followed by a one-sentence summary.
 """
 
 
 def parse_verdict(response_text: str) -> str:
-    first_line = response_text.splitlines()[0].upper()
-    if "PASS" in first_line:
-        return "PASS"
-    if "FAIL" in first_line:
-        return "FAIL"
-    return "UNKNOWN"
+    # The scratchpad format puts PASS/FAIL near the end rather than the first line,
+    # so scan all lines and return the verdict from the last line that contains one.
+    verdict = "UNKNOWN"
+    for line in response_text.splitlines():
+        upper = line.upper().strip()
+        if "PASS" in upper:
+            verdict = "PASS"
+        elif "FAIL" in upper:
+            verdict = "FAIL"
+    return verdict
 
 
 def load_example(example_dir: Path) -> dict:

@@ -1,0 +1,1 @@
+The "Free shipping on orders over $100" indicator covers the original price, making it difficult to see by how much the product is discounted. Fix this so that both can be seen.

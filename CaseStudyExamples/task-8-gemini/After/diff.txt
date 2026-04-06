@@ -1,0 +1,26 @@
+--- a/index.html
++++ b/index.html
+@@ -1,5 +1,4 @@
+ <!DOCTYPE html>
+-
+ <html class="dark" lang="en"><head>
+ <meta charset="utf-8"/>
+ <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+@@ -31,7 +30,7 @@
+       min-height: max(884px, 100dvh);
+     }
+   </style>
+-  </head>
++</head>
+ <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+ <div class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
+ <!-- TopAppBar with misplaced Get Started -->
+@@ -123,7 +122,7 @@
+ </div>
+ <!-- Hard to read skip link -->
+ <div class="p-8 text-center bg-slate-100 dark:bg-slate-950 mt-10">
+-<a class="text-slate-300 dark:text-slate-800 text-[8px] hover:text-primary transition-colors cursor-default" href="#">
++<a class="text-slate-300 dark:text-white text-[8px] hover:text-primary transition-colors cursor-default" href="#">
+             I don't want to connect right now, maybe I will skip this part for a later time when I feel more ready to join the network.
+         </a>
+ </div>

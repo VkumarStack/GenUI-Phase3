@@ -1,0 +1,11 @@
+--- a/index.html
++++ b/index.html
+@@ -54,7 +54,7 @@
+ <div class="px-0">
+ <div class="bg-cover bg-center flex flex-col justify-end overflow-hidden min-h-64 relative" data-alt="Group of diverse volunteers smiling and working together outdoors" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 60%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7nx8dIKsHFQsggsfo5IK5teeLqO2E6In-VmN3qf2_5RodRWTsR4VOJcL7oDGuScQHOe9DNpteN-EVI3Vl33jUM1wIhYU9fORp88nN_osg2V70Dmb9ch0dpgaWigVNy7EUCZFcX1UAI9q-JNiKKh8_Ek5AJAU9tYFlFH4_I6OEs2Dj3-Q40hALgBfCV4pBwjdJAQJmBi6nKQ2xf4jfF8M-YL5fDR1OKKhsfgZIbOlCtTDw1KIgBo5MclaLPVMeG0ehHXlkCgIyEKV9");'>
+ <div class="flex p-6">
+-<p class="text-white tracking-tight text-[28px] font-bold leading-tight">Join our mission to create lasting change</p>
++<p class="text-white tracking-tight text-[28px] font-bold leading-tight [text-shadow:_-1px_-1px_0_#000,1px_-1px_0_#000,-1px_1px_0_#000,1px_1px_0_#000]">Join our mission to create lasting change</p>
+ </div>
+ </div>
+ </div>

@@ -16,7 +16,7 @@ import base64
 import os
 from pathlib import Path
 
-from eval_core import build_prompt, load_example, parse_verdict
+from eval_core import build_code_analysis_prompt, build_visual_verification_prompt, load_example, parse_verdict
 
 # Default model names per backend
 DEFAULTS = {
@@ -36,27 +36,43 @@ class GeminiBackend:
         from google.genai import types
 
         ex = load_example(example_dir)
-        prompt = build_prompt(ex["task"], diff=ex["diff"]) if use_diff else build_prompt(ex["task"], ex["before_code"], ex["after_code"])
 
-        response = self.client.models.generate_content(
+        # --- Step 1: code-only analysis ---
+        # No images. The model reasons about whether the code change is correct
+        # and produces a concrete visual expectation (e.g. "footer text should be white").
+        code_prompt = (
+            build_code_analysis_prompt(ex["task"], diff=ex["diff"])
+            if use_diff
+            else build_code_analysis_prompt(ex["task"], ex["before_code"], ex["after_code"])
+        )
+        step1_response = self.client.models.generate_content(
+            model=self.model,
+            contents=[types.Part.from_text(text=code_prompt)],
+        )
+        expectation = step1_response.text.strip()
+
+        # --- Step 2: visual verification conditioned on Step 1's expectation ---
+        # The expectation string directs the model's attention to the specific element
+        # and property, avoiding the failure mode of open-ended image comparison.
+        visual_prompt = build_visual_verification_prompt(ex["task"], expectation)
+        step2_response = self.client.models.generate_content(
             model=self.model,
             contents=[
-                # Images are interleaved so the model can associate each label
-                # ("Before screenshot") with the correct image.
                 types.Part.from_text(text="Before screenshot:"),
                 types.Part.from_bytes(data=ex["before_image"].read_bytes(), mime_type="image/png"),
                 types.Part.from_text(text="After screenshot:"),
                 types.Part.from_bytes(data=ex["after_image"].read_bytes(), mime_type="image/png"),
-                types.Part.from_text(text=prompt),
+                types.Part.from_text(text=visual_prompt),
             ],
         )
 
-        response_text = response.text.strip()
+        response_text = step2_response.text.strip()
         return {
             "name": ex["name"],
             "task": ex["task"],
             "verdict": parse_verdict(response_text),
-            "response": response_text,
+            # Include both steps in the response for debugging/inspection.
+            "response": f"[Step 1 - Code Analysis]\n{expectation}\n\n[Step 2 - Visual Verification]\n{response_text}",
         }
 
 
@@ -68,27 +84,38 @@ class OllamaBackend:
 
     def evaluate(self, example_dir: Path, use_diff: bool = False) -> dict:
         ex = load_example(example_dir)
-        prompt = build_prompt(ex["task"], diff=ex["diff"]) if use_diff else build_prompt(ex["task"], ex["before_code"], ex["after_code"])
-
-        # Ollama accepts images as base64 strings in the `images` list field.
         before_b64 = base64.b64encode(ex["before_image"].read_bytes()).decode()
         after_b64  = base64.b64encode(ex["after_image"].read_bytes()).decode()
 
-        response = self._ollama.chat(
+        # Step 1: code-only analysis — no images.
+        code_prompt = (
+            build_code_analysis_prompt(ex["task"], diff=ex["diff"])
+            if use_diff
+            else build_code_analysis_prompt(ex["task"], ex["before_code"], ex["after_code"])
+        )
+        step1 = self._ollama.chat(
+            model=self.model,
+            messages=[{"role": "user", "content": code_prompt}],
+        )
+        expectation = step1["message"]["content"].strip()
+
+        # Step 2: visual verification conditioned on the expectation.
+        visual_prompt = build_visual_verification_prompt(ex["task"], expectation)
+        step2 = self._ollama.chat(
             model=self.model,
             messages=[{
                 "role": "user",
-                "content": f"Before screenshot is image 1, after screenshot is image 2.\n\n{prompt}",
+                "content": f"Before screenshot is image 1, after screenshot is image 2.\n\n{visual_prompt}",
                 "images": [before_b64, after_b64],
             }],
         )
 
-        response_text = response["message"]["content"].strip()
+        response_text = step2["message"]["content"].strip()
         return {
             "name": ex["name"],
             "task": ex["task"],
             "verdict": parse_verdict(response_text),
-            "response": response_text,
+            "response": f"[Step 1 - Code Analysis]\n{expectation}\n\n[Step 2 - Visual Verification]\n{response_text}",
         }
 
 
@@ -120,16 +147,38 @@ class HuggingFaceBackend:
         from qwen_vl_utils import process_vision_info
 
         ex = load_example(example_dir)
-        prompt = build_prompt(ex["task"], diff=ex["diff"]) if use_diff else build_prompt(ex["task"], ex["before_code"], ex["after_code"])
 
-        # Pass images as PIL Image objects to avoid any file URI / path issues.
-        # Resizing to 512x512 max before handing off reduces the number of vision
-        # tokens and keeps VRAM usage predictable during inference.
         def load_image(path: Path) -> Image.Image:
             img = Image.open(path).convert("RGB")
             img.thumbnail((512, 512))
             return img
 
+        def run_hf(messages: list) -> str:
+            text = self.processor.apply_chat_template(
+                messages, tokenize=False, add_generation_prompt=True
+            )
+            image_inputs, video_inputs = process_vision_info(messages)
+            inputs = self.processor(
+                text=[text],
+                images=image_inputs,
+                videos=video_inputs,
+                return_tensors="pt",
+            ).to(self.model.device)
+            with self.torch.no_grad():
+                output_ids = self.model.generate(**inputs, max_new_tokens=512)
+            generated = output_ids[:, inputs.input_ids.shape[1]:]
+            return self.processor.batch_decode(generated, skip_special_tokens=True)[0].strip()
+
+        # Step 1: code-only analysis — no images.
+        code_prompt = (
+            build_code_analysis_prompt(ex["task"], diff=ex["diff"])
+            if use_diff
+            else build_code_analysis_prompt(ex["task"], ex["before_code"], ex["after_code"])
+        )
+        expectation = run_hf([{"role": "user", "content": [{"type": "text", "text": code_prompt}]}])
+
+        # Step 2: visual verification conditioned on the expectation.
+        visual_prompt = build_visual_verification_prompt(ex["task"], expectation)
         messages = [{
             "role": "user",
             "content": [
@@ -137,35 +186,17 @@ class HuggingFaceBackend:
                 {"type": "image", "image": load_image(ex["before_image"])},
                 {"type": "text",  "text": "After screenshot:"},
                 {"type": "image", "image": load_image(ex["after_image"])},
-                {"type": "text",  "text": prompt},
+                {"type": "text",  "text": visual_prompt},
             ],
         }]
 
-        text = self.processor.apply_chat_template(
-            messages, tokenize=False, add_generation_prompt=True
-        )
-        image_inputs, video_inputs = process_vision_info(messages)
-        inputs = self.processor(
-            text=[text],
-            images=image_inputs,
-            videos=video_inputs,
-            return_tensors="pt",
-        ).to(self.model.device)
-
-        with self.torch.no_grad():
-            output_ids = self.model.generate(**inputs, max_new_tokens=512)
-
-        # Slice off the prompt tokens to get only the generated response.
-        generated = output_ids[:, inputs.input_ids.shape[1]:]
-        response_text = self.processor.batch_decode(
-            generated, skip_special_tokens=True
-        )[0].strip()
+        response_text = run_hf(messages)
 
         return {
             "name": ex["name"],
             "task": ex["task"],
             "verdict": parse_verdict(response_text),
-            "response": response_text,
+            "response": f"[Step 1 - Code Analysis]\n{expectation}\n\n[Step 2 - Visual Verification]\n{response_text}",
         }
 
 

@@ -1,0 +1,1 @@
+There is a 'Play' svg icon within an image in the screen, but it is very difficult to see due to the white background of the image it is overlayed over. Add a solid black border to the svg.

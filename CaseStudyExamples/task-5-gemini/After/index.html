@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Camera Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0df2f2",
+                        "background-light": "#f5f8f8",
+                        "background-dark": "#102222",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 overflow-hidden">
+<!-- Camera Feed Background Simulation -->
+<div class="fixed inset-0 z-0 bg-cover bg-center" data-alt="A cinematic outdoor street photography background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBcMQIBJQZ8QblfPoiCmUbb4AXWpW2-665lufn1MWO4eoGPtcs_QC_PPGuCfK9te3ATeJotT3ZqGZtxqDl8LlJcjQ7NxboTfbxu3V620cSJM_mkyEmgZgnRIkQrFgQmBG3byCtLcIIbBaNH84vvQZd0V9jK6F7qjvZrRXEAs2z7RFKQGTobQOSFojo236VtSaZJ3O_8XnOTUU-SLyzn7eShU04UJ-lkRCDUAeepEKDaScuWbHW_diM6DmcUm50552twty7smaoQIylu')">
+<div class="absolute inset-0 bg-black/20"></div>
+</div>
+<!-- UI Overlay -->
+<div class="relative z-10 flex flex-col h-screen w-full justify-between p-6">
+<!-- Top Controls -->
+<div class="flex items-start justify-between relative">
+<button class="flex items-center justify-center size-10 rounded-full bg-slate-900/40 backdrop-blur-md text-white/60 border border-white/5 z-20">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<div class="flex flex-col items-end">
+<button class="flex items-center justify-center size-14 rounded-full bg-slate-900/40 backdrop-blur-md text-white border border-white/10 mb-2">
+<span class="material-symbols-outlined">flash_on</span>
+</button>
+<button class="flex items-center justify-center size-11 rounded-full bg-slate-900/40 backdrop-blur-md text-white border border-white/10 mb-6 mr-2">
+<span class="material-symbols-outlined">flip_camera_ios</span>
+</button>
+<button class="flex items-center justify-center size-12 rounded-full bg-slate-900/40 backdrop-blur-md text-white border border-white/10">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+<!-- Bottom Controls Area -->
+<div class="flex flex-col gap-6">
+<!-- Filters Horizontal Scroll -->
+<div class="flex overflow-x-auto gap-4 py-2 no-scrollbar">
+<div class="flex flex-col items-center gap-2 min-w-[72px]">
+<div class="size-16 rounded-full border-2 border-primary bg-cover bg-center ring-2 ring-primary/20 ring-offset-2 ring-offset-transparent" data-alt="Warm retro sunset filter preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBn6RYmdaqqJ3rIRijS2eNvHg8C2hF2dgn3FchzibFbB9J9l3pQzNzUk1si_UviYnVO2jDqaxShTDhPqS8Uv8FYxRng-DP7HD5OufFy5SkHS8nrRQCIXxDxEr54nyMO8vIN7yVMQvtvhmjh8UVYTLqbKarLBe431CcQ9o8bCRt1_oPe_wHyZt9rH3n0V60APyilUIvMk8UGZDeQ04xGs_RbaGztGFCXVTup_Ko2VkxONJKMl4tZ1BTFwMcUJ6LRX8ajPn_rvFzGumz')"></div>
+<span class="text-[10px] font-normal text-slate-400/50 drop-shadow-none">Retro</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[72px]">
+<div class="size-16 rounded-full border-2 border-white/20 bg-cover bg-center grayscale" data-alt="High contrast black and white filter preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDjqNTzCRp11DnkXc4cm-BeJxc0W1vrVmUvwBGHwS0KyizRiO1D2K615tIwcae9oqc6RxTpcRYUL9-ekRoxyPSLCdH5V0jY1LlGAOOUgcDnLx8bY35TullpwdXVTJX6dwQ3T-__krAxyWLV1-k2qSyjxqxKpvmcZvQfXKxadpL8v9eFMrE7RKDgnvZpYQ__8FaWGv6gw2q707E-bjoHhuMCc1Xo7WIfRCLumDlYFSdLfiSIB6WxxoLQNg4bXKFkQbvwB5vbPLOxnNS')"></div>
+<span class="text-[10px] font-normal text-slate-400/50 drop-shadow-none">B&amp;W</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[72px]">
+<div class="size-16 rounded-full border-2 border-white/20 bg-cover bg-center saturate-200" data-alt="Vibrant high saturation color filter preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDnJ5PrHWwFa50HG8AIUnGuDwsNDPZrPbCOTBsFBlHV9KlM1aWTgb826rTtMCjzUMFMj4XZAb-1OqWoPvkBqEKvVKycR7MG4VP7Hs7WN3GJuI9U5DtP3oBQtCFvCYqcmBXeI9GB3zar8jq-8ZsAEEa-u0tiYwtEPKt0MCbEDuPQpxfTAzc5Dy0kY6HRI4oX6B6fap15apcNTPNo7TiBksVGAVcrrEYxVFKjqiGAPUGlyNomXfx8aeG0-Z7bxpl6cuq7Ge-RRN2aaxKj')"></div>
+<span class="text-[10px] font-normal text-slate-400/50 drop-shadow-none">Vivid</span>
+</div>
+<div class="flex flex-col items-center gap-2 min-w-[72px]">
+<div class="size-16 rounded-full border-2 border-white/20 bg-cover bg-center sepia" data-alt="Antique sepia tone filter preview" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWKSe81j94Zv-lbczo1TCk_6gPwUF58SA6-onPzdwwruT_t5YPVjQQW7ARRYVrzENbw4cYum6RqXwHP3QqOj5WTxoQRs2rt4IL1KgARAHxXrj7hX43vNsfSPX21uJAb2J_Fh6f0iPvZyIgB4OACG6hZR14b1-pHUbDu3KZs4DGucljZ9CECKuS7opSMHwwqFUZXpBl9DI9vMWwgFpfa3v0HoaGWbn-VKpdNMn2OVa-R6kmdkAudTHMFCR9rnJ3zmA820T0X84WsuPO

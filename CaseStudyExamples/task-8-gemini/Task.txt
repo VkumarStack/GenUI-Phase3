@@ -1,0 +1,1 @@
+The footer text, "I don't want to connect right now maybe I wll skip this part for a later time when I feel more ready to join the network", has a dark font color against a dark background, and so it cannot be so easily read. Change the font color to white for the footer only.
