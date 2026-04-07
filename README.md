@@ -21,10 +21,11 @@ pip install -r requirements.txt
 playwright install chromium
 ```
 
-For cloud-based models (e.g. Gemini), create `Evaluation/.env`:
+For cloud-based models, create `Evaluation/.env` with the relevant key(s):
 
 ```
 GOOGLE_API_KEY=your_key_here
+ANTHROPIC_API_KEY=your_key_here
 ```
 
 ---
@@ -115,8 +116,9 @@ python Evaluation/evaluate.py --dir Examples/CaseStudyExamples --diff
 
 Supported backends:
 
-| Backend | Model | Notes |
+| Backend | Default Model | Notes |
 |---|---|---|
 | `gemini` | `gemini-2.5-pro` | Requires `GOOGLE_API_KEY` in `.env` |
+| `anthropic` | `claude-sonnet-4-6` | Requires `ANTHROPIC_API_KEY` in `.env` |
 | `ollama` | `qwen2.5vl:7b` | Requires Ollama running locally |
 | `hf` | `Qwen/Qwen2.5-VL-7B-Instruct` | Runs locally via HuggingFace; GPU recommended |

@@ -8,9 +8,10 @@ Backends know nothing about evaluation logic — they just call the model.
 All orchestration lives in eval_core.py.
 
 Available backends:
-  gemini  — Google Gemini via AI Studio API (requires GOOGLE_API_KEY env var)
-  ollama  — Local model via Ollama daemon
-  hf      — HuggingFace transformers (Kaggle / GPU environments)
+  gemini    — Google Gemini via AI Studio API (requires GOOGLE_API_KEY env var)
+  anthropic — Anthropic Claude via API (requires ANTHROPIC_API_KEY env var)
+  ollama    — Local model via Ollama daemon
+  hf        — HuggingFace transformers (Kaggle / GPU environments)
 """
 
 import base64
@@ -18,9 +19,10 @@ import os
 from abc import ABC, abstractmethod
 
 DEFAULTS = {
-    "gemini": "gemini-2.5-pro",
-    "ollama": "qwen2.5vl:7b",
-    "hf":     "Qwen/Qwen2.5-VL-7B-Instruct",
+    "gemini":    "gemini-2.5-pro",
+    "anthropic": "claude-sonnet-4-6",
+    "ollama":    "qwen2.5vl:7b",
+    "hf":        "Qwen/Qwen2.5-VL-7B-Instruct",
 }
 
 
@@ -50,6 +52,35 @@ class GeminiBackend(Backend):
         contents.append(types.Part.from_text(text=prompt))
         response = self.client.models.generate_content(model=self.model, contents=contents)
         return response.text.strip()
+
+
+class AnthropicBackend(Backend):
+    def __init__(self, model: str):
+        import anthropic
+        self.model = model
+        self.client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+
+    def generate(self, prompt: str, images: list[bytes] | None = None) -> str:
+        content = []
+        if images:
+            labels = ["Before screenshot:", "After screenshot:"] + ["Image:"] * max(0, len(images) - 2)
+            for label, img_bytes in zip(labels, images):
+                content.append({"type": "text", "text": label})
+                content.append({
+                    "type": "image",
+                    "source": {
+                        "type":       "base64",
+                        "media_type": "image/png",
+                        "data":       base64.b64encode(img_bytes).decode(),
+                    },
+                })
+        content.append({"type": "text", "text": prompt})
+        response = self.client.messages.create(
+            model=self.model,
+            max_tokens=1024,
+            messages=[{"role": "user", "content": content}],
+        )
+        return response.content[0].text.strip()
 
 
 class OllamaBackend(Backend):
@@ -119,6 +150,8 @@ def get_backend(name: str, model: str | None = None) -> Backend:
     model = model or DEFAULTS[name]
     if name == "gemini":
         return GeminiBackend(model)
+    if name == "anthropic":
+        return AnthropicBackend(model)
     if name == "ollama":
         return OllamaBackend(model)
     if name == "hf":

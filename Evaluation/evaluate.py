@@ -2,9 +2,10 @@
 Evaluate UI revision examples with a VLM backend.
 
 Backends:
-  gemini  — Gemini 2.5 Pro via Google AI Studio (default)
-  ollama  — Local model via Ollama daemon
-  hf      — HuggingFace transformers (Kaggle / GPU)
+  gemini    — Gemini 2.5 Pro via Google AI Studio (default)
+  anthropic — Claude via Anthropic API
+  ollama    — Local model via Ollama daemon
+  hf        — HuggingFace transformers (Kaggle / GPU)
 
 Running:
     evaluate.py --example path/to/Example1
@@ -35,7 +36,7 @@ def main():
     target.add_argument("--example", metavar="PATH", help="Path to a single example directory.")
     target.add_argument("--dir",     metavar="PATH", help="Path to a directory of examples.")
 
-    parser.add_argument("--backend", choices=["gemini", "ollama", "hf"], default="gemini",
+    parser.add_argument("--backend", choices=["gemini", "anthropic", "ollama", "hf"], default="gemini",
                         help="Model backend to use (default: gemini).")
     parser.add_argument("--model", default=None,
                         help="Model name override. Omit to use the backend's default.")

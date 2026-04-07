@@ -1,6 +1,7 @@
 # Cloud / API backends
 python-dotenv
 google-genai
+anthropic
 
 # Local backends
 ollama
