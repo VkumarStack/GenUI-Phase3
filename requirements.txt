@@ -1,0 +1,15 @@
+# Cloud / API backends
+python-dotenv
+google-genai
+
+# Local backends
+ollama
+torch
+transformers
+accelerate      # required by transformers for device_map="auto"
+bitsandbytes    # 4-bit quantization for HuggingFace backend
+Pillow
+qwen-vl-utils
+
+# Screenshot rendering
+playwright
