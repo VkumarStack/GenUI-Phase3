@@ -1,20 +1,21 @@
 """
-Imports a case study zip and prepares it for evaluation.
+Imports one or more case study zips and prepares them for evaluation.
 
 Expected zip structure (flat or nested):
     task-X-issue.txt        — task description
     before-task-X.html      — before code
     after-task-X-MODEL.html — after code
 
-For each task found in the zip this script will:
+For each task found in the zip(s) this script will:
   1. Write Before/, After/, and Task.txt under --output-dir/task-X-MODEL/
   2. Render screenshots (via screenshot.py)
   3. Generate After/diff.txt (via diff.py)
 
 Usage:
-    python import_case_study.py path/to/study.zip --output-dir path/to/Examples/CaseStudyExamples
-    python import_case_study.py path/to/study.zip --output-dir path/to/output --dry-run
-    python import_case_study.py path/to/study.zip --output-dir path/to/output --viewport 1280x800 --full-page
+    python import_case_study.py --example path/to/study.zip --output-dir path/to/Examples/CaseStudyExamples
+    python import_case_study.py --dir path/to/zips/ --output-dir path/to/Examples/CaseStudyExamples
+    python import_case_study.py --example path/to/study.zip --output-dir path/to/output --dry-run
+    python import_case_study.py --example path/to/study.zip --output-dir path/to/output --viewport 1280x800 --full-page
 """
 
 import argparse
@@ -83,9 +84,35 @@ def write_example(task: dict, output_dir: Path, dry_run: bool) -> Path:
     return example_dir
 
 
+def import_zip(zip_path: Path, output_dir: Path, dry_run: bool, viewport: dict, full_page: bool) -> None:
+    """Parse one zip and write all its tasks to output_dir."""
+    print(f"Parsing {zip_path.name} ...")
+    tasks = parse_zip(zip_path)
+    print(f"Found {len(tasks)} task(s)\n")
+
+    written_dirs = []
+    for task in tasks:
+        print(f"  {task['name']}")
+        example_dir = write_example(task, output_dir, dry_run=dry_run)
+        if not dry_run:
+            written_dirs.append(example_dir)
+
+    if written_dirs:
+        print("\nRendering screenshots ...")
+        screenshot_examples(written_dirs, viewport=viewport, full_page=full_page)
+
+        print("\nGenerating diffs ...")
+        for example_dir in written_dirs:
+            write_diff(example_dir)
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Import a case study zip for evaluation.")
-    parser.add_argument("zip_path", help="Path to the zip file to import.")
+    parser = argparse.ArgumentParser(description="Import case study zip(s) for evaluation.")
+
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("--example", metavar="PATH", help="Path to a single zip file.")
+    group.add_argument("--dir",     metavar="PATH", help="Path to a directory of zip files.")
+
     parser.add_argument("--output-dir", required=True, metavar="PATH",
                         help="Directory to write examples into (e.g. Examples/CaseStudyExamples).")
     parser.add_argument("--dry-run", action="store_true",
@@ -101,32 +128,24 @@ def main():
     except ValueError:
         raise SystemExit(f"Error: --viewport must be WxH format, e.g. 375x812, got: {args.viewport}")
 
-    zip_path   = Path(args.zip_path)
+    viewport   = {"width": vw, "height": vh}
     output_dir = Path(args.output_dir)
 
-    if not zip_path.exists():
-        raise SystemExit(f"Error: file not found: {zip_path}")
+    if args.example:
+        zip_path = Path(args.example)
+        if not zip_path.exists():
+            raise SystemExit(f"Error: file not found: {zip_path}")
+        import_zip(zip_path, output_dir, args.dry_run, viewport, args.full_page)
+    else:
+        zip_dir  = Path(args.dir)
+        zip_paths = sorted(zip_dir.glob("*.zip"))
+        if not zip_paths:
+            raise SystemExit(f"Error: no .zip files found in {zip_dir}")
+        for zip_path in zip_paths:
+            import_zip(zip_path, output_dir, args.dry_run, viewport, args.full_page)
+            print()
 
-    print(f"Parsing {zip_path.name} ...")
-    tasks = parse_zip(zip_path)
-    print(f"Found {len(tasks)} task(s)\n")
-
-    written_dirs = []
-    for task in tasks:
-        print(f"{task['name']}")
-        example_dir = write_example(task, output_dir, dry_run=args.dry_run)
-        if not args.dry_run:
-            written_dirs.append(example_dir)
-
-    if written_dirs:
-        print("\nRendering screenshots ...")
-        screenshot_examples(written_dirs, viewport={"width": vw, "height": vh}, full_page=args.full_page)
-
-        print("\nGenerating diffs ...")
-        for example_dir in written_dirs:
-            write_diff(example_dir)
-
-    print("\nDone.")
+    print("Done.")
 
 
 if __name__ == "__main__":
