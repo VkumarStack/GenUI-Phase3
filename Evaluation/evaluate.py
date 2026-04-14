@@ -36,7 +36,7 @@ def main():
     target.add_argument("--example", metavar="PATH", help="Path to a single example directory.")
     target.add_argument("--dir",     metavar="PATH", help="Path to a directory of examples.")
 
-    parser.add_argument("--backend", choices=["gemini", "anthropic", "ollama", "hf"], default="gemini",
+    parser.add_argument("--backend", choices=["gemini", "vertexai", "anthropic", "ollama", "hf"], default="gemini",
                         help="Model backend to use (default: gemini).")
     parser.add_argument("--model", default=None,
                         help="Model name override. Omit to use the backend's default.")

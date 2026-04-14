@@ -9,6 +9,10 @@ All orchestration lives in eval_core.py.
 
 Available backends:
   gemini    — Google Gemini via AI Studio API (requires GOOGLE_API_KEY env var)
+  vertexai  — Vertex AI endpoint, including fine-tuned Gemini models
+              (requires VERTEXAI_PROJECT and VERTEXAI_LOCATION env vars;
+               uses Application Default Credentials — run:
+               gcloud auth application-default login)
   anthropic — Anthropic Claude via API (requires ANTHROPIC_API_KEY env var)
   ollama    — Local model via Ollama daemon
   hf        — HuggingFace transformers (Kaggle / GPU environments)
@@ -20,6 +24,7 @@ from abc import ABC, abstractmethod
 
 DEFAULTS = {
     "gemini":    "gemini-2.5-pro",
+    "vertexai":  None,   # no sensible default — model ID must be supplied explicitly
     "anthropic": "claude-sonnet-4-6",
     "ollama":    "qwen2.5vl:7b",
     "hf":        "Qwen/Qwen2.5-VL-7B-Instruct",
@@ -51,6 +56,58 @@ class GeminiBackend(Backend):
                 contents.append(types.Part.from_bytes(data=img_bytes, mime_type="image/png"))
         contents.append(types.Part.from_text(text=prompt))
         response = self.client.models.generate_content(model=self.model, contents=contents)
+        return response.text.strip()
+
+
+class VertexAIBackend(Backend):
+    """Calls a Vertex AI endpoint — use this for fine-tuned Gemini models.
+
+    Requires:
+      - VERTEXAI_PROJECT env var (your GCP project ID)
+      - VERTEXAI_LOCATION env var (region, e.g. us-central1)
+      - Application Default Credentials:  gcloud auth application-default login
+
+    The model string is the full resource name of the tuned model endpoint,
+    e.g. projects/my-project/locations/us-central1/endpoints/1234567890
+    """
+
+    def __init__(self, model: str | None = None):
+        import vertexai
+        from vertexai.generative_models import GenerativeModel
+
+        project   = os.environ.get("VERTEXAI_PROJECT")
+        location  = os.environ.get("VERTEXAI_LOCATION", "us-central1")
+        endpoint  = os.environ.get("VERTEXAI_ENDPOINT_ID")
+
+        if not project:
+            raise ValueError("VERTEXAI_PROJECT env var is required for the vertexai backend.")
+
+        # Resolve model: explicit arg → full resource path from env vars → error.
+        if model:
+            self.model = model
+        elif endpoint:
+            self.model = f"projects/{project}/locations/{location}/endpoints/{endpoint}"
+        else:
+            raise ValueError(
+                "No model endpoint specified. Either pass --model with the full resource path, "
+                "or set VERTEXAI_ENDPOINT_ID in your .env file."
+            )
+
+        vertexai.init(project=project, location=location)
+        self._genmodel = GenerativeModel(self.model)
+
+    def generate(self, prompt: str, images: list[bytes] | None = None) -> str:
+        from vertexai.generative_models import Image, Part
+
+        parts = []
+        if images:
+            labels = ["Before screenshot:", "After screenshot:"] + ["Image:"] * max(0, len(images) - 2)
+            for label, img_bytes in zip(labels, images):
+                parts.append(Part.from_text(label))
+                parts.append(Part.from_image(Image.from_bytes(img_bytes)))
+        parts.append(Part.from_text(prompt))
+
+        response = self._genmodel.generate_content(parts)
         return response.text.strip()
 
 
@@ -147,9 +204,11 @@ class HuggingFaceBackend(Backend):
 
 def get_backend(name: str, model: str | None = None) -> Backend:
     """Factory: return a Backend instance for the given name."""
-    model = model or DEFAULTS[name]
+    model = model or DEFAULTS.get(name)
     if name == "gemini":
         return GeminiBackend(model)
+    if name == "vertexai":
+        return VertexAIBackend(model)  # model=None triggers env var resolution
     if name == "anthropic":
         return AnthropicBackend(model)
     if name == "ollama":
