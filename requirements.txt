@@ -14,3 +14,10 @@ qwen-vl-utils
 
 # Screenshot rendering
 playwright
+
+# Data labeling server
+flask
+
+# Fine-tuning pipeline (Vertex AI)
+google-cloud-aiplatform
+google-cloud-storage
