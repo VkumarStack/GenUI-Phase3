@@ -3,6 +3,7 @@ Evaluate UI revision examples with a VLM backend.
 
 Backends:
   gemini    — Gemini 2.5 Pro via Google AI Studio (default)
+  vertexai  — Vertex AI endpoint (fine-tuned models)
   anthropic — Claude via Anthropic API
   ollama    — Local model via Ollama daemon
   hf        — HuggingFace transformers (Kaggle / GPU)
@@ -11,7 +12,7 @@ Running:
     evaluate.py --example path/to/Example1
     evaluate.py --dir path/to/Examples/RevisionExamples
     evaluate.py --dir path/to/Examples/CaseStudyExamples --backend ollama
-    evaluate.py --example path/to/Example1 --diff
+    evaluate.py --dir path/to/Examples/FineTuningExamples --backend vertexai
 """
 
 import argparse
@@ -40,13 +41,10 @@ def main():
                         help="Model backend to use (default: gemini).")
     parser.add_argument("--model", default=None,
                         help="Model name override. Omit to use the backend's default.")
-    parser.add_argument("--diff", action="store_true",
-                        help="Pass the code diff instead of full before/after code.")
     args = parser.parse_args()
 
     backend = get_backend(args.backend, args.model)
-    code_mode = "diff" if args.diff else "full code"
-    print(f"Backend: {args.backend}  |  Model: {backend.model}  |  Code mode: {code_mode}")
+    print(f"Backend: {args.backend}  |  Model: {backend.model}")
 
     if args.example:
         example_dirs = [Path(args.example)]
@@ -59,7 +57,7 @@ def main():
         print(f"Task:    {(example_dir / 'Task.txt').read_text().strip()}")
         print("-" * 60)
 
-        result = evaluate(example_dir, backend, use_diff=args.diff)
+        result = evaluate(example_dir, backend)
 
         print(f"Verdict: {result['verdict']}")
         print(f"\nModel response:\n{result['response']}")
