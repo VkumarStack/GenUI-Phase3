@@ -1,0 +1,1 @@
+The 'lyft' text is not centered horizontally. Adjust it so that it is centered horizontally.

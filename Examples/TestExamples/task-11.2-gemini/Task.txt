@@ -1,0 +1,1 @@
+Adjust the 'Explore your Creativity.' text in this way: the 'Explore' text should be green (the same green as the period), the 'your' text should be unchanged, and the 'Creativity' text should be green as well (the same green as the period).

@@ -26,6 +26,7 @@ DEFAULTS = {
     "gemini":    "gemini-2.5-pro",
     "vertexai":  None,   # no sensible default — model ID must be supplied explicitly
     "anthropic": "claude-sonnet-4-6",
+    "openai":    "gpt-4o",
     "ollama":    "qwen2.5vl:7b",
     "hf":        "Qwen/Qwen2.5-VL-7B-Instruct",
 }
@@ -140,6 +141,34 @@ class AnthropicBackend(Backend):
         return response.content[0].text.strip()
 
 
+class OpenAIBackend(Backend):
+    def __init__(self, model: str):
+        import openai
+        self.model = model
+        self.client = openai.OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+    def generate(self, prompt: str, images: list[bytes] | None = None) -> str:
+        import base64 as _base64
+        content = []
+        if images:
+            labels = ["Before screenshot:", "After screenshot:"] + ["Image:"] * max(0, len(images) - 2)
+            for label, img_bytes in zip(labels, images):
+                content.append({"type": "text", "text": label})
+                content.append({
+                    "type": "image_url",
+                    "image_url": {
+                        "url": f"data:image/png;base64,{_base64.b64encode(img_bytes).decode()}"
+                    },
+                })
+        content.append({"type": "text", "text": prompt})
+        response = self.client.chat.completions.create(
+            model=self.model,
+            max_tokens=1024,
+            messages=[{"role": "user", "content": content}],
+        )
+        return response.choices[0].message.content.strip()
+
+
 class OllamaBackend(Backend):
     def __init__(self, model: str):
         import ollama as _ollama
@@ -211,6 +240,8 @@ def get_backend(name: str, model: str | None = None) -> Backend:
         return VertexAIBackend(model)  # model=None triggers env var resolution
     if name == "anthropic":
         return AnthropicBackend(model)
+    if name == "openai":
+        return OpenAIBackend(model)
     if name == "ollama":
         return OllamaBackend(model)
     if name == "hf":

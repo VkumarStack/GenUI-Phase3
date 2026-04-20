@@ -1,0 +1,1 @@
+Change the color of the top left chevron and the 'Skip' text to black.

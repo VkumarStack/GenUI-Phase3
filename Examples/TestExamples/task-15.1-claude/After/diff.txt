@@ -1,0 +1,81 @@
+--- a/index.html
++++ b/index.html
+@@ -45,21 +45,6 @@
+     text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+   }
+ 
+-  .next-btn {
+-    background: #f0d644;
+-    color: #333;
+-    font-family: sans-serif;
+-    font-size: 1rem;
+-    font-weight: 700;
+-    letter-spacing: 0.08em;
+-    text-transform: uppercase;
+-    border: none;
+-    border-radius: 30px;
+-    padding: 16px 48px;
+-    cursor: pointer;
+-    min-width: 200px;
+-  }
+-
+   .dot {
+     width: 8px;
+     height: 8px;
+@@ -80,6 +65,16 @@
+   }
+ 
+   .back-arrow svg {
++    width: 24px;
++    height: 24px;
++    stroke: #fff;
++    stroke-width: 2.5;
++    fill: none;
++    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
++    cursor: pointer;
++  }
++
++  .nav-icon svg {
+     width: 24px;
+     height: 24px;
+     stroke: #fff;
+@@ -144,18 +139,27 @@
+       </div>
+     </div>
+ 
+-    <!-- Dots -->
+-    <div class="flex justify-center gap-2 mt-2">
+-      <div class="dot active"></div>
+-      <div class="dot"></div>
+-      <div class="dot"></div>
+-      <div class="dot"></div>
+-      <div class="dot"></div>
+-    </div>
+-
+-    <!-- Next button -->
+-    <div class="flex justify-center mt-5 mb-6 px-10">
+-      <button class="next-btn">NEXT</button>
++    <!-- Dots with navigation icons -->
++    <div class="flex justify-center items-center gap-4 mt-5 mb-6">
++      <div class="nav-icon">
++        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
++          <polyline points="15,4 7,12 15,20" />
++        </svg>
++      </div>
++      
++      <div class="flex justify-center gap-2">
++        <div class="dot active"></div>
++        <div class="dot"></div>
++        <div class="dot"></div>
++        <div class="dot"></div>
++        <div class="dot"></div>
++      </div>
++      
++      <div class="nav-icon">
++        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
++          <polyline points="9,4 17,12 9,20" />
++        </svg>
++      </div>
+     </div>
+ 
+   </div>

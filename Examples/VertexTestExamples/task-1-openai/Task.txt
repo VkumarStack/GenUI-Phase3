@@ -1,0 +1,1 @@
+Change the coloring of the 'Get Started' button to be red instead of blue.

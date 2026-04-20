@@ -1,0 +1,29 @@
+--- a/index.html
++++ b/index.html
+@@ -117,15 +117,18 @@
+     <!-- Top spacing -->
+     <div class="flex-none h-[12vh]"></div>
+ 
+-    <!-- Logo -->
+-    <div class="text-center">
+-      <span class="logo-text">Paktor</span>
++    <!-- Container for Logo and Tagline -->
++    <div class="bg-black/30 p-4 rounded-lg mx-auto w-fit">
++      <!-- Logo -->
++      <div class="text-center">
++        <span class="logo-text">Paktor</span>
++      </div>
++
++      <!-- Tagline -->
++      <p class="tagline text-center mt-4">
++        Create meaningful connections
++      </p>
+     </div>
+-
+-    <!-- Tagline -->
+-    <p class="tagline text-center mt-4">
+-      Create meaningful connections
+-    </p>
+ 
+     <!-- Push buttons to bottom -->
+     <div class="flex-1"></div>

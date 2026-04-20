@@ -1,0 +1,77 @@
+--- a/index.html
++++ b/index.html
+@@ -28,27 +28,33 @@
+ 
+   .image-card .overlay {
+     position: absolute;
+-    bottom: 0;
++    top: 0; /* Changed from bottom: 0; */
+     left: 0;
+     right: 0;
++    bottom: 0; /* Added to cover the entire card for full centering */
+     display: flex;
+-    justify-content: space-between;
+-    align-items: center;
+-    padding: 14px 16px;
+-    background: linear-gradient(transparent, rgba(0,0,0,0.55));
++    flex-direction: column; /* Stack items vertically */
++    justify-content: center; /* Center content vertically */
++    align-items: center; /* Center content horizontally */
++    padding: 14px; /* Adjusted padding for overall centering */
++    background: rgba(0,0,0,0.4); /* Changed to a semi-transparent solid overlay for better text readability */
+   }
+ 
+   .image-card .overlay .label {
+     color: #fff;
+-    font-size: 1rem;
+-    font-weight: 500;
++    font-size: 2.2rem; /* Increased font size */
++    font-weight: 700; /* Increased font weight for prominence */
++    text-align: center; /* Ensure text is centered */
++    line-height: 1.1; /* Adjust line height for larger text */
+   }
+ 
+   .image-card .overlay .search-link {
+     color: #fff;
+-    font-size: 0.9rem;
++    font-size: 0.8rem; /* Decreased font size */
+     text-decoration: underline;
+     cursor: pointer;
++    margin-top: 8px; /* Added margin to place it below the main text */
++    text-align: center; /* Ensure text is centered */
+   }
+ 
+   .pro-badge {
+@@ -297,32 +303,4 @@
+         <div class="clock-container">
+           <span class="city-name">Canberra</span>
+           <svg class="clock-face" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+-            <circle cx="36" cy="36" r="32" fill="#f0ece0" stroke="#888" stroke-width="2" />
+-            <circle cx="36" cy="36" r="29" fill="none" stroke="#ccc" stroke-width="0.5" />
+-            <line x1="36" y1="8" x2="36" y2="12" stroke="#333" stroke-width="1.5" />
+-            <line x1="36" y1="60" x2="36" y2="64" stroke="#333" stroke-width="1.5" />
+-            <line x1="8" y1="36" x2="12" y2="36" stroke="#333" stroke-width="1.5" />
+-            <line x1="60" y1="36" x2="64" y2="36" stroke="#333" stroke-width="1.5" />
+-            <text x="36" y="18" text-anchor="middle" font-size="7" fill="#333" font-family="serif">12</text>
+-            <text x="36" y="62" text-anchor="middle" font-size="7" fill="#333" font-family="serif">6</text>
+-            <text x="11" y="39" text-anchor="middle" font-size="7" fill="#333" font-family="serif">9</text>
+-            <text x="61" y="39" text-anchor="middle" font-size="7" fill="#333" font-family="serif">3</text>
+-            <line x1="36" y1="36" x2="50" y2="28" stroke="#333" stroke-width="2" stroke-linecap="round" />
+-            <line x1="36" y1="36" x2="52" y2="36" stroke="#333" stroke-width="1.2" stroke-linecap="round" />
+-            <line x1="36" y1="36" x2="22" y2="42" stroke="red" stroke-width="0.6" />
+-            <circle cx="36" cy="36" r="2" fill="#333" />
+-            <!-- Australia flag -->
+-            <rect x="30" y="52" width="12" height="7" fill="#012169" rx="1" />
+-            <polygon points="33,55 33.3,55.8 34,55.8 33.5,56.2 33.7,57 33,56.5 32.3,57 32.5,56.2 32,55.8 32.7,55.8" fill="#fff" />
+-            <rect x="30" y="52" width="5" height="3.5" fill="none" stroke="#fff" stroke-width="0.5" />
+-          </svg>
+-          <span class="time-text">Fri, 7:07 PM</span>
+-        </div>
+-      </div>
+-    </div>
+-
+-  </div>
+-</div>
+-
+-</body>
+-</html>+            <circle cx="36" cy="3

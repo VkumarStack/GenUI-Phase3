@@ -26,7 +26,13 @@ SYSTEM_INSTRUCTION = (
     "not whether the task passed.\n"
     "2. If the after screenshot contains major visual changes unrelated to the task, the verdict is FAIL, "
     "even if the task itself was implemented correctly. "
-    "Minor incidental differences such as slight spacing or subtle formatting shifts are acceptable.\n\n"
+    "Minor incidental differences such as slight spacing or subtle formatting shifts are acceptable. Do not be overtly"
+    "strict on these minor incidental differences - if the slight changes are within reason then there is no reason to immediately" \
+    "fail the revision."
+    "\n\n"
+    "3. Passing revisions must address ALL criteria requested in the task. Pay attention to specific details within"
+    "task. For example, a task requesting to 'directly center' a component should pass only if the component is exactly"
+    "in the middle in the 'After' screenshot."
 
     "OUTPUT FORMAT:\n"
     "Respond with exactly the following structure:\n"

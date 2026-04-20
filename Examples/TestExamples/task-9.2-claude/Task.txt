@@ -1,0 +1,1 @@
+Of the three rightmost icon on the top right, remove the first two. That is, only the bell icon should be remaining.

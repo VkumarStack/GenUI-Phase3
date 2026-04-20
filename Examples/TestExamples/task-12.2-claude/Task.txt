@@ -1,0 +1,1 @@
+Add a new section (under 'Sign in with Google') that is 'Sign in with Apple'. Have the icon be a phone icon.

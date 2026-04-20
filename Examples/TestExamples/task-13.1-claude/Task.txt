@@ -1,0 +1,1 @@
+In the center (vertical and horizontal) of the screen, add a new container that has a list of three places with icons: Home, Work, Movies. Below this list, add a caption/header text that says "Where are we going to today?". The background of the container should be white and completely opaque.

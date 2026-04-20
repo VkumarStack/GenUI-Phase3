@@ -1,0 +1,1 @@
+Change the color of the ConnectHub text to red, and add a heart next to it that is also red.

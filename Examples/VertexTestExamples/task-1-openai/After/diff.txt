@@ -1,0 +1,11 @@
+--- a/index.html
++++ b/index.html
+@@ -14,7 +14,7 @@
+             theme: {
+                 extend: {
+                     colors: {
+-                        "primary": "#256af4",
++                        "primary": "#dc2626",
+                         "background-light": "#f5f6f8",
+                         "background-dark": "#101622",
+                     },

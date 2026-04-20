@@ -1,0 +1,22 @@
+--- a/index.html
++++ b/index.html
+@@ -21,6 +21,10 @@
+     line-height: 1.05;
+     color: #fff;
+     text-shadow: 0 2px 12px rgba(0,0,0,0.4);
++  }
++
++  .hero-title .green-text {
++    color: #2ee8a5;
+   }
+ 
+   .hero-dot {
+@@ -87,7 +91,7 @@
+ 
+     <!-- Title -->
+     <h1 class="hero-title">
+-      Explore<br>your<br>Creativity<span class="hero-dot">.</span>
++      <span class="green-text">Explore</span><br>your<br><span class="green-text">Creativity</span><span class="hero-dot">.</span>
+     </h1>
+ 
+     <!-- Subtitle -->

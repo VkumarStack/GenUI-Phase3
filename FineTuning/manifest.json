@@ -1,0 +1,122 @@
+{
+  "task-1.1-claude": {
+    "before": "gs://genui-sft/sft-assets/task-1.1-claude/before.png",
+    "after": "gs://genui-sft/sft-assets/task-1.1-claude/after.png"
+  },
+  "task-1.1-gemini": {
+    "before": "gs://genui-sft/sft-assets/task-1.1-gemini/before.png",
+    "after": "gs://genui-sft/sft-assets/task-1.1-gemini/after.png"
+  },
+  "task-1.1-openai": {
+    "before": "gs://genui-sft/sft-assets/task-1.1-openai/before.png",
+    "after": "gs://genui-sft/sft-assets/task-1.1-openai/after.png"
+  },
+  "task-1.2-claude": {
+    "before": "gs://genui-sft/sft-assets/task-1.2-claude/before.png",
+    "after": "gs://genui-sft/sft-assets/task-1.2-claude/after.png"
+  },
+  "task-1.2-gemini": {
+    "before": "gs://genui-sft/sft-assets/task-1.2-gemini/before.png",
+    "after": "gs://genui-sft/sft-assets/task-1.2-gemini/after.png"
+  },
+  "task-1.2-openai": {
+    "before": "gs://genui-sft/sft-assets/task-1.2-openai/before.png",
+    "after": "gs://genui-sft/sft-assets/task-1.2-openai/after.png"
+  },
+  "task-1.3-claude": {
+    "before": "gs://genui-sft/sft-assets/task-1.3-claude/before.png",
+    "after": "gs://genui-sft/sft-assets/task-1.3-claude/after.png"
+  },
+  "task-1.3-gemini": {
+    "before": "gs://genui-sft/sft-assets/task-1.3-gemini/before.png",
+    "after": "gs://genui-sft/sft-assets/task-1.3-gemini/after.png"
+  },
+  "task-1.3-openai": {
+    "before": "gs://genui-sft/sft-assets/task-1.3-openai/before.png",
+    "after": "gs://genui-sft/sft-assets/task-1.3-openai/after.png"
+  },
+  "task-2.1-claude": {
+    "before": "gs://genui-sft/sft-assets/task-2.1-claude/before.png",
+    "after": "gs://genui-sft/sft-assets/task-2.1-claude/after.png"
+  },
+  "task-2.1-gemini": {
+    "before": "gs://genui-sft/sft-assets/task-2.1-gemini/before.png",
+    "after": "gs://genui-sft/sft-assets/task-2.1-gemini/after.png"
+  },
+  "task-2.1-openai": {
+    "before": "gs://genui-sft/sft-assets/task-2.1-openai/before.png",
+    "after": "gs://genui-sft/sft-assets/task-2.1-openai/after.png"
+  },
+  "task-2.2-claude": {
+    "before": "gs://genui-sft/sft-assets/task-2.2-claude/before.png",
+    "after": "gs://genui-sft/sft-assets/task-2.2-claude/after.png"
+  },
+  "task-2.2-gemini": {
+    "before": "gs://genui-sft/sft-assets/task-2.2-gemini/before.png",
+    "after": "gs://genui-sft/sft-assets/task-2.2-gemini/after.png"
+  },
+  "task-2.2-openai": {
+    "before": "gs://genui-sft/sft-assets/task-2.2-openai/before.png",
+    "after": "gs://genui-sft/sft-assets/task-2.2-openai/after.png"
+  },
+  "task-2.3-claude": {
+    "before": "gs://genui-sft/sft-assets/task-2.3-claude/before.png",
+    "after": "gs://genui-sft/sft-assets/task-2.3-claude/after.png"
+  },
+  "task-2.3-gemini": {
+    "before": "gs://genui-sft/sft-assets/task-2.3-gemini/before.png",
+    "after": "gs://genui-sft/sft-assets/task-2.3-gemini/after.png"
+  },
+  "task-2.3-openai": {
+    "before": "gs://genui-sft/sft-assets/task-2.3-openai/before.png",
+    "after": "gs://genui-sft/sft-assets/task-2.3-openai/after.png"
+  },
+  "task-4.2-claude": {
+    "before": "gs://genui-sft/sft-assets/task-4.2-claude/before.png",
+    "after": "gs://genui-sft/sft-assets/task-4.2-claude/after.png"
+  },
+  "task-4.2-gemini": {
+    "before": "gs://genui-sft/sft-assets/task-4.2-gemini/before.png",
+    "after": "gs://genui-sft/sft-assets/task-4.2-gemini/after.png"
+  },
+  "task-4.2-openai": {
+    "before": "gs://genui-sft/sft-assets/task-4.2-openai/before.png",
+    "after": "gs://genui-sft/sft-assets/task-4.2-openai/after.png"
+  },
+  "task-4.3-claude": {
+    "before": "gs://genui-sft/sft-assets/task-4.3-claude/before.png",
+    "after": "gs://genui-sft/sft-assets/task-4.3-claude/after.png"
+  },
+  "task-4.3-gemini": {
+    "before": "gs://genui-sft/sft-assets/task-4.3-gemini/before.png",
+    "after": "gs://genui-sft/sft-assets/task-4.3-gemini/after.png"
+  },
+  "task-4.3-openai": {
+    "before": "gs://genui-sft/sft-assets/task-4.3-openai/before.png",
+    "after": "gs://genui-sft/sft-assets/task-4.3-openai/after.png"
+  },
+  "task-6.1-claude": {
+    "before": "gs://genui-sft/sft-assets/task-6.1-claude/before.png",
+    "after": "gs://genui-sft/sft-assets/task-6.1-claude/after.png"
+  },
+  "task-6.1-gemini": {
+    "before": "gs://genui-sft/sft-assets/task-6.1-gemini/before.png",
+    "after": "gs://genui-sft/sft-assets/task-6.1-gemini/after.png"
+  },
+  "task-6.1-openai": {
+    "before": "gs://genui-sft/sft-assets/task-6.1-openai/before.png",
+    "after": "gs://genui-sft/sft-assets/task-6.1-openai/after.png"
+  },
+  "task-6.3-claude": {
+    "before": "gs://genui-sft/sft-assets/task-6.3-claude/before.png",
+    "after": "gs://genui-sft/sft-assets/task-6.3-claude/after.png"
+  },
+  "task-6.3-gemini": {
+    "before": "gs://genui-sft/sft-assets/task-6.3-gemini/before.png",
+    "after": "gs://genui-sft/sft-assets/task-6.3-gemini/after.png"
+  },
+  "task-6.3-openai": {
+    "before": "gs://genui-sft/sft-assets/task-6.3-openai/before.png",
+    "after": "gs://genui-sft/sft-assets/task-6.3-openai/after.png"
+  }
+}

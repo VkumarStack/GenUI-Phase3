@@ -1,0 +1,11 @@
+--- a/index.html
++++ b/index.html
+@@ -68,7 +68,7 @@
+ 
+   .fab {
+     position: absolute;
+-    bottom: 28px;
++    bottom: 10px; /* Changed from 28px to 10px for vertical alignment */
+     right: 16px;
+     width: 56px;
+     height: 56px;

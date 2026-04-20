@@ -1,0 +1,11 @@
+--- a/index.html
++++ b/index.html
+@@ -65,7 +65,7 @@
+ 
+     <!-- Lyft Logo -->
+     <div class="flex justify-center">
+-      <svg width="120" height="50" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
++      <svg width="120" height="50" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg" class="ml-[21px]">
+         <g fill="#fff">
+           <!-- l -->
+           <rect x="2" y="4" width="7" height="34" rx="3.5" />

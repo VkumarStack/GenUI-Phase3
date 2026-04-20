@@ -1,0 +1,1 @@
+The 'plus' icon at the bottom right is not aligned vertically with the 'Log In with Facebook and get..." container. Fix this.

@@ -1,0 +1,11 @@
+--- a/index.html
++++ b/index.html
+@@ -52,7 +52,7 @@
+ <div class="absolute -top-1 -right-1 w-4 h-4 bg-slate-500 dark:bg-slate-600 rounded-full border-2 border-background-dark flex items-center justify-center text-[8px] text-white">3</div>
+ </div>
+ </div>
+-<h1 class="text-lg font-bold tracking-tight text-primary">ConnectHub</h1>
++<h1 class="text-primary font-bold tracking-tight" style="color: red; font-size: 2rem; line-height: 2.25rem;">ConnectHub</h1>
+ <!-- Hamburger on Right (Unconventional for some platforms) -->
+ <button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+ <span class="material-symbols-outlined">menu</span>

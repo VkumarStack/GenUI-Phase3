@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paktor</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    background: #111;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    letter-spacing: 0.02em;
+  }
+
+  .tagline {
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #fff;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+    letter-spacing: 0.02em;
+  }
+
+  .fb-btn {
+    background: #5b6eae;
+    border: none;
+    border-radius: 30px;
+    padding: 16px 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .fb-btn .fb-icon {
+    position: absolute;
+    left: 24px;
+    font-family: sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  .fb-btn .fb-label {
+    flex: 1;
+    text-align: center;
+  }
+
+  .google-btn {
+    background: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 16px 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #555;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .google-btn .g-icon {
+    position: absolute;
+    left: 24px;
+  }
+
+  .google-btn .g-label {
+    flex: 1;
+    text-align: center;
+  }
+
+  .disclaimer {
+    font-family: sans-serif;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+    line-height: 1.5;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+
+  .header-container {
+    background-color: rgba(128, 128, 128, 0.4);
+    border-radius: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200 dark:border-slate-800">
+
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=800&q=80"
+      alt="Couple smiling together at night with city lights"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/20"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col flex-1 min-h-screen px-6">
+
+    <!-- Top spacing -->
+    <div class="flex-none h-[12vh]"></div>
+
+    <!-- Logo and Tagline container with grey transparent background -->
+    <div class="header-container">
+      <!-- Logo -->
+      <div class="text-center">
+        <span class="logo-text">Paktor</span>
+      </div>
+
+      <!-- Tagline -->
+      <p class="tagline text-center mt-4">
+        Create meaningful connections
+      </p>
+    </div>
+
+    <!-- Push buttons to bottom -->
+    <div class="flex-1"></div>
+
+    <!-- Facebook Login -->
+    <button class="fb-btn">
+      <span class="fb-icon">f</span>
+      <span class="fb-label">Facebook Login</span>
+    </button>
+
+    <!-- Google Sign in -->
+    <button class="google-btn mt-4">
+      <span class="g-icon">
+        <svg width="22" height="22" viewBox="0 0 48 48">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
+      </span>
+      <span class="g-label">Sign in with Google</span>
+    </button>
+
+    <!-- Disclaimer -->
+    <p class="disclaimer mt-4 mb-6 px-2">
+      We never post to Facebook. By creating an account, you agree to our Terms of Service and Privacy Policy.
+    </p>
+
+  </div>
+</div>
+
+</body>
+</html>

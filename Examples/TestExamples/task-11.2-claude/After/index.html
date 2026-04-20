@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Explore your Creativity</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    background: #111;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 1.05;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+
+  .hero-title .green-text {
+    color: #2ee8a5;
+  }
+
+  .hero-dot {
+    color: #2ee8a5;
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+  }
+
+  .cta-btn {
+    background: #2ee8a5;
+    color: #111;
+    font-family: sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 24px;
+    width: 100%;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+  }
+
+  .sign-in-text {
+    color: rgba(255,255,255,0.85);
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+
+  .sign-in-text strong {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200 dark:border-slate-800">
+
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80"
+      alt="Person painting with brush on desk with art supplies"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/25"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col flex-1 min-h-screen px-6">
+
+    <!-- Spacer to push title down -->
+    <div class="flex-none h-[18vh]"></div>
+
+    <!-- Title -->
+    <h1 class="hero-title">
+      <span class="green-text">Explore</span><br>your<br><span class="green-text">Creativity</span><span class="hero-dot">.</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="hero-subtitle mt-5">
+      Join Skillshare to watch, play,<br>learn, make, and discover.
+    </p>
+
+    <!-- Push button to bottom -->
+    <div class="flex-1"></div>
+
+    <!-- CTA Button -->
+    <button class="cta-btn">Get Started With 1 Month Free</button>
+
+    <!-- Sign in -->
+    <p class="sign-in-text text-center mt-4 mb-6">
+      Already have an account? <strong>Sign in</strong>
+    </p>
+
+  </div>
+</div>
+
+</body>
+</html>

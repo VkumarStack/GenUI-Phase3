@@ -1,0 +1,1 @@
+All of the text and icons can be a little difficult to read against the background image. Have all text and icons (including the icon on the top left) retain their white coloring, but have a solid black border as well.

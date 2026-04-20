@@ -1,0 +1,1 @@
+Change the color of the text associated with the top of the post (containing the username, location, category) to be blue instead of white. Use the same blue color as the other components (like the title or the outline of user stories).

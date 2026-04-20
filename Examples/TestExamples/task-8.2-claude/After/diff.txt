@@ -1,0 +1,67 @@
+--- a/index.html
++++ b/index.html
+@@ -68,6 +68,15 @@
+     fill: none;
+     filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+   }
++
++  .settings-icon svg {
++    width: 36px;
++    height: 36px;
++    stroke: #fff;
++    stroke-width: 1.5;
++    fill: none;
++    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
++  }
+ </style>
+ </head>
+ <body>
+@@ -87,21 +96,33 @@
+   <!-- Content -->
+   <div class="relative z-10 flex flex-col flex-1 min-h-screen">
+ 
+-    <!-- Top-left shop icon -->
+-    <div class="p-4 shop-icon">
+-      <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+-        <!-- Shop/store icon -->
+-        <rect x="5" y="16" width="26" height="16" rx="1" />
+-        <polyline points="5,16 8,4 28,4 31,16" />
+-        <line x1="11" y1="16" x2="11" y2="10" />
+-        <line x1="18" y1="16" x2="18" y2="10" />
+-        <line x1="25" y1="16" x2="25" y2="10" />
+-        <path d="M5,16 C5,12 11,12 11,16" />
+-        <path d="M11,16 C11,12 18,12 18,16" />
+-        <path d="M18,16 C18,12 25,12 25,16" />
+-        <path d="M25,16 C25,12 31,12 31,16" />
+-        <rect x="14" y="24" width="8" height="8" />
+-      </svg>
++    <!-- Top header with shop icon on left and settings icon on right -->
++    <div class="flex justify-between items-center p-4">
++      <!-- Top-left shop icon -->
++      <div class="shop-icon">
++        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
++          <!-- Shop/store icon -->
++          <rect x="5" y="16" width="26" height="16" rx="1" />
++          <polyline points="5,16 8,4 28,4 31,16" />
++          <line x1="11" y1="16" x2="11" y2="10" />
++          <line x1="18" y1="16" x2="18" y2="10" />
++          <line x1="25" y1="16" x2="25" y2="10" />
++          <path d="M5,16 C5,12 11,12 11,16" />
++          <path d="M11,16 C11,12 18,12 18,16" />
++          <path d="M18,16 C18,12 25,12 25,16" />
++          <path d="M25,16 C25,12 31,12 31,16" />
++          <rect x="14" y="24" width="8" height="8" />
++        </svg>
++      </div>
++
++      <!-- Top-right settings icon -->
++      <div class="settings-icon">
++        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
++          <!-- Settings/gear icon -->
++          <circle cx="18" cy="18" r="6" />
++          <path d="M18,4 L20,10 C20.5,10.2 21,10.4 21.5,10.7 L26.5,8 L28,14 C28.3,14.8 28.5,15.6 28.6,16.5 L34,18 L28.6,19.5 C28.5,20.4 28.3,21.2 28,22 L26.5,28 L21.5,25.3 C21,25.6 20.5,25.8 20,26 L18,32 L16,26 C15.5,25.8 15,25.6 14.5,25.3 L9.5,28 L8,22 C7.7,21.2 7.5,20.4 7.4,19.5 L2,18 L7.4,16.5 C7.5,15.6 7.7,14.8 8,14 L9.5,8 L14.5,10.7 C15,10.4 15.5,10.2 16,10 L18,4 Z" />
++        </svg>
++      </div>
+     </div>
+ 
+     <!-- App title -->

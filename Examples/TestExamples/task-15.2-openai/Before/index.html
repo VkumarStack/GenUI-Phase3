@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dogo - Bonding</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body {
+    margin: 0;
+    background: #111;
+    display: flex;
+    justify-content: center;
+  }
+
+  .quote-mark {
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    color: #f0d644;
+    line-height: 1;
+  }
+
+  .testimonial-title {
+    font-family: sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+
+  .testimonial-body {
+    font-family: sans-serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: #fff;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    line-height: 1.45;
+  }
+
+  .attribution {
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #f0d644;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+
+  .next-btn {
+    background: #f0d644;
+    color: #333;
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 30px;
+    padding: 16px 48px;
+    cursor: pointer;
+    min-width: 200px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+  }
+
+  .dot.active {
+    background: #fff;
+  }
+
+  .skip-text {
+    font-family: sans-serif;
+    font-size: 0.95rem;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    cursor: pointer;
+  }
+
+  .back-arrow svg {
+    width: 24px;
+    height: 24px;
+    stroke: #fff;
+    stroke-width: 2.5;
+    fill: none;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200 dark:border-slate-800">
+
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?w=800&q=80"
+      alt="Person hiking outdoors with a dog"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col flex-1 min-h-screen">
+
+    <!-- Top bar -->
+    <div class="flex items-center justify-between px-4 pt-4">
+      <div class="back-arrow">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <polyline points="15,4 7,12 15,20" />
+        </svg>
+      </div>
+      <span class="skip-text">Skip</span>
+    </div>
+
+    <!-- Spacer -->
+    <div class="flex-1"></div>
+
+    <!-- Testimonial section -->
+    <div class="px-6 pb-2">
+      <!-- Opening quote -->
+      <div class="quote-mark leading-none mb-1">&ldquo;</div>
+
+      <!-- Title -->
+      <div class="text-center mt-2">
+        <h2 class="testimonial-title">Bonding</h2>
+      </div>
+
+      <!-- Body -->
+      <p class="testimonial-body text-center mt-3 px-2">
+        With Dogo we learned to enjoy and relax while outside, with other dogs and friends
+      </p>
+
+      <!-- Attribution -->
+      <p class="attribution text-center mt-3">Lova &amp; Meja</p>
+
+      <!-- Closing quote -->
+      <div class="flex justify-end mt-1">
+        <span class="quote-mark">&rdquo;</span>
+      </div>
+    </div>
+
+    <!-- Dots -->
+    <div class="flex justify-center gap-2 mt-2">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <!-- Next button -->
+    <div class="flex justify-center mt-5 mb-6 px-10">
+      <button class="next-btn">NEXT</button>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

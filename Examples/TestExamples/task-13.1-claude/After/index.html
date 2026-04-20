@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyft</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body {
+    margin: 0;
+    background: #111;
+    display: flex;
+    justify-content: center;
+  }
+
+  .get-started-btn {
+    background: #fff;
+    color: #1a1a2e;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    padding: 18px 24px;
+    width: 100%;
+    cursor: pointer;
+    letter-spacing: 0.01em;
+  }
+
+  .bottom-text {
+    font-family: sans-serif;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    text-align: center;
+  }
+
+  .bottom-text a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .destination-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .destination-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .destination-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #1a1a2e;
+    cursor: pointer;
+  }
+
+  .destination-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .home-icon {
+    background: #e8f4f8;
+  }
+
+  .work-icon {
+    background: #fef3e8;
+  }
+
+  .movies-icon {
+    background: #f3e8f8;
+  }
+
+  .destination-caption {
+    font-family: sans-serif;
+    font-size: 0.95rem;
+    color: #666;
+    text-align: center;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden max-w-md mx-auto border-x border-slate-200 dark:border-slate-800">
+
+  <!-- Background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="https://images.unsplash.com/photo-1612709060421-596380268eaf?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="Woman smiling while driving a car"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/15"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col flex-1 min-h-screen px-7">
+
+    <!-- Top spacing -->
+    <div class="flex-none h-[10vh]"></div>
+
+    <!-- Lyft Logo -->
+    <div class="flex justify-center">
+      <svg width="120" height="50" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+        <g fill="#fff">
+          <!-- l -->
+          <rect x="2" y="4" width="7" height="34" rx="3.5" />
+          <!-- y -->
+          <rect x="16" y="14" width="7" height="24" rx="3.5" />
+          <rect x="28" y="14" width="7" height="34" rx="3.5" />
+          <rect x="16" y="42" width="16" height="7" rx="3.5" />
+          <!-- f -->
+          <rect x="42" y="14" width="7" height="24" rx="3.5" />
+          <rect x="42" y="8" width="14" height="7" rx="3.5" />
+          <rect x="38" y="18" width="14" height="6" rx="3" />
+          <!-- t -->
+          <rect x="62" y="8" width="7" height="30" rx="3.5" />
+          <rect x="58" y="14" width="16" height="6" rx="3" />
+          <rect x="62" y="32" width="14" height="7" rx="3.5" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- Destination Container -->
+    <div class="flex-1 flex items-center justify-center">
+      <div class="destination-container">
+        <div class="destination-list">
+          <div class="destination-item">
+            <div class="destination-icon home-icon">🏠</div>
+            <span>Home</span>
+          </div>
+          <div class="destination-item">
+            <div class="destination-icon work-icon">💼</div>
+            <span>Work</span>
+          </div>
+          <div class="destination-item">
+            <div class="destination-icon movies-icon">🎬</div>
+            <span>Movies</span>
+          </div>
+        </div>
+        <div class="destination-caption">Where are we going to today?</div>
+      </div>
+    </div>
+
+    <!-- Get Started -->
+    <button class="get-started-btn">Get started</button>
+
+    <!-- Bottom link -->
+    <p class="bottom-text mt-4 mb-6">
+      Need a ride?  <a href="#">Open the passenger app</a>
+    </p>
+
+  </div>
+</div>
+
+</body>
+</html>

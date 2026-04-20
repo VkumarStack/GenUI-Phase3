@@ -1,0 +1,43 @@
+--- a/index.html
++++ b/index.html
+@@ -95,6 +95,13 @@
+     line-height: 1.5;
+     text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+   }
++
++  .header-container {
++    background-color: rgba(128, 128, 128, 0.4);
++    border-radius: 0.5rem;
++    padding-top: 0.5rem;
++    padding-bottom: 0.5rem;
++  }
+ </style>
+ </head>
+ <body>
+@@ -117,15 +124,18 @@
+     <!-- Top spacing -->
+     <div class="flex-none h-[12vh]"></div>
+ 
+-    <!-- Logo -->
+-    <div class="text-center">
+-      <span class="logo-text">Paktor</span>
++    <!-- Logo and Tagline container with grey transparent background -->
++    <div class="header-container">
++      <!-- Logo -->
++      <div class="text-center">
++        <span class="logo-text">Paktor</span>
++      </div>
++
++      <!-- Tagline -->
++      <p class="tagline text-center mt-4">
++        Create meaningful connections
++      </p>
+     </div>
+-
+-    <!-- Tagline -->
+-    <p class="tagline text-center mt-4">
+-      Create meaningful connections
+-    </p>
+ 
+     <!-- Push buttons to bottom -->
+     <div class="flex-1"></div>

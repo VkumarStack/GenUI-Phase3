@@ -1,0 +1,1 @@
+Change the color of only the ConnectHub text to red.
