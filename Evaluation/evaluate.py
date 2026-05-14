@@ -28,6 +28,7 @@ load_dotenv(Path(__file__).parent / ".env")
 sys.path.insert(0, str(Path(__file__).parent))
 from backends import get_backend
 from eval_core import evaluate
+from eval_core_two_stage import evaluate_two_stage
 
 
 def main():
@@ -41,10 +42,12 @@ def main():
                         help="Model backend to use (default: gemini).")
     parser.add_argument("--model", default=None,
                         help="Model name override. Omit to use the backend's default.")
+    parser.add_argument("--eval-method", choices=["single", "two-stage"], default="single",
+                        help="Evaluation method: 'single' (one-shot) or 'two-stage' (checklist then verdict). Default: single.")
     args = parser.parse_args()
 
     backend = get_backend(args.backend, args.model)
-    print(f"Backend: {args.backend}  |  Model: {backend.model}")
+    print(f"Backend: {args.backend}  |  Model: {backend.model}  |  Method: {args.eval_method}")
 
     if args.example:
         example_dirs = [Path(args.example)]
@@ -57,7 +60,12 @@ def main():
         print(f"Task:    {(example_dir / 'Task.txt').read_text().strip()}")
         print("-" * 60)
 
-        result = evaluate(example_dir, backend)
+        if args.eval_method == "two-stage":
+            result = evaluate_two_stage(example_dir, backend)
+            print(f"Checklist:\n{result['checklist']}")
+            print("-" * 60)
+        else:
+            result = evaluate(example_dir, backend)
 
         print(f"Verdict: {result['verdict']}")
         print(f"\nModel response:\n{result['response']}")

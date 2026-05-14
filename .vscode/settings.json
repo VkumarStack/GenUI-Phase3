@@ -2,4 +2,7 @@
   "python.defaultInterpreterPath": "/Users/vivek/miniforge3/envs/GenUI/bin/python",
   "python-envs.defaultEnvManager": "ms-python.python:conda",
   "python-envs.defaultPackageManager": "ms-python.python:conda",
+  "[plaintext]": {
+    "editor.wordWrap": "on"
+  }
 }

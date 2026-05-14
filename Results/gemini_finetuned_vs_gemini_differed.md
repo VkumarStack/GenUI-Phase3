@@ -57,14 +57,9 @@ Image Reasoning: The "lyft" logo appears to be perfectly horizontally centered i
 ---
 
 ## task-14.1-claude
-**Human Notes**: This one is a bit interesting. This might be a visual misinterpretation of the task, which was meant to keep the two containers vertically aligned. However the fine-tuned one seemed to interpret it as keeping the plus button aligned with the container that it is in (parent) and not it sibling container.
-
 **Ground truth:** FAIL
 
 **gemini_finetuned** predicted: FAIL
-
-**Task**: The 'plus' icon at the bottom right is not aligned vertically with the 'Log In with Facebook and get..." container. Fix this.
-
 
 FAIL
 
@@ -83,8 +78,6 @@ Image Reasoning: The after screenshot clearly shows that the gaps between the im
 ---
 
 ## task-14.2-gemini
-**Human Notes**: Same rationale as before, visual mininterpretation of the task
-
 **Ground truth:** PASS
 
 **gemini_finetuned** predicted: FAIL

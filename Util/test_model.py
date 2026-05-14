@@ -41,6 +41,7 @@ load_dotenv(Path(__file__).parent.parent / "Evaluation" / ".env")
 sys.path.insert(0, str(Path(__file__).parent.parent / "Evaluation"))
 from backends import get_backend
 from eval_core import evaluate, parse_verdict
+from eval_core_two_stage import evaluate_two_stage
 from ensemble_eval import ensemble_evaluate
 
 
@@ -149,6 +150,9 @@ def main():
     parser.add_argument("--config", default=None, metavar="PATH",
                         help="Path to ensemble config JSON. When provided, runs ensemble evaluation "
                              "instead of single-model evaluation; --backend and --model are ignored.")
+    parser.add_argument("--eval-method", choices=["single", "two-stage"], default="single",
+                        help="Evaluation method: 'single' (one-shot) or 'two-stage' (checklist then verdict). "
+                             "Ignored when --config is used. Default: single.")
     args = parser.parse_args()
 
     results_path = Path(args.results)
@@ -166,7 +170,7 @@ def main():
         meta_model = aggregator_backend.model
     else:
         backend = get_backend(args.backend, args.model)
-        print(f"Backend: {args.backend}  |  Model: {backend.model}")
+        print(f"Backend: {args.backend}  |  Model: {backend.model}  |  Method: {args.eval_method}")
         use_ensemble = False
         meta_backend = args.backend
         meta_model = backend.model
@@ -199,7 +203,10 @@ def main():
                     for w in result["worker_results"]
                 ]
             else:
-                result = evaluate(example_dir, backend)
+                if args.eval_method == "two-stage":
+                    result = evaluate_two_stage(example_dir, backend)
+                else:
+                    result = evaluate(example_dir, backend)
                 raw_output = result["response"]
                 worker_info = None
         except Exception as e:
@@ -229,6 +236,8 @@ def main():
             "raw_output":      raw_output,
             "correct":         result["verdict"] == ground_truth,
         }
+        if not use_ensemble and args.eval_method == "two-stage":
+            entry["checklist"] = result.get("checklist", "")
         if use_ensemble:
             entry["worker_results"] = worker_info
         examples_output.append(entry)
@@ -240,8 +249,9 @@ def main():
 
     output = {
         "meta": {
-            "backend": meta_backend,
-            "model":   meta_model,
+            "backend":     meta_backend,
+            "model":       meta_model,
+            "eval_method": "ensemble" if use_ensemble else args.eval_method,
             "total_examples": len(example_dirs),
             "skipped":        skipped,
         },

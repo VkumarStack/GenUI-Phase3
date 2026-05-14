@@ -3,3 +3,7 @@
 __pycache__/
 zips/
 Examples/FineTuningExamples
+GeneratedRevisions/
+RevisionFineTuning/
+pilot_study_screens/
+FilteredDataset/

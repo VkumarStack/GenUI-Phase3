@@ -1,0 +1,491 @@
+{
+  "Participant_10_CaseStudy-15.1": {
+    "task": "The \"Choose Your City\" component has a floating pencil/pen next to it and it is not obvious whether that \"edit\" pen button refers to the city or the \"headline and weather\" part next to it. I want you to move the pen/edit to a place where it would make more sense like on the right or below the choose your city, and make it bigger",
+    "representative_folder": "Participant_10_CaseStudy-15.1-CLAUDE",
+    "labels": [
+      "Clarify affordance",
+      "Improve visual hierarchy",
+      "Reduce ambiguity"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Clarify affordance\",\n    \"Improve visual hierarchy\",\n    \"Reduce ambiguity\"\n  ]\n}\n```"
+  },
+  "Participant_10_CaseStudy-16.1": {
+    "task": "The screen looks like it cuts off on the right and the fact that i have to scroll to see all of the information is really annoying and not user friendly. I want you to make the index/group titles (like SPY, DIA) smaller in size, and show the cut off information on the right side. Squish existing data to fit the screen, move subheaders (SPDR...) to fit horizontally rather than vertically and cut off",
+    "representative_folder": "Participant_10_CaseStudy-16.1-GEMINI",
+    "labels": [
+      "Adjust content layout",
+      "Reduce information density"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Adjust content layout\",\n    \"Reduce information density\"\n  ]\n}\n```"
+  },
+  "Participant_10_CaseStudy-17.1": {
+    "task": "There is extra white space between the image and the title \"colorfit\", remove this space to make the layout look better",
+    "representative_folder": "Participant_10_CaseStudy-17.1-CLAUDE",
+    "labels": [
+      "Adjust white space",
+      "Improve visual composition"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Adjust white space\",\n    \"Improve visual composition\"\n  ]\n}\n```"
+  },
+  "Participant_10_CaseStudy-18.1": {
+    "task": "The top of this page needs some work. The \"Get Pro\" should be a banner at the very top of the page rather than a button, the \"Total\" should be aligned to the middle, be bigger ,and stand right below the banner, and the \"Dice Help\" should be a question mark button on the upper right corner below the banner to the right of the total.",
+    "representative_folder": "Participant_10_CaseStudy-18.1-CLAUDE",
+    "labels": [
+      "Restructure Layout",
+      "Improve Visual Hierarchy",
+      "Refine Component Styling"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Restructure Layout\",\n    \"Improve Visual Hierarchy\",\n    \"Refine Component Styling\"\n  ]\n}\n```"
+  },
+  "Participant_10_CaseStudy-19.1": {
+    "task": "I dislike the fact that there is a pause button and then a time on the right, can you create a combined feature which is a circle, with the pause in the middle and the lining of the circle representing how much time is left? For example if the timer is for one minute and there are 30 seconds left I want the circle to have a blue (match the color of the header bar) lining on it but only to halfway of the circle (similar to how Apple's timer does it). I also want you to also have the time remaining as a grey number just above the pause inside the circle.",
+    "representative_folder": "Participant_10_CaseStudy-19.1-CLAUDE",
+    "labels": [
+      "Consolidate controls",
+      "Add progress indicator"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Consolidate controls\", \"Add progress indicator\"]}\n```"
+  },
+  "Participant_10_CaseStudy-20.1": {
+    "task": "I see that the top nav has groups symbol and edit but each of these three has a different purpose but visually look the same. Could you change it so that at the very top is the search bar with a visualization that you can type (like an underscrore fill in the blank area sith Symbols as the filler word ) with symbol and to the left of it is a button for groups (make it a different color rectangular button), and to the right of it is three dots for edit?",
+    "representative_folder": "Participant_10_CaseStudy-20.1-CLAUDE",
+    "labels": [
+      "Differentiate UI elements",
+      "Clarify affordances",
+      "Adopt conventional UI patterns"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Differentiate UI elements\",\n    \"Clarify affordances\",\n    \"Adopt conventional UI patterns\"\n  ]\n}\n```"
+  },
+  "Participant_10_CaseStudy-21.1": {
+    "task": "Have an option to add food, make a judgement call with what the best way to do that would be (i.e. some options to explore, whats popular right now, best sales, etc.) think about HOW you want to represent this information taking readability, style, and human choice into consideration.",
+    "representative_folder": "Participant_10_CaseStudy-21.1-GEMINI",
+    "labels": [
+      "Improve empty state",
+      "Add missing call-to-action"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve empty state\",\n    \"Add missing call-to-action\"\n  ]\n}\n```"
+  },
+  "Participant_11_CaseStudy-1.1": {
+    "task": "I see a problem with no clear CTA on each card, specifically at the bottom of each card. Add a \"View Pass\" or \"Select\" button to make the next step obvious.",
+    "representative_folder": "Participant_11_CaseStudy-1.1-CLAUDE",
+    "labels": [
+      "Add missing call-to-action",
+      "Improve navigational clarity"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Add missing call-to-action\",\n    \"Improve navigational clarity\"\n  ]\n}\n```"
+  },
+  "Participant_11_CaseStudy-1.2": {
+    "task": "There is currently a weak visual hierarchy and cramped UI \u2013 specifically, the name and price compete for attention on the card body. Increase price font weight and size to anchor the eye and reduce region label prominence. Slightly increase the padding between the description, price, and day selector and also reduce the size of the day selector for better breathability and make it one chevron dropdown that selects days, making the UI neat.",
+    "representative_folder": "Participant_11_CaseStudy-1.2-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Improve information layout"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual hierarchy\",\n    \"Improve information layout\"\n  ]\n}\n```"
+  },
+  "Participant_11_CaseStudy-2.1": {
+    "task": "The vote count button feels too heavy and disconnected; the numbers sit in an outlined box with the same weight as the action icons, making it feel like just another button rather than a key metric. This is at the bottom action bar of each card. Let the number stand on its own and make it smaller but with an upvote icon, preferably a vote symbol, beside it for context and make it still look like a button.",
+    "representative_folder": "Participant_11_CaseStudy-2.1-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Adjust visual weight",
+      "Clarify information presentation"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual hierarchy\",\n    \"Adjust visual weight\",\n    \"Clarify information presentation\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-13.1": {
+    "task": "The price tag format was off. Make it a standard price tag \"$39.99\", make the price tag smaller so they fit in a single row",
+    "representative_folder": "Participant_12_CaseStudy-13.1-CLAUDE",
+    "labels": [
+      "Improve data formatting",
+      "Improve visual consistency"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Improve data formatting\", \"Improve visual consistency\"]}\n```"
+  },
+  "Participant_12_CaseStudy-15.1": {
+    "task": "The choose your city card has too much content. Remove the edit button. Move \"Headline & Weather\" to be underneath \"Choose your City\" with smaller text in secondary text color",
+    "representative_folder": "Participant_12_CaseStudy-15.1-CLAUDE",
+    "labels": [
+      "Reduce information density",
+      "Improve visual hierarchy"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Reduce information density\",\n    \"Improve visual hierarchy\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-22.1": {
+    "task": "Fix the the banner ad format:\n1. Top align the icon, header \"Speed Radar\"\n2. Move \"Ad\" label to the right of \"Speed Radar\"",
+    "representative_folder": "Participant_12_CaseStudy-22.1-CLAUDE",
+    "labels": [
+      "Improve component layout",
+      "Visual refinement"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve component layout\",\n    \"Visual refinement\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-23.1": {
+    "task": "For the logo image (the circle with \"Jio Multi Recharge\"), the make the texts smaller and fix within the circle.",
+    "representative_folder": "Participant_12_CaseStudy-23.1-CLAUDE",
+    "labels": [
+      "Alignment & Spacing",
+      "Visual Refinement"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Alignment & Spacing\",\n    \"Visual Refinement\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-24.1": {
+    "task": "The button styles in the modal is different from the buttons in app.\nChange the button texts \"NOT NOW\" and \"SOUNDS GREAT\" to only capitalize the first letter of each word.",
+    "representative_folder": "Participant_12_CaseStudy-24.1-GEMINI",
+    "labels": [
+      "Strengthen visual consistency",
+      "Standardize component styling",
+      "Adjust typography"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Strengthen visual consistency\",\n    \"Standardize component styling\",\n    \"Adjust typography\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-25.1": {
+    "task": "The log in button spanned across the entire screen. Give it a 16px margin on both sides.",
+    "representative_folder": "Participant_12_CaseStudy-25.1-CLAUDE",
+    "labels": [
+      "Adjust spacing",
+      "Aesthetic improvement"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Adjust spacing\",\n    \"Aesthetic improvement\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-25.2": {
+    "task": "There are unnecessary background colors for the \"trouble logging in\" and \"Tap here to access...\". Remove the background colors.",
+    "representative_folder": "Participant_12_CaseStudy-25.2-CLAUDE",
+    "labels": [
+      "Reduce visual clutter",
+      "Strengthen visual consistency"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Reduce visual clutter\",\n    \"Strengthen visual consistency\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-25.3": {
+    "task": "\"Tap here to access device....\" doesn't have a clear tap target. Give an underline to \"Tap Here\" to match the same visual cues for affordances of the log in section.",
+    "representative_folder": "Participant_12_CaseStudy-25.3-CLAUDE",
+    "labels": [
+      "Strengthen visual consistency",
+      "Improve affordance"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Strengthen visual consistency\", \"Improve affordance\"]}\n```"
+  },
+  "Participant_12_CaseStudy-25.4": {
+    "task": "Should be \"Trouble logging in\" not \"Trouble Logging in\".",
+    "representative_folder": "Participant_12_CaseStudy-25.4-CLAUDE",
+    "labels": [
+      "Strengthen visual consistency",
+      "Visual polish"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Strengthen visual consistency\",\n    \"Visual polish\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-26.1": {
+    "task": "The current location section lacks visual hierarchy and didn't apply colors semantically. Change the distance (\"2.07 miles\") to secondary text color. Make call button (\"650 941-2227\") an outline button. Change \"Closed\" to a label and place it above \"Mountain View\"",
+    "representative_folder": "Participant_12_CaseStudy-26.1-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Restyle components",
+      "Clarify call-to-action"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual hierarchy\",\n    \"Restyle components\",\n    \"Clarify call-to-action\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-28.1": {
+    "task": "The texts of location names are not legible. Increase the contrast of the texts to meet the accessibility standards while maintain the semantics correlated to the location type.",
+    "representative_folder": "Participant_12_CaseStudy-28.1-CLAUDE",
+    "labels": [
+      "Improve accessibility",
+      "Increase visual contrast",
+      "Improve legibility"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve accessibility\",\n    \"Increase visual contrast\",\n    \"Improve legibility\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-29.1": {
+    "task": "The dialog is trying to do 2 things at once. Simplify it by changing the header to \"Before you leave\", and change the CTA to \"Rate Us\", and the secondary button to \"Exit anyways\", remove \"Cancel\" and \"Exit\"",
+    "representative_folder": "Participant_12_CaseStudy-29.1-CLAUDE",
+    "labels": [
+      "Clarify purpose",
+      "Simplify user choice",
+      "Clarify wording"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Clarify purpose\",\n    \"Simplify user choice\",\n    \"Clarify wording\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-30.1": {
+    "task": "Remove the \"hi, there!\" section because the message below is not addressed to a specific person.",
+    "representative_folder": "Participant_12_CaseStudy-30.1-OPENAI",
+    "labels": [
+      "Remove irrelevant content",
+      "Adjust content tone"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Remove irrelevant content\", \"Adjust content tone\"]}\n```"
+  },
+  "Participant_12_CaseStudy-31.1": {
+    "task": "The \"FEEDBACK\" button is very large, the button label doesn't call for the action. Change the button style to an outline button, change its text to \"Submit feedback\" and make the button smaller",
+    "representative_folder": "Participant_12_CaseStudy-31.1-CLAUDE",
+    "labels": [
+      "Improve Visual Hierarchy",
+      "Clarify Call-to-Action"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve Visual Hierarchy\",\n    \"Clarify Call-to-Action\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-32.1": {
+    "task": "The buttons on dialog is off. Add a radio button to the monthly option and yearly option. The CTA of the dialog should be \"Confirm\" (grayed out until users make a selection of the radio button), and secondary button is cancel.",
+    "representative_folder": "Participant_12_CaseStudy-32.1-CLAUDE",
+    "labels": [
+      "Adopt standard UI patterns",
+      "Clarify interaction flow",
+      "Improve input controls"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Adopt standard UI patterns\",\n    \"Clarify interaction flow\",\n    \"Improve input controls\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-33.1": {
+    "task": "The 3 buttons have 3 different styles and are competing for attentions. It's unclear which one you want users to click. Make the Life-time Purchase and Yearly Subscribe button the same style (looks like Yearly Subscribe button)",
+    "representative_folder": "Participant_12_CaseStudy-33.1-CLAUDE",
+    "labels": [
+      "Strengthen visual consistency",
+      "Improve visual hierarchy"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Strengthen visual consistency\",\n    \"Improve visual hierarchy\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-34.1": {
+    "task": "It is confusing which subscription option was selected. The unselected one should not have a filled color, make it outline. Make the selected filled with a solid background color (the brand color).",
+    "representative_folder": "Participant_12_CaseStudy-34.1-CLAUDE",
+    "labels": [
+      "Clarify selection state",
+      "Increase visual differentiation"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Clarify selection state\",\n    \"Increase visual differentiation\"\n  ]\n}\n```"
+  },
+  "Participant_2_CaseStudy-1.1": {
+    "task": "The layout with the pricing and days selection for each pass is crowded. Adjust this layout so that the 'Days' section is below the price rather than right next to it.",
+    "representative_folder": "Participant_2_CaseStudy-1.1-CLAUDE",
+    "labels": [
+      "Reduce information density",
+      "Improve visual hierarchy"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Reduce information density\",\n    \"Improve visual hierarchy\"\n  ]\n}\n```"
+  },
+  "Participant_3_CaseStudy-10.1": {
+    "task": "Move the cake emoji to the center top of the profile picture circle",
+    "representative_folder": "Participant_3_CaseStudy-10.1-CLAUDE",
+    "labels": [
+      "Adjust element positioning",
+      "Improve visual alignment"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Adjust element positioning\",\n    \"Improve visual alignment\"\n  ]\n}\n```"
+  },
+  "Participant_3_CaseStudy-11.1": {
+    "task": "Make the numbers to the right smaller (e.g. 4.689)",
+    "representative_folder": "Participant_3_CaseStudy-11.1-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Change typography"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual hierarchy\",\n    \"Change typography\"\n  ]\n}\n```"
+  },
+  "Participant_3_CaseStudy-2.1": {
+    "task": "I don't know what the numbers are describing (ie 20478). Add text or an icon next to it.",
+    "representative_folder": "Participant_3_CaseStudy-2.1-CLAUDE",
+    "labels": [
+      "Label unlabeled element",
+      "Clarify information"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Label unlabeled element\",\n    \"Clarify information\"\n  ]\n}\n```"
+  },
+  "Participant_3_CaseStudy-3.1": {
+    "task": "The icon next to distributors is too close, move it to the left",
+    "representative_folder": "Participant_3_CaseStudy-3.1-CLAUDE",
+    "labels": [
+      "Adjust spacing",
+      "Improve visual layout"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Adjust spacing\", \"Improve visual layout\"]}\n```"
+  },
+  "Participant_3_CaseStudy-6.1": {
+    "task": "The gym and home circles are too big and go off the page, shrink them so the entire circle is in view.",
+    "representative_folder": "Participant_3_CaseStudy-6.1-CLAUDE",
+    "labels": [
+      "Fix layout bug",
+      "Adjust element sizing"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Fix layout bug\",\n    \"Adjust element sizing\"\n  ]\n}\n```"
+  },
+  "Participant_3_CaseStudy-8.1": {
+    "task": "Decrease the size of step 1 (\"Open Instagram\") and 2 (\"Tap or button\")",
+    "representative_folder": "Participant_3_CaseStudy-8.1-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Adjust visual weight"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Improve visual hierarchy\", \"Adjust visual weight\"]}\n```"
+  },
+  "Participant_3_CaseStudy-9.1": {
+    "task": "Make the white text that says \"Create GIF from Video in device\" have a black background/highlight.",
+    "representative_folder": "Participant_3_CaseStudy-9.1-CLAUDE",
+    "labels": [
+      "Improve text readability",
+      "Enhance visual clarity"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve text readability\",\n    \"Enhance visual clarity\"\n  ]\n}\n```"
+  },
+  "Participant_6_CaseStudy-12.1": {
+    "task": "The social media link container shouldn't be at the top of the screen, as it distracts from the page's content. Move that container to the bottom of the screen. Move the category container above the title to improve the flow to the description. Move the hamburger menu icon to the left of the screen, as it is too close to other high-traffic buttons.",
+    "representative_folder": "Participant_6_CaseStudy-12.1-CLAUDE",
+    "labels": [
+      "Reorganize layout",
+      "Improve visual hierarchy"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Reorganize layout\",\n    \"Improve visual hierarchy\"\n  ]\n}\n```"
+  },
+  "Participant_6_CaseStudy-13.1": {
+    "task": "The visual hierarchy when showing prices is difficult to understand; the cents shouldn't be bigger than the dollars.",
+    "representative_folder": "Participant_6_CaseStudy-13.1-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Improve information clarity"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual hierarchy\",\n    \"Improve information clarity\"\n  ]\n}\n```"
+  },
+  "Participant_6_CaseStudy-13.2": {
+    "task": "Add outward-facing chevron arrows to the hero container to indicate to the user that there is more information available, also providing the ability to go back to something they may have missed.",
+    "representative_folder": "Participant_6_CaseStudy-13.2-CLAUDE",
+    "labels": [
+      "Add navigation controls",
+      "Surface hidden functionality"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Add navigation controls\", \"Surface hidden functionality\"]}\n```"
+  },
+  "Participant_6_CaseStudy-13.3": {
+    "task": "The section within the hero container with the text \"PRIME Exclusive Store\" should have \"PRIME\" on its own line above \"exclusive store\". The spacing, as it is, looks awkward and disrupts the flow of the section.",
+    "representative_folder": "Participant_6_CaseStudy-13.3-CLAUDE",
+    "labels": [
+      "Adjust text layout",
+      "Enhance readability"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Adjust text layout\",\n    \"Enhance readability\"\n  ]\n}\n```"
+  },
+  "Participant_6_CaseStudy-14.1": {
+    "task": "The navigation bar looks cluttered due to the closeness of the text. Make the text in the navigation bar more evenly spaced and smaller to reduce crowding.",
+    "representative_folder": "Participant_6_CaseStudy-14.1-CLAUDE",
+    "labels": [
+      "Reduce information density",
+      "Improve layout & spacing"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Reduce information density\",\n    \"Improve layout & spacing\"\n  ]\n}\n```"
+  },
+  "Participant_6_CaseStudy-14.2": {
+    "task": "Move the \"Try something new\" text container below the title with added padding to the bottom. This will help improve the flow. As it is now, the container's location makes the bottom of the home screen fall flat.",
+    "representative_folder": "Participant_6_CaseStudy-14.2-CLAUDE",
+    "labels": [
+      "Restructure content layout",
+      "Improve visual hierarchy"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Restructure content layout\",\n    \"Improve visual hierarchy\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-22.1": {
+    "task": "The blue notification banner (\u201cNo speed camera in front of you\u201d) at the top-center of the screen takes up a large portion of the map and blocks visibility of the route and surrounding area. This reduces situational awareness while navigating. The banner should be reduced in height and either repositioned slightly higher or made collapsible/auto-dismiss after a few seconds, so it remains visible but does not interfere with the primary map view.",
+    "representative_folder": "Participant_7_CaseStudy-22.1-CLAUDE",
+    "labels": [
+      "Optimize screen real estate",
+      "Improve visual hierarchy",
+      "Reduce visual clutter"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Optimize screen real estate\",\n    \"Improve visual hierarchy\",\n    \"Reduce visual clutter\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-23.1": {
+    "task": "The input fields (Mobile and Password) have very low contrast against the background, making them appear disabled rather than interactive. This reduces clarity and usability for first-time users. Increase the border contrast or add a subtle outline/shadow to clearly indicate that these are active input fields.",
+    "representative_folder": "Participant_7_CaseStudy-23.1-CLAUDE",
+    "labels": [
+      "Improve visual contrast",
+      "Clarify affordances"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual contrast\",\n    \"Clarify affordances\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-25.1": {
+    "task": "The \u201cLOG IN\u201d button appears enabled (green) even when the password field is empty, which creates a misleading affordance and can lead to user errors. Disable the button by default and only enable it once valid input is entered in both the username/email and password fields.",
+    "representative_folder": "Participant_7_CaseStudy-25.1-CLAUDE",
+    "labels": [
+      "Improve feedback & system status",
+      "Prevent user error"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve feedback & system status\",\n    \"Prevent user error\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-26.1": {
+    "task": "The \u201cCLOSED\u201d status and distance (\u201c2.07 miles\u201d) are both styled in the same red color, which creates confusion since red typically signals urgency or negative status only. This makes it harder to quickly distinguish between informational (distance) and status (closed). Keep \u201cCLOSED\u201d in red, but change the distance text to a neutral color (e.g., gray or black) to improve clarity and visual hierarchy.",
+    "representative_folder": "Participant_7_CaseStudy-26.1-CLAUDE",
+    "labels": [
+      "Clarify information meaning",
+      "Improve visual hierarchy"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Clarify information meaning\",\n    \"Improve visual hierarchy\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-27.1": {
+    "task": "The \u201cFrom,\u201d \u201cTo,\u201d \u201cDeparture,\u201d and \u201cReturn\u201d input fields all have the same visual weight and styling, making it hard to distinguish which fields are filled versus placeholders or inactive states. This reduces scannability and increases cognitive effort. Use stronger contrast for filled values (e.g., darker text) and lighter styling for placeholders, or introduce subtle hierarchy (e.g., bold labels or icons) to clearly differentiate active inputs from defaults.",
+    "representative_folder": "Participant_7_CaseStudy-27.1-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Differentiate element states",
+      "Enhance scannability"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual hierarchy\",\n    \"Differentiate element states\",\n    \"Enhance scannability\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-28.1": {
+    "task": "The pink floating action button (play icon) visually competes with map pins and becomes the dominant element. This is at the bottom-right corner of the map screen. Reduce size and/or saturation of the button, or switch to a secondary style so map pins remain the primary focus.",
+    "representative_folder": "Participant_7_CaseStudy-28.1-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Reduce visual noise"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual hierarchy\",\n    \"Reduce visual noise\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-29.1": {
+    "task": "The exit confirmation modal has unclear action hierarchy \u2014 all three options (\u201cExit\u201d, \u201cCancel\u201d, \u201cRate Us\u201d) are styled equally, making the primary action ambiguous and increasing the risk of accidental exit. This is at the bottom-center modal overlay on the screen. Make \u201cCancel\u201d the primary (highlighted) action, reduce emphasis on \u201cExit\u201d (secondary/destructive style), and visually separate \u201cRate Us\u201d as a tertiary option (e.g., text button or link).",
+    "representative_folder": "Participant_7_CaseStudy-29.1-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Clarify call-to-action",
+      "Prevent user error"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual hierarchy\",\n    \"Clarify call-to-action\",\n    \"Prevent user error\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-30.1": {
+    "task": "The floating \u201cin-store mode\u201d button overlaps the main content area, competing with the primary message and disrupting visual hierarchy. This  bottom-right corner of the screen, above the main content section. Reposition the button lower (closer to the bottom navigation) or reduce its visual prominence (size/contrast) so it doesn\u2019t interfere with the core message.",
+    "representative_folder": "Participant_7_CaseStudy-30.1-OPENAI",
+    "labels": [
+      "Improve visual hierarchy",
+      "Fix component overlap"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual hierarchy\",\n    \"Fix component overlap\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-31.1": {
+    "task": "The FAQ accordion rows feel visually disconnected because the dividers and spacing create too much separation between items. Reduce the vertical padding between accordion rows and soften the divider contrast so the FAQ list feels more cohesive and easier to scan as a grouped section.",
+    "representative_folder": "Participant_7_CaseStudy-31.1-CLAUDE",
+    "labels": [
+      "Improve visual grouping",
+      "Enhance scannability"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual grouping\",\n    \"Enhance scannability\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-32.1": {
+    "task": "The purchase dialog\u2019s action buttons lack clear visual hierarchy, making the primary subscription choices feel understated and harder to distinguish from the secondary \u201cCancel\u201d action. In the \u201cPurchase Elite\u201d modal, the monthly and yearly billing options should have stronger emphasis, such as a filled style, higher contrast, or highlighted recommended state. While keeping \u201cCancel\u201d visually secondary so users can more easily identify the main conversion action.",
+    "representative_folder": "Participant_7_CaseStudy-32.1-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Strengthen call-to-action"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual hierarchy\",\n    \"Strengthen call-to-action\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-33.1": {
+    "task": "The pricing section presents three competing purchase options with similar visual weight, making the primary conversion path unclear and reducing purchase focus. This is at the bottom subscription CTA area containing \u201cLife-time Purchase,\u201d \u201cYearly Subscribe,\u201d and \u201c3 Days FREE TRIAL.\u201d Increase emphasis on the intended primary subscription option by improving visual hierarchy through stronger contrast, sizing, or prominence while slightly reducing emphasis on secondary purchase choices without changing the existing layout structure.",
+    "representative_folder": "Participant_7_CaseStudy-33.1-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Clarify call-to-action"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Improve visual hierarchy\", \"Clarify call-to-action\"]}\n```"
+  },
+  "Participant_7_CaseStudy-34.1": {
+    "task": "The glowing \u201cSubscribe Now\u201d CTA at the bottom becomes visually overpowering compared to the pricing cards above it. Reduce the glow intensity and rebalance the emphasis so the Annual and Quarterly pricing options remain clearly readable and continue to feel like the primary decision-making section of the paywall.",
+    "representative_folder": "Participant_7_CaseStudy-34.1-CLAUDE",
+    "labels": [
+      "Improve visual hierarchy",
+      "Adjust visual styling"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Improve visual hierarchy\",\n    \"Adjust visual styling\"\n  ]\n}\n```"
+  }
+}
