@@ -1,1 +1,0 @@
-Add a new icon on the top right of the screen (so it is across from the initial icon, which is on the top left). This should be a settings icon.

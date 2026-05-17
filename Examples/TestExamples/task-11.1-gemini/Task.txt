@@ -1,1 +1,0 @@
-Adjust the container that says 'Get Started With 1 Month Free'. Change the color to be white and slightly (only barely) transparent. Also, add a black shadow to the container and change the text color to white.

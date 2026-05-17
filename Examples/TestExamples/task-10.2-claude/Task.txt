@@ -1,1 +1,0 @@
-In the section that lists the various clocks and their times, adjust the text corresponding to the actual text to have a lighter color and have it be bolded.

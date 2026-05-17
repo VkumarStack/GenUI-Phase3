@@ -1,0 +1,467 @@
+{
+  "n_unique_train": 39,
+  "n_unique_test": 14,
+  "n_train_instances": 63,
+  "n_test_instances": 17,
+  "train_keys": [
+    "Participant_10_CaseStudy-19.1",
+    "Participant_11_CaseStudy-1.1",
+    "Participant_10_CaseStudy-21.1",
+    "Participant_6_CaseStudy-13.3",
+    "Participant_7_CaseStudy-23.1",
+    "Participant_3_CaseStudy-9.1",
+    "Participant_10_CaseStudy-20.1",
+    "Participant_12_CaseStudy-13.1",
+    "Participant_12_CaseStudy-25.3",
+    "Participant_12_CaseStudy-26.1",
+    "Participant_12_CaseStudy-33.1",
+    "Participant_12_CaseStudy-25.4",
+    "Participant_12_CaseStudy-15.1",
+    "Participant_12_CaseStudy-29.1",
+    "Participant_2_CaseStudy-1.1",
+    "Participant_6_CaseStudy-14.1",
+    "Participant_7_CaseStudy-28.1",
+    "Participant_12_CaseStudy-30.1",
+    "Participant_10_CaseStudy-15.1",
+    "Participant_11_CaseStudy-2.1",
+    "Participant_12_CaseStudy-31.1",
+    "Participant_7_CaseStudy-26.1",
+    "Participant_7_CaseStudy-29.1",
+    "Participant_7_CaseStudy-32.1",
+    "Participant_12_CaseStudy-34.1",
+    "Participant_3_CaseStudy-2.1",
+    "Participant_7_CaseStudy-27.1",
+    "Participant_10_CaseStudy-16.1",
+    "Participant_11_CaseStudy-1.2",
+    "Participant_7_CaseStudy-30.1",
+    "Participant_7_CaseStudy-31.1",
+    "Participant_10_CaseStudy-17.1",
+    "Participant_12_CaseStudy-23.1",
+    "Participant_3_CaseStudy-10.1",
+    "Participant_3_CaseStudy-6.1",
+    "Participant_10_CaseStudy-18.1",
+    "Participant_3_CaseStudy-8.1",
+    "Participant_6_CaseStudy-13.1",
+    "Participant_7_CaseStudy-33.1"
+  ],
+  "test_keys": [
+    "Participant_6_CaseStudy-13.2",
+    "Participant_12_CaseStudy-28.1",
+    "Participant_12_CaseStudy-32.1",
+    "Participant_12_CaseStudy-24.1",
+    "Participant_7_CaseStudy-22.1",
+    "Participant_12_CaseStudy-25.2",
+    "Participant_7_CaseStudy-25.1",
+    "Participant_12_CaseStudy-22.1",
+    "Participant_12_CaseStudy-25.1",
+    "Participant_3_CaseStudy-3.1",
+    "Participant_3_CaseStudy-11.1",
+    "Participant_6_CaseStudy-12.1",
+    "Participant_6_CaseStudy-14.2",
+    "Participant_7_CaseStudy-34.1"
+  ],
+  "train": [
+    {
+      "folder": "Example-000",
+      "example_key": "Participant_10_CaseStudy-19.1",
+      "label": "Simplify & Reduce Clutter"
+    },
+    {
+      "folder": "Example-001",
+      "example_key": "Participant_10_CaseStudy-19.1",
+      "label": "Add or Surface Functionality"
+    },
+    {
+      "folder": "Example-002",
+      "example_key": "Participant_11_CaseStudy-1.1",
+      "label": "Add or Surface Functionality"
+    },
+    {
+      "folder": "Example-003",
+      "example_key": "Participant_11_CaseStudy-1.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-004",
+      "example_key": "Participant_10_CaseStudy-21.1",
+      "label": "Add or Surface Functionality"
+    },
+    {
+      "folder": "Example-005",
+      "example_key": "Participant_6_CaseStudy-13.3",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-006",
+      "example_key": "Participant_6_CaseStudy-13.3",
+      "label": "Improve Readability & Accessibility"
+    },
+    {
+      "folder": "Example-007",
+      "example_key": "Participant_7_CaseStudy-23.1",
+      "label": "Improve Readability & Accessibility"
+    },
+    {
+      "folder": "Example-008",
+      "example_key": "Participant_7_CaseStudy-23.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-009",
+      "example_key": "Participant_3_CaseStudy-9.1",
+      "label": "Improve Readability & Accessibility"
+    },
+    {
+      "folder": "Example-010",
+      "example_key": "Participant_10_CaseStudy-20.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-011",
+      "example_key": "Participant_10_CaseStudy-20.1",
+      "label": "Strengthen Visual Consistency"
+    },
+    {
+      "folder": "Example-012",
+      "example_key": "Participant_12_CaseStudy-13.1",
+      "label": "Strengthen Visual Consistency"
+    },
+    {
+      "folder": "Example-013",
+      "example_key": "Participant_12_CaseStudy-13.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-014",
+      "example_key": "Participant_12_CaseStudy-25.3",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-015",
+      "example_key": "Participant_12_CaseStudy-25.3",
+      "label": "Strengthen Visual Consistency"
+    },
+    {
+      "folder": "Example-016",
+      "example_key": "Participant_12_CaseStudy-26.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-017",
+      "example_key": "Participant_12_CaseStudy-26.1",
+      "label": "Strengthen Visual Consistency"
+    },
+    {
+      "folder": "Example-018",
+      "example_key": "Participant_12_CaseStudy-33.1",
+      "label": "Strengthen Visual Consistency"
+    },
+    {
+      "folder": "Example-019",
+      "example_key": "Participant_12_CaseStudy-33.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-020",
+      "example_key": "Participant_12_CaseStudy-25.4",
+      "label": "Strengthen Visual Consistency"
+    },
+    {
+      "folder": "Example-021",
+      "example_key": "Participant_12_CaseStudy-15.1",
+      "label": "Simplify & Reduce Clutter"
+    },
+    {
+      "folder": "Example-022",
+      "example_key": "Participant_12_CaseStudy-15.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-023",
+      "example_key": "Participant_12_CaseStudy-29.1",
+      "label": "Simplify & Reduce Clutter"
+    },
+    {
+      "folder": "Example-024",
+      "example_key": "Participant_12_CaseStudy-29.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-025",
+      "example_key": "Participant_2_CaseStudy-1.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-026",
+      "example_key": "Participant_2_CaseStudy-1.1",
+      "label": "Simplify & Reduce Clutter"
+    },
+    {
+      "folder": "Example-027",
+      "example_key": "Participant_6_CaseStudy-14.1",
+      "label": "Simplify & Reduce Clutter"
+    },
+    {
+      "folder": "Example-028",
+      "example_key": "Participant_6_CaseStudy-14.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-029",
+      "example_key": "Participant_7_CaseStudy-28.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-030",
+      "example_key": "Participant_7_CaseStudy-28.1",
+      "label": "Simplify & Reduce Clutter"
+    },
+    {
+      "folder": "Example-031",
+      "example_key": "Participant_12_CaseStudy-30.1",
+      "label": "Simplify & Reduce Clutter"
+    },
+    {
+      "folder": "Example-032",
+      "example_key": "Participant_10_CaseStudy-15.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-033",
+      "example_key": "Participant_10_CaseStudy-15.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-034",
+      "example_key": "Participant_11_CaseStudy-2.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-035",
+      "example_key": "Participant_11_CaseStudy-2.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-036",
+      "example_key": "Participant_12_CaseStudy-31.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-037",
+      "example_key": "Participant_12_CaseStudy-31.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-038",
+      "example_key": "Participant_7_CaseStudy-26.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-039",
+      "example_key": "Participant_7_CaseStudy-26.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-040",
+      "example_key": "Participant_7_CaseStudy-29.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-041",
+      "example_key": "Participant_7_CaseStudy-29.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-042",
+      "example_key": "Participant_7_CaseStudy-32.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-043",
+      "example_key": "Participant_7_CaseStudy-32.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-044",
+      "example_key": "Participant_12_CaseStudy-34.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-045",
+      "example_key": "Participant_3_CaseStudy-2.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-046",
+      "example_key": "Participant_7_CaseStudy-27.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-047",
+      "example_key": "Participant_10_CaseStudy-16.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-048",
+      "example_key": "Participant_10_CaseStudy-16.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-049",
+      "example_key": "Participant_11_CaseStudy-1.2",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-050",
+      "example_key": "Participant_11_CaseStudy-1.2",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-051",
+      "example_key": "Participant_7_CaseStudy-30.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-052",
+      "example_key": "Participant_7_CaseStudy-30.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-053",
+      "example_key": "Participant_7_CaseStudy-31.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-054",
+      "example_key": "Participant_7_CaseStudy-31.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-055",
+      "example_key": "Participant_10_CaseStudy-17.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-056",
+      "example_key": "Participant_12_CaseStudy-23.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-057",
+      "example_key": "Participant_3_CaseStudy-10.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-058",
+      "example_key": "Participant_3_CaseStudy-6.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-059",
+      "example_key": "Participant_10_CaseStudy-18.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-060",
+      "example_key": "Participant_3_CaseStudy-8.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-061",
+      "example_key": "Participant_6_CaseStudy-13.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-062",
+      "example_key": "Participant_7_CaseStudy-33.1",
+      "label": "Reorganize Information Hierarchy"
+    }
+  ],
+  "test": [
+    {
+      "folder": "Example-000",
+      "example_key": "Participant_6_CaseStudy-13.2",
+      "label": "Add or Surface Functionality"
+    },
+    {
+      "folder": "Example-001",
+      "example_key": "Participant_6_CaseStudy-13.2",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-002",
+      "example_key": "Participant_12_CaseStudy-28.1",
+      "label": "Improve Readability & Accessibility"
+    },
+    {
+      "folder": "Example-003",
+      "example_key": "Participant_12_CaseStudy-32.1",
+      "label": "Strengthen Visual Consistency"
+    },
+    {
+      "folder": "Example-004",
+      "example_key": "Participant_12_CaseStudy-32.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-005",
+      "example_key": "Participant_12_CaseStudy-24.1",
+      "label": "Strengthen Visual Consistency"
+    },
+    {
+      "folder": "Example-006",
+      "example_key": "Participant_7_CaseStudy-22.1",
+      "label": "Simplify & Reduce Clutter"
+    },
+    {
+      "folder": "Example-007",
+      "example_key": "Participant_7_CaseStudy-22.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-008",
+      "example_key": "Participant_12_CaseStudy-25.2",
+      "label": "Simplify & Reduce Clutter"
+    },
+    {
+      "folder": "Example-009",
+      "example_key": "Participant_7_CaseStudy-25.1",
+      "label": "Clarify Function & State"
+    },
+    {
+      "folder": "Example-010",
+      "example_key": "Participant_12_CaseStudy-22.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-011",
+      "example_key": "Participant_12_CaseStudy-25.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-012",
+      "example_key": "Participant_3_CaseStudy-3.1",
+      "label": "Refine Layout & Spacing"
+    },
+    {
+      "folder": "Example-013",
+      "example_key": "Participant_3_CaseStudy-11.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-014",
+      "example_key": "Participant_6_CaseStudy-12.1",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-015",
+      "example_key": "Participant_6_CaseStudy-14.2",
+      "label": "Reorganize Information Hierarchy"
+    },
+    {
+      "folder": "Example-016",
+      "example_key": "Participant_7_CaseStudy-34.1",
+      "label": "Reorganize Information Hierarchy"
+    }
+  ]
+}

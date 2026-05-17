@@ -1,122 +1,558 @@
 {
-  "task-1.1-claude": {
-    "before": "gs://genui-sft/sft-assets/task-1.1-claude/before.png",
-    "after": "gs://genui-sft/sft-assets/task-1.1-claude/after.png"
+  "Participant_10_CaseStudy-15.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-15.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-15.1-CLAUDE/after.png"
   },
-  "task-1.1-gemini": {
-    "before": "gs://genui-sft/sft-assets/task-1.1-gemini/before.png",
-    "after": "gs://genui-sft/sft-assets/task-1.1-gemini/after.png"
+  "Participant_10_CaseStudy-16.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-16.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-16.1-GEMINI/after.png"
   },
-  "task-1.1-openai": {
-    "before": "gs://genui-sft/sft-assets/task-1.1-openai/before.png",
-    "after": "gs://genui-sft/sft-assets/task-1.1-openai/after.png"
+  "Participant_10_CaseStudy-16.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-16.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-16.1-OPENAI/after.png"
   },
-  "task-1.2-claude": {
-    "before": "gs://genui-sft/sft-assets/task-1.2-claude/before.png",
-    "after": "gs://genui-sft/sft-assets/task-1.2-claude/after.png"
+  "Participant_10_CaseStudy-17.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-17.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-17.1-CLAUDE/after.png"
   },
-  "task-1.2-gemini": {
-    "before": "gs://genui-sft/sft-assets/task-1.2-gemini/before.png",
-    "after": "gs://genui-sft/sft-assets/task-1.2-gemini/after.png"
+  "Participant_10_CaseStudy-17.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-17.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-17.1-OPENAI/after.png"
   },
-  "task-1.2-openai": {
-    "before": "gs://genui-sft/sft-assets/task-1.2-openai/before.png",
-    "after": "gs://genui-sft/sft-assets/task-1.2-openai/after.png"
+  "Participant_10_CaseStudy-18.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-18.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-18.1-CLAUDE/after.png"
   },
-  "task-1.3-claude": {
-    "before": "gs://genui-sft/sft-assets/task-1.3-claude/before.png",
-    "after": "gs://genui-sft/sft-assets/task-1.3-claude/after.png"
+  "Participant_10_CaseStudy-18.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-18.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-18.1-GEMINI/after.png"
   },
-  "task-1.3-gemini": {
-    "before": "gs://genui-sft/sft-assets/task-1.3-gemini/before.png",
-    "after": "gs://genui-sft/sft-assets/task-1.3-gemini/after.png"
+  "Participant_10_CaseStudy-18.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-18.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-18.1-OPENAI/after.png"
   },
-  "task-1.3-openai": {
-    "before": "gs://genui-sft/sft-assets/task-1.3-openai/before.png",
-    "after": "gs://genui-sft/sft-assets/task-1.3-openai/after.png"
+  "Participant_10_CaseStudy-19.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-19.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-19.1-CLAUDE/after.png"
   },
-  "task-2.1-claude": {
-    "before": "gs://genui-sft/sft-assets/task-2.1-claude/before.png",
-    "after": "gs://genui-sft/sft-assets/task-2.1-claude/after.png"
+  "Participant_10_CaseStudy-19.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-19.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-19.1-GEMINI/after.png"
   },
-  "task-2.1-gemini": {
-    "before": "gs://genui-sft/sft-assets/task-2.1-gemini/before.png",
-    "after": "gs://genui-sft/sft-assets/task-2.1-gemini/after.png"
+  "Participant_10_CaseStudy-19.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-19.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-19.1-OPENAI/after.png"
   },
-  "task-2.1-openai": {
-    "before": "gs://genui-sft/sft-assets/task-2.1-openai/before.png",
-    "after": "gs://genui-sft/sft-assets/task-2.1-openai/after.png"
+  "Participant_10_CaseStudy-20.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-20.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-20.1-CLAUDE/after.png"
   },
-  "task-2.2-claude": {
-    "before": "gs://genui-sft/sft-assets/task-2.2-claude/before.png",
-    "after": "gs://genui-sft/sft-assets/task-2.2-claude/after.png"
+  "Participant_10_CaseStudy-20.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-20.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-20.1-GEMINI/after.png"
   },
-  "task-2.2-gemini": {
-    "before": "gs://genui-sft/sft-assets/task-2.2-gemini/before.png",
-    "after": "gs://genui-sft/sft-assets/task-2.2-gemini/after.png"
+  "Participant_10_CaseStudy-21.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-21.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_10_CaseStudy-21.1-GEMINI/after.png"
   },
-  "task-2.2-openai": {
-    "before": "gs://genui-sft/sft-assets/task-2.2-openai/before.png",
-    "after": "gs://genui-sft/sft-assets/task-2.2-openai/after.png"
+  "Participant_11_CaseStudy-1.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.1-CLAUDE/after.png"
   },
-  "task-2.3-claude": {
-    "before": "gs://genui-sft/sft-assets/task-2.3-claude/before.png",
-    "after": "gs://genui-sft/sft-assets/task-2.3-claude/after.png"
+  "Participant_11_CaseStudy-1.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.1-GEMINI/after.png"
   },
-  "task-2.3-gemini": {
-    "before": "gs://genui-sft/sft-assets/task-2.3-gemini/before.png",
-    "after": "gs://genui-sft/sft-assets/task-2.3-gemini/after.png"
+  "Participant_11_CaseStudy-1.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.1-OPENAI/after.png"
   },
-  "task-2.3-openai": {
-    "before": "gs://genui-sft/sft-assets/task-2.3-openai/before.png",
-    "after": "gs://genui-sft/sft-assets/task-2.3-openai/after.png"
+  "Participant_11_CaseStudy-1.2-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.2-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.2-CLAUDE/after.png"
   },
-  "task-4.2-claude": {
-    "before": "gs://genui-sft/sft-assets/task-4.2-claude/before.png",
-    "after": "gs://genui-sft/sft-assets/task-4.2-claude/after.png"
+  "Participant_11_CaseStudy-1.2-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.2-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.2-GEMINI/after.png"
   },
-  "task-4.2-gemini": {
-    "before": "gs://genui-sft/sft-assets/task-4.2-gemini/before.png",
-    "after": "gs://genui-sft/sft-assets/task-4.2-gemini/after.png"
+  "Participant_11_CaseStudy-1.2-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.2-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-1.2-OPENAI/after.png"
   },
-  "task-4.2-openai": {
-    "before": "gs://genui-sft/sft-assets/task-4.2-openai/before.png",
-    "after": "gs://genui-sft/sft-assets/task-4.2-openai/after.png"
+  "Participant_11_CaseStudy-2.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-2.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-2.1-CLAUDE/after.png"
   },
-  "task-4.3-claude": {
-    "before": "gs://genui-sft/sft-assets/task-4.3-claude/before.png",
-    "after": "gs://genui-sft/sft-assets/task-4.3-claude/after.png"
+  "Participant_11_CaseStudy-2.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-2.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-2.1-GEMINI/after.png"
   },
-  "task-4.3-gemini": {
-    "before": "gs://genui-sft/sft-assets/task-4.3-gemini/before.png",
-    "after": "gs://genui-sft/sft-assets/task-4.3-gemini/after.png"
+  "Participant_11_CaseStudy-2.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-2.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_11_CaseStudy-2.1-OPENAI/after.png"
   },
-  "task-4.3-openai": {
-    "before": "gs://genui-sft/sft-assets/task-4.3-openai/before.png",
-    "after": "gs://genui-sft/sft-assets/task-4.3-openai/after.png"
+  "Participant_12_CaseStudy-13.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-13.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-13.1-CLAUDE/after.png"
   },
-  "task-6.1-claude": {
-    "before": "gs://genui-sft/sft-assets/task-6.1-claude/before.png",
-    "after": "gs://genui-sft/sft-assets/task-6.1-claude/after.png"
+  "Participant_12_CaseStudy-13.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-13.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-13.1-GEMINI/after.png"
   },
-  "task-6.1-gemini": {
-    "before": "gs://genui-sft/sft-assets/task-6.1-gemini/before.png",
-    "after": "gs://genui-sft/sft-assets/task-6.1-gemini/after.png"
+  "Participant_12_CaseStudy-13.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-13.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-13.1-OPENAI/after.png"
   },
-  "task-6.1-openai": {
-    "before": "gs://genui-sft/sft-assets/task-6.1-openai/before.png",
-    "after": "gs://genui-sft/sft-assets/task-6.1-openai/after.png"
+  "Participant_12_CaseStudy-15.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-15.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-15.1-CLAUDE/after.png"
   },
-  "task-6.3-claude": {
-    "before": "gs://genui-sft/sft-assets/task-6.3-claude/before.png",
-    "after": "gs://genui-sft/sft-assets/task-6.3-claude/after.png"
+  "Participant_12_CaseStudy-15.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-15.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-15.1-GEMINI/after.png"
   },
-  "task-6.3-gemini": {
-    "before": "gs://genui-sft/sft-assets/task-6.3-gemini/before.png",
-    "after": "gs://genui-sft/sft-assets/task-6.3-gemini/after.png"
+  "Participant_12_CaseStudy-15.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-15.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-15.1-OPENAI/after.png"
   },
-  "task-6.3-openai": {
-    "before": "gs://genui-sft/sft-assets/task-6.3-openai/before.png",
-    "after": "gs://genui-sft/sft-assets/task-6.3-openai/after.png"
+  "Participant_12_CaseStudy-22.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-22.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-22.1-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-22.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-22.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-22.1-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-22.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-22.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-22.1-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-23.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-23.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-23.1-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-23.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-23.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-23.1-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-23.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-23.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-23.1-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-24.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-24.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-24.1-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-24.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-24.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-24.1-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-25.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.1-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-25.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.1-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-25.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.1-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-25.2-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.2-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.2-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-25.2-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.2-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.2-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-25.2-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.2-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.2-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-25.3-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.3-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.3-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-25.3-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.3-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.3-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-25.3-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.3-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.3-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-25.4-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.4-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.4-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-25.4-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.4-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.4-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-25.4-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.4-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-25.4-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-26.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-26.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-26.1-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-26.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-26.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-26.1-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-26.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-26.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-26.1-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-28.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-28.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-28.1-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-28.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-28.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-28.1-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-28.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-28.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-28.1-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-29.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-29.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-29.1-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-29.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-29.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-29.1-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-29.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-29.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-29.1-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-30.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-30.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-30.1-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-31.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-31.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-31.1-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-31.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-31.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-31.1-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-31.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-31.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-31.1-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-32.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-32.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-32.1-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-32.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-32.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-32.1-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-32.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-32.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-32.1-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-33.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-33.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-33.1-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-33.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-33.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-33.1-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-33.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-33.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-33.1-OPENAI/after.png"
+  },
+  "Participant_12_CaseStudy-34.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-34.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-34.1-CLAUDE/after.png"
+  },
+  "Participant_12_CaseStudy-34.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-34.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-34.1-GEMINI/after.png"
+  },
+  "Participant_12_CaseStudy-34.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-34.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_12_CaseStudy-34.1-OPENAI/after.png"
+  },
+  "Participant_2_CaseStudy-1.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_2_CaseStudy-1.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_2_CaseStudy-1.1-CLAUDE/after.png"
+  },
+  "Participant_2_CaseStudy-1.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_2_CaseStudy-1.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_2_CaseStudy-1.1-GEMINI/after.png"
+  },
+  "Participant_2_CaseStudy-1.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_2_CaseStudy-1.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_2_CaseStudy-1.1-OPENAI/after.png"
+  },
+  "Participant_3_CaseStudy-10.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-10.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-10.1-CLAUDE/after.png"
+  },
+  "Participant_3_CaseStudy-10.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-10.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-10.1-GEMINI/after.png"
+  },
+  "Participant_3_CaseStudy-10.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-10.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-10.1-OPENAI/after.png"
+  },
+  "Participant_3_CaseStudy-11.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-11.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-11.1-CLAUDE/after.png"
+  },
+  "Participant_3_CaseStudy-11.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-11.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-11.1-OPENAI/after.png"
+  },
+  "Participant_3_CaseStudy-2.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-2.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-2.1-CLAUDE/after.png"
+  },
+  "Participant_3_CaseStudy-2.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-2.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-2.1-OPENAI/after.png"
+  },
+  "Participant_3_CaseStudy-3.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-3.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-3.1-CLAUDE/after.png"
+  },
+  "Participant_3_CaseStudy-3.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-3.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-3.1-OPENAI/after.png"
+  },
+  "Participant_3_CaseStudy-6.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-6.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-6.1-CLAUDE/after.png"
+  },
+  "Participant_3_CaseStudy-6.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-6.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-6.1-GEMINI/after.png"
+  },
+  "Participant_3_CaseStudy-6.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-6.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-6.1-OPENAI/after.png"
+  },
+  "Participant_3_CaseStudy-8.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-8.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-8.1-CLAUDE/after.png"
+  },
+  "Participant_3_CaseStudy-8.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-8.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-8.1-GEMINI/after.png"
+  },
+  "Participant_3_CaseStudy-8.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-8.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-8.1-OPENAI/after.png"
+  },
+  "Participant_3_CaseStudy-9.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-9.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-9.1-CLAUDE/after.png"
+  },
+  "Participant_3_CaseStudy-9.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-9.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-9.1-GEMINI/after.png"
+  },
+  "Participant_3_CaseStudy-9.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-9.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_3_CaseStudy-9.1-OPENAI/after.png"
+  },
+  "Participant_6_CaseStudy-12.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-12.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-12.1-CLAUDE/after.png"
+  },
+  "Participant_6_CaseStudy-12.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-12.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-12.1-GEMINI/after.png"
+  },
+  "Participant_6_CaseStudy-12.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-12.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-12.1-OPENAI/after.png"
+  },
+  "Participant_6_CaseStudy-13.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.1-CLAUDE/after.png"
+  },
+  "Participant_6_CaseStudy-13.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.1-GEMINI/after.png"
+  },
+  "Participant_6_CaseStudy-13.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.1-OPENAI/after.png"
+  },
+  "Participant_6_CaseStudy-13.2-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.2-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.2-CLAUDE/after.png"
+  },
+  "Participant_6_CaseStudy-13.3-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.3-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.3-CLAUDE/after.png"
+  },
+  "Participant_6_CaseStudy-13.3-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.3-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.3-GEMINI/after.png"
+  },
+  "Participant_6_CaseStudy-13.3-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.3-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-13.3-OPENAI/after.png"
+  },
+  "Participant_6_CaseStudy-14.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.1-CLAUDE/after.png"
+  },
+  "Participant_6_CaseStudy-14.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.1-GEMINI/after.png"
+  },
+  "Participant_6_CaseStudy-14.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.1-OPENAI/after.png"
+  },
+  "Participant_6_CaseStudy-14.2-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.2-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.2-CLAUDE/after.png"
+  },
+  "Participant_6_CaseStudy-14.2-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.2-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.2-GEMINI/after.png"
+  },
+  "Participant_6_CaseStudy-14.2-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.2-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_6_CaseStudy-14.2-OPENAI/after.png"
+  },
+  "Participant_7_CaseStudy-22.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-22.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-22.1-CLAUDE/after.png"
+  },
+  "Participant_7_CaseStudy-22.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-22.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-22.1-GEMINI/after.png"
+  },
+  "Participant_7_CaseStudy-23.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-23.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-23.1-CLAUDE/after.png"
+  },
+  "Participant_7_CaseStudy-23.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-23.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-23.1-GEMINI/after.png"
+  },
+  "Participant_7_CaseStudy-23.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-23.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-23.1-OPENAI/after.png"
+  },
+  "Participant_7_CaseStudy-25.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-25.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-25.1-CLAUDE/after.png"
+  },
+  "Participant_7_CaseStudy-25.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-25.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-25.1-GEMINI/after.png"
+  },
+  "Participant_7_CaseStudy-26.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-26.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-26.1-CLAUDE/after.png"
+  },
+  "Participant_7_CaseStudy-26.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-26.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-26.1-GEMINI/after.png"
+  },
+  "Participant_7_CaseStudy-26.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-26.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-26.1-OPENAI/after.png"
+  },
+  "Participant_7_CaseStudy-27.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-27.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-27.1-CLAUDE/after.png"
+  },
+  "Participant_7_CaseStudy-27.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-27.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-27.1-GEMINI/after.png"
+  },
+  "Participant_7_CaseStudy-27.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-27.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-27.1-OPENAI/after.png"
+  },
+  "Participant_7_CaseStudy-28.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-28.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-28.1-CLAUDE/after.png"
+  },
+  "Participant_7_CaseStudy-28.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-28.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-28.1-GEMINI/after.png"
+  },
+  "Participant_7_CaseStudy-29.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-29.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-29.1-CLAUDE/after.png"
+  },
+  "Participant_7_CaseStudy-29.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-29.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-29.1-GEMINI/after.png"
+  },
+  "Participant_7_CaseStudy-29.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-29.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-29.1-OPENAI/after.png"
+  },
+  "Participant_7_CaseStudy-30.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-30.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-30.1-OPENAI/after.png"
+  },
+  "Participant_7_CaseStudy-31.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-31.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-31.1-CLAUDE/after.png"
+  },
+  "Participant_7_CaseStudy-31.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-31.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-31.1-GEMINI/after.png"
+  },
+  "Participant_7_CaseStudy-31.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-31.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-31.1-OPENAI/after.png"
+  },
+  "Participant_7_CaseStudy-32.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-32.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-32.1-CLAUDE/after.png"
+  },
+  "Participant_7_CaseStudy-32.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-32.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-32.1-GEMINI/after.png"
+  },
+  "Participant_7_CaseStudy-32.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-32.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-32.1-OPENAI/after.png"
+  },
+  "Participant_7_CaseStudy-33.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-33.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-33.1-CLAUDE/after.png"
+  },
+  "Participant_7_CaseStudy-33.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-33.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-33.1-GEMINI/after.png"
+  },
+  "Participant_7_CaseStudy-33.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-33.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-33.1-OPENAI/after.png"
+  },
+  "Participant_7_CaseStudy-34.1-CLAUDE": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-34.1-CLAUDE/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-34.1-CLAUDE/after.png"
+  },
+  "Participant_7_CaseStudy-34.1-GEMINI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-34.1-GEMINI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-34.1-GEMINI/after.png"
+  },
+  "Participant_7_CaseStudy-34.1-OPENAI": {
+    "before": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-34.1-OPENAI/before.png",
+    "after": "gs://genui-sft/sft-assets/Participant_7_CaseStudy-34.1-OPENAI/after.png"
   }
 }

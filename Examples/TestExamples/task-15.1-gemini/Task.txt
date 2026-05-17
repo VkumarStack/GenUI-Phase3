@@ -1,1 +1,0 @@
-For the active dots section, remove the 'Next' container entirely. Instead, add a left and right icon to the left and right of the dots respectively

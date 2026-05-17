@@ -1,0 +1,239 @@
+{
+  "categories": [
+    {
+      "name": "Instruction Following Failure",
+      "description": "The revision fails to accurately or completely execute the user's explicit instructions."
+    },
+    {
+      "name": "Negative Design Impact",
+      "description": "The revision introduces a new visual, usability, or functional problem, even if it attempts to follow instructions."
+    }
+  ],
+  "assignments": {
+    "Participant_10_CaseStudy-17.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_10_CaseStudy-17.1-OPENAI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_10_CaseStudy-19.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_11_CaseStudy-1.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_11_CaseStudy-1.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_11_CaseStudy-1.2-CLAUDE": [
+      "Negative Design Impact"
+    ],
+    "Participant_11_CaseStudy-1.2-GEMINI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_11_CaseStudy-1.2-OPENAI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_11_CaseStudy-2.1-CLAUDE": [
+      "Negative Design Impact"
+    ],
+    "Participant_11_CaseStudy-2.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_11_CaseStudy-2.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-13.1-OPENAI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_12_CaseStudy-15.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_12_CaseStudy-15.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-22.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_12_CaseStudy-22.1-OPENAI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_12_CaseStudy-25.1-OPENAI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_12_CaseStudy-26.1-CLAUDE": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-26.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-26.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-28.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_12_CaseStudy-28.1-GEMINI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_12_CaseStudy-28.1-OPENAI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_12_CaseStudy-29.1-CLAUDE": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-29.1-GEMINI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_12_CaseStudy-29.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-31.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_12_CaseStudy-31.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-32.1-CLAUDE": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-32.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-32.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-34.1-CLAUDE": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-34.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_12_CaseStudy-34.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_3_CaseStudy-10.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_3_CaseStudy-11.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_3_CaseStudy-2.1-OPENAI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_3_CaseStudy-3.1-OPENAI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_3_CaseStudy-6.1-GEMINI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_6_CaseStudy-12.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_6_CaseStudy-12.1-GEMINI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_6_CaseStudy-12.1-OPENAI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_6_CaseStudy-13.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_6_CaseStudy-13.1-GEMINI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_6_CaseStudy-13.3-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_6_CaseStudy-13.3-OPENAI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_6_CaseStudy-14.2-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_6_CaseStudy-14.2-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-22.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_7_CaseStudy-22.1-GEMINI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_7_CaseStudy-23.1-CLAUDE": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-23.1-GEMINI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_7_CaseStudy-23.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-25.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_7_CaseStudy-27.1-CLAUDE": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-27.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-27.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-28.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_7_CaseStudy-28.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-29.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_7_CaseStudy-29.1-GEMINI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_7_CaseStudy-29.1-OPENAI": [
+      "Instruction Following Failure"
+    ],
+    "Participant_7_CaseStudy-30.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-31.1-CLAUDE": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-31.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-31.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-32.1-CLAUDE": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-32.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-32.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-33.1-CLAUDE": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-33.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-33.1-OPENAI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-34.1-CLAUDE": [
+      "Instruction Following Failure"
+    ],
+    "Participant_7_CaseStudy-34.1-GEMINI": [
+      "Negative Design Impact"
+    ],
+    "Participant_7_CaseStudy-34.1-OPENAI": [
+      "Negative Design Impact"
+    ]
+  }
+}

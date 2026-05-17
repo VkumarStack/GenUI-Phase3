@@ -1,0 +1,397 @@
+{
+  "categories": [
+    {
+      "name": "Faithful Execution",
+      "description": "The AI accurately interpreted and implemented the user's explicit instructions."
+    },
+    {
+      "name": "Design Improvement",
+      "description": "The AI enhanced the UI's usability, clarity, hierarchy, or aesthetics, often demonstrating good design judgment."
+    },
+    {
+      "name": "Contextual Preservation",
+      "description": "The AI maintained consistency with the existing design system, style, or layout, and avoided making unnecessary or disruptive changes."
+    }
+  ],
+  "assignments": {
+    "Participant_10_CaseStudy-15.1-CLAUDE": [
+      "Faithful Execution",
+      "Design Improvement"
+    ],
+    "Participant_10_CaseStudy-16.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_10_CaseStudy-16.1-OPENAI": [
+      "Faithful Execution",
+      "Contextual Preservation"
+    ],
+    "Participant_10_CaseStudy-18.1-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_10_CaseStudy-18.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_10_CaseStudy-18.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_10_CaseStudy-19.1-CLAUDE": [
+      "Faithful Execution",
+      "Design Improvement"
+    ],
+    "Participant_10_CaseStudy-19.1-GEMINI": [
+      "Faithful Execution",
+      "Design Improvement"
+    ],
+    "Participant_10_CaseStudy-19.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_10_CaseStudy-20.1-CLAUDE": [
+      "Faithful Execution",
+      "Design Improvement"
+    ],
+    "Participant_10_CaseStudy-20.1-GEMINI": [
+      "Contextual Preservation"
+    ],
+    "Participant_10_CaseStudy-21.1-GEMINI": [
+      "Faithful Execution",
+      "Design Improvement"
+    ],
+    "Participant_11_CaseStudy-1.1-CLAUDE": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_11_CaseStudy-1.1-GEMINI": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_11_CaseStudy-1.1-OPENAI": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_11_CaseStudy-1.2-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_11_CaseStudy-1.2-GEMINI": [
+      "Design Improvement"
+    ],
+    "Participant_11_CaseStudy-1.2-OPENAI": [
+      "Design Improvement"
+    ],
+    "Participant_11_CaseStudy-2.1-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_11_CaseStudy-2.1-GEMINI": [
+      "Design Improvement"
+    ],
+    "Participant_11_CaseStudy-2.1-OPENAI": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-13.1-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-13.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-13.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-15.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-22.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-22.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-23.1-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-23.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-23.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-24.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-24.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-25.1-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-25.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-25.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-25.2-CLAUDE": [
+      "Faithful Execution",
+      "Contextual Preservation"
+    ],
+    "Participant_12_CaseStudy-25.2-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-25.2-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-25.3-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-25.3-GEMINI": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-25.3-OPENAI": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_12_CaseStudy-25.4-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-25.4-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-25.4-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-26.1-GEMINI": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-26.1-OPENAI": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-28.1-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-28.1-OPENAI": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-29.1-GEMINI": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-30.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-31.1-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-31.1-GEMINI": [
+      "Contextual Preservation"
+    ],
+    "Participant_12_CaseStudy-31.1-OPENAI": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_12_CaseStudy-32.1-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-32.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-32.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_12_CaseStudy-33.1-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-33.1-GEMINI": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-33.1-OPENAI": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-34.1-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_12_CaseStudy-34.1-GEMINI": [
+      "Design Improvement"
+    ],
+    "Participant_2_CaseStudy-1.1-CLAUDE": [
+      "Faithful Execution",
+      "Contextual Preservation"
+    ],
+    "Participant_2_CaseStudy-1.1-GEMINI": [
+      "Faithful Execution",
+      "Contextual Preservation"
+    ],
+    "Participant_2_CaseStudy-1.1-OPENAI": [
+      "Faithful Execution",
+      "Contextual Preservation"
+    ],
+    "Participant_3_CaseStudy-10.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_3_CaseStudy-10.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_3_CaseStudy-11.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_3_CaseStudy-2.1-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_3_CaseStudy-3.1-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_3_CaseStudy-6.1-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_3_CaseStudy-6.1-OPENAI": [
+      "Design Improvement"
+    ],
+    "Participant_3_CaseStudy-8.1-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_3_CaseStudy-8.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_3_CaseStudy-8.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_3_CaseStudy-9.1-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_3_CaseStudy-9.1-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_3_CaseStudy-9.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_6_CaseStudy-12.1-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_6_CaseStudy-12.1-OPENAI": [
+      "Faithful Execution",
+      "Contextual Preservation"
+    ],
+    "Participant_6_CaseStudy-13.1-OPENAI": [
+      "Design Improvement"
+    ],
+    "Participant_6_CaseStudy-13.2-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_6_CaseStudy-13.3-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_6_CaseStudy-13.3-GEMINI": [
+      "Faithful Execution",
+      "Contextual Preservation"
+    ],
+    "Participant_6_CaseStudy-14.1-CLAUDE": [
+      "Faithful Execution"
+    ],
+    "Participant_6_CaseStudy-14.1-GEMINI": [
+      "Faithful Execution",
+      "Contextual Preservation"
+    ],
+    "Participant_6_CaseStudy-14.1-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_6_CaseStudy-14.2-GEMINI": [
+      "Faithful Execution"
+    ],
+    "Participant_6_CaseStudy-14.2-OPENAI": [
+      "Faithful Execution"
+    ],
+    "Participant_7_CaseStudy-22.1-CLAUDE": [
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-22.1-GEMINI": [
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-23.1-CLAUDE": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-23.1-GEMINI": [
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-23.1-OPENAI": [
+      "Design Improvement"
+    ],
+    "Participant_7_CaseStudy-25.1-CLAUDE": [
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-25.1-GEMINI": [
+      "Design Improvement"
+    ],
+    "Participant_7_CaseStudy-26.1-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_7_CaseStudy-26.1-GEMINI": [
+      "Design Improvement"
+    ],
+    "Participant_7_CaseStudy-26.1-OPENAI": [
+      "Design Improvement"
+    ],
+    "Participant_7_CaseStudy-27.1-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_7_CaseStudy-27.1-OPENAI": [
+      "Design Improvement"
+    ],
+    "Participant_7_CaseStudy-28.1-CLAUDE": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-29.1-CLAUDE": [
+      "Design Improvement"
+    ],
+    "Participant_7_CaseStudy-29.1-OPENAI": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-30.1-OPENAI": [
+      "Faithful Execution",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-31.1-CLAUDE": [
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-31.1-GEMINI": [
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-31.1-OPENAI": [
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-32.1-CLAUDE": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-32.1-GEMINI": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-32.1-OPENAI": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-33.1-CLAUDE": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-33.1-GEMINI": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-33.1-OPENAI": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-34.1-CLAUDE": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-34.1-GEMINI": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ],
+    "Participant_7_CaseStudy-34.1-OPENAI": [
+      "Design Improvement",
+      "Contextual Preservation"
+    ]
+  }
+}

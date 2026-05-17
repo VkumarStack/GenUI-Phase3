@@ -1,1 +1,0 @@
-The main text "Everyone. Everything. Everywhere." wraps out of the display for smaller displays. Adjust it so that the font sizes are responsive.

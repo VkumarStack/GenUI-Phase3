@@ -1,8 +1,0 @@
-{
-    "workers": [
-        {"backend": "gemini",    "model": "gemini-2.5-flash"},
-        {"backend": "anthropic", "model": "claude-haiku-4-5"},
-        {"backend": "openai",    "model": "gpt-4o-mini"}
-    ],
-    "aggregator": {"backend": "gemini", "model": "gemini-2.5-flash"}
-}

@@ -1,0 +1,758 @@
+{
+  "train_groups": [
+    "Participant_11_CaseStudy-1.1",
+    "Participant_11_CaseStudy-1.2",
+    "Participant_12_CaseStudy-15.1",
+    "Participant_12_CaseStudy-22.1",
+    "Participant_6_CaseStudy-12.1",
+    "Participant_6_CaseStudy-13.3",
+    "Participant_6_CaseStudy-14.2",
+    "Participant_7_CaseStudy-23.1",
+    "Participant_7_CaseStudy-27.1",
+    "Participant_10_CaseStudy-20.1",
+    "Participant_11_CaseStudy-2.1",
+    "Participant_12_CaseStudy-29.1",
+    "Participant_12_CaseStudy-34.1",
+    "Participant_3_CaseStudy-10.1",
+    "Participant_3_CaseStudy-2.1",
+    "Participant_3_CaseStudy-6.1",
+    "Participant_7_CaseStudy-22.1",
+    "Participant_7_CaseStudy-28.1",
+    "Participant_10_CaseStudy-17.1",
+    "Participant_10_CaseStudy-19.1",
+    "Participant_12_CaseStudy-13.1",
+    "Participant_12_CaseStudy-31.1",
+    "Participant_7_CaseStudy-33.1",
+    "Participant_12_CaseStudy-26.1",
+    "Participant_12_CaseStudy-32.1",
+    "Participant_10_CaseStudy-15.1",
+    "Participant_10_CaseStudy-16.1",
+    "Participant_10_CaseStudy-18.1",
+    "Participant_10_CaseStudy-21.1",
+    "Participant_12_CaseStudy-23.1",
+    "Participant_12_CaseStudy-24.1",
+    "Participant_12_CaseStudy-25.2",
+    "Participant_12_CaseStudy-25.3",
+    "Participant_12_CaseStudy-25.4",
+    "Participant_12_CaseStudy-30.1",
+    "Participant_12_CaseStudy-33.1",
+    "Participant_2_CaseStudy-1.1",
+    "Participant_3_CaseStudy-8.1",
+    "Participant_3_CaseStudy-9.1",
+    "Participant_6_CaseStudy-13.2",
+    "Participant_7_CaseStudy-30.1",
+    "Participant_7_CaseStudy-32.1"
+  ],
+  "test_groups": [
+    "Participant_3_CaseStudy-11.1",
+    "Participant_3_CaseStudy-3.1",
+    "Participant_6_CaseStudy-13.1",
+    "Participant_7_CaseStudy-25.1",
+    "Participant_7_CaseStudy-29.1",
+    "Participant_12_CaseStudy-25.1",
+    "Participant_6_CaseStudy-14.1",
+    "Participant_7_CaseStudy-34.1",
+    "Participant_12_CaseStudy-28.1",
+    "Participant_7_CaseStudy-26.1",
+    "Participant_7_CaseStudy-31.1"
+  ],
+  "train": [
+    {
+      "folder": "Example-000",
+      "source": "Participant_11_CaseStudy-1.1-CLAUDE",
+      "group": "Participant_11_CaseStudy-1.1"
+    },
+    {
+      "folder": "Example-001",
+      "source": "Participant_11_CaseStudy-1.1-GEMINI",
+      "group": "Participant_11_CaseStudy-1.1"
+    },
+    {
+      "folder": "Example-002",
+      "source": "Participant_11_CaseStudy-1.1-OPENAI",
+      "group": "Participant_11_CaseStudy-1.1"
+    },
+    {
+      "folder": "Example-003",
+      "source": "Participant_11_CaseStudy-1.2-CLAUDE",
+      "group": "Participant_11_CaseStudy-1.2"
+    },
+    {
+      "folder": "Example-004",
+      "source": "Participant_11_CaseStudy-1.2-GEMINI",
+      "group": "Participant_11_CaseStudy-1.2"
+    },
+    {
+      "folder": "Example-005",
+      "source": "Participant_11_CaseStudy-1.2-OPENAI",
+      "group": "Participant_11_CaseStudy-1.2"
+    },
+    {
+      "folder": "Example-006",
+      "source": "Participant_12_CaseStudy-15.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-15.1"
+    },
+    {
+      "folder": "Example-007",
+      "source": "Participant_12_CaseStudy-15.1-GEMINI",
+      "group": "Participant_12_CaseStudy-15.1"
+    },
+    {
+      "folder": "Example-008",
+      "source": "Participant_12_CaseStudy-15.1-OPENAI",
+      "group": "Participant_12_CaseStudy-15.1"
+    },
+    {
+      "folder": "Example-009",
+      "source": "Participant_12_CaseStudy-22.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-22.1"
+    },
+    {
+      "folder": "Example-010",
+      "source": "Participant_12_CaseStudy-22.1-GEMINI",
+      "group": "Participant_12_CaseStudy-22.1"
+    },
+    {
+      "folder": "Example-011",
+      "source": "Participant_12_CaseStudy-22.1-OPENAI",
+      "group": "Participant_12_CaseStudy-22.1"
+    },
+    {
+      "folder": "Example-012",
+      "source": "Participant_6_CaseStudy-12.1-CLAUDE",
+      "group": "Participant_6_CaseStudy-12.1"
+    },
+    {
+      "folder": "Example-013",
+      "source": "Participant_6_CaseStudy-12.1-GEMINI",
+      "group": "Participant_6_CaseStudy-12.1"
+    },
+    {
+      "folder": "Example-014",
+      "source": "Participant_6_CaseStudy-12.1-OPENAI",
+      "group": "Participant_6_CaseStudy-12.1"
+    },
+    {
+      "folder": "Example-015",
+      "source": "Participant_6_CaseStudy-13.3-CLAUDE",
+      "group": "Participant_6_CaseStudy-13.3"
+    },
+    {
+      "folder": "Example-016",
+      "source": "Participant_6_CaseStudy-13.3-GEMINI",
+      "group": "Participant_6_CaseStudy-13.3"
+    },
+    {
+      "folder": "Example-017",
+      "source": "Participant_6_CaseStudy-13.3-OPENAI",
+      "group": "Participant_6_CaseStudy-13.3"
+    },
+    {
+      "folder": "Example-018",
+      "source": "Participant_6_CaseStudy-14.2-CLAUDE",
+      "group": "Participant_6_CaseStudy-14.2"
+    },
+    {
+      "folder": "Example-019",
+      "source": "Participant_6_CaseStudy-14.2-GEMINI",
+      "group": "Participant_6_CaseStudy-14.2"
+    },
+    {
+      "folder": "Example-020",
+      "source": "Participant_6_CaseStudy-14.2-OPENAI",
+      "group": "Participant_6_CaseStudy-14.2"
+    },
+    {
+      "folder": "Example-021",
+      "source": "Participant_7_CaseStudy-23.1-CLAUDE",
+      "group": "Participant_7_CaseStudy-23.1"
+    },
+    {
+      "folder": "Example-022",
+      "source": "Participant_7_CaseStudy-23.1-GEMINI",
+      "group": "Participant_7_CaseStudy-23.1"
+    },
+    {
+      "folder": "Example-023",
+      "source": "Participant_7_CaseStudy-23.1-OPENAI",
+      "group": "Participant_7_CaseStudy-23.1"
+    },
+    {
+      "folder": "Example-024",
+      "source": "Participant_7_CaseStudy-27.1-CLAUDE",
+      "group": "Participant_7_CaseStudy-27.1"
+    },
+    {
+      "folder": "Example-025",
+      "source": "Participant_7_CaseStudy-27.1-GEMINI",
+      "group": "Participant_7_CaseStudy-27.1"
+    },
+    {
+      "folder": "Example-026",
+      "source": "Participant_7_CaseStudy-27.1-OPENAI",
+      "group": "Participant_7_CaseStudy-27.1"
+    },
+    {
+      "folder": "Example-027",
+      "source": "Participant_10_CaseStudy-20.1-CLAUDE",
+      "group": "Participant_10_CaseStudy-20.1"
+    },
+    {
+      "folder": "Example-028",
+      "source": "Participant_10_CaseStudy-20.1-GEMINI",
+      "group": "Participant_10_CaseStudy-20.1"
+    },
+    {
+      "folder": "Example-029",
+      "source": "Participant_11_CaseStudy-2.1-CLAUDE",
+      "group": "Participant_11_CaseStudy-2.1"
+    },
+    {
+      "folder": "Example-030",
+      "source": "Participant_11_CaseStudy-2.1-GEMINI",
+      "group": "Participant_11_CaseStudy-2.1"
+    },
+    {
+      "folder": "Example-031",
+      "source": "Participant_11_CaseStudy-2.1-OPENAI",
+      "group": "Participant_11_CaseStudy-2.1"
+    },
+    {
+      "folder": "Example-032",
+      "source": "Participant_12_CaseStudy-29.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-29.1"
+    },
+    {
+      "folder": "Example-033",
+      "source": "Participant_12_CaseStudy-29.1-GEMINI",
+      "group": "Participant_12_CaseStudy-29.1"
+    },
+    {
+      "folder": "Example-034",
+      "source": "Participant_12_CaseStudy-29.1-OPENAI",
+      "group": "Participant_12_CaseStudy-29.1"
+    },
+    {
+      "folder": "Example-035",
+      "source": "Participant_12_CaseStudy-34.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-34.1"
+    },
+    {
+      "folder": "Example-036",
+      "source": "Participant_12_CaseStudy-34.1-GEMINI",
+      "group": "Participant_12_CaseStudy-34.1"
+    },
+    {
+      "folder": "Example-037",
+      "source": "Participant_12_CaseStudy-34.1-OPENAI",
+      "group": "Participant_12_CaseStudy-34.1"
+    },
+    {
+      "folder": "Example-038",
+      "source": "Participant_3_CaseStudy-10.1-CLAUDE",
+      "group": "Participant_3_CaseStudy-10.1"
+    },
+    {
+      "folder": "Example-039",
+      "source": "Participant_3_CaseStudy-10.1-GEMINI",
+      "group": "Participant_3_CaseStudy-10.1"
+    },
+    {
+      "folder": "Example-040",
+      "source": "Participant_3_CaseStudy-10.1-OPENAI",
+      "group": "Participant_3_CaseStudy-10.1"
+    },
+    {
+      "folder": "Example-041",
+      "source": "Participant_3_CaseStudy-2.1-CLAUDE",
+      "group": "Participant_3_CaseStudy-2.1"
+    },
+    {
+      "folder": "Example-042",
+      "source": "Participant_3_CaseStudy-2.1-OPENAI",
+      "group": "Participant_3_CaseStudy-2.1"
+    },
+    {
+      "folder": "Example-043",
+      "source": "Participant_3_CaseStudy-6.1-CLAUDE",
+      "group": "Participant_3_CaseStudy-6.1"
+    },
+    {
+      "folder": "Example-044",
+      "source": "Participant_3_CaseStudy-6.1-GEMINI",
+      "group": "Participant_3_CaseStudy-6.1"
+    },
+    {
+      "folder": "Example-045",
+      "source": "Participant_3_CaseStudy-6.1-OPENAI",
+      "group": "Participant_3_CaseStudy-6.1"
+    },
+    {
+      "folder": "Example-046",
+      "source": "Participant_7_CaseStudy-22.1-CLAUDE",
+      "group": "Participant_7_CaseStudy-22.1"
+    },
+    {
+      "folder": "Example-047",
+      "source": "Participant_7_CaseStudy-22.1-GEMINI",
+      "group": "Participant_7_CaseStudy-22.1"
+    },
+    {
+      "folder": "Example-048",
+      "source": "Participant_7_CaseStudy-28.1-CLAUDE",
+      "group": "Participant_7_CaseStudy-28.1"
+    },
+    {
+      "folder": "Example-049",
+      "source": "Participant_7_CaseStudy-28.1-GEMINI",
+      "group": "Participant_7_CaseStudy-28.1"
+    },
+    {
+      "folder": "Example-050",
+      "source": "Participant_10_CaseStudy-17.1-CLAUDE",
+      "group": "Participant_10_CaseStudy-17.1"
+    },
+    {
+      "folder": "Example-051",
+      "source": "Participant_10_CaseStudy-17.1-OPENAI",
+      "group": "Participant_10_CaseStudy-17.1"
+    },
+    {
+      "folder": "Example-052",
+      "source": "Participant_10_CaseStudy-19.1-CLAUDE",
+      "group": "Participant_10_CaseStudy-19.1"
+    },
+    {
+      "folder": "Example-053",
+      "source": "Participant_10_CaseStudy-19.1-GEMINI",
+      "group": "Participant_10_CaseStudy-19.1"
+    },
+    {
+      "folder": "Example-054",
+      "source": "Participant_10_CaseStudy-19.1-OPENAI",
+      "group": "Participant_10_CaseStudy-19.1"
+    },
+    {
+      "folder": "Example-055",
+      "source": "Participant_12_CaseStudy-13.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-13.1"
+    },
+    {
+      "folder": "Example-056",
+      "source": "Participant_12_CaseStudy-13.1-GEMINI",
+      "group": "Participant_12_CaseStudy-13.1"
+    },
+    {
+      "folder": "Example-057",
+      "source": "Participant_12_CaseStudy-13.1-OPENAI",
+      "group": "Participant_12_CaseStudy-13.1"
+    },
+    {
+      "folder": "Example-058",
+      "source": "Participant_12_CaseStudy-31.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-31.1"
+    },
+    {
+      "folder": "Example-059",
+      "source": "Participant_12_CaseStudy-31.1-GEMINI",
+      "group": "Participant_12_CaseStudy-31.1"
+    },
+    {
+      "folder": "Example-060",
+      "source": "Participant_12_CaseStudy-31.1-OPENAI",
+      "group": "Participant_12_CaseStudy-31.1"
+    },
+    {
+      "folder": "Example-061",
+      "source": "Participant_7_CaseStudy-33.1-CLAUDE",
+      "group": "Participant_7_CaseStudy-33.1"
+    },
+    {
+      "folder": "Example-062",
+      "source": "Participant_7_CaseStudy-33.1-GEMINI",
+      "group": "Participant_7_CaseStudy-33.1"
+    },
+    {
+      "folder": "Example-063",
+      "source": "Participant_7_CaseStudy-33.1-OPENAI",
+      "group": "Participant_7_CaseStudy-33.1"
+    },
+    {
+      "folder": "Example-064",
+      "source": "Participant_12_CaseStudy-26.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-26.1"
+    },
+    {
+      "folder": "Example-065",
+      "source": "Participant_12_CaseStudy-26.1-GEMINI",
+      "group": "Participant_12_CaseStudy-26.1"
+    },
+    {
+      "folder": "Example-066",
+      "source": "Participant_12_CaseStudy-26.1-OPENAI",
+      "group": "Participant_12_CaseStudy-26.1"
+    },
+    {
+      "folder": "Example-067",
+      "source": "Participant_12_CaseStudy-32.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-32.1"
+    },
+    {
+      "folder": "Example-068",
+      "source": "Participant_12_CaseStudy-32.1-GEMINI",
+      "group": "Participant_12_CaseStudy-32.1"
+    },
+    {
+      "folder": "Example-069",
+      "source": "Participant_12_CaseStudy-32.1-OPENAI",
+      "group": "Participant_12_CaseStudy-32.1"
+    },
+    {
+      "folder": "Example-070",
+      "source": "Participant_10_CaseStudy-15.1-CLAUDE",
+      "group": "Participant_10_CaseStudy-15.1"
+    },
+    {
+      "folder": "Example-071",
+      "source": "Participant_10_CaseStudy-16.1-GEMINI",
+      "group": "Participant_10_CaseStudy-16.1"
+    },
+    {
+      "folder": "Example-072",
+      "source": "Participant_10_CaseStudy-16.1-OPENAI",
+      "group": "Participant_10_CaseStudy-16.1"
+    },
+    {
+      "folder": "Example-073",
+      "source": "Participant_10_CaseStudy-18.1-CLAUDE",
+      "group": "Participant_10_CaseStudy-18.1"
+    },
+    {
+      "folder": "Example-074",
+      "source": "Participant_10_CaseStudy-18.1-GEMINI",
+      "group": "Participant_10_CaseStudy-18.1"
+    },
+    {
+      "folder": "Example-075",
+      "source": "Participant_10_CaseStudy-18.1-OPENAI",
+      "group": "Participant_10_CaseStudy-18.1"
+    },
+    {
+      "folder": "Example-076",
+      "source": "Participant_10_CaseStudy-21.1-GEMINI",
+      "group": "Participant_10_CaseStudy-21.1"
+    },
+    {
+      "folder": "Example-077",
+      "source": "Participant_12_CaseStudy-23.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-23.1"
+    },
+    {
+      "folder": "Example-078",
+      "source": "Participant_12_CaseStudy-23.1-GEMINI",
+      "group": "Participant_12_CaseStudy-23.1"
+    },
+    {
+      "folder": "Example-079",
+      "source": "Participant_12_CaseStudy-23.1-OPENAI",
+      "group": "Participant_12_CaseStudy-23.1"
+    },
+    {
+      "folder": "Example-080",
+      "source": "Participant_12_CaseStudy-24.1-GEMINI",
+      "group": "Participant_12_CaseStudy-24.1"
+    },
+    {
+      "folder": "Example-081",
+      "source": "Participant_12_CaseStudy-24.1-OPENAI",
+      "group": "Participant_12_CaseStudy-24.1"
+    },
+    {
+      "folder": "Example-082",
+      "source": "Participant_12_CaseStudy-25.2-CLAUDE",
+      "group": "Participant_12_CaseStudy-25.2"
+    },
+    {
+      "folder": "Example-083",
+      "source": "Participant_12_CaseStudy-25.2-GEMINI",
+      "group": "Participant_12_CaseStudy-25.2"
+    },
+    {
+      "folder": "Example-084",
+      "source": "Participant_12_CaseStudy-25.2-OPENAI",
+      "group": "Participant_12_CaseStudy-25.2"
+    },
+    {
+      "folder": "Example-085",
+      "source": "Participant_12_CaseStudy-25.3-CLAUDE",
+      "group": "Participant_12_CaseStudy-25.3"
+    },
+    {
+      "folder": "Example-086",
+      "source": "Participant_12_CaseStudy-25.3-GEMINI",
+      "group": "Participant_12_CaseStudy-25.3"
+    },
+    {
+      "folder": "Example-087",
+      "source": "Participant_12_CaseStudy-25.3-OPENAI",
+      "group": "Participant_12_CaseStudy-25.3"
+    },
+    {
+      "folder": "Example-088",
+      "source": "Participant_12_CaseStudy-25.4-CLAUDE",
+      "group": "Participant_12_CaseStudy-25.4"
+    },
+    {
+      "folder": "Example-089",
+      "source": "Participant_12_CaseStudy-25.4-GEMINI",
+      "group": "Participant_12_CaseStudy-25.4"
+    },
+    {
+      "folder": "Example-090",
+      "source": "Participant_12_CaseStudy-25.4-OPENAI",
+      "group": "Participant_12_CaseStudy-25.4"
+    },
+    {
+      "folder": "Example-091",
+      "source": "Participant_12_CaseStudy-30.1-OPENAI",
+      "group": "Participant_12_CaseStudy-30.1"
+    },
+    {
+      "folder": "Example-092",
+      "source": "Participant_12_CaseStudy-33.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-33.1"
+    },
+    {
+      "folder": "Example-093",
+      "source": "Participant_12_CaseStudy-33.1-GEMINI",
+      "group": "Participant_12_CaseStudy-33.1"
+    },
+    {
+      "folder": "Example-094",
+      "source": "Participant_12_CaseStudy-33.1-OPENAI",
+      "group": "Participant_12_CaseStudy-33.1"
+    },
+    {
+      "folder": "Example-095",
+      "source": "Participant_2_CaseStudy-1.1-CLAUDE",
+      "group": "Participant_2_CaseStudy-1.1"
+    },
+    {
+      "folder": "Example-096",
+      "source": "Participant_2_CaseStudy-1.1-GEMINI",
+      "group": "Participant_2_CaseStudy-1.1"
+    },
+    {
+      "folder": "Example-097",
+      "source": "Participant_2_CaseStudy-1.1-OPENAI",
+      "group": "Participant_2_CaseStudy-1.1"
+    },
+    {
+      "folder": "Example-098",
+      "source": "Participant_3_CaseStudy-8.1-CLAUDE",
+      "group": "Participant_3_CaseStudy-8.1"
+    },
+    {
+      "folder": "Example-099",
+      "source": "Participant_3_CaseStudy-8.1-GEMINI",
+      "group": "Participant_3_CaseStudy-8.1"
+    },
+    {
+      "folder": "Example-100",
+      "source": "Participant_3_CaseStudy-8.1-OPENAI",
+      "group": "Participant_3_CaseStudy-8.1"
+    },
+    {
+      "folder": "Example-101",
+      "source": "Participant_3_CaseStudy-9.1-CLAUDE",
+      "group": "Participant_3_CaseStudy-9.1"
+    },
+    {
+      "folder": "Example-102",
+      "source": "Participant_3_CaseStudy-9.1-GEMINI",
+      "group": "Participant_3_CaseStudy-9.1"
+    },
+    {
+      "folder": "Example-103",
+      "source": "Participant_3_CaseStudy-9.1-OPENAI",
+      "group": "Participant_3_CaseStudy-9.1"
+    },
+    {
+      "folder": "Example-104",
+      "source": "Participant_6_CaseStudy-13.2-CLAUDE",
+      "group": "Participant_6_CaseStudy-13.2"
+    },
+    {
+      "folder": "Example-105",
+      "source": "Participant_7_CaseStudy-30.1-OPENAI",
+      "group": "Participant_7_CaseStudy-30.1"
+    },
+    {
+      "folder": "Example-106",
+      "source": "Participant_7_CaseStudy-32.1-CLAUDE",
+      "group": "Participant_7_CaseStudy-32.1"
+    },
+    {
+      "folder": "Example-107",
+      "source": "Participant_7_CaseStudy-32.1-GEMINI",
+      "group": "Participant_7_CaseStudy-32.1"
+    },
+    {
+      "folder": "Example-108",
+      "source": "Participant_7_CaseStudy-32.1-OPENAI",
+      "group": "Participant_7_CaseStudy-32.1"
+    }
+  ],
+  "test": [
+    {
+      "folder": "Example-000",
+      "source": "Participant_3_CaseStudy-11.1-CLAUDE",
+      "group": "Participant_3_CaseStudy-11.1"
+    },
+    {
+      "folder": "Example-001",
+      "source": "Participant_3_CaseStudy-11.1-OPENAI",
+      "group": "Participant_3_CaseStudy-11.1"
+    },
+    {
+      "folder": "Example-002",
+      "source": "Participant_3_CaseStudy-3.1-CLAUDE",
+      "group": "Participant_3_CaseStudy-3.1"
+    },
+    {
+      "folder": "Example-003",
+      "source": "Participant_3_CaseStudy-3.1-OPENAI",
+      "group": "Participant_3_CaseStudy-3.1"
+    },
+    {
+      "folder": "Example-004",
+      "source": "Participant_6_CaseStudy-13.1-CLAUDE",
+      "group": "Participant_6_CaseStudy-13.1"
+    },
+    {
+      "folder": "Example-005",
+      "source": "Participant_6_CaseStudy-13.1-GEMINI",
+      "group": "Participant_6_CaseStudy-13.1"
+    },
+    {
+      "folder": "Example-006",
+      "source": "Participant_6_CaseStudy-13.1-OPENAI",
+      "group": "Participant_6_CaseStudy-13.1"
+    },
+    {
+      "folder": "Example-007",
+      "source": "Participant_7_CaseStudy-25.1-CLAUDE",
+      "group": "Participant_7_CaseStudy-25.1"
+    },
+    {
+      "folder": "Example-008",
+      "source": "Participant_7_CaseStudy-25.1-GEMINI",
+      "group": "Participant_7_CaseStudy-25.1"
+    },
+    {
+      "folder": "Example-009",
+      "source": "Participant_7_CaseStudy-29.1-CLAUDE",
+      "group": "Participant_7_CaseStudy-29.1"
+    },
+    {
+      "folder": "Example-010",
+      "source": "Participant_7_CaseStudy-29.1-GEMINI",
+      "group": "Participant_7_CaseStudy-29.1"
+    },
+    {
+      "folder": "Example-011",
+      "source": "Participant_7_CaseStudy-29.1-OPENAI",
+      "group": "Participant_7_CaseStudy-29.1"
+    },
+    {
+      "folder": "Example-012",
+      "source": "Participant_12_CaseStudy-25.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-25.1"
+    },
+    {
+      "folder": "Example-013",
+      "source": "Participant_12_CaseStudy-25.1-GEMINI",
+      "group": "Participant_12_CaseStudy-25.1"
+    },
+    {
+      "folder": "Example-014",
+      "source": "Participant_12_CaseStudy-25.1-OPENAI",
+      "group": "Participant_12_CaseStudy-25.1"
+    },
+    {
+      "folder": "Example-015",
+      "source": "Participant_6_CaseStudy-14.1-CLAUDE",
+      "group": "Participant_6_CaseStudy-14.1"
+    },
+    {
+      "folder": "Example-016",
+      "source": "Participant_6_CaseStudy-14.1-GEMINI",
+      "group": "Participant_6_CaseStudy-14.1"
+    },
+    {
+      "folder": "Example-017",
+      "source": "Participant_6_CaseStudy-14.1-OPENAI",
+      "group": "Participant_6_CaseStudy-14.1"
+    },
+    {
+      "folder": "Example-018",
+      "source": "Participant_7_CaseStudy-34.1-CLAUDE",
+      "group": "Participant_7_CaseStudy-34.1"
+    },
+    {
+      "folder": "Example-019",
+      "source": "Participant_7_CaseStudy-34.1-GEMINI",
+      "group": "Participant_7_CaseStudy-34.1"
+    },
+    {
+      "folder": "Example-020",
+      "source": "Participant_7_CaseStudy-34.1-OPENAI",
+      "group": "Participant_7_CaseStudy-34.1"
+    },
+    {
+      "folder": "Example-021",
+      "source": "Participant_12_CaseStudy-28.1-CLAUDE",
+      "group": "Participant_12_CaseStudy-28.1"
+    },
+    {
+      "folder": "Example-022",
+      "source": "Participant_12_CaseStudy-28.1-GEMINI",
+      "group": "Participant_12_CaseStudy-28.1"
+    },
+    {
+      "folder": "Example-023",
+      "source": "Participant_12_CaseStudy-28.1-OPENAI",
+      "group": "Participant_12_CaseStudy-28.1"
+    },
+    {
+      "folder": "Example-024",
+      "source": "Participant_7_CaseStudy-26.1-CLAUDE",
+      "group": "Participant_7_CaseStudy-26.1"
+    },
+    {
+      "folder": "Example-025",
+      "source": "Participant_7_CaseStudy-26.1-GEMINI",
+      "group": "Participant_7_CaseStudy-26.1"
+    },
+    {
+      "folder": "Example-026",
+      "source": "Participant_7_CaseStudy-26.1-OPENAI",
+      "group": "Participant_7_CaseStudy-26.1"
+    },
+    {
+      "folder": "Example-027",
+      "source": "Participant_7_CaseStudy-31.1-CLAUDE",
+      "group": "Participant_7_CaseStudy-31.1"
+    },
+    {
+      "folder": "Example-028",
+      "source": "Participant_7_CaseStudy-31.1-GEMINI",
+      "group": "Participant_7_CaseStudy-31.1"
+    },
+    {
+      "folder": "Example-029",
+      "source": "Participant_7_CaseStudy-31.1-OPENAI",
+      "group": "Participant_7_CaseStudy-31.1"
+    }
+  ]
+}

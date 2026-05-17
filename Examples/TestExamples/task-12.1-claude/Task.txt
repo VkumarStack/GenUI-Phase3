@@ -1,1 +1,0 @@
-Encompass the 'Paktor' and 'Create meanginful connections' components into a single container, and have this container use a grey, slightly (very slightly) transparent background.

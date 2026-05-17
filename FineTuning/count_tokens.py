@@ -9,17 +9,24 @@ Authentication: uses GOOGLE_API_KEY from the environment (same key used for
 evaluation). No Vertex AI credentials required.
 
 Usage:
-    python FineTuning/count_tokens.py
+    # Evaluator model dataset
     python FineTuning/count_tokens.py \\
-        --dataset FineTuning/train.jsonl \\
-        --examples-dir Examples/FineTuningExamples \\
+        --dataset FineTuning/Evaluator/train.jsonl
+
+    # Revision generator model dataset
+    python FineTuning/count_tokens.py \\
+        --dataset FineTuning/RevisionGenerator/train.jsonl
+
+    # Full options
+    python FineTuning/count_tokens.py \\
+        --dataset FineTuning/Evaluator/train.jsonl \\
+        --raw-dataset Datasets/RawDataset \\
         --model gemini-2.5-pro \\
         --epochs 3 \\
-        --price-per-million 10.00
+        --price-per-million 25.00
 """
 
 import argparse
-import base64
 import json
 import os
 import re
@@ -29,24 +36,25 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-load_dotenv(Path(__file__).parent.parent / "Evaluation" / ".env")
+load_dotenv(Path(__file__).parent.parent / "Util" / ".env")
+
+_ROOT = Path(__file__).parent.parent
 
 
-def gcs_uri_to_local(uri: str, examples_dir: Path) -> Path | None:
+def gcs_uri_to_local(uri: str, raw_dataset: Path) -> Path | None:
     """
-    Map a GCS URI like gs://bucket/sft-assets/task-1.1-claude/before.png
-    to its local path under examples_dir/task-1.1-claude/Before/screenshot.png.
+    Map a GCS URI like gs://bucket/sft-assets/Participant_X_CaseStudy-Y.Z-MODEL/before.png
+    to its local path under raw_dataset/Participant_X_CaseStudy-Y.Z-MODEL/Before/screenshot.png.
     """
-    # Extract the example name and variant (before/after) from the URI.
     m = re.search(r"/([^/]+)/(before|after)\.png$", uri, re.IGNORECASE)
     if not m:
         return None
-    example_name, variant = m.group(1), m.group(2).lower()
+    folder_name, variant = m.group(1), m.group(2).lower()
     subdir = "Before" if variant == "before" else "After"
-    return examples_dir / example_name / subdir / "screenshot.png"
+    return raw_dataset / folder_name / subdir / "screenshot.png"
 
 
-def build_api_contents(record: dict, examples_dir: Path) -> tuple[list, list]:
+def build_api_contents(record: dict, raw_dataset: Path) -> tuple[list, list]:
     """
     Convert a JSONL record into google-genai Content objects, replacing
     fileData GCS URIs with inline image bytes from local files.
@@ -63,13 +71,12 @@ def build_api_contents(record: dict, examples_dir: Path) -> tuple[list, list]:
                 parts.append(types.Part.from_text(text=part["text"]))
             elif "fileData" in part:
                 uri = part["fileData"]["fileUri"]
-                local_path = gcs_uri_to_local(uri, examples_dir)
+                local_path = gcs_uri_to_local(uri, raw_dataset)
                 if local_path and local_path.exists():
                     image_bytes = local_path.read_bytes()
                     parts.append(types.Part.from_bytes(data=image_bytes, mime_type="image/png"))
                 else:
                     warnings.append(f"Missing local file for {uri}")
-                    # Fall back to a placeholder text so counting still runs.
                     parts.append(types.Part.from_text(text=f"[image: {uri}]"))
         contents.append(types.Content(role=turn["role"], parts=parts))
 
@@ -78,23 +85,25 @@ def build_api_contents(record: dict, examples_dir: Path) -> tuple[list, list]:
 
 def main():
     parser = argparse.ArgumentParser(description="Count SFT training tokens and estimate cost.")
-    parser.add_argument("--dataset",      default="FineTuning/train.jsonl")
-    parser.add_argument("--examples-dir", default="Examples/FineTuningExamples")
+    parser.add_argument("--dataset",      required=True,
+                        help="Path to train.jsonl (e.g. FineTuning/Evaluator/train.jsonl).")
+    parser.add_argument("--raw-dataset",  default=str(_ROOT / "Datasets" / "RawDataset"),
+                        help="Path to Datasets/RawDataset/ for local image resolution.")
     parser.add_argument("--model",        default="gemini-2.5-pro")
     parser.add_argument("--epochs",       type=int,   default=3)
-    parser.add_argument("--price-per-million", type=float, default=None,
-                        help="Cost per 1M training tokens (USD). If omitted, cost is not printed.")
+    parser.add_argument("--price-per-million", type=float, default=25.0,
+                        help="Cost per 1M training tokens (USD). Default: 25.0.")
     args = parser.parse_args()
 
-    dataset_path  = Path(args.dataset)
-    examples_dir  = Path(args.examples_dir)
+    dataset_path = Path(args.dataset)
+    raw_dataset  = Path(args.raw_dataset)
 
     if not dataset_path.exists():
         raise SystemExit(f"Dataset not found: {dataset_path}")
 
     api_key = os.environ.get("GOOGLE_API_KEY")
     if not api_key:
-        raise SystemExit("GOOGLE_API_KEY not set in environment or Evaluation/.env")
+        raise SystemExit("GOOGLE_API_KEY not set in environment or Util/.env")
 
     client = genai.Client(api_key=api_key)
 
@@ -110,16 +119,13 @@ def main():
     for i, line in enumerate(lines):
         record = json.loads(line)
 
-        # System instruction text.
         sys_text = " ".join(
             p["text"] for p in record.get("systemInstruction", {}).get("parts", [])
         )
 
-        contents, warnings = build_api_contents(record, examples_dir)
+        contents, warnings = build_api_contents(record, raw_dataset)
         all_warnings.extend(warnings)
 
-        # Prepend the system instruction as a user turn so it's counted
-        # without needing CountTokensConfig (not supported by the Gemini API).
         all_contents = []
         if sys_text:
             all_contents.append(types.Content(
@@ -136,7 +142,6 @@ def main():
         tokens = result.total_tokens
         total_tokens += tokens
 
-        # Extract example name for display.
         try:
             first_file_uri = next(
                 p["fileData"]["fileUri"]
@@ -149,17 +154,16 @@ def main():
         except StopIteration:
             name = f"example-{i+1}"
 
-        print(f"  {name:<35}  {tokens:>6,} tokens")
+        print(f"  {name:<45}  {tokens:>6,} tokens")
 
     print()
-    print(f"{'─'*55}")
+    print(f"{'─'*65}")
     print(f"  Total tokens (1 epoch):   {total_tokens:>10,}")
     print(f"  × {args.epochs} epochs:              {total_tokens * args.epochs:>10,}")
 
-    if args.price_per_million is not None:
-        billable = total_tokens * args.epochs
-        cost = billable / 1_000_000 * args.price_per_million
-        print(f"  Estimated cost:           ${cost:>9.4f}  (at ${args.price_per_million}/M tokens)")
+    billable = total_tokens * args.epochs
+    cost = billable / 1_000_000 * args.price_per_million
+    print(f"  Estimated cost:           ${cost:>9.4f}  (at ${args.price_per_million}/M tokens)")
 
     if all_warnings:
         print(f"\nWarnings ({len(all_warnings)}):")

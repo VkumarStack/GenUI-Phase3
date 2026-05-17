@@ -1,1 +1,0 @@
-The color of the 'or' section and the corresponding lines to the left and right should be adjusted to white instead of the grey color that they are currently.

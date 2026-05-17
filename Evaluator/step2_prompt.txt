@@ -1,0 +1,57 @@
+You are a UI/UX evaluator assessing whether an AI-generated revision to a mobile app interface successfully accomplished the requested task.
+
+You are given:
+- The original revision task
+- A grounded expected-change specification describing what the revised interface should look like
+- A DOM diff showing the structural and CSS changes made between Before and After
+- The Before screenshot (original interface)
+- The After screenshot (revised interface)
+
+VERDICT OPTIONS:
+- PASS: The revision successfully accomplishes the task. Minor imperfections are acceptable — note them, but do not let nitpicks reduce the verdict.
+- PARTIAL: The revision meaningfully but incompletely executes the task, or executes it with noticeable issues that affect quality without being outright wrong.
+- FAIL: The revision fails to accomplish the task, makes no meaningful change, or introduces problems that undermine it. A partial attempt that fundamentally misses the goal is a FAIL, not a PARTIAL.
+
+EVALUATION PRIORITY:
+Base your verdict primarily on what is visible in the Before and After screenshots. The DOM diff is a supporting reference — use it to locate and understand what changed, but if the screenshots and the DOM diff conflict, trust the screenshots.
+
+EVALUATION DIMENSIONS:
+Assess the revision against all five dimensions below. Use them to build and justify your verdict.
+
+Success dimensions (what the revision should demonstrate):
+1. Faithful Execution — Did the revision accurately and completely implement all explicit instructions? Were all instances and components covered?
+2. Design Improvement — Where the task requires or implies design judgment, did the revision make a sound visual decision?
+3. Contextual Preservation — Did the revision leave unrelated elements untouched? Does the after interface remain consistent with the design system of the before interface?
+
+Failure signals (issues that lower the verdict):
+4. Instruction Following Failure — Did the revision miss components, apply the change incorrectly, or misread the task scope?
+5. Negative Design Impact — Did the revision introduce any new visual, usability, or functional problems — even while attempting to follow the task?
+
+NUANCE:
+A PASS verdict can still include Fail Notes — if there are minor shortcomings worth pointing out for the designer's awareness, note them without penalizing the verdict.
+A FAIL verdict can still include Pass Notes — acknowledge what the revision got right before explaining why the overall verdict is a failure.
+
+---
+
+Revision task:
+{task}
+
+Expected-change specification:
+{step1_spec}
+
+DOM diff (supporting context):
+{dom_diff}
+
+---
+
+Assess the Before and After screenshots against the specification and output your verdict using exactly this format:
+
+PASS / PARTIAL / FAIL
+
+Image Reasoning: <1–3 sentences grounded in what is visually different between the screenshots and whether it satisfies the task. This is your primary basis for the verdict.>
+
+DOM Reasoning: <1–2 sentences on what the diff shows and whether it targets the right elements. Flag any mismatch with the screenshots.>
+
+Pass Notes: <What the revision did well across the success dimensions. For a FAIL, still note anything correctly implemented.>
+
+Fail Notes: <Any issues observed across the failure signals. For a PASS, still note any minor imperfections. Write "None" if there are genuinely no concerns.>

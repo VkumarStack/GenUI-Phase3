@@ -1,1 +1,0 @@
-Hovering over certain icons, like those associated with liking, commenting, sending, or saving a post, does not feel responsive. Adjust so that they change in color when hovered over.

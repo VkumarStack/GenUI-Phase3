@@ -1,1 +1,0 @@
-The container which has the fork and spoon icons currently has a white border. Change the border to be a fully dark red instead.

@@ -1,1 +1,0 @@
-For the first two containers, 'Street View' and 'Live Cam', adjust so that the main text (e.g. 'Street View' and 'Live Cam') are directly in the center and have an increased font size. Move the 'Search' text to be below these respective main texts, though with a smaller font size.

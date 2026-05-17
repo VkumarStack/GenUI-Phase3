@@ -1,1 +1,0 @@
-Adjust the layout of the main containers (e.g. Calendar, Recipes, Groceries). Instead of two containers per row, include instead one container per row (and increase the text size as a result). Instead of a slightly transparent background for each container, keep it fully opaque.

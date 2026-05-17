@@ -1,0 +1,733 @@
+{
+  "Participant_10_CaseStudy-17.1-CLAUDE": {
+    "task": "There is extra white space between the image and the title \"colorfit\", remove this space to make the layout look better",
+    "verdict": "FAIL",
+    "reason": "No change from the original.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_10_CaseStudy-17.1-OPENAI": {
+    "task": "There is extra white space between the image and the title \"colorfit\", remove this space to make the layout look better",
+    "verdict": "FAIL",
+    "reason": "Removed the space at the BOTTOM but not at the TOP.",
+    "labels": [
+      "Incomplete implementation",
+      "Inconsistency"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Incomplete implementation\",\n    \"Inconsistency\"\n  ]\n}\n```"
+  },
+  "Participant_10_CaseStudy-19.1-OPENAI": {
+    "task": "I dislike the fact that there is a pause button and then a time on the right, can you create a combined feature which is a circle, with the pause in the middle and the lining of the circle representing how much time is left? For example if the timer is for one minute and there are 30 seconds left I want the circle to have a blue (match the color of the header bar) lining on it but only to halfway of the circle (similar to how Apple's timer does it). I also want you to also have the time remaining as a grey number just above the pause inside the circle.",
+    "verdict": "PARTIAL",
+    "reason": "There are overlapping elements and the time is ticking counterclock-wise which is not intuitive.",
+    "labels": [
+      "Usability regression",
+      "Unintended visual regression"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Usability regression\",\n    \"Unintended visual regression\"\n  ]\n}\n```"
+  },
+  "Participant_11_CaseStudy-1.1-GEMINI": {
+    "task": "I see a problem with no clear CTA on each card, specifically at the bottom of each card. Add a \"View Pass\" or \"Select\" button to make the next step obvious",
+    "verdict": "PARTIAL",
+    "reason": "The button padding is excessive for mobile standards, making it feel oversized and out of proportion with the rest of the UI. Combined with a somewhat cluttered layout, the overall experience feels unrefined and could benefit from tighter spacing and better visual balance.",
+    "labels": [
+      "Imbalanced layout",
+      "Poor spacing / padding"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Imbalanced layout\",\n    \"Poor spacing / padding\"\n  ]\n}\n```"
+  },
+  "Participant_11_CaseStudy-1.1-OPENAI": {
+    "task": "I see a problem with no clear CTA on each card, specifically at the bottom of each card. Add a \"View Pass\" or \"Select\" button to make the next step obvious",
+    "verdict": "FAIL",
+    "reason": "Failed to add a CTA that effectively drives user action.",
+    "labels": [
+      "Ineffective implementation",
+      "Design pattern inconsistency"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Ineffective implementation\",\n    \"Design pattern inconsistency\"\n  ]\n}\n```"
+  },
+  "Participant_11_CaseStudy-1.2-CLAUDE": {
+    "task": "There is currently a weak visual hierarchy and cramped UI \u2013 specifically, the name and price compete for attention on the card body. Increase price font weight and size to anchor the eye and reduce region label prominence. Slightly increase the padding between the description, price, and day selector and also reduce the size of the day selector for better breathability and make it one chevron dropdown that selects days, making the UI neat.",
+    "verdict": "PARTIAL",
+    "reason": "The day options displayed inline without clear separation end up feeling merged with the price which makes it slightly cluttered",
+    "labels": [
+      "Weak information separation",
+      "Cluttered UI"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Weak information separation\",\n    \"Cluttered UI\"\n  ]\n}\n```"
+  },
+  "Participant_11_CaseStudy-1.2-GEMINI": {
+    "task": "There is currently a weak visual hierarchy and cramped UI \u2013 specifically, the name and price compete for attention on the card body. Increase price font weight and size to anchor the eye and reduce region label prominence. Slightly increase the padding between the description, price, and day selector and also reduce the size of the day selector for better breathability and make it one chevron dropdown that selects days, making the UI neat.",
+    "verdict": "PASS",
+    "reason": "The description text box still feels a bit detached from the rest of the card flow",
+    "labels": [
+      "Incomplete implementation",
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\n\"labels\": [\"Incomplete implementation\", \"No implementation / no change made\"]\n}\n```"
+  },
+  "Participant_11_CaseStudy-1.2-OPENAI": {
+    "task": "There is currently a weak visual hierarchy and cramped UI \u2013 specifically, the name and price compete for attention on the card body. Increase price font weight and size to anchor the eye and reduce region label prominence. Slightly increase the padding between the description, price, and day selector and also reduce the size of the day selector for better breathability and make it one chevron dropdown that selects days, making the UI neat.",
+    "verdict": "FAIL",
+    "reason": "The price is getting bigger, which is good, but the hierarchy still feels unresolved.",
+    "labels": [
+      "Incomplete implementation",
+      "Weak visual hierarchy"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Incomplete implementation\",\n    \"Weak visual hierarchy\"\n  ]\n}\n```"
+  },
+  "Participant_11_CaseStudy-2.1-CLAUDE": {
+    "task": "The vote count button feels too heavy and disconnected; the numbers sit in an outlined box with the same weight as the action icons, making it feel like just another button rather than a key metric. This is at the bottom action bar of each card. Let the number stand on its own and make it smaller but with an upvote icon, preferably a vote symbol, beside it for context and make it still look like a button.",
+    "verdict": "PARTIAL",
+    "reason": "The star icon, while distinctive, leans more toward a save or favourite action rather than a vote metric, which could confuse users about what the number actually represents",
+    "labels": [
+      "Misleading Iconography",
+      "Violation of Convention"
+    ],
+    "raw_response": "```json\n{\n\"labels\": [\"Misleading Iconography\", \"Violation of Convention\"]\n}\n```"
+  },
+  "Participant_11_CaseStudy-2.1-GEMINI": {
+    "task": "There is currently a weak visual hierarchy and cramped UI \u2013 specifically, the name and price compete for attention on the card body. Increase price font weight and size to anchor the eye and reduce region label prominence. Slightly increase the padding between the description, price, and day selector and also reduce the size of the day selector for better breathability and make it one chevron dropdown that selects days, making the UI neat.",
+    "verdict": "PARTIAL",
+    "reason": "The chevron arrow feels a little too generic and could be mistaken for a navigation or expand indicator rather than a vote symbol specifically",
+    "labels": [
+      "Icon ambiguity",
+      "Design pattern inconsistency"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Icon ambiguity\",\n    \"Design pattern inconsistency\"\n  ]\n}\n```"
+  },
+  "Participant_11_CaseStudy-2.1-OPENAI": {
+    "task": "There is currently a weak visual hierarchy and cramped UI \u2013 specifically, the name and price compete for attention on the card body. Increase price font weight and size to anchor the eye and reduce region label prominence. Slightly increase the padding between the description, price, and day selector and also reduce the size of the day selector for better breathability and make it one chevron dropdown that selects days, making the UI neat.",
+    "verdict": "FAIL",
+    "reason": "The filled upward arrow icon is slightly too bold and competes with the number rather than supporting it",
+    "labels": [
+      "Poor visual hierarchy",
+      "Unintended visual regression"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Poor visual hierarchy\", \"Unintended visual regression\"]}\n```"
+  },
+  "Participant_12_CaseStudy-13.1-OPENAI": {
+    "task": "The price tag format was off. Make it a standard price tag \"$39.99\", make the price tag smaller so they fit in a single row",
+    "verdict": "PARTIAL",
+    "reason": "Failed to update the price tag of the $15",
+    "labels": [
+      "Incomplete implementation",
+      "Partial coverage \u2014 missed instances"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Incomplete implementation\",\n    \"Partial coverage \u2014 missed instances\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-15.1-CLAUDE": {
+    "task": "The choose your city card has too much content. Remove the edit button. Move \"Headline & Weather\" to be underneath \"Choose your City\" with smaller text in secondary text color",
+    "verdict": "PARTIAL",
+    "reason": "The 3 dot menu should not be moved.",
+    "labels": [
+      "Unnecessary change",
+      "Visual hierarchy regression"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Unnecessary change\",\n    \"Visual hierarchy regression\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-15.1-OPENAI": {
+    "task": "The choose your city card has too much content. Remove the edit button. Move \"Headline & Weather\" to be underneath \"Choose your City\" with smaller text in secondary text color",
+    "verdict": "FAIL",
+    "reason": "The 3 dot icon is no longer present.",
+    "labels": [
+      "Unintended visual regression",
+      "Removed functionality"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Unintended visual regression\",\n    \"Removed functionality\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-22.1-CLAUDE": {
+    "task": "Fix the the banner ad format:\n1. Top align the icon, header \"Speed Radar\"\n2. Move \"Ad\" label to the right of \"Speed Radar\"",
+    "verdict": "FAIL",
+    "reason": "Didn't make any changes required.",
+    "labels": [
+      "No change made",
+      "No implementation"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No change made\", \"No implementation\"]}\n```"
+  },
+  "Participant_12_CaseStudy-22.1-OPENAI": {
+    "task": "Fix the the banner ad format:\n1. Top align the icon, header \"Speed Radar\"\n2. Move \"Ad\" label to the right of \"Speed Radar\"",
+    "verdict": "PARTIAL",
+    "reason": "Top align icon and header.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_12_CaseStudy-25.1-OPENAI": {
+    "task": "The log in button spanned across the entire screen. Give it a 16px margin on both sides.",
+    "verdict": "PARTIAL",
+    "reason": "Failed to add the right margin to the button",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_12_CaseStudy-26.1-CLAUDE": {
+    "task": "The current location section lacks visual hierarchy and didn't apply colors semantically. Change the distance (\"2.07 miles\") to secondary text color. Make call button (\"650 941-2227\") an outline button. Change \"Closed\" to a label and place it above \"Mountain View\"",
+    "verdict": "PARTIAL",
+    "reason": "There are redundant labels (two \"CLOSED\")",
+    "labels": [
+      "Redundant Information",
+      "Incomplete Implementation"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Redundant Information\",\n    \"Incomplete Implementation\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-26.1-GEMINI": {
+    "task": "The current location section lacks visual hierarchy and didn't apply colors semantically. Change the distance (\"2.07 miles\") to secondary text color. Make call button (\"650 941-2227\") an outline button. Change \"Closed\" to a label and place it above \"Mountain View\"",
+    "verdict": "PARTIAL",
+    "reason": "Failed CTA: icon was placed outside of the button.",
+    "labels": [
+      "Incomplete implementation",
+      "Component composition error"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Incomplete implementation\",\n    \"Component composition error\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-26.1-OPENAI": {
+    "task": "The current location section lacks visual hierarchy and didn't apply colors semantically. Change the distance (\"2.07 miles\") to secondary text color. Make call button (\"650 941-2227\") an outline button. Change \"Closed\" to a label and place it above \"Mountain View\"",
+    "verdict": "PARTIAL",
+    "reason": "Redundancy: 2 \"closed\" labels.",
+    "labels": [
+      "Information Redundancy",
+      "Unintended Visual Regression"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Information Redundancy\",\n    \"Unintended Visual Regression\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-28.1-CLAUDE": {
+    "task": "The texts of location names are not legible. Increase the contrast of the texts to meet the accessibility standards while maintain the semantics correlated to the location type.",
+    "verdict": "PARTIAL",
+    "reason": "Didn't change the purple texts.",
+    "labels": [
+      "No implementation / no change made",
+      "Partial coverage \u2014 missed instances"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"No implementation / no change made\",\n    \"Partial coverage \u2014 missed instances\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-28.1-GEMINI": {
+    "task": "The texts of location names are not legible. Increase the contrast of the texts to meet the accessibility standards while maintain the semantics correlated to the location type.",
+    "verdict": "PARTIAL",
+    "reason": "Only improved legibility for some text",
+    "labels": [
+      "Incomplete implementation",
+      "Partial coverage \u2014 missed instances"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Incomplete implementation\",\n    \"Partial coverage \u2014 missed instances\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-28.1-OPENAI": {
+    "task": "The texts of location names are not legible. Increase the contrast of the texts to meet the accessibility standards while maintain the semantics correlated to the location type.",
+    "verdict": "PARTIAL",
+    "reason": "Didn't change all the texts",
+    "labels": [
+      "Incomplete implementation",
+      "Partial coverage \u2014 missed instances"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Incomplete implementation\", \"Partial coverage \u2014 missed instances\"]}\n```"
+  },
+  "Participant_12_CaseStudy-29.1-CLAUDE": {
+    "task": "The dialog is trying to do 2 things at once. Simplify it by changing the header to \"Before you leave\", and change the CTA to \"Rate Us\", and the secondary button to \"Exit anyways\", remove \"Cancel\" and \"Exit\"",
+    "verdict": "PARTIAL",
+    "reason": "The \"rate us\" CTA button should be on the right side",
+    "labels": [
+      "Design pattern inconsistency",
+      "Unintended visual regression"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Design pattern inconsistency\",\n    \"Unintended visual regression\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-29.1-GEMINI": {
+    "task": "The dialog is trying to do 2 things at once. Simplify it by changing the header to \"Before you leave\", and change the CTA to \"Rate Us\", and the secondary button to \"Exit anyways\", remove \"Cancel\" and \"Exit\"",
+    "verdict": "PARTIAL",
+    "reason": "CTA needs to stand out more",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"No implementation / no change made\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-29.1-OPENAI": {
+    "task": "The dialog is trying to do 2 things at once. Simplify it by changing the header to \"Before you leave\", and change the CTA to \"Rate Us\", and the secondary button to \"Exit anyways\", remove \"Cancel\" and \"Exit\"",
+    "verdict": "FAIL",
+    "reason": "Implemented \"Exit anyways\" twice. Wrapped button texts",
+    "labels": [
+      "Incorrect implementation",
+      "Unintended visual regression"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Incorrect implementation\",\n    \"Unintended visual regression\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-31.1-CLAUDE": {
+    "task": "The \"FEEDBACK\" button is very large, the button label doesn't call for the action. Change the button style to an outline button, change its text to \"Submit feedback\" and make the button smaller",
+    "verdict": "PARTIAL",
+    "reason": "Changed the corner radius of the original button.",
+    "labels": [
+      "Unintended visual regression",
+      "Incorrect styling"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Unintended visual regression\",\n    \"Incorrect styling\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-31.1-GEMINI": {
+    "task": "The \"FEEDBACK\" button is very large, the button label doesn't call for the action. Change the button style to an outline button, change its text to \"Submit feedback\" and make the button smaller",
+    "verdict": "PASS",
+    "reason": "The font weight and kerning is a bit off for button styles.",
+    "labels": [
+      "Unintended visual regression",
+      "Design detail error"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\"Unintended visual regression\", \"Design detail error\"]\n}\n```"
+  },
+  "Participant_12_CaseStudy-32.1-CLAUDE": {
+    "task": "The buttons on dialog is off. Add a radio button to the monthly option and yearly option. The CTA of the dialog should be \"Confirm\" (grayed out until users make a selection of the radio button), and secondary button is cancel.",
+    "verdict": "PARTIAL",
+    "reason": "The cancel button should use a secondary color like gray",
+    "labels": [
+      "Design pattern inconsistency",
+      "Poor visual hierarchy"
+    ],
+    "raw_response": "```json\n{\n\"labels\": [\"Design pattern inconsistency\", \"Poor visual hierarchy\"]\n}\n```"
+  },
+  "Participant_12_CaseStudy-32.1-GEMINI": {
+    "task": "The buttons on dialog is off. Add a radio button to the monthly option and yearly option. The CTA of the dialog should be \"Confirm\" (grayed out until users make a selection of the radio button), and secondary button is cancel.",
+    "verdict": "PARTIAL",
+    "reason": "The cancel button should use a secondary color like gray.",
+    "labels": [
+      "No implementation / no change made",
+      "Design pattern inconsistency"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\", \"Design pattern inconsistency\"]}\n```"
+  },
+  "Participant_12_CaseStudy-32.1-OPENAI": {
+    "task": "The buttons on dialog is off. Add a radio button to the monthly option and yearly option. The CTA of the dialog should be \"Confirm\" (grayed out until users make a selection of the radio button), and secondary button is cancel.",
+    "verdict": "PARTIAL",
+    "reason": "The cancel button should use a secondary color like gray",
+    "labels": [
+      "Design pattern inconsistency",
+      "Poor visual hierarchy"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Design pattern inconsistency\",\n    \"Poor visual hierarchy\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-34.1-CLAUDE": {
+    "task": "It is confusing which subscription option was selected. The unselected one should not have a filled color, make it outline. Make the selected filled with a solid background color (the brand color).",
+    "verdict": "PARTIAL",
+    "reason": "Font color on the selected one doesn't go with the background color",
+    "labels": [
+      "Accessibility issue",
+      "Unintended visual regression"
+    ],
+    "raw_response": "```json\n{\n\"labels\": [\"Accessibility issue\", \"Unintended visual regression\"]\n}\n```"
+  },
+  "Participant_12_CaseStudy-34.1-GEMINI": {
+    "task": "It's confusing which subscription option was selected. The unselected one should not have a filled color, make it outline. Make the selected filled with a solid background color (the brand color).",
+    "verdict": "PARTIAL",
+    "reason": "Font color on the selected one doesn't go with the background color",
+    "labels": [
+      "Poor color contrast",
+      "Accessibility issue"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Poor color contrast\",\n    \"Accessibility issue\"\n  ]\n}\n```"
+  },
+  "Participant_12_CaseStudy-34.1-OPENAI": {
+    "task": "It's confusing which subscription option was selected. The unselected one should not have a filled color, make it outline. Make the selected filled with a solid background color (the brand color).",
+    "verdict": "FAIL",
+    "reason": "Header text of the unselect one was invisible.",
+    "labels": [
+      "Low contrast",
+      "Unintended visual regression"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Low contrast\",\n    \"Unintended visual regression\"\n  ]\n}\n```"
+  },
+  "Participant_3_CaseStudy-10.1-CLAUDE": {
+    "task": "Move the cake emoji to the center top of the profile picture circle",
+    "verdict": "FAIL",
+    "reason": "Moved the cake to the wrong spot, it should be on top of the profile picture",
+    "labels": [
+      "Incorrect implementation",
+      "Element misplacement"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Incorrect implementation\",\n    \"Element misplacement\"\n  ]\n}\n```"
+  },
+  "Participant_3_CaseStudy-11.1-CLAUDE": {
+    "task": "Make the numbers to the right smaller (e.g. 4.689)",
+    "verdict": "FAIL",
+    "reason": "Text is the same size as before",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"No implementation / no change made\"\n  ]\n}\n```"
+  },
+  "Participant_3_CaseStudy-2.1-OPENAI": {
+    "task": "I don't know what the numbers are describing (ie 20478). Add text or an icon next to it.",
+    "verdict": "FAIL",
+    "reason": "Did not add the icon to all number instances (see 2238).",
+    "labels": [
+      "Partial coverage \u2014 missed instances",
+      "Design pattern inconsistency"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Partial coverage \u2014 missed instances\", \"Design pattern inconsistency\"]}\n```"
+  },
+  "Participant_3_CaseStudy-3.1-OPENAI": {
+    "task": "The icon next to distributors is too close, move it to the left",
+    "verdict": "FAIL",
+    "reason": "Did not change the icon spacing",
+    "labels": [
+      "No implementation",
+      "No change made"
+    ],
+    "raw_response": "```json\n{\n\"labels\": [\"No implementation\", \"No change made\"]\n}\n```"
+  },
+  "Participant_3_CaseStudy-6.1-GEMINI": {
+    "task": "The gym and home circles are too big and go off the page, shrink them so the entire circle is in view.",
+    "verdict": "FAIL",
+    "reason": "Did not decrease the size of the circles.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_6_CaseStudy-12.1-CLAUDE": {
+    "task": "The social media link container shouldn't be at the top of the screen, as it distracts from the page's content. Move that container to the bottom of the screen. Move the category container above the title to improve the flow to the description. Move the hamburger menu icon to the left of the screen, as it is too close to other high-traffic buttons.",
+    "verdict": "PASS",
+    "reason": "Centered the social media icons in the container, although this wasn't requested.",
+    "labels": [
+      "Misinterpretation of task scope",
+      "Unrequested change"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Misinterpretation of task scope\",\n    \"Unrequested change\"\n  ]\n}\n```"
+  },
+  "Participant_6_CaseStudy-12.1-GEMINI": {
+    "task": "The social media link container shouldn't be at the top of the screen, as it distracts from the page's content. Move that container to the bottom of the screen. Move the category container above the title to improve the flow to the description. Move the hamburger menu icon to the left of the screen, as it is too close to other high-traffic buttons.",
+    "verdict": "FAIL",
+    "reason": "Instead of moving the social media container, it removed the container.; Did not move the category container above the title.; Did not move the hamburger menu icon to the left.",
+    "labels": [
+      "Incomplete implementation",
+      "Misinterpretation of task scope"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Incomplete implementation\",\n    \"Misinterpretation of task scope\"\n  ]\n}\n```"
+  },
+  "Participant_6_CaseStudy-12.1-OPENAI": {
+    "task": "The social media link container shouldn't be at the top of the screen, as it distracts from the page's content. Move that container to the bottom of the screen. Move the category container above the title to improve the flow to the description. Move the hamburger menu icon to the left of the screen, as it is too close to other high-traffic buttons.",
+    "verdict": "PARTIAL",
+    "reason": "Failed to move only the hamburger menu icon to the left of the screen, I didn't specify the shopping cart should be moved towards the middle.",
+    "labels": [
+      "Misinterpretation of task scope",
+      "Extraneous changes"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Misinterpretation of task scope\",\n    \"Extraneous changes\"\n  ]\n}\n```"
+  },
+  "Participant_6_CaseStudy-13.1-CLAUDE": {
+    "task": "The visual hierarchy when showing prices is difficult to understand; the cents shouldn't be bigger than the dollars.",
+    "verdict": "FAIL",
+    "reason": "Failed to switch text sizes of cents and dollars.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"No implementation / no change made\"\n  ]\n}\n```"
+  },
+  "Participant_6_CaseStudy-13.1-GEMINI": {
+    "task": "The visual hierarchy when showing prices is difficult to understand; the cents shouldn't be bigger than the dollars.",
+    "verdict": "FAIL",
+    "reason": "Failed to switch text sizes of cents and dollars.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\n\"labels\": [\n\"No implementation / no change made\"\n]\n}\n```"
+  },
+  "Participant_6_CaseStudy-13.3-CLAUDE": {
+    "task": "The section within the hero container with the text \"PRIME Exclusive Store\" should have \"PRIME\" on its own line above \"exclusive store\". The spacing, as it is, looks awkward and disrupts the flow of the section.",
+    "verdict": "PARTIAL",
+    "reason": "Altered the capitalization of the text.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"No implementation / no change made\"\n  ]\n}\n```"
+  },
+  "Participant_6_CaseStudy-13.3-OPENAI": {
+    "task": "The section within the hero container with the text \"PRIME Exclusive Store\" should have \"PRIME\" on its own line above \"exclusive store\". The spacing, as it is, looks awkward and disrupts the flow of the section.",
+    "verdict": "FAIL",
+    "reason": "Didn't complete the requested action.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_6_CaseStudy-14.2-CLAUDE": {
+    "task": "Move the \"Try something new\" text container below the title with added padding to the bottom. This will help improve the flow. As it is now, the container's location makes the bottom of the home screen fall flat.",
+    "verdict": "FAIL",
+    "reason": "Did not move the container as asked.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_6_CaseStudy-14.2-OPENAI": {
+    "task": "Move the \"Try something new\" text container below the title with added padding to the bottom. This will help improve the flow. As it is now, the container's location makes the bottom of the home screen fall flat.",
+    "verdict": "PARTIAL",
+    "reason": "Did not maintain the position of the text.",
+    "labels": [
+      "Unintended visual regression",
+      "Element positioning failure"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Unintended visual regression\",\n    \"Element positioning failure\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-22.1-CLAUDE": {
+    "task": "The blue notification banner (\u201cNo speed camera in front of you\u201d) at the top-center of the screen takes up a large portion of the map and blocks visibility of the route and surrounding area. This reduces situational awareness while navigating. The banner should be reduced in height and either repositioned slightly higher or made collapsible/auto-dismiss after a few seconds, so it remains visible but does not interfere with the primary map view.",
+    "verdict": "FAIL",
+    "reason": "No visible change to the banner, so the main usability problem of map obstruction is not resolved.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_7_CaseStudy-22.1-GEMINI": {
+    "task": "The blue notification banner (\u201cNo speed camera in front of you\u201d) at the top-center of the screen takes up a large portion of the map and blocks visibility of the route and surrounding area. This reduces situational awareness while navigating. The banner should be reduced in height and either repositioned slightly higher or made collapsible/auto-dismiss after a few seconds, so it remains visible but does not interfere with the primary map view.",
+    "verdict": "PARTIAL",
+    "reason": "Did not apply the requested change\u2014the banner size and position remain unchanged, continuing to obstruct the map.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"No implementation / no change made\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-23.1-CLAUDE": {
+    "task": "The input fields (Mobile and Password) have very low contrast against the background, making them appear disabled rather than interactive. This reduces clarity and usability for first-time users. Increase the border contrast or add a subtle outline/shadow to clearly indicate that these are active input fields.",
+    "verdict": "PASS",
+    "reason": "Minor: the border emphasis is slightly stronger than needed but still acceptable within the design system.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_7_CaseStudy-23.1-GEMINI": {
+    "task": "The input fields (Mobile and Password) have very low contrast against the background, making them appear disabled rather than interactive. This reduces clarity and usability for first-time users. Increase the border contrast or add a subtle outline/shadow to clearly indicate that these are active input fields.",
+    "verdict": "FAIL",
+    "reason": "Did not improve the input field contrast, so they still appear low-visibility and close to disabled state.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_7_CaseStudy-23.1-OPENAI": {
+    "task": "The input fields (Mobile and Password) have very low contrast against the background, making them appear disabled rather than interactive. This reduces clarity and usability for first-time users. Increase the border contrast or add a subtle outline/shadow to clearly indicate that these are active input fields.",
+    "verdict": "PARTIAL",
+    "reason": "The contrast is slightly too heavy, making the fields feel visually dominant and slightly inconsistent with the softer overall UI style.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_7_CaseStudy-25.1-CLAUDE": {
+    "task": "The \u201cLOG IN\u201d button appears enabled (green) even when the password field is empty, which creates a misleading affordance and can lead to user errors. Disable the button by default and only enable it once valid input is entered in both the username/email and password fields.",
+    "verdict": "FAIL",
+    "reason": "Fails to disable the \u201cLOG IN\u201d button, leaving it active despite empty fields.",
+    "labels": [
+      "No implementation / no change made",
+      "Incorrect element state"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"No implementation / no change made\",\n    \"Incorrect element state\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-27.1-CLAUDE": {
+    "task": "The \u201cFrom,\u201d \u201cTo,\u201d \u201cDeparture,\u201d and \u201cReturn\u201d input fields all have the same visual weight and styling, making it hard to distinguish which fields are filled versus placeholders or inactive states. This reduces scannability and increases cognitive effort. Use stronger contrast for filled values (e.g., darker text) and lighter styling for placeholders, or introduce subtle hierarchy (e.g., bold labels or icons) to clearly differentiate active inputs from defaults.",
+    "verdict": "PARTIAL",
+    "reason": "Introduces new green side accents that don\u2019t exist in the original design system, reducing visual consistency.",
+    "labels": [
+      "Design system inconsistency",
+      "Visual inconsistency"
+    ],
+    "raw_response": "```json\n{\n\"labels\": [\"Design system inconsistency\", \"Visual inconsistency\"]\n}\n```"
+  },
+  "Participant_7_CaseStudy-27.1-GEMINI": {
+    "task": "The \u201cFrom,\u201d \u201cTo,\u201d \u201cDeparture,\u201d and \u201cReturn\u201d input fields all have the same visual weight and styling, making it hard to distinguish which fields are filled versus placeholders or inactive states. This reduces scannability and increases cognitive effort. Use stronger contrast for filled values (e.g., darker text) and lighter styling for placeholders, or introduce subtle hierarchy (e.g., bold labels or icons) to clearly differentiate active inputs from defaults.",
+    "verdict": "FAIL",
+    "reason": "Completely breaks the interface by replacing it with an unrelated graphic, ignoring both layout and task intent.",
+    "labels": [
+      "Layout destruction",
+      "Loss of functionality"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Layout destruction\",\n    \"Loss of functionality\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-27.1-OPENAI": {
+    "task": "The \u201cFrom,\u201d \u201cTo,\u201d \u201cDeparture,\u201d and \u201cReturn\u201d input fields all have the same visual weight and styling, making it hard to distinguish which fields are filled versus placeholders or inactive states. This reduces scannability and increases cognitive effort. Use stronger contrast for filled values (e.g., darker text) and lighter styling for placeholders, or introduce subtle hierarchy (e.g., bold labels or icons) to clearly differentiate active inputs from defaults.",
+    "verdict": "PASS",
+    "reason": "The increased emphasis on values is slightly heavy, making the labels feel comparatively under-prioritized.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_7_CaseStudy-28.1-CLAUDE": {
+    "task": "The pink floating action button (play icon) visually competes with map pins and becomes the dominant element. This is at the bottom-right corner of the map screen. Reduce size and/or saturation of the button, or switch to a secondary style so map pins remain the primary focus.",
+    "verdict": "PASS",
+    "reason": "Minor inconsistency in visual weight\u2014map pins and UI overlays could be slightly better balanced for clearer hierarchy.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"No implementation / no change made\"]}\n```"
+  },
+  "Participant_7_CaseStudy-28.1-GEMINI": {
+    "task": "The pink floating action button (play icon) visually competes with map pins and becomes the dominant element. This is at the bottom-right corner of the map screen. Reduce size and/or saturation of the button, or switch to a secondary style so map pins remain the primary focus.",
+    "verdict": "FAIL",
+    "reason": "Completely breaks the screen by rendering incorrect/irrelevant UI elements (HTML artifacts and shapes), losing the original layout and functionality.",
+    "labels": [
+      "Rendering failure",
+      "Layout destruction"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Rendering failure\", \"Layout destruction\"]}\n```"
+  },
+  "Participant_7_CaseStudy-29.1-CLAUDE": {
+    "task": "The exit confirmation modal has unclear action hierarchy \u2014 all three options (\u201cExit\u201d, \u201cCancel\u201d, \u201cRate Us\u201d) are styled equally, making the primary action ambiguous and increasing the risk of accidental exit. This is at the bottom-center modal overlay on the screen. Make \u201cCancel\u201d the primary (highlighted) action, reduce emphasis on \u201cExit\u201d (secondary/destructive style), and visually separate \u201cRate Us\u201d as a tertiary option (e.g., text button or link).",
+    "verdict": "PARTIAL",
+    "reason": "Modal is still positioned too low and overlaps background content.",
+    "labels": [
+      "Incomplete implementation",
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Incomplete implementation\",\n    \"No implementation / no change made\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-29.1-GEMINI": {
+    "task": "The exit confirmation modal has unclear action hierarchy \u2014 all three options (\u201cExit\u201d, \u201cCancel\u201d, \u201cRate Us\u201d) are styled equally, making the primary action ambiguous and increasing the risk of accidental exit. This is at the bottom-center modal overlay on the screen. Make \u201cCancel\u201d the primary (highlighted) action, reduce emphasis on \u201cExit\u201d (secondary/destructive style), and visually separate \u201cRate Us\u201d as a tertiary option (e.g., text button or link).",
+    "verdict": "FAIL",
+    "reason": "Does not create clear action hierarchy - all actions still feel similar.",
+    "labels": [
+      "No implementation / no change made"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"No implementation / no change made\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-29.1-OPENAI": {
+    "task": "The exit confirmation modal has unclear action hierarchy \u2014 all three options (\u201cExit\u201d, \u201cCancel\u201d, \u201cRate Us\u201d) are styled equally, making the primary action ambiguous and increasing the risk of accidental exit. This is at the bottom-center modal overlay on the screen. Make \u201cCancel\u201d the primary (highlighted) action, reduce emphasis on \u201cExit\u201d (secondary/destructive style), and visually separate \u201cRate Us\u201d as a tertiary option (e.g., text button or link).",
+    "verdict": "PARTIAL",
+    "reason": "\u201cRate Us\u201d still competes with the main exit/cancel decision.",
+    "labels": [
+      "Incomplete implementation",
+      "Misinterpretation of task scope"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Incomplete implementation\",\n    \"Misinterpretation of task scope\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-30.1-OPENAI": {
+    "task": "The floating \u201cin-store mode\u201d button overlaps the main content area, competing with the primary message and disrupting visual hierarchy. This  bottom-right corner of the screen, above the main content section. Reposition the button lower (closer to the bottom navigation) or reduce its visual prominence (size/contrast) so it doesn\u2019t interfere with the core message.",
+    "verdict": "PASS",
+    "reason": "The button spacing from the bottom edge is slightly excessive, making it feel visually detached from the navigation area.",
+    "labels": [
+      "No change made",
+      "Unaddressed layout issue"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"No change made\",\n    \"Unaddressed layout issue\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-31.1-CLAUDE": {
+    "task": "The FAQ accordion rows feel visually disconnected because the dividers and spacing create too much separation between items. Reduce the vertical padding between accordion rows and soften the divider contrast so the FAQ list feels more cohesive and easier to scan as a grouped section.",
+    "verdict": "PASS",
+    "reason": "The accordion rows appear marginally taller than the original, making the list feel slightly less compact.",
+    "labels": [
+      "Unintended visual regression",
+      "Spacing issue"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Unintended visual regression\",\n    \"Spacing issue\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-31.1-GEMINI": {
+    "task": "The FAQ accordion rows feel visually disconnected because the dividers and spacing create too much separation between items. Reduce the vertical padding between accordion rows and soften the divider contrast so the FAQ list feels more cohesive and easier to scan as a grouped section.",
+    "verdict": "PASS",
+    "reason": "The bottom section feels slightly more compressed vertically, reducing breathing room above the feedback button.",
+    "labels": [
+      "Unintended visual regression",
+      "Spacing issue"
+    ],
+    "raw_response": "```json\n{\"labels\": [\"Unintended visual regression\", \"Spacing issue\"]}\n```"
+  },
+  "Participant_7_CaseStudy-31.1-OPENAI": {
+    "task": "The FAQ accordion rows feel visually disconnected because the dividers and spacing create too much separation between items. Reduce the vertical padding between accordion rows and soften the divider contrast so the FAQ list feels more cohesive and easier to scan as a grouped section.",
+    "verdict": "PASS",
+    "reason": "The added FAQ item slightly tightens the spacing near the feedback button at the bottom.",
+    "labels": [
+      "Unintended visual regression",
+      "Layout issue"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Unintended visual regression\",\n    \"Layout issue\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-32.1-CLAUDE": {
+    "task": "The purchase dialog\u2019s action buttons lack clear visual hierarchy, making the primary subscription choices feel understated and harder to distinguish from the secondary \u201cCancel\u201d action. In the \u201cPurchase Elite\u201d modal, the monthly and yearly billing options should have stronger emphasis, such as a filled style, higher contrast, or highlighted recommended state. While keeping \u201cCancel\u201d visually secondary so users can more easily identify the main conversion action.",
+    "verdict": "PASS",
+    "reason": "The secondary \u201cCancel\u201d action became too visually muted relative to the rest of the dialog, reducing discoverability and making the action hierarchy slightly unbalanced.",
+    "labels": [
+      "Unintended visual regression",
+      "Poor visual hierarchy"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Unintended visual regression\",\n    \"Poor visual hierarchy\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-32.1-GEMINI": {
+    "task": "The purchase dialog\u2019s action buttons lack clear visual hierarchy, making the primary subscription choices feel understated and harder to distinguish from the secondary \u201cCancel\u201d action. In the \u201cPurchase Elite\u201d modal, the monthly and yearly billing options should have stronger emphasis, such as a filled style, higher contrast, or highlighted recommended state. While keeping \u201cCancel\u201d visually secondary so users can more easily identify the main conversion action.",
+    "verdict": "PASS",
+    "reason": "The dialog spacing and button sizing feel slightly heavier than the original design, making the modal appear denser and less balanced compared to the surrounding lightweight interface.",
+    "labels": [
+      "Unintended visual regression",
+      "Design pattern inconsistency"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Unintended visual regression\",\n    \"Design pattern inconsistency\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-32.1-OPENAI": {
+    "task": "The purchase dialog\u2019s action buttons lack clear visual hierarchy, making the primary subscription choices feel understated and harder to distinguish from the secondary \u201cCancel\u201d action. In the \u201cPurchase Elite\u201d modal, the monthly and yearly billing options should have stronger emphasis, such as a filled style, higher contrast, or highlighted recommended state. While keeping \u201cCancel\u201d visually secondary so users can more easily identify the main conversion action.",
+    "verdict": "PASS",
+    "reason": "The filled buttons are visually stronger, but the equal emphasis between \u201cMonthly\u201d and \u201cYearly\u201d misses an opportunity to guide users toward the recommended yearly plan with a slightly more prominent treatment or savings highlight.",
+    "labels": [
+      "Lack of visual hierarchy",
+      "Missed persuasive design opportunity"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Lack of visual hierarchy\",\n    \"Missed persuasive design opportunity\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-33.1-CLAUDE": {
+    "task": "The pricing section presents three competing purchase options with similar visual weight, making the primary conversion path unclear and reducing purchase focus. This is at the bottom subscription CTA area containing \u201cLife-time Purchase,\u201d \u201cYearly Subscribe,\u201d and \u201c3 Days FREE TRIAL.\u201d Increase emphasis on the intended primary subscription option by improving visual hierarchy through stronger contrast, sizing, or prominence while slightly reducing emphasis on secondary purchase choices without changing the existing layout structure.",
+    "verdict": "PASS",
+    "reason": "The glow/shadow effect around the yearly CTA adds slightly more visual weight than necessary and pulls attention away from nearby content.",
+    "labels": [
+      "Unintended visual regression",
+      "Poor Visual Hierarchy"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Unintended visual regression\",\n    \"Poor Visual Hierarchy\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-33.1-GEMINI": {
+    "task": "The pricing section presents three competing purchase options with similar visual weight, making the primary conversion path unclear and reducing purchase focus. This is at the bottom subscription CTA area containing \u201cLife-time Purchase,\u201d \u201cYearly Subscribe,\u201d and \u201c3 Days FREE TRIAL.\u201d Increase emphasis on the intended primary subscription option by improving visual hierarchy through stronger contrast, sizing, or prominence while slightly reducing emphasis on secondary purchase choices without changing the existing layout structure.",
+    "verdict": "PARTIAL",
+    "reason": "The new bright pink CTA introduces a stronger visual shift that feels less aligned with the existing premium black-and-gold visual language of the interface, making the screen feel slightly less cohesive compared to the original design system.",
+    "labels": [
+      "Design system inconsistency",
+      "Aesthetic regression"
+    ],
+    "raw_response": "```json\n{\n\"labels\": [\n\"Design system inconsistency\",\n\"Aesthetic regression\"\n]\n}\n```"
+  },
+  "Participant_7_CaseStudy-33.1-OPENAI": {
+    "task": "The pricing section presents three competing purchase options with similar visual weight, making the primary conversion path unclear and reducing purchase focus. This is at the bottom subscription CTA area containing \u201cLife-time Purchase,\u201d \u201cYearly Subscribe,\u201d and \u201c3 Days FREE TRIAL.\u201d Increase emphasis on the intended primary subscription option by improving visual hierarchy through stronger contrast, sizing, or prominence while slightly reducing emphasis on secondary purchase choices without changing the existing layout structure.",
+    "verdict": "PASS",
+    "reason": "The highlighted yearly CTA becomes visually dominant enough that the \u201cLife-time Purchase\u201d option now feels slightly de-emphasized compared to the original balance.",
+    "labels": [
+      "Unintended visual regression",
+      "Visual hierarchy disruption"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Unintended visual regression\",\n    \"Visual hierarchy disruption\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-34.1-CLAUDE": {
+    "task": "The glowing \u201cSubscribe Now\u201d CTA at the bottom becomes visually overpowering compared to the pricing cards above it. Reduce the glow intensity and rebalance the emphasis so the Annual and Quarterly pricing options remain clearly readable and continue to feel like the primary decision-making section of the paywall.",
+    "verdict": "PASS",
+    "reason": "The CTA still competes slightly too aggressively with the pricing cards due to the strong brightness contrast, making the lower section feel heavier than the rest of the layout.",
+    "labels": [
+      "No implementation",
+      "No change made"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"No implementation\",\n    \"No change made\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-34.1-GEMINI": {
+    "task": "The glowing \u201cSubscribe Now\u201d CTA at the bottom becomes visually overpowering compared to the pricing cards above it. Reduce the glow intensity and rebalance the emphasis so the Annual and Quarterly pricing options remain clearly readable and continue to feel like the primary decision-making section of the paywall.",
+    "verdict": "PARTIAL",
+    "reason": "The button styling and emphasis feel less refined and slightly disconnected from the premium visual language of the rest of the paywall, making the hierarchy feel less balanced compared to the original design.",
+    "labels": [
+      "Unintended visual regression",
+      "Design style inconsistency"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Unintended visual regression\",\n    \"Design style inconsistency\"\n  ]\n}\n```"
+  },
+  "Participant_7_CaseStudy-34.1-OPENAI": {
+    "task": "The glowing \u201cSubscribe Now\u201d CTA at the bottom becomes visually overpowering compared to the pricing cards above it. Reduce the glow intensity and rebalance the emphasis so the Annual and Quarterly pricing options remain clearly readable and continue to feel like the primary decision-making section of the paywall.",
+    "verdict": "PASS",
+    "reason": "The glow effect around the CTA is slightly too intense and pulls attention away from the Annual and Quarterly pricing cards, which should remain the primary comparison area before conversion.",
+    "labels": [
+      "Poor visual emphasis",
+      "Visual hierarchy issue"
+    ],
+    "raw_response": "```json\n{\n  \"labels\": [\n    \"Poor visual emphasis\",\n    \"Visual hierarchy issue\"\n  ]\n}\n```"
+  }
+}

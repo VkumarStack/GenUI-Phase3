@@ -1,27 +1,32 @@
 """
-Generate UI revision tasks from a Before screenshot using Gemini 2.5 Pro.
+Generate UI revision tasks from a Before screenshot, conditioned on a taxonomy category.
 
-Each generated task includes a motivation, a precise component description
-anchored to the screenshot, and an unambiguous change specification.
+By default, one task is generated per taxonomy category (7 total per screenshot).
+Use --category to target a single category, and --count to generate multiple tasks
+per category.
 
 Running:
-    # Generate tasks for one example directory
-    python RevisionGeneration/generate.py --example Examples/TestExamples/task-10.1-claude
+    # Generate one task per taxonomy category for one example
+    python RevisionGeneration/generate.py --example Examples/CaseStudyExamples/task-10.1-claude
 
     # Generate tasks for every example in a directory
-    python RevisionGeneration/generate.py --dir Examples/TestExamples
+    python RevisionGeneration/generate.py --dir Examples/CaseStudyExamples
 
-    # Control how many tasks are generated per screenshot (default: 5)
-    python RevisionGeneration/generate.py --example Examples/TestExamples/task-10.1-claude --count 3
+    # Target a specific taxonomy category
+    python RevisionGeneration/generate.py --example ... --category "Clarify Function & State"
 
-    # Save each task as Task.txt + screenshot.png under GeneratedRevisions/<timestamp>/
-    python RevisionGeneration/generate.py --dir Examples/TestExamples --save
+    # Generate multiple tasks per category
+    python RevisionGeneration/generate.py --example ... --category "Add or Surface Functionality" --count 3
 
-    # Override the default model
-    python RevisionGeneration/generate.py --example Examples/TestExamples/task-10.1-claude --model gemini-2.5-flash
+    # Save each task as Task.txt + screenshot.png under GeneratedRevisions/
+    python RevisionGeneration/generate.py --dir Examples/CaseStudyExamples --save
+
+    # Use the fine-tuned revision generator model on Vertex AI
+    python RevisionGeneration/generate.py --example ... --backend vertexai
 """
 
 import argparse
+import json
 import shutil
 import sys
 from datetime import datetime
@@ -29,16 +34,34 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-load_dotenv(Path(__file__).parent.parent / "Evaluation" / ".env")
+_ROOT = Path(__file__).parent.parent
+load_dotenv(_ROOT / "Util" / ".env")
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "Evaluation"))
-from backends import GeminiBackend
+sys.path.insert(0, str(_ROOT / "Util"))
+from backends import Backend, get_backend
 
 sys.path.insert(0, str(Path(__file__).parent))
 from generate_core import generate_tasks
 
-_DEFAULT_MODEL = "gemini-2.5-pro"
-_GENERATED_ROOT = Path(__file__).parent.parent / "GeneratedRevisions"
+_DEFAULT_BACKEND = "gemini"
+_TAXONOMY_JSON = _ROOT / "Taxonomy" / "RevisionTaxonomy" / "Results" / "taxonomy.json"
+_GENERATED_ROOT = _ROOT / "GeneratedRevisions"
+
+
+def _load_categories(category_name: str | None) -> list[dict]:
+    """Load taxonomy categories, optionally filtered to a single named category."""
+    taxonomy = json.loads(_TAXONOMY_JSON.read_text())
+    categories = taxonomy["categories"]
+    if category_name is None:
+        return categories
+    matched = [c for c in categories if c["name"] == category_name]
+    if not matched:
+        names = [c["name"] for c in categories]
+        raise SystemExit(
+            f"Category '{category_name}' not found.\nAvailable categories:\n"
+            + "\n".join(f"  - {n}" for n in names)
+        )
+    return matched
 
 
 def _screenshot_path(example_dir: Path) -> Path:
@@ -52,59 +75,79 @@ def _screenshot_path(example_dir: Path) -> Path:
     return candidates[0]
 
 
-def _save_task(task: str, screenshot_src: Path, timestamp_base: str, idx: int) -> Path:
-    """Write Task.txt and screenshot.png under GeneratedRevisions/<timestamp_base>_<idx>/."""
-    folder_name = f"{timestamp_base}_{idx}"
-    dest = _GENERATED_ROOT / folder_name
+def _save_task(task: str, screenshot_src: Path, category: dict, timestamp_base: str, idx: int) -> Path:
+    """Write Task.txt, Category.txt, and screenshot.png under GeneratedRevisions/<name>/."""
+    dest = _GENERATED_ROOT / f"{timestamp_base}_{idx}"
     dest.mkdir(parents=True, exist_ok=True)
     (dest / "Task.txt").write_text("\n".join(line.rstrip() for line in task.splitlines()))
+    (dest / "Category.txt").write_text(f"{category['name']}\n{category['description']}\n")
     shutil.copy2(screenshot_src, dest / "screenshot.png")
     return dest
 
 
-def _process_example(example_dir: Path, backend: GeminiBackend, count: int, save: bool) -> None:
+def _process_example(
+    example_dir: Path,
+    backend: Backend,
+    categories: list[dict],
+    count: int,
+    save: bool,
+) -> None:
     screenshot = _screenshot_path(example_dir)
     if not screenshot.exists():
-        print(f"  [SKIP] {example_dir.name}: Before/screenshot.png not found")
+        print(f"  [SKIP] {example_dir.name}: screenshot not found")
         return
 
     print(f"\n{'='*60}")
     print(f"Example: {example_dir.name}")
-    print("-" * 60)
-
-    tasks = generate_tasks(screenshot, backend, count=count)
 
     timestamp_base = datetime.now().strftime("%Y%m%d_%H%M%S")
+    idx = 1
 
-    for i, task in enumerate(tasks, start=1):
-        print(f"\n[{i}] {task}")
-        if save:
-            dest = _save_task(task, screenshot, timestamp_base, i)
-            print(f"     → Saved to {dest.relative_to(Path(__file__).parent.parent)}")
+    for category in categories:
+        print(f"\n  [{category['name']}]")
+        tasks = generate_tasks(screenshot, backend, category, count=count)
+        for task in tasks:
+            print(f"    {task[:120]}{'…' if len(task) > 120 else ''}")
+            if save:
+                dest = _save_task(task, screenshot, category, timestamp_base, idx)
+                print(f"    → Saved to {dest.relative_to(_ROOT)}")
+                idx += 1
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Generate UI revision tasks from a Before screenshot using Gemini 2.5 Pro."
+        description="Generate revision tasks from a Before screenshot, conditioned on a taxonomy category."
     )
 
     target = parser.add_mutually_exclusive_group(required=True)
     target.add_argument("--example", metavar="PATH",
-                        help="Path to a single example directory (must contain Before/screenshot.png).")
+                        help="Path to a single example directory.")
     target.add_argument("--dir", metavar="PATH",
                         help="Path to a directory of example subdirectories.")
 
-    parser.add_argument("--count", type=int, default=5, metavar="N",
-                        help="Number of revision tasks to generate per screenshot (default: 5).")
-    parser.add_argument("--model", default=_DEFAULT_MODEL,
-                        help=f"Gemini model to use (default: {_DEFAULT_MODEL}).")
+    parser.add_argument("--category", metavar="NAME",
+                        help="Taxonomy category to generate tasks for (default: all categories).")
+    parser.add_argument("--count", type=int, default=1, metavar="N",
+                        help="Tasks to generate per category per screenshot (default: 1).")
+    parser.add_argument("--backend", default=_DEFAULT_BACKEND,
+                        choices=["gemini", "vertexai", "anthropic", "openai"],
+                        help=f"Model backend (default: {_DEFAULT_BACKEND}). "
+                             "Use 'vertexai' for the fine-tuned revision generator model "
+                             "(reads VERTEXAI_GENERATOR_ENDPOINT_ID from .env).")
+    parser.add_argument("--model", default=None,
+                        help="Override the model/endpoint (optional; uses backend default or env var).")
     parser.add_argument("--save", action="store_true",
-                        help="Save each generated task as Task.txt + screenshot.png under "
-                             "GeneratedRevisions/<timestamp_index>/.")
+                        help="Save each task as Task.txt + Category.txt + screenshot.png "
+                             "under GeneratedRevisions/.")
     args = parser.parse_args()
 
-    backend = GeminiBackend(args.model)
-    print(f"Model: {backend.model}  |  Tasks per screenshot: {args.count}"
+    categories = _load_categories(args.category)
+
+    backend = get_backend(args.backend, args.model,
+                          endpoint_env_var="VERTEXAI_GENERATOR_ENDPOINT_ID")
+    cat_desc = args.category or f"all {len(categories)} categories"
+    model_label = backend.model if hasattr(backend, "model") else args.backend
+    print(f"Backend: {args.backend} | Model: {model_label}  |  Categories: {cat_desc}  |  Tasks per category: {args.count}"
           + ("  |  Saving to GeneratedRevisions/" if args.save else ""))
 
     if args.example:
@@ -113,7 +156,7 @@ def main():
         example_dirs = sorted(d for d in Path(args.dir).iterdir() if d.is_dir())
 
     for example_dir in example_dirs:
-        _process_example(example_dir, backend, count=args.count, save=args.save)
+        _process_example(example_dir, backend, categories, count=args.count, save=args.save)
 
 
 if __name__ == "__main__":

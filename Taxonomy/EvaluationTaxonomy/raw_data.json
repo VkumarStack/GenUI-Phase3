@@ -1,0 +1,697 @@
+{
+  "Participant_10_CaseStudy-15.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Did exactly what I said and made the best judgement call",
+    "fail_reason": null
+  },
+  "Participant_10_CaseStudy-16.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Did exactly what was asked from task.",
+    "fail_reason": null
+  },
+  "Participant_10_CaseStudy-16.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Did exactly what was asked. Additionally, kept positioning of all of the charts consistent (bonus).",
+    "fail_reason": null
+  },
+  "Participant_10_CaseStudy-17.1-CLAUDE": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "No change from the original."
+  },
+  "Participant_10_CaseStudy-17.1-OPENAI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Removed the space at the BOTTOM but not at the TOP."
+  },
+  "Participant_10_CaseStudy-18.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Followed task instructions exactly.",
+    "fail_reason": null
+  },
+  "Participant_10_CaseStudy-18.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Followed task instructions exactly.",
+    "fail_reason": null
+  },
+  "Participant_10_CaseStudy-18.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Followed task instructions exactly.",
+    "fail_reason": null
+  },
+  "Participant_10_CaseStudy-19.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Followed task exactly with good judgement.",
+    "fail_reason": null
+  },
+  "Participant_10_CaseStudy-19.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Followed exactly what I said with good judgement, only thing I'd say is that the pause is too big and the circle is too small.",
+    "fail_reason": null
+  },
+  "Participant_10_CaseStudy-19.1-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Implemented exactly what was said but followed it too exactly without using good judgment.",
+    "fail_reason": "There are overlapping elements and the time is ticking counterclock-wise which is not intuitive."
+  },
+  "Participant_10_CaseStudy-20.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Followed task exactly and made good judgement call stylistically.",
+    "fail_reason": null
+  },
+  "Participant_10_CaseStudy-20.1-GEMINI": {
+    "verdict": "FAIL",
+    "pass_reason": "Did not change anything.",
+    "fail_reason": null
+  },
+  "Participant_10_CaseStudy-21.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Followed task and made the best judgment call. The way the menu is presented here would take the user to a separate screen and looks good stylistically.",
+    "fail_reason": null
+  },
+  "Participant_11_CaseStudy-1.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Kept the UI consistent without making unnecessary changes. Added a call to action button with appropriate padding, making it visually distinctive and clear enough for the user to understand its purpose immediately.",
+    "fail_reason": null
+  },
+  "Participant_11_CaseStudy-1.1-GEMINI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Added a distinct call to action button where necessary while maintaining a consistent design style and colour scheme throughout.",
+    "fail_reason": "The button padding is excessive for mobile standards, making it feel oversized and out of proportion with the rest of the UI. Combined with a somewhat cluttered layout, the overall experience feels unrefined and could benefit from tighter spacing and better visual balance."
+  },
+  "Participant_11_CaseStudy-1.1-OPENAI": {
+    "verdict": "FAIL",
+    "pass_reason": "Added a clear call to action at the right place, while maintaining a consistent design style and colour scheme throughout.",
+    "fail_reason": "Failed to add a CTA that effectively drives user action."
+  },
+  "Participant_11_CaseStudy-1.2-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": "The hierarchy is strong here, and price is clearly the first thing your eye lands on.",
+    "fail_reason": "The day options displayed inline without clear separation end up feeling merged with the price which makes it slightly cluttered"
+  },
+  "Participant_11_CaseStudy-1.2-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "The day selector is now a single dropdown which is neater and saves space, especially on mobile, where every pixel matters",
+    "fail_reason": "The description text box still feels a bit detached from the rest of the card flow"
+  },
+  "Participant_11_CaseStudy-1.2-OPENAI": {
+    "verdict": "FAIL",
+    "pass_reason": "The price is starting to take the lead visually.",
+    "fail_reason": "The price is getting bigger, which is good, but the hierarchy still feels unresolved."
+  },
+  "Participant_11_CaseStudy-2.1-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": "The star icon is a fresh and distinctive choice that sets the vote metric apart visually from the other action icons",
+    "fail_reason": "The star icon, while distinctive, leans more toward a save or favourite action rather than a vote metric, which could confuse users about what the number actually represents"
+  },
+  "Participant_11_CaseStudy-2.1-GEMINI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "The chevron-style upward arrow is lighter and less aggressive than the filled arrow in UIThe star icon is a fresh and distinctive choice that sets the vote metric apart visually from the other action icons",
+    "fail_reason": "The chevron arrow feels a little too generic and could be mistaken for a navigation or expand indicator rather than a vote symbol specifically"
+  },
+  "Participant_11_CaseStudy-2.1-OPENAI": {
+    "verdict": "FAIL",
+    "pass_reason": "The upward arrow icon is the right directional choice, immediately communicating upvoting",
+    "fail_reason": "The filled upward arrow icon is slightly too bold and competes with the number rather than supporting it"
+  },
+  "Participant_12_CaseStudy-13.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully updated the price tags font size and formats",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-13.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully updated the price tags font size and formats",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-13.1-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Successfully updated the price range",
+    "fail_reason": "Failed to update the price tag of the $15"
+  },
+  "Participant_12_CaseStudy-15.1-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": null,
+    "fail_reason": "The 3 dot menu should not be moved."
+  },
+  "Participant_12_CaseStudy-15.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Text location and button location are both correct.",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-15.1-OPENAI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "The 3 dot icon is no longer present."
+  },
+  "Participant_12_CaseStudy-22.1-CLAUDE": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Didn't make any changes required."
+  },
+  "Participant_12_CaseStudy-22.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Made the changes required.",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-22.1-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Moved the ad label to the right.",
+    "fail_reason": "Top align icon and header."
+  },
+  "Participant_12_CaseStudy-23.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully made logo text small and fit inside the circle",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-23.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully made logo text small and fit inside the circle",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-23.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully made logo text small and fit inside the circle",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-24.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully update the button texts",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-24.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully update the button texts",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-25.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully added margins to the button",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-25.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully added margins to the button",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-25.1-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Added left margin to the button",
+    "fail_reason": "Failed to add the right margin to the button"
+  },
+  "Participant_12_CaseStudy-25.2-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully removed background color and preserved the orginal layout",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-25.2-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully removed background color",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-25.2-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully removed background color",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-25.3-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Added an underline to \"tap here\"",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-25.3-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Added an underline to \"tap here\"",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-25.3-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Added an underline to \"tap here\" and tried to match the font style of the other \"tap here\".",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-25.4-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Fixed the text case.",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-25.4-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Fixed the text case",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-25.4-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Fixed the text case",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-26.1-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": null,
+    "fail_reason": "There are redundant labels (two \"CLOSED\")"
+  },
+  "Participant_12_CaseStudy-26.1-GEMINI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Implemented the closed label correctly.",
+    "fail_reason": "Failed CTA: icon was placed outside of the button."
+  },
+  "Participant_12_CaseStudy-26.1-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Implemented the CTA correctly",
+    "fail_reason": "Redundancy: 2 \"closed\" labels."
+  },
+  "Participant_12_CaseStudy-28.1-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Improved the legibility of some text.",
+    "fail_reason": "Didn't change the purple texts."
+  },
+  "Participant_12_CaseStudy-28.1-GEMINI": {
+    "verdict": "PARTIAL",
+    "pass_reason": null,
+    "fail_reason": "Only improved legibility for some text"
+  },
+  "Participant_12_CaseStudy-28.1-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Improved the legibility of the texts",
+    "fail_reason": "Didn't change all the texts"
+  },
+  "Participant_12_CaseStudy-29.1-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": null,
+    "fail_reason": "The \"rate us\" CTA button should be on the right side"
+  },
+  "Participant_12_CaseStudy-29.1-GEMINI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Cleaned up the button successfully",
+    "fail_reason": "CTA needs to stand out more"
+  },
+  "Participant_12_CaseStudy-29.1-OPENAI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Implemented \"Exit anyways\" twice. Wrapped button texts"
+  },
+  "Participant_12_CaseStudy-30.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully removed the \"hi there\" section.",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-31.1-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Made the button an outline button and less salient.",
+    "fail_reason": "Changed the corner radius of the original button."
+  },
+  "Participant_12_CaseStudy-31.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Preserved the original button's corner radius.",
+    "fail_reason": "The font weight and kerning is a bit off for button styles."
+  },
+  "Participant_12_CaseStudy-31.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Preserved the original button's corner radius and made the button less salient.",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-32.1-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Implemented the radio buttons and dialog buttons",
+    "fail_reason": "The cancel button should use a secondary color like gray"
+  },
+  "Participant_12_CaseStudy-32.1-GEMINI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Implemented the radio buttons and dialog buttons",
+    "fail_reason": "The cancel button should use a secondary color like gray."
+  },
+  "Participant_12_CaseStudy-32.1-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Implemented the radio buttons and dialog buttons",
+    "fail_reason": "The cancel button should use a secondary color like gray"
+  },
+  "Participant_12_CaseStudy-33.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Now matches the button styles.",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-33.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Now matches the button styles.",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-33.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Now matches the button styles.",
+    "fail_reason": null
+  },
+  "Participant_12_CaseStudy-34.1-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Matched the background color of the selected option with the CTA, making it easy to see which one was selected",
+    "fail_reason": "Font color on the selected one doesn't go with the background color"
+  },
+  "Participant_12_CaseStudy-34.1-GEMINI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Matched the background color of the selected option with the CTA, making it easy to see which one was selected",
+    "fail_reason": "Font color on the selected one doesn't go with the background color"
+  },
+  "Participant_12_CaseStudy-34.1-OPENAI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Header text of the unselect one was invisible."
+  },
+  "Participant_2_CaseStudy-1.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "The model correctly placed the 'Days' section below the price section without moving any unrelated components.",
+    "fail_reason": null
+  },
+  "Participant_2_CaseStudy-1.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "The model correctly placed the 'Days' section below the price section without moving any unrelated components.",
+    "fail_reason": null
+  },
+  "Participant_2_CaseStudy-1.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "The model correctly placed the 'Days' section below the price section without moving any unrelated components.",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-10.1-CLAUDE": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Moved the cake to the wrong spot, it should be on top of the profile picture"
+  },
+  "Participant_3_CaseStudy-10.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Moved cake as requested",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-10.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Moved cake as requested",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-11.1-CLAUDE": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Text is the same size as before"
+  },
+  "Participant_3_CaseStudy-11.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Made text smaller as requested",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-2.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Added a relevant icon next to the numbers",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-2.1-OPENAI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Did not add the icon to all number instances (see 2238)."
+  },
+  "Participant_3_CaseStudy-3.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Added spacing between icon and text",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-3.1-OPENAI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Did not change the icon spacing"
+  },
+  "Participant_3_CaseStudy-6.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Correctly decreased the size of the circles.",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-6.1-GEMINI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Did not decrease the size of the circles."
+  },
+  "Participant_3_CaseStudy-6.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Correctly decreased the size of the circles.",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-8.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Decreased the text as requested",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-8.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Decreased the text as requested",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-8.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Decreased the text as requested",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-9.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Added background as requested",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-9.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Added background as requested",
+    "fail_reason": null
+  },
+  "Participant_3_CaseStudy-9.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Added background as requested",
+    "fail_reason": null
+  },
+  "Participant_6_CaseStudy-12.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Did a good job at moving the hamburger menu icon to the left.; Moved the category above the title as requested.; Moved the social media container to the bottom of the screen.",
+    "fail_reason": "Centered the social media icons in the container, although this wasn't requested."
+  },
+  "Participant_6_CaseStudy-12.1-GEMINI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Instead of moving the social media container, it removed the container.; Did not move the category container above the title.; Did not move the hamburger menu icon to the left."
+  },
+  "Participant_6_CaseStudy-12.1-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Moved the social media container to the bottom while preserving the elements in their positions.; Moved the category container where I asked.",
+    "fail_reason": "Failed to move only the hamburger menu icon to the left of the screen, I didn't specify the shopping cart should be moved towards the middle."
+  },
+  "Participant_6_CaseStudy-13.1-CLAUDE": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Failed to switch text sizes of cents and dollars."
+  },
+  "Participant_6_CaseStudy-13.1-GEMINI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Failed to switch text sizes of cents and dollars."
+  },
+  "Participant_6_CaseStudy-13.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Switched the text sizes of the dollars and cents.",
+    "fail_reason": null
+  },
+  "Participant_6_CaseStudy-13.2-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Added the outward facing chevron arrows as requested.",
+    "fail_reason": null
+  },
+  "Participant_6_CaseStudy-13.3-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Moved the text as I asked.",
+    "fail_reason": "Altered the capitalization of the text."
+  },
+  "Participant_6_CaseStudy-13.3-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Followed directions concisely without altering other elements.",
+    "fail_reason": null
+  },
+  "Participant_6_CaseStudy-13.3-OPENAI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Didn't complete the requested action."
+  },
+  "Participant_6_CaseStudy-14.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Followed directions without making any mistakes.",
+    "fail_reason": null
+  },
+  "Participant_6_CaseStudy-14.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Followed directions without making any mistakes.",
+    "fail_reason": null
+  },
+  "Participant_6_CaseStudy-14.1-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Followed directions, however, the spacing of the text \"Home\" is not aligned with the rest of the text in the container.",
+    "fail_reason": null
+  },
+  "Participant_6_CaseStudy-14.2-CLAUDE": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Did not move the container as asked."
+  },
+  "Participant_6_CaseStudy-14.2-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Moved the container as asked.",
+    "fail_reason": null
+  },
+  "Participant_6_CaseStudy-14.2-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Moved the container as asked.",
+    "fail_reason": "Did not maintain the position of the text."
+  },
+  "Participant_7_CaseStudy-22.1-CLAUDE": {
+    "verdict": "FAIL",
+    "pass_reason": "Maintained visual consistency with the original UI.",
+    "fail_reason": "No visible change to the banner, so the main usability problem of map obstruction is not resolved."
+  },
+  "Participant_7_CaseStudy-22.1-GEMINI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Preserved the original layout without introducing unrelated changes.",
+    "fail_reason": "Did not apply the requested change\u2014the banner size and position remain unchanged, continuing to obstruct the map."
+  },
+  "Participant_7_CaseStudy-23.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Improved input field contrast in a balanced way that enhances clarity while maintaining consistency with the overall UI style.",
+    "fail_reason": "Minor: the border emphasis is slightly stronger than needed but still acceptable within the design system."
+  },
+  "Participant_7_CaseStudy-23.1-GEMINI": {
+    "verdict": "FAIL",
+    "pass_reason": "Preserved the original layout and visual style.",
+    "fail_reason": "Did not improve the input field contrast, so they still appear low-visibility and close to disabled state."
+  },
+  "Participant_7_CaseStudy-23.1-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Improved the contrast of the input fields, making them clearly appear interactive.",
+    "fail_reason": "The contrast is slightly too heavy, making the fields feel visually dominant and slightly inconsistent with the softer overall UI style."
+  },
+  "Participant_7_CaseStudy-25.1-CLAUDE": {
+    "verdict": "FAIL",
+    "pass_reason": "Keeps overall layout and styling consistent with the original UI.",
+    "fail_reason": "Fails to disable the \u201cLOG IN\u201d button, leaving it active despite empty fields."
+  },
+  "Participant_7_CaseStudy-25.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Properly updates the button to a disabled state, clearly indicating incomplete input.",
+    "fail_reason": null
+  },
+  "Participant_7_CaseStudy-26.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Accurately updates the color hierarchy, keeping \u201cCLOSED\u201d emphasized while making distance informational.",
+    "fail_reason": null
+  },
+  "Participant_7_CaseStudy-26.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Properly separates the visual treatment of distance and status, using neutral color for distance and red for \u201cCLOSED.\u201d",
+    "fail_reason": null
+  },
+  "Participant_7_CaseStudy-26.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Correctly changes the distance text (\u201c2.07 miles\u201d) to a neutral color while keeping \u201cCLOSED\u201d in red, improving visual hierarchy and clarity.",
+    "fail_reason": null
+  },
+  "Participant_7_CaseStudy-27.1-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Enhances clarity by visually separating input fields, making them easier to scan.",
+    "fail_reason": "Introduces new green side accents that don\u2019t exist in the original design system, reducing visual consistency."
+  },
+  "Participant_7_CaseStudy-27.1-GEMINI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Completely breaks the interface by replacing it with an unrelated graphic, ignoring both layout and task intent."
+  },
+  "Participant_7_CaseStudy-27.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Improves readability by strengthening the contrast between field labels (\u201cFrom\u201d, \u201cTo\u201d) and values without disrupting layout or hierarchy.",
+    "fail_reason": "The increased emphasis on values is slightly heavy, making the labels feel comparatively under-prioritized."
+  },
+  "Participant_7_CaseStudy-28.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Maintains original layout and improves clarity of map elements without disrupting structure.",
+    "fail_reason": "Minor inconsistency in visual weight\u2014map pins and UI overlays could be slightly better balanced for clearer hierarchy."
+  },
+  "Participant_7_CaseStudy-28.1-GEMINI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Completely breaks the screen by rendering incorrect/irrelevant UI elements (HTML artifacts and shapes), losing the original layout and functionality."
+  },
+  "Participant_7_CaseStudy-29.1-CLAUDE": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Highlights \u201cCancel\u201d clearly as the safe action.",
+    "fail_reason": "Modal is still positioned too low and overlaps background content."
+  },
+  "Participant_7_CaseStudy-29.1-GEMINI": {
+    "verdict": "FAIL",
+    "pass_reason": null,
+    "fail_reason": "Does not create clear action hierarchy - all actions still feel similar."
+  },
+  "Participant_7_CaseStudy-29.1-OPENAI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "Preserved the original modal layout and improved action hierarchy.",
+    "fail_reason": "\u201cRate Us\u201d still competes with the main exit/cancel decision."
+  },
+  "Participant_7_CaseStudy-30.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Correctly repositions the \u201cin-store mode\u201d floating action button to avoid overlapping the bottom navigation while maintaining overall layout consistency.",
+    "fail_reason": "The button spacing from the bottom edge is slightly excessive, making it feel visually detached from the navigation area."
+  },
+  "Participant_7_CaseStudy-31.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Integrated the \u201cAccuracy\u201d accordion item cleanly while maintaining consistent divider lines, typography, and spacing.",
+    "fail_reason": "The accordion rows appear marginally taller than the original, making the list feel slightly less compact."
+  },
+  "Participant_7_CaseStudy-31.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully added the extra FAQ item without breaking the existing styling or accordion layout.",
+    "fail_reason": "The bottom section feels slightly more compressed vertically, reducing breathing room above the feedback button."
+  },
+  "Participant_7_CaseStudy-31.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Added the new \u201cAccuracy\u201d FAQ item while preserving the original accordion structure, spacing, and visual hierarchy.",
+    "fail_reason": "The added FAQ item slightly tightens the spacing near the feedback button at the bottom."
+  },
+  "Participant_7_CaseStudy-32.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Added clear visual emphasis to the subscription actions while keeping the modal highly consistent with the original interface, typography, and spacing system.",
+    "fail_reason": "The secondary \u201cCancel\u201d action became too visually muted relative to the rest of the dialog, reducing discoverability and making the action hierarchy slightly unbalanced."
+  },
+  "Participant_7_CaseStudy-32.1-GEMINI": {
+    "verdict": "PASS",
+    "pass_reason": "Improved the visibility and affordance of the billing action buttons while maintaining consistency with the app\u2019s existing Material-style UI and preserving the dialog structure.",
+    "fail_reason": "The dialog spacing and button sizing feel slightly heavier than the original design, making the modal appear denser and less balanced compared to the surrounding lightweight interface."
+  },
+  "Participant_7_CaseStudy-32.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Clearly improved the purchase dialog\u2019s action hierarchy by turning \u201cMonthly\u201d and \u201cYearly\u201d into filled high-contrast buttons, making the primary subscription actions much easier to identify while preserving the original layout and spacing.",
+    "fail_reason": "The filled buttons are visually stronger, but the equal emphasis between \u201cMonthly\u201d and \u201cYearly\u201d misses an opportunity to guide users toward the recommended yearly plan with a slightly more prominent treatment or savings highlight."
+  },
+  "Participant_7_CaseStudy-33.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Improved CTA prioritization while maintaining strong consistency with the existing UI style, especially through the warm golden highlight that matches the app\u2019s premium visual tone. The updated hierarchy feels intentional and conversion-focused without disrupting surrounding sections.",
+    "fail_reason": "The glow/shadow effect around the yearly CTA adds slightly more visual weight than necessary and pulls attention away from nearby content."
+  },
+  "Participant_7_CaseStudy-33.1-GEMINI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "The yearly subscription option is emphasized more clearly than before and the overall layout remains mostly intact.",
+    "fail_reason": "The new bright pink CTA introduces a stronger visual shift that feels less aligned with the existing premium black-and-gold visual language of the interface, making the screen feel slightly less cohesive compared to the original design system."
+  },
+  "Participant_7_CaseStudy-33.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully improved the visual hierarchy by making the \u201cYearly Subscribe\u201d CTA significantly more prominent while still preserving the original structure, spacing, and premium dark aesthetic of the paywall. The stronger contrast clearly guides user attention toward the intended subscription option without introducing layout inconsistencies.",
+    "fail_reason": "The highlighted yearly CTA becomes visually dominant enough that the \u201cLife-time Purchase\u201d option now feels slightly de-emphasized compared to the original balance."
+  },
+  "Participant_7_CaseStudy-34.1-CLAUDE": {
+    "verdict": "PASS",
+    "pass_reason": "Improved the visual hierarchy effectively by increasing the prominence of the CTA while maintaining strong consistency with the original UI style, typography, and premium dark theme. The pricing cards and CTA feel visually cohesive and conversion-focused.",
+    "fail_reason": "The CTA still competes slightly too aggressively with the pricing cards due to the strong brightness contrast, making the lower section feel heavier than the rest of the layout."
+  },
+  "Participant_7_CaseStudy-34.1-GEMINI": {
+    "verdict": "PARTIAL",
+    "pass_reason": "The updated CTA is clearer and more noticeable than the original while keeping most of the existing layout intact. The screen still feels functional and readable overall.",
+    "fail_reason": "The button styling and emphasis feel less refined and slightly disconnected from the premium visual language of the rest of the paywall, making the hierarchy feel less balanced compared to the original design."
+  },
+  "Participant_7_CaseStudy-34.1-OPENAI": {
+    "verdict": "PASS",
+    "pass_reason": "Successfully improved the CTA hierarchy by making the \u201cSubscribe Now\u201d button more visually prominent while preserving the original dark premium aesthetic and spacing consistency of the paywall. The stronger contrast helps guide users toward the final conversion action without disrupting the overall structure.",
+    "fail_reason": "The glow effect around the CTA is slightly too intense and pulls attention away from the Annual and Quarterly pricing cards, which should remain the primary comparison area before conversion."
+  }
+}

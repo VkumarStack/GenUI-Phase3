@@ -1,9 +1,6 @@
 .env
 .DS_Store
 __pycache__/
-zips/
-Examples/FineTuningExamples
-GeneratedRevisions/
-RevisionFineTuning/
-pilot_study_screens/
-FilteredDataset/
+DummyData/
+Datasets/
+DEPRECATED/

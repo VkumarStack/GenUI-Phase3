@@ -1,1 +1,0 @@
-The various buttons are not aligned properly. The top buttons ('flash on', 'switch camera', and 'settings') are not aligned along the same horizontal level. The bottommost buttons are not properly aligned in the center of the screen. Fix this.

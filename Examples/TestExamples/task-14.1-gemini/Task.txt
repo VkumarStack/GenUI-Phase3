@@ -1,1 +1,0 @@
-In between each different 'post' under the 'Get Inspired' feed, adjust so that the color of the gaps is black instead of white.
