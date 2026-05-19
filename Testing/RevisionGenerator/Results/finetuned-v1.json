@@ -1,0 +1,461 @@
+{
+  "run_name": "finetuned-v1",
+  "backend": "vertexai",
+  "model": "projects/572849789000/locations/us-central1/endpoints/53841435144749056",
+  "dataset": "/Users/vivek/Projects/GenUI/Datasets/RevisionGeneratorModelDataset/Test",
+  "timestamp": "2026-05-19T01:30:14.461216+00:00",
+  "tasks_per_category": 3,
+  "screens": {
+    "3": {
+      "example_key": "Participant_3_CaseStudy-3.1",
+      "source_folder": "Participant_3_CaseStudy-3.1-CLAUDE",
+      "categories": {
+        "Reorganize Information Hierarchy": [
+          "The map-only view forces users to pan and zoom to find distributors, which is inefficient for browsing or finding a specific location by name. Add a toggle button (e.g., a \"List View\" icon button in the header) that switches the main view to a scrollable list of all distributors, sorted alphabetically or by distance. Tapping an item in the list should navigate back to the map view, centered on the selected distributor.",
+          "The red map pins are not interactive, so users can't get any information about a location without leaving this screen. Implement a bottom sheet that appears when a user taps a pin. This sheet should display key details like the distributor's name, address, and an option to get directions.",
+          "The lack of a search function makes it difficult for a user to find a distributor in a specific city or by a specific name. Add a search bar or a search icon to the top app bar. This would allow users to filter the distributors shown on the map based on their search query."
+        ],
+        "Refine Layout & Spacing": [
+          "The hamburger menu icon, logo, and \"Distributors\" title in the top navigation bar are not vertically aligned, creating a slightly messy and unprofessional look. Vertically center all three of these elements within the red navigation bar for a more balanced and polished header.",
+          "The \"center location\" button in the top-right corner of the map is positioned too close to the top and right edges of its container, making it feel cramped. Add a consistent margin (e.g., 16dp) to the top and right of this button to give it more breathing room and improve the overall layout.",
+          "The location pins on the map are overlapping in several areas, making it impossible to see or select individual distributors. Implement pin clustering so that when multiple pins are too close together, they are grouped into a single cluster icon that indicates the number of pins within it."
+        ],
+        "Clarify Function & State": [
+          "When a user taps a map pin, there is no visual feedback to indicate it has been selected. Change the appearance of a tapped pin to distinguish it from the others. For example, make the selected pin larger or change its color.",
+          "The \"my location\" button in the top right does not indicate its state. When location tracking is active and the map is centered on the user, the icon should change to a filled state or a different color (e.g., blue) to signal that it is active.",
+          "Several map pins are clustered closely together, causing them to overlap and making individual selection difficult. Implement pin clustering, where overlapping pins at a given zoom level are grouped into a single marker showing the number of pins. Tapping the cluster should zoom in to reveal the individual locations."
+        ],
+        "Add or Surface Functionality": [
+          "Currently, several map pins overlap, making it impossible for a user to select an individual distributor in a dense area. The map pins should be updated to use clustering. When multiple pins are close together at a given zoom level, group them into a single cluster icon that shows the number of pins it contains. Tapping the cluster should zoom the map to reveal the individual pins or smaller clusters.",
+          "A user has no way to find a specific distributor or city without manually panning and zooming the map. Add a search icon (magnifying glass) to the red header bar, to the right of the \"Distributors\" title. Tapping the icon should expand a search field where the user can type a location or distributor name to filter the results on the map.",
+          "Tapping on a pin does not provide any information about the location. When a user taps a red map pin, a bottom sheet or an info window should appear. This should display key information about the distributor, such as their name, address, and a button to get directions."
+        ],
+        "Simplify & Reduce Clutter": [
+          "The header bar is cluttered with both a logo and a title (\"Distributors\"). Remove the logo to the left of the title, and center the \"Distributors\" text vertically and horizontally in the space between the hamburger menu icon and the right edge of the screen.",
+          "The location pins on the map are heavily clustered and overlap, making it impossible to see or select individual distributors in dense areas. Implement map clustering: group pins that are close together into a single marker showing the count of locations within it, which expands when tapped or when the user zooms in.",
+          "The default map style is visually busy, with prominent roads and labels that compete for attention with the distributor pins. Apply a simplified map style (e.g., grayscale or low saturation) to reduce the visual weight of the background map, making the red distributor pins the primary focal point."
+        ],
+        "Strengthen Visual Consistency": [
+          "The \"my location\" button is a sharp-cornered square, which is inconsistent with modern UI conventions and the softer, rounded aesthetic of Google Maps elements. Change this button to a circle with a subtle drop shadow, aligning it with the standard appearance of a Floating Action Button (FAB) in Material Design.",
+          "The centered header title and logo create a visual imbalance with the left-aligned hamburger menu. Left-align the logo and the \"Distributors\" text, placing them to the right of the hamburger menu with appropriate padding to create a more standard and visually balanced app bar layout.",
+          "The red location pins are generic and don't align with the app's branding. Replace the default teardrop-shaped pins with a custom design that incorporates the app's diamond-shaped logo or brand colors to strengthen brand identity and create a more cohesive visual experience."
+        ],
+        "Improve Readability & Accessibility": [
+          "Several location pins overlap, making it impossible to see the exact number of distributors in an area or to select an individual one. This makes the map information difficult to read and use. Implement map pin clustering: when multiple pins are too close to be displayed individually, replace them with a single cluster icon that indicates the number of pins within it.",
+          "The city and park names on the map (e.g., \"S\u00e9zanne\", \"Parc naturel r\u00e9gional de la Montagne de Reims\") use a thin font weight that has low visual prominence against the map background. This can make them difficult to read quickly. Increase the font weight of these labels to medium or semi-bold to improve legibility.",
+          "The red pins don't have a border, which can make them difficult to distinguish from the green map background, especially for users with red-green color blindness. Add a thin, dark (e.g., dark grey or black) border around the outside of each red pin to enhance its contrast and make it stand out more clearly."
+        ]
+      }
+    },
+    "11": {
+      "example_key": "Participant_3_CaseStudy-11.1",
+      "source_folder": "Participant_3_CaseStudy-11.1-CLAUDE",
+      "categories": {
+        "Reorganize Information Hierarchy": [
+          "The price for \"DIESEL #2\" is shown twice: once prominently in the top card and again in the \"Fuel\" section. This redundancy clutters the UI and creates an inconsistent information hierarchy. Remove the large price display (\"4.68\u2079 DIESEL #2\") from the top card, consolidating all fuel prices within the \"Fuel\" section below to create a single source of truth for pricing.",
+          "The \"Love's Pay\" button is a primary call-to-action but is located at the bottom of the \"Fuel\" card, which could be off-screen if the fuel list is longer. This reduces its discoverability and accessibility. Move the \"Love's Pay\" button out of the fuel card and make it a floating action button or a persistent element in a bottom navigation bar to ensure it is always visible.",
+          "The amenities \"Arby's\" and \"Open 24/7\" are listed directly above the main action buttons (\"Call\", \"Directions\", etc.), which visually connects them and makes the layout feel cramped. The amenities are secondary details compared to the actions. Move the \"Arby's\" and \"Open 24/7\" rows to be under the \"Info\" tab or within a dedicated \"Amenities\" section to separate static information from interactive controls."
+        ],
+        "Refine Layout & Spacing": [
+          "The large empty space between the fuel type labels (\"DEF\", \"DIESEL #2\") and their prices weakens their visual association, making the list harder to scan. Reduce this horizontal gap so the price is positioned closer to its label, creating a tighter visual group for each row within the \"Fuel\" card.",
+          "The vertical spacing in the top information card is inconsistent, particularly the large gap between the address line (\"Patterson, CA\") and the amenities list (\"Arby's\"). Reduce the vertical margin between the address and the amenities to create a more balanced and compact layout within the card.",
+          "The \"Love's Pay\" button feels disconnected from the \"Fuel\" section due to its spacing and shape. Integrate the button into the bottom of the \"Fuel\" card by making it full-width (respecting card padding), removing the excess space above it, and making its top corners square while its bottom corners match the card's radius."
+        ],
+        "Clarify Function & State": [
+          "The selected \"COMMERCIAL\" fuel tab is only indicated by an underline, and the active/inactive states have low visual contrast. Increase the font weight of the selected tab and slightly decrease the opacity of the unselected tabs (\"CASUAL\", \"PROPANE\") to make the current selection more obvious.",
+          "The price for \"DIESEL #2\" is displayed in two places: in the top card and in the \"Fuel\" section below. This is redundant and clutters the main information area. Remove the price and \"DIESEL #2\" label from the top-right of the main card, as this information is already available in the dedicated section below.",
+          "The solid red heart icon implies the location is \"favorited,\" but it's unclear if this is a button or just a status indicator. Change this to a tappable button that toggles the state. The icon should be an outline when not favorited and filled when favorited, providing clear feedback and interactivity."
+        ],
+        "Add or Surface Functionality": [
+          "The address \"I-5, Exit 434/Sperry Ave\" is displayed as static text. Users may want to copy this to use in a different navigation app. Add a \"copy\" icon next to the address text; tapping the icon or the text should copy the full address string to the clipboard and show a toast notification confirming the action.",
+          "Fuel prices change often, but there's no indication of how current the displayed prices are. This reduces user trust in the information. In the \"Fuel\" card, below the \"Fuel\" header, add a small text line indicating when the prices were last updated (e.g., \"Prices updated 15 minutes ago\").",
+          "The \"Love's Pay\" button is a prominent call to action, but a new user might not know what it is. To encourage feature discovery and adoption, add a small information (\"i\") icon next to the \"Love's Pay\" text on the button. Tapping this icon should trigger a tooltip or modal explaining what Love's Pay is and its benefits."
+        ],
+        "Simplify & Reduce Clutter": [
+          "The price for \"DIESEL #2\" is shown twice: once in the top card and again in the \"Fuel\" section. This redundancy clutters the top card. Remove the price display (\"4.68\u2079 DIESEL #2\") from the top right of the main information card to simplify this section and reduce cognitive load.",
+          "The amenity information for \"Arby's\" and \"Open 24/7\" is listed on two separate lines, taking up unnecessary vertical space. Consolidate these two items onto a single line, separated by a dot or other visual separator, to make the card more compact. The new line should read similar to: \"[cart icon] Arby's \u2022 [clock icon] Open 24/7\".",
+          "The action buttons \"Call,\" \"Directions,\" \"Info,\" and \"Share\" use large circular backgrounds that consume significant vertical space. Remove the circular background from each of the four icons, and reduce the vertical spacing between the icons and their text labels to create a more compact and less visually heavy action bar."
+        ],
+        "Strengthen Visual Consistency": [
+          "The Diesel #2 price is displayed redundantly, once in the top card and again in the \"Fuel\" section. This clutters the UI and creates unnecessary repetition. Remove the \"4.68\u2079 DIESEL #2\" price from the top card, consolidating all fuel prices exclusively within the dedicated \"Fuel\" section below.",
+          "The \"Info\" action button uses a magnifying glass icon. This icon is universally used for \"Search,\" not \"Info,\" creating a conflict with established UI conventions. Replace the magnifying glass icon with a standard info icon (an \"i\" within a circle) to align the visual cue with its intended function.",
+          "The fuel prices are displayed with a superscript for the final digit (e.g., 4.68\u2079). This format, while common on physical signs, is not standard for digital interfaces, can be difficult to read, and presents accessibility challenges. Change all prices to use a standard decimal format (e.g., 4.689) for improved readability and consistency with digital typography conventions."
+        ],
+        "Improve Readability & Accessibility": [
+          "The unselected tabs in the \"Fuel\" section (\"CASUAL\" and \"PROPANE\") use a gray text color that has very low contrast against the dark gray background, making them difficult to read. Change the text color of the unselected tabs to a lighter gray or white to ensure they meet WCAG AA contrast standards.",
+          "The fractional cent in the fuel prices (the superscript '9' in \"4.68\u2079\" and \"3.98\u2079\") is extremely small and hard to read, which can cause users to misinterpret the price. Increase the font size of this fractional digit and consider aligning it with the rest of the price numbers (e.g., \"4.689\") to improve legibility.",
+          "The secondary text labels, such as the distance (\"83.3 mi\"), the fuel type under the main price (\"DIESEL #2\"), and the fuel specs (\"B20, ULSD\"), use a low-contrast gray color. This makes important contextual information difficult to read quickly. Increase the brightness of this text to a lighter gray or white to improve contrast and readability."
+        ]
+      }
+    },
+    "12": {
+      "example_key": "Participant_6_CaseStudy-12.1",
+      "source_folder": "Participant_6_CaseStudy-12.1-CLAUDE",
+      "categories": {
+        "Reorganize Information Hierarchy": [
+          "The page features two separate header bars, which creates visual clutter and a confusing navigation hierarchy. Consolidate the top yellow bar (with social links) and the white bar below it (with cart, profile, menu) into a single header. This new header should contain the back arrow on the left, and the cart, profile, and menu icons on the right, while the social media icons should be relocated to the page footer.",
+          "The small thumbnail image next to the \"Category\" text is visually disconnected and de-emphasized. To improve the visual hierarchy and create a better first impression, remove the image from its current location and place a larger version of it at the top of the page, above the \"Guided Meditation\" title, to serve as a proper hero image.",
+          "The \"Teacher\" and \"Category\" metadata are stacked vertically, which uses unnecessary space and makes them feel like separate pieces of information. Group this metadata together on a single line below the main title to create a more compact and organized sub-heading. For example, display it as \"By Sebastian Orth \u2022 Meditation & Mindfulness\"."
+        ],
+        "Refine Layout & Spacing": [
+          "The \"Teacher\" section is center-aligned, but the \"Category\" section directly below it is left-aligned. This misalignment creates a jagged and unprofessional vertical flow. Left-align the \"Teacher\" label and the name \"Sebastian Orth\" to match the alignment of the \"Category\" section.",
+          "There is not enough vertical space between the main page title (\"Abundance\") and the \"Teacher\" label. This lack of spacing makes the content feel cramped. Increase the top margin of the \"Teacher\" section to create more visual separation from the title.",
+          "The icons in the top navigation bar (shopping cart, user, and menu) are too close to each other. This tight spacing makes the header feel cluttered and can make the icons harder to tap accurately. Increase the horizontal margin between each of these three icons to give them more breathing room."
+        ],
+        "Clarify Function & State": [
+          "The inactive \"Curriculum\" tab has a light grey background, which makes it look disconnected from the \"Description\" tab and potentially disabled. Change the background of the inactive tab to white to match the active tab and the content area, creating a more cohesive tab bar. Rely on the underline indicator and text styling to differentiate between the active and inactive states.",
+          "The teacher's name (\"Sebastian Orth\") and the category name (\"Meditation & Mindfulness\") appear as plain text, but are likely links to other pages. This is functionally ambiguous. If these elements are interactive, style them as links by changing their color to the site's primary accent color and adding an underline on hover/tap.",
+          "The shopping cart icon in the header provides no indication of its current state. It is unclear if the cart is empty or contains items. Add a small badge with a number to the top-right corner of the shopping cart icon to display the quantity of items currently in the cart."
+        ],
+        "Add or Surface Functionality": [
+          "The page is missing a clear call-to-action, making it unclear how a user would purchase this meditation. Below the \"Category\" section, add a prominent, full-width \"Add to Cart\" button. Above this button, display the price of the course.",
+          "There is no social proof to help a user gauge the quality of the meditation. Directly below the \"Guided Meditation: Abundance\" title, add a star rating component followed by the number of reviews in parentheses (e.g., \u2605 4.8 (1,234 reviews)).",
+          "Essential course details like duration or number of lessons are not visible, forcing the user to dig for information. Below the \"Category\" section and above the price/CTA, add a row of key stats with icons, such as total duration, number of meditations, and access type (e.g., lifetime access)."
+        ],
+        "Simplify & Reduce Clutter": [
+          "The labels \"Teacher\" and \"Category\" are redundant as the context makes it clear what \"Sebastian Orth\" and \"Meditation & Mindfulness\" refer to. Remove these two grey text labels to reduce text density and visual noise.",
+          "The yellow bar with social media icons at the top adds visual clutter and gives undue prominence to secondary links. Remove this yellow bar entirely; social media links can be relocated to the footer or inside the main menu.",
+          "The styling of the two tabs is inconsistent and visually heavy; the active \"Description\" tab is white with a line, while the inactive \"Curriculum\" tab is a solid grey block. Change the inactive tab to have a white background, matching the active one. Differentiate the active tab simply by using a bold font weight and the underline, and use a regular font weight for the inactive tab."
+        ],
+        "Strengthen Visual Consistency": [
+          "The user profile icon in the header has a circular grey background, while the shopping cart and menu icons next to it do not. This inconsistency makes the icons look like they are from different sets. Remove the grey background from the user profile icon so all three icons have a consistent, transparent background style.",
+          "The layout for displaying the \"Teacher\" and \"Category\" is inconsistent. The \"Teacher\" label is centered above the value, while the \"Category\" label is inline and to the left of its value. Change the \"Teacher\" section to match the \"Category\" layout: make the label \"Teacher:\" appear to the left of \"Sebastian Orth\".",
+          "The back arrow icon in the top-left corner feels disconnected from the rest of the header. Its purple color does not match the page's color scheme (yellow, teal, black, grey), and it floats above the main header bars. Move the back arrow icon into the yellow header bar on the left, and change its color to black to match the social media icons on the right."
+        ],
+        "Improve Readability & Accessibility": [
+          "The gray text \"Curriculum\" on the light gray background of the inactive tab has very low contrast, making it difficult to read and failing accessibility standards. Change the text color of the inactive tab to a darker gray to ensure it meets at least a 4.5:1 contrast ratio against its background.",
+          "The light gray text used for the \"Teacher\" and \"Category\" labels has insufficient contrast against the white background, reducing readability. Darken the text color for these labels to a mid-to-dark gray (e.g., #555555) to improve legibility and meet accessibility contrast requirements.",
+          "The header icons (shopping cart, user, hamburger menu) are a light gray color that provides low contrast against the white background, making them less visible. Change the color of all three icons to black or a much darker gray to match the prominence of the social media icons and improve their visibility and tappability."
+        ]
+      }
+    },
+    "13": {
+      "example_key": "Participant_6_CaseStudy-13.2",
+      "source_folder": "Participant_6_CaseStudy-13.2-CLAUDE",
+      "categories": {
+        "Reorganize Information Hierarchy": [
+          "The current price format on product cards uses superscript for cents, which breaks the visual flow and makes the price harder to parse quickly. Change the price format on all \"Daily Deals\" cards so that the dollar and cent values are the same font size and weight (e.g., \"$15.00\" instead of \"$15\u2070\u2070\"). This will create a more uniform and scannable price display.",
+          "The \"Daily Deals\" cards lack a product title, forcing users to rely solely on the image and price to understand the offering. Add a concise, one-line product title or category name (e.g., \"Sunglasses\") to each card, positioned directly below the image and above the price. This provides essential context upfront and improves the information hierarchy of the card.",
+          "The headline in the Prime hero banner (\"Discounts just for Prime Members\") has awkward line breaks that reduce its impact and readability. Reformat this headline to read \"Exclusive Discounts for Prime Members\" across two lines, making it more concise and visually balanced. This strengthens the communication of the value proposition."
+        ],
+        "Refine Layout & Spacing": [
+          "The text in the \"Prime Members\" banner is awkwardly wrapped, with \"for\" on its own line, and has excessive line spacing. This makes it hard to read and looks unbalanced. Change the text to be two lines: \"Discounts just for\" and \"Prime Members\", and reduce the line height to make the text block more compact.",
+          "The prices listed under the \"Daily Deals\" product images are not vertically aligned with each other. The price on the right (\"$15.00\") is positioned higher than the price range on the left. Align both price elements to their baselines so they appear on the same horizontal level.",
+          "There is too much vertical space between the \"Daily Deals\" subtitle (\"Our deepest discounts, one day only.\") and the product images below it. This creates a visual disconnect between the section header and its content. Reduce the top margin of the product image container to bring the images closer to the subtitle."
+        ],
+        "Clarify Function & State": [
+          "The carousel indicator dots below the \"Prime Exclusive Store\" banner have poor contrast and are too small. This makes it difficult for users to see the current position in the carousel and the total number of slides available. Increase the size of the dots and improve the color contrast; for example, use solid white for inactive dots and a brighter, more distinct color like the \"Woot!\" green for the active dot.",
+          "The pricing in the \"Daily Deals\" section is illegible and confusing due to the use of superscript for cents and a non-standard layout. For example, \"$15.00\" is displayed with a large \"$ 00\" and a small \"15\". Rewrite the prices in a standard, single-line format (e.g., \"$15.00\", \"$39.99 - $123.99\") using a consistent font size to clearly communicate the cost.",
+          "The \"PRIME MEMBERS | Free shipping\" banner lacks any visual cue to indicate if it is clickable. This makes its function ambiguous, as users don't know if they can tap it for more information. Add a chevron icon (>) to the right side of the banner to signal that it is an interactive element that leads to another page."
+        ],
+        "Add or Surface Functionality": [
+          "The app lacks an easily accessible search function on the home screen, forcing users to browse through categories which can be inefficient. Add a search bar or a search icon to the header bar at the top of the screen, next to the shopping cart icon, to allow users to quickly find specific products.",
+          "The value of the \"Daily Deals\" is not immediately obvious, as only the sale price is shown. On each product card in the \"Daily Deals\" section, add the original price with a strikethrough next to the sale price to better communicate the discount and create a stronger incentive to purchase.",
+          "To add a product to the cart, users must first navigate to the product detail page, which adds an extra step to the purchasing flow. Add a small \"Add to Cart\" icon button to the corner of each product card in the \"Daily Deals\" section to allow for quicker purchasing directly from the home screen."
+        ],
+        "Simplify & Reduce Clutter": [
+          "The current price display is unconventional and confusing, using superscript for dollars and regular script for cents (e.g., `$\u00b9\u207500`). This increases cognitive load as users must decipher the format. Change all price displays under the \"Daily Deals\" section to a standard, single-line format where all numbers and symbols are the same size (e.g., `$15.00`).",
+          "The main promotional carousel contains redundant text. It has a label reading \"PRIME Exclusive Store\" and then separate text that says \"Discounts just for Prime Members\". Remove the secondary text \"Discounts just for Prime Members\", as the \"PRIME Exclusive Store\" label already implies this benefit. This will make the promotion simpler and easier to scan.",
+          "The top of the screen has two separate banners promoting Prime benefits, creating redundancy and visual clutter. There is a dark blue banner that says \"PRIME MEMBERS | Free shipping\" directly above a larger blue carousel for the \"PRIME Exclusive Store\". Remove the smaller, darker banner. The primary message is adequately communicated by the more prominent carousel below it."
+        ],
+        "Strengthen Visual Consistency": [
+          "The pagination dots for the main promotional carousel lack contrast. The active dot is a shade of blue that is hard to distinguish from the blue background, and the inactive dots are a light grey that also blends in. Change the active dot to white and the inactive dots to a semi-transparent white (e.g., 50% opacity) to improve visibility and contrast.",
+          "The presentation of \"Prime\" benefits is inconsistent. In the banner, \"PRIME MEMBERS\" is plain white text. In the carousel, \"PRIME\" is styled as a yellow/gold word within a tag. Change the word \"PRIME\" in the \"PRIME MEMBERS | Free shipping\" banner to the same yellow/gold color used for the active \"Home\" icon in the navigation bar to create a consistent visual identity for Prime-related features.",
+          "The green color of the \"Daily Deals\" section header feels disconnected from the app's primary color palette of blue, black, and yellow/gold. Change the color of the \"Daily Deals\" text from green to the dark blue used in the \"PRIME MEMBERS\" banner to create a more cohesive visual experience."
+        ],
+        "Improve Readability & Accessibility": [
+          "The price formatting for the \"Daily Deals\" uses very small, superscript numbers for the cents (e.g., `$39.99`). This makes the full price extremely difficult to read at a glance, hindering the user's ability to quickly evaluate items. Change the price display so that the dollar and cent values are the same font size and on the same baseline (e.g., \"$39.99\").",
+          "The subheading \"Our deepest discounts, one day only\" below \"Daily Deals\" is a light grey color on a white background. This low contrast makes the text difficult for users with visual impairments to read. Darken the text color to meet at least a 4.5:1 contrast ratio against the white background (WCAG AA).",
+          "In the header, the \"an amazon company\" text is small and rendered in a light grey. Its small size and low contrast make it difficult to read. Increase the font weight and darken the color of this text to improve its legibility."
+        ]
+      }
+    },
+    "14": {
+      "example_key": "Participant_6_CaseStudy-14.2",
+      "source_folder": "Participant_6_CaseStudy-14.2-CLAUDE",
+      "categories": {
+        "Reorganize Information Hierarchy": [
+          "The \"Deals near you >\" text is currently inside the image carousel card, which makes its role as a section header ambiguous. Move the \"Deals near you >\" text to be a standalone heading above the image carousel card. Remove the light pink background from behind the text, so it sits on the main white page background like the \"Try something new\" header.",
+          "The section headers \"Deals near you >\" and \"Try something new\" have inconsistent visual styling, which weakens the information hierarchy. Unify the styling of the section headers. Give \"Deals near you >\" the same visual treatment as \"Try something new\" (bold, black text with an orange underline) to create a consistent pattern for section titles.",
+          "The carousel indicator dots are positioned in the empty space between two major sections, making them appear to float and creating visual tension with the heading below. Move the indicator dots so they are overlaid on the bottom of the image, inside the card. This will anchor them visually to the carousel and create a cleaner separation between the card and the \"Try something new\" section below."
+        ],
+        "Refine Layout & Spacing": [
+          "The main promotional card has inconsistent corner rounding. The top banner (\"Deals near you\") has rounded top corners, but the image directly below it has sharp corners, making the component feel fragmented. Apply the same corner radius to the bottom-left and bottom-right corners of the image to unify the entire card element.",
+          "The pagination dots for the image carousel are vertically cramped. There is not enough space between the image above and the \"Try something new\" heading below, which makes the layout feel cluttered. Increase the vertical margin both above and below the row of pagination dots to give them more breathing room.",
+          "The main heading \"Time to crush it.\" is too close to the top edge of the screen. This lack of padding makes the top of the page feel crowded. Increase the top padding for this heading to create more visual space between the text and the device's status bar."
+        ],
+        "Clarify Function & State": [
+          "The inactive icons and labels in the bottom navigation bar have very low color contrast against the white background, making them difficult to read and reducing the clarity of the available navigation options. Darken the grey color used for the inactive \"SEARCH,\" \"FAVORITES,\" \"DEALS,\" and \"PROFILE\" elements to meet WCAG AA contrast standards.",
+          "The inactive pagination dots for the image carousel are extremely faint, which makes it hard for users to know how many slides are available. Increase the contrast of the inactive dots by changing their color from the current very light grey to a medium grey so they are clearly visible against the white background.",
+          "The visual treatments for the section headers are inconsistent, which can confuse users about what is interactive. \"Deals near you\" uses a chevron, while \"Try something new\" uses an underline. Standardize this pattern by replacing the underline on \"Try something new\" with a chevron (>) to match the style of \"Deals near you >\"."
+        ],
+        "Add or Surface Functionality": [
+          "The \"Deals near you\" card is a call to action but lacks specific information to entice a click. Add a sub-headline below \"Deals near you\" that dynamically displays the number of available deals (e.g., \"12 deals available\"). This provides more context and can increase user engagement.",
+          "The \"Try something new\" heading currently acts as a simple label with no associated action. Add a \"See all >\" link to the right of the \"Try something new\" heading to make it clear that this is a navigable section and provide users with a path to discover more content.",
+          "The images in the carousel lack specific context, making it unclear what deal or activity each image represents. Overlay a text label on the bottom of each image in the carousel. The label should briefly describe the deal or activity shown (e.g., \"Battle Ropes Class\" or \"HIIT at Downtown Gym\")."
+        ],
+        "Simplify & Reduce Clutter": [
+          "The \"Deals near you >\" link is redundant since there's a dedicated \"DEALS\" tab in the bottom navigation. Placing it within the same card as the image carousel creates visual clutter and an unclear information hierarchy. Remove this link and its container, and let the image take up the full space of the card.",
+          "The short, thick underline beneath the \"Try something new\" heading is a purely decorative element that adds visual noise without improving hierarchy or function. Remove the underline to create a cleaner and more modern look, relying on the heading's font weight alone for emphasis.",
+          "The labels in the bottom navigation bar are in all-caps, which can be visually loud and slightly harder to read. Change the text labels (\"HOME\", \"SEARCH\", \"FAVORITES\", \"DEALS\", \"PROFILE\") to sentence case (\"Home\", \"Search\", etc.) to make the navigation feel calmer and less cluttered."
+        ],
+        "Strengthen Visual Consistency": [
+          "The main heading, \"Time to crush it,\" uses a serif font, which is inconsistent with the sans-serif font used for every other piece of text on the screen. Change the font of \"Time to crush it.\" to match the bold, sans-serif font used for the \"Try something new\" heading to create a more cohesive typographic style.",
+          "The labels in the bottom navigation bar (\"HOME\", \"SEARCH\", \"FAVORITES\", \"DEALS\", \"PROFILE\") are in all caps, which is stylistically inconsistent with the sentence-case text used for headings elsewhere. Change the navigation labels from all caps to title case (e.g., \"Home\", \"Search\") to improve readability and create a more uniform text hierarchy.",
+          "The \"Try something new\" heading has a short orange underline, which is a decorative style not used on any other heading. This inconsistency creates visual clutter. Remove the underline to make the styling of section headers consistent."
+        ],
+        "Improve Readability & Accessibility": [
+          "The inactive icons and labels (SEARCH, FAVORITES, DEALS, PROFILE) in the bottom navigation bar use a light gray color that provides insufficient contrast against the white background. This makes them difficult to read and fails accessibility standards. Darken the gray color to meet at least the WCAG AA contrast ratio of 4.5:1.",
+          "The \"Deals near you >\" text inside the top card has poor color contrast against its light pink background, making it hard to read. Increase the contrast by either darkening the orange text color or lightening the background color to achieve a minimum contrast ratio of 4.5:1.",
+          "The inactive carousel indicator dots below the main image are very light gray and barely visible against the white background. This makes it hard to see how many items are in the carousel. Change the color of the inactive dots to a darker gray to ensure they are clearly visible."
+        ]
+      }
+    },
+    "22": {
+      "example_key": "Participant_7_CaseStudy-22.1",
+      "source_folder": "Participant_7_CaseStudy-22.1-CLAUDE",
+      "categories": {
+        "Reorganize Information Hierarchy": [
+          "Move the speed camera status into the header and remove the large banner. The \"No speed camera in front of you\" banner obstructs the top portion of the map, which is critical for seeing the road ahead. Replace the static \"Live Radar\" title in the header with the dynamic camera status text, and remove the large blue banner entirely to reclaim map visibility.",
+          "Consolidate the speed indicator and the camera status alert. The user's current speed (bottom-left) and the primary alert about speed cameras (top-center) are located at opposite ends of the screen, forcing the driver to scan a large area. Move the \"No speed camera in front of you\" banner down to the bottom-left, placing it directly above or below the speedometer to create a unified driving information cluster.",
+          "Group the floating action icons into a single toolbar. The restaurant, home, and recenter icons are scattered on the right side of the screen, creating visual clutter and a disjointed user experience. Stack these three icons vertically in a single container on the right edge to create an organized and predictable map controls panel."
+        ],
+        "Refine Layout & Spacing": [
+          "The top bar elements are misaligned, making the header look unbalanced. The \"Live Radar\" title is not centered relative to the icons, and the icon padding is inconsistent. Center the \"Live Radar\" title horizontally in the space between the back arrow and the search icon, and give both icons equal padding from the screen edges.",
+          "The blue notification banner at the top feels cramped because it touches the left and right screen edges. Add horizontal padding (e.g., 16px) to this banner so that it has some breathing room from the sides of the screen.",
+          "The speedometer and the re-center button are too close to the screen edges, creating a crowded feel in the bottom corners. Increase the margin for both the speedometer on the bottom-left and the re-center button on the bottom-right, giving them equal spacing from the sides and bottom of the map area."
+        ],
+        "Clarify Function & State": [
+          "The green circular icon with a running person is ambiguous. It's not clear if this indicates a pedestrian crossing, a police officer on foot, or another type of hazard, which could cause confusion for the driver. Replace this icon with a more specific symbol that clearly communicates its meaning (e.g., a police hat icon for a police report, or a standard warning triangle for a general hazard).",
+          "The function of the search icon in the top right corner is undefined. It's unclear if it's for searching addresses, speed cameras, or other points of interest. After tapping the search icon, add placeholder text to the input field like \"Search address or camera location\" to clarify its purpose.",
+          "The speedometer shows a speed of \"0 km/h\" but doesn't indicate the status or reliability of the GPS signal. The user can't tell if the speed is accurate or if the signal is weak/lost. Add a small status indicator (e.g., a colored dot or a small signal strength icon) within the speedometer circle to communicate the current GPS signal quality."
+        ],
+        "Add or Surface Functionality": [
+          "The app lacks any visible settings access, preventing users from customizing alerts or preferences. Add a gear icon to the top bar, to the right of the search icon. Tapping this icon should navigate the user to a dedicated settings screen.",
+          "The app's value could be greatly increased by community-sourced data, but there is no way for a user to report a speed camera or road hazard. Add a new floating action button with a \"+\" icon in the bottom right, above the \"re-center\" button. Tapping this button should open a menu allowing users to report incidents like \"Speed Camera,\" \"Police,\" or \"Accident.\"",
+          "The current speed is displayed in the bottom-left, but for driving, knowing the speed limit is equally important. Update the speed display circle to also show the current road's speed limit. For example, display the user's speed as \"0\" and the speed limit as \"50\" underneath it, within the same circle."
+        ],
+        "Simplify & Reduce Clutter": [
+          "The blue notification banner at the top (\"No speed camera in front of you\") is excessively large and obstructs a significant portion of the map view. Reduce the vertical height of this banner by 50% and decrease the font size, making it less obtrusive while still being readable.",
+          "The large circular speedometer in the bottom-left corner is visually dominant and covers too much of the map, especially when stationary. Reduce the overall diameter of the speedometer by 30% and adjust the font size for \"0 km/h\" to fit within the new smaller circle.",
+          "The map is cluttered with multiple large, colorful, and stylistically different icons (running person, restaurant, home). Replace these custom icons with smaller, more uniform, and less visually intrusive map pins (similar to standard Google Maps pins) to create a cleaner and more consistent visual experience."
+        ],
+        "Strengthen Visual Consistency": [
+          "The icons in the top bar are vertically misaligned. The back button is lower than the \"Live Radar\" text, and the search icon is higher. Vertically center-align all elements in the header for a cleaner, more professional appearance.",
+          "The floating action button on the bottom right (the target icon) is a rounded square, while the speedometer on the bottom left is a circle. This inconsistency in shape for floating elements is jarring. Change the target button from a rounded square to a circle to match the speedometer, creating a consistent style for floating controls.",
+          "The point of interest markers on the map use inconsistent styles. The home, food, and running person icons are circles, while the \"Computer History Museum\" is a standard map pin. Unify the icon style by changing the circular icons to use the same pin style as the museum, while retaining their unique inner symbols and background colors."
+        ],
+        "Improve Readability & Accessibility": [
+          "The \"Computer History Museum\" map label is illegible. The text is too small, has poor contrast, and is placed directly on the complex map texture. Increase the font size and place the text within an opaque white or light gray speech bubble or tag to ensure it's readable.",
+          "The gray descriptive text in the \"Speed Radar\" ad at the bottom has insufficient contrast against its white background. Change the text color from light gray to a darker gray (e.g., #333333) to meet WCAG AA contrast standards and improve readability.",
+          "The white text and icons in the \"Live Radar\" header can be difficult to see when they overlay lighter parts of the map. Add a subtle, dark text shadow or a very thin outline to the text and icons in the header to ensure they remain legible regardless of the background imagery."
+        ]
+      }
+    },
+    "24": {
+      "example_key": "Participant_12_CaseStudy-24.1",
+      "source_folder": "Participant_12_CaseStudy-24.1-GEMINI",
+      "categories": {
+        "Reorganize Information Hierarchy": [
+          "The notification request modal appears immediately, interrupting the user's primary goal of shopping before they've experienced the app's value. This prioritizes the app's needs over the user's, creating a poor initial experience. Trigger this modal contextually, for example, after the user has placed their first order, when the value of \"order status updates\" is most apparent and relevant.",
+          "The \"Choose Pickup or Delivery\" action is a critical first step, but it is positioned below the search bar, creating a confusing flow. The visual hierarchy should guide the user to set their shopping context first. Elevate the \"Choose Pickup or Delivery\" banner to be above the search bar, making it the clear, initial action for the user to take.",
+          "The row of four circular icons (location, grid, card, barcode) between the fulfillment banner and category filters adds visual clutter and interrupts the user's path to browsing products. Their purpose and priority in the information hierarchy are unclear. Relocate these utility icons to a more standard, persistent location like a bottom navigation bar or into the main side menu to create a cleaner, more focused shopping journey."
+        ],
+        "Refine Layout & Spacing": [
+          "The two action buttons, \"NOT NOW\" and \"SOUNDS GREAT,\" are spaced too far apart, which makes them feel disconnected. Reduce the horizontal space between the two buttons by about 50% so they form a more cohesive group. This will improve the visual structure of the modal's action area.",
+          "The modal's title has an awkward line break that leaves a single ampersand starting the second line (\"& order status updates\"). This creates visual imbalance and reduces readability. Adjust the container width or font size so the break occurs more naturally, or replace the ampersand with \"and\" to prevent this widowed character.",
+          "The vertical spacing within the modal is unbalanced; the gap between the body text and the action buttons is too tight compared to the space above the body text. Increase the top margin of the button group (\"NOT NOW\", \"SOUNDS GREAT\") to create more breathing room. This will create a more even rhythm and improve the overall layout."
+        ],
+        "Clarify Function & State": [
+          "The primary action button \"SOUNDS GREAT\" has the same low visual weight as the secondary action, making it unclear that this is the main, suggested action. Change \"SOUNDS GREAT\" into a solid, filled button using the brand's primary blue color to make it visually distinct and indicate its function as the primary call-to-action.",
+          "The title of the modal, \"Don't miss out on the latest deals & order status updates,\" is split awkwardly onto two lines. The ampersand also feels informal and can be harder to parse than the word \"and.\" Rewrite the title to be more balanced, perhaps as a single line or by changing the text to \"Get the latest deals and order updates.\"",
+          "The body text lists several benefits in a single paragraph, which is not easily scannable. Format the benefits \"order status, mPerks coupons, rewards progress and more\" into a bulleted list to improve readability and more clearly communicate the value of enabling notifications."
+        ],
+        "Add or Surface Functionality": [
+          "The four circular icons below the \"Choose Pickup or Delivery\" banner are ambiguous and rely on user interpretation. Add a short text label below each icon (e.g., \"Store,\" \"Shop,\" \"Wallet,\" \"Scan\") to clarify their function and make these features more discoverable.",
+          "The modal asking for notification permissions lacks a standard close button, forcing the user to read and choose between \"NOT NOW\" and \"SOUNDS GREAT\". Add a small 'X' icon to the top-right corner of the modal to provide a quick and familiar way to dismiss it.",
+          "The primary search bar is a high-traffic area, but it lacks a direct way to access the barcode scanner. Add a barcode icon on the right side of the \"Search Products...\" input field to allow users to quickly scan items without navigating elsewhere."
+        ],
+        "Simplify & Reduce Clutter": [
+          "The row of four icons (location, grid, card, barcode) below the delivery banner lack labels, making their purpose ambiguous. This increases cognitive load as users must guess or tap each one to learn its function. Add a short text label beneath each icon to clarify its purpose (e.g., \"Store,\" \"Shop,\" \"Wallet,\" \"Scan\").",
+          "The title in the notification pop-up is long, wraps onto two lines, and uses inconsistent styling (\"& order status updates\" is smaller). This makes it visually complex and slow to parse. Shorten the title to something more direct like \"Stay Updated\" or \"Enable Notifications\" and use a single font size and weight.",
+          "The word \"Hello\" next to the profile icon in the top navigation bar is unnecessary conversational text. The profile icon itself is a standard and sufficient indicator for user account access, so the text adds visual clutter. Remove the \"Hello\" text and keep only the profile icon."
+        ],
+        "Strengthen Visual Consistency": [
+          "The \"NOT NOW\" and \"SOUNDS GREAT\" options in the notification modal have identical styling (blue text links). This lack of visual hierarchy fails to guide the user to the preferred action. Change \"SOUNDS GREAT\" to a solid, filled button with the app's primary blue color and white text. Change \"NOT NOW\" to a more subtle gray text link or a secondary outline button.",
+          "The shopping bag icon next to \"Choose Pickup or Delivery\" is filled, while most other icons on the screen (cart, list, location, barcode) are outlined. This creates visual inconsistency in the icon set. Change the filled shopping bag icon to an outlined style to match the other icons.",
+          "The modal's call-to-action buttons (\"NOT NOW,\" \"SOUNDS GREAT\") are in all caps, which is stylistically different from other interactive text elements like the category filters (\"Summer Celebration,\" \"Back to School\"). Change the button text from all caps to title case (\"Not Now,\" \"Sounds Great\") to create a more consistent and less jarring typographic style."
+        ],
+        "Improve Readability & Accessibility": [
+          "The buttons \"NOT NOW\" and \"SOUNDS GREAT\" have identical visual styling (blue text), failing to distinguish the primary action from the secondary one. Change \"SOUNDS GREAT\" to a solid blue button with white text and leave \"NOT NOW\" as a plain text button to create a clear visual hierarchy.",
+          "The body text within the modal (\"Allow notifications & stay up-to-date...\") has tight line spacing, which can make it harder to read. Increase the line height of this paragraph to 1.5 to improve legibility and scannability.",
+          "The modal headline (\"Don't miss out on the latest deals & order status updates\") wraps onto two lines, but the ampersand (&) is isolated on the second line. Adjust the text or container width so the headline reads more naturally, for example, by having \"& order status updates\" all on the second line."
+        ]
+      }
+    },
+    "25": {
+      "example_key": "Participant_12_CaseStudy-25.2",
+      "source_folder": "Participant_12_CaseStudy-25.2-CLAUDE",
+      "categories": {
+        "Reorganize Information Hierarchy": [
+          "The option to opt-out of advertising is unrelated to the primary task of logging in and distracts from it. Its current prominence, with an icon and a separate container, gives it undue importance. Convert this section into a smaller, plain text link without the icon or the container. Place it at the very bottom of the screen, acting as a footer, to clearly separate it from the login functionality.",
+          "The \"Trouble Logging in?\" option is a crucial recovery path, but its current presentation with a prominent icon and container makes it visually heavy and compete with the primary form fields. Remove the icon and background container, and style this as a simple, centered text link saying \"Trouble Logging in?\" below the \"LOG IN\" button. This is a more standard and less distracting pattern for this action.",
+          "The primary action button (\"LOG IN\") is visually disconnected from the input fields it acts upon due to excessive vertical spacing. This weakens the perceived relationship between entering credentials and submitting them. Reduce the vertical margin between the \"Password\" input field and the \"LOG IN\" button so they form a clear visual group, reinforcing the user's path from input to action."
+        ],
+        "Refine Layout & Spacing": [
+          "The vertical spacing within the main login form is inconsistent. Reduce the space between the \"Password\" field and the \"LOG IN\" button, and also between the \"LOG IN\" button and the \"Trouble Logging in?\" section, to create a more tightly grouped and visually coherent set of login actions.",
+          "The left alignment is inconsistent across the screen. The person and lock icons are indented differently than the question mark and info icons below. Adjust the padding so all four icons align vertically on their left edge, creating a cleaner single column.",
+          "The primary login fields (username, password) are too close to the \"Log In\" header. Add more vertical space between the header section and the \"Email, phone, or username\" input field to give the title more breathing room and improve the overall balance of the screen."
+        ],
+        "Clarify Function & State": [
+          "The \"Trouble Logging in? Tap Here\" link uses the non-descriptive phrase \"Tap Here\". This is poor practice for usability and accessibility as it doesn't inform the user what the link does without reading the surrounding context. Change the link text by removing \"Tap Here\" and making the entire phrase \"Trouble Logging in?\" the tappable link.",
+          "The password field does not have a visibility toggle. This forces users to type their password blind, increasing the chance of typos and login friction. Add an eye icon inside the password field on the right side that toggles the visibility of the typed characters.",
+          "The opt-out message uses \"Tap here,\" which is vague. The action of leaving the app to go to device settings should be communicated more clearly. Rephrase this section to make the link itself describe the action, for example: \"<u>Access device settings</u> for opting-out of interest-based advertising and services.\""
+        ],
+        "Add or Surface Functionality": [
+          "The password field lacks a visibility toggle, which can lead to user frustration and failed login attempts due to typos. Add an eye icon on the right side of the \"Password\" input field. Tapping this icon should toggle the password text between masked characters and plain text, allowing users to verify their input.",
+          "This screen is a dead end for new users who don't have an account. Add a \"Sign Up\" call to action to facilitate user acquisition. Below the \"LOG IN\" button, add a text link that says, \"Don't have an account? **Sign Up**\".",
+          "To make logging in faster and more convenient, add social login options. Below the \"LOG IN\" button, add a separator (e.g., a horizontal line with \"OR\" in the middle) and then add buttons for common social login providers like \"Continue with Google\" and \"Continue with Apple\"."
+        ],
+        "Simplify & Reduce Clutter": [
+          "The icons next to the input fields are redundant as the placeholder text already specifies what to enter. Remove the person icon from the \"Email, phone, or username\" field and the lock icon from the \"Password\" field to reduce visual clutter.",
+          "The \"Trouble Logging in? Tap Here\" text is wordy and the \"Tap Here\" instruction is an outdated pattern. Change the text to the more standard and concise \"Forgot password?\" and keep it as a tappable link.",
+          "The section for opting out of interest-based advertising is not relevant to the primary task of logging in and adds clutter. Remove the entire section with the 'i' icon and the text \"Tap here to access device settings...\". This information belongs in the app's settings or a privacy policy."
+        ],
+        "Strengthen Visual Consistency": [
+          "The icons on the screen use inconsistent colors and styles. The user/person icon is a light green and uncircled, while the \"Trouble Logging in\" and \"Tap here to access...\" icons are dark green and circled. Unify the icon style by changing the person icon to the same dark green as the other two icons.",
+          "The capitalization for the \"Log In\" action is inconsistent. The screen title is \"Log In\" (title case), but the primary action button is labeled \"LOG IN\" (all caps). Change the button text to \"Log In\" to match the title's capitalization, creating a more consistent experience.",
+          "The \"Tap Here\" link is an outdated pattern and creates a small, non-descriptive touch target. The entire phrase should be the link. Remove \" Tap Here\" and make \"Trouble Logging in?\" the full, tappable link."
+        ],
+        "Improve Readability & Accessibility": [
+          "The placeholder text \"Password\" has very low contrast against the input field background, making it difficult to read and failing accessibility standards. Darken the color of the placeholder text in the password field to meet at least a 4.5:1 contrast ratio.",
+          "The password field is missing a persistent label, which disappears once the user starts typing. This is an accessibility issue and can be confusing. Add a permanent text label that says \"Password\" above the password input field, styled like the \"Email, phone, or username\" label.",
+          "The link text \"Tap Here\" is not descriptive and is an accessibility anti-pattern. Make the entire phrase \"Trouble Logging in?\" the link and remove the words \"Tap Here\" to provide better context for screen reader users."
+        ]
+      }
+    },
+    "28": {
+      "example_key": "Participant_12_CaseStudy-28.1",
+      "source_folder": "Participant_12_CaseStudy-28.1-CLAUDE",
+      "categories": {
+        "Reorganize Information Hierarchy": [
+          "The bottom of the screen contains two competing calls to action (\"Touch on map for new location\" and \"More Just4Fun for you\"). Remove the black bar with the instructional text. This interaction is intuitive for a map interface, and removing the bar will reduce clutter and give singular focus to the \"More Just4Fun\" button at the bottom.",
+          "The various pins and icons on the map (red teardrop, teal teardrop, green circle, etc.) lack a clear visual hierarchy, creating clutter. Make the primary location pin (the red teardrop) more visually dominant. Subordinate the other points of interest by making them smaller and using a consistent, less saturated color to clarify they are secondary.",
+          "The pink Floating Action Button (FAB) with a play icon in the bottom right has an ambiguous purpose and competes with nearby map elements. Change the \"play\" icon to one that represents a more common primary map action, such as a \"my location\" (crosshairs) or \"get directions\" (angled arrow) icon, to clarify its function."
+        ],
+        "Refine Layout & Spacing": [
+          "Increase the padding between the search icon and the \"Search for location...\" placeholder text in the top bar. The icon and text are currently too close together, making the area feel cramped.",
+          "The pink circular play button in the bottom right corner is awkwardly overlapping the black banner below it. Adjust the button's position so it sits entirely above the black banner, creating a clearer separation of elements.",
+          "The labels for locations on the map are too close to each other, causing visual clutter and readability issues (e.g., \"Google Athletic ion Field Park...\" and \"Permanente Creek Trail\"). Increase the spacing or margin around each label to prevent them from touching or overlapping."
+        ],
+        "Clarify Function & State": [
+          "The map features multiple icons of different shapes and colors (red pin, turquoise teardrop, green circle, etc.), but there is no legend to explain their meaning. This makes the map difficult to interpret. Add a key or legend, perhaps accessible via an \"i\" (info) button, to clarify what each type of icon represents.",
+          "The large pink button with a \"play\" icon in the bottom-right is ambiguous. It is unclear what action this button will initiate. Replace the generic \"play\" icon with one that is more contextually relevant to the button's function, or add a short text label to the button (e.g., \"Start Game\").",
+          "The two stacked bars at the bottom are confusing. The black bar (\"Touch on map...\") looks like a persistent instruction, while the blue bar (\"More Just4Fun...\") is an action button. This hierarchy is unclear. Change the black instructional bar to a temporary snackbar that appears for a few seconds and then fades away, making it clear it's a hint rather than a permanent UI element."
+        ],
+        "Add or Surface Functionality": [
+          "Add a legend to explain the meaning of the different map markers. The map displays various colored markers (cyan teardrops, green teardrops, grey circles) without any explanation of what they represent, which makes the map difficult to interpret. Add an icon button (e.g., a question mark or \"i\" for info) to the UI that, when tapped, displays a modal or overlay explaining what each type of marker signifies.",
+          "Add a button to re-center the map on the user's current location. After a user pans or zooms away from the red pin (presumably their current location), there is no easy way to return to it. Introduce a floating action button with a standard \"my location\" or crosshairs icon, positioned in a corner of the map (e.g., above the pink play button), that re-centers the view on the red pin when tapped.",
+          "Add controls to change the map type. The user is currently limited to a satellite view, which can be visually cluttered and may not be ideal for all purposes. Add a \"Layers\" button (often represented by an icon of stacked squares) that allows the user to switch between different map views, such as \"Map,\" \"Satellite,\" and \"Terrain.\""
+        ],
+        "Simplify & Reduce Clutter": [
+          "The bottom of the screen is cluttered with two separate bars (\"Touch on map for new location\" and \"More Just4Fun for you\") that take up valuable screen space and distract from the map. Remove both of these bars to provide a larger, less obstructed map view.",
+          "The map is overloaded with different types of pins and text labels, making it visually noisy and difficult to understand. Implement a clustering mechanism or zoom-level-dependent visibility to reduce the number of markers shown at once. At this zoom level, only the primary red pin and perhaps one or two other key locations should be visible, with others grouped or hidden until the user zooms in.",
+          "The large pink play button in the bottom-right corner is visually distracting and its purpose isn't immediately clear in the context of a map view. Remove this floating action button to reduce clutter. If its function is essential, it should be integrated into a more appropriate part of the UI, such as a location detail view."
+        ],
+        "Strengthen Visual Consistency": [
+          "The map pins use multiple inconsistent styles (teardrop, circle, square) and colors, which can confuse the user about the meaning of each pin and makes the map look visually cluttered. Unify the pin design by using a single base shape (e.g., the teardrop) for all points of interest, and differentiate them using color and/or a small icon inside the pin, establishing a clear visual language.",
+          "The two stacked bars at the bottom of the screen have different background colors (dark grey and blue) that don't match the purple-blue color of the top navigation bar. Combine the two bottom bars into a single UI element and use the same purple-blue color from the top navigation bar as its background to create a consistent header and footer.",
+          "The text labels on the map lack a background, making them difficult to read against the complex satellite imagery. Add a semi-transparent, consistently styled background container (like a dark, rounded rectangle) behind each text label to improve contrast and ensure legibility across all areas of the map."
+        ],
+        "Improve Readability & Accessibility": [
+          "The light green text labels for locations on the map (e.g., \"Shoreline Amphitheatre\", \"Computer History Museum\") have very poor contrast against the varied satellite imagery, making them difficult or impossible to read. Add a semi-transparent dark background or a prominent drop shadow to this text to ensure it is legible regardless of what's behind it.",
+          "The grey location pins are too low-contrast against the map background, especially on roads and similarly colored rooftops. This makes them hard to spot. Change the color of these pins to a brighter, more saturated color that stands out from the map imagery.",
+          "The text for points of interest is too small, making it difficult to read, especially with the existing contrast issues. Increase the font size for all location labels on the map, such as \"Permanente Creek Trail\" and \"Charleston Campus\", to improve legibility."
+        ]
+      }
+    },
+    "32": {
+      "example_key": "Participant_12_CaseStudy-32.1",
+      "source_folder": "Participant_12_CaseStudy-32.1-CLAUDE",
+      "categories": {
+        "Reorganize Information Hierarchy": [
+          "The \"Purchase Elite\" modal is redundant, as the \"MONTHLY\" and \"YEARLY\" buttons repeat the options listed above. Convert the \"Monthly\" and \"Yearly\" text options into a selectable radio button group, and replace the \"MONTHLY\" and \"YEARLY\" buttons with a single \"CONTINUE\" button. This will improve the hierarchy of the modal from a set of parallel buttons to a clear sequence of select -> confirm.",
+          "The single \"PURCHASE ELITE\" button at the bottom of the screen triggers a modal, adding an unnecessary step to the purchase flow. Eliminate the modal entirely. Replace the single \"PURCHASE ELITE\" button with two distinct buttons: one for \"Monthly - $0.99/mo\" and another for \"Yearly - $8.99/yr (Save 24%)\". This simplifies the hierarchy and brings the primary choice to the forefront, allowing for a one-click purchase initiation.",
+          "The user is on the \"Upgrade\" screen, meaning their primary focus is on the \"Elite\" plan. However, the \"Free\" plan column is presented first. Swap the \"Free\" and \"Elite\" columns so that the \"Elite\" column is on the left, next to the feature names. This prioritizes the information relevant to the user's goal of upgrading."
+        ],
+        "Refine Layout & Spacing": [
+          "Vertically center the checkmark icons within their table rows. Currently, the checkmarks in the \"Free\" and \"Elite\" columns are aligned to the top of the row, which looks unbalanced next to the two lines of text (feature name and description). Centering them vertically will create better visual harmony.",
+          "Center-align the text within the \"Purchase Elite\" modal. The title (\"Purchase Elite\"), subtitle (\"Please chose your billing cycle\"), and pricing options are all left-aligned, which makes the modal feel unbalanced. Center all of this text content to give the dialog a more stable and conventional layout.",
+          "Add bottom padding to the \"PURCHASE ELITE\" button. The primary call-to-action button is flush with the bottom edge of the screen, making it feel cramped and potentially interfering with system navigation gestures. Add bottom padding or margin to lift the button off the edge and respect the device's safe area."
+        ],
+        "Clarify Function & State": [
+          "The purchase modal requires users to select a billing cycle by clicking a text button that matches a separate price list. It is unclear if clicking \"MONTHLY\" or \"YEARLY\" is a selection action or an immediate purchase confirmation. Replace the separate price list and \"MONTHLY\"/\"YEARLY\" buttons with a set of two selectable radio buttons, each containing the plan name and price. Add a single primary action button labeled \"PURCHASE\" to confirm the selection.",
+          "In the feature comparison table, the \"Free\" column is left blank for features that are not included. This empty space is ambiguous and doesn't explicitly confirm the feature's absence. Place a clear negative indicator, such as a gray 'X' or a dash (\u2014), in these empty cells to clearly communicate that the feature is not part of the Free plan.",
+          "The checkmarks for the \"Free\" plan are green, while the checkmarks for the \"Elite\" plan are gold/brown. Using different colors for the same affirmative meaning (\"feature is included\") is visually inconsistent and adds cognitive load. Unify the color of all checkmarks to a single color (e.g., the green one) to consistently represent an included feature."
+        ],
+        "Add or Surface Functionality": [
+          "Add a visual indicator to highlight the recommended or best-value billing option. The \"Purchase Elite\" dialog shows a \"Save 24%\" text for the yearly option, but this could be more prominent. Add a \"Best Value\" or \"Most Popular\" badge next to the \"Yearly\" plan to make it stand out and guide the user's choice.",
+          "In the \"Purchase Elite\" dialog, change the \"MONTHLY\" and \"YEARLY\" text buttons into radio buttons for selection. Replace the two action buttons with a single primary action button labeled \"CONTINUE\" or \"PURCHASE\". This makes the user's selection explicit and separate from the final confirmation step, reducing the chance of accidental purchases.",
+          "Add a way for users to learn more about each feature. The one-line descriptions are brief. Add a small 'i' (info) icon next to each feature name in the list. Tapping this icon should reveal a tooltip or a small modal with a more detailed explanation of what the feature does and how it works."
+        ],
+        "Simplify & Reduce Clutter": [
+          "The \"Purchase Elite\" modal has redundant action buttons. The \"MONTHLY\" and \"YEARLY\" buttons just repeat the options above them, creating clutter and a confusing two-step selection process. Remove the \"MONTHLY\" and \"YEARLY\" text buttons and add a single primary action button (e.g., \"Confirm\" or \"Purchase\"). The \"Monthly\" and \"Yearly\" billing cycle options should function like radio buttons to make the selection.",
+          "The large \"PURCHASE ELITE\" button at the bottom of the screen is still visible behind the modal that it triggered. This is distracting and creates visual clutter. The modal should have a full scrim (a semi-transparent overlay) that covers and dims the entire background, including the \"PURCHASE ELITE\" button, to focus user attention solely on the modal's content.",
+          "The checkmarks in the feature comparison table use two different colors (green for \"Free\", gold for \"Elite\"). This adds unnecessary visual complexity without providing clear value, as the columns themselves already differentiate the plans. Simplify the visual design by using the same color (e.g., the green checkmark) for all checkmarks in both the \"Free\" and \"Elite\" columns."
+        ],
+        "Strengthen Visual Consistency": [
+          "The checkmarks indicating included features are styled inconsistently. The \"Free\" column uses green checkmarks, while the \"Elite\" column uses gold ones, breaking the visual pattern and making the two plans feel disconnected. Change the checkmarks in the \"Elite\" column to be the same green color as the ones in the \"Free\" column for a uniform look.",
+          "The main call-to-action button at the bottom has a style that is inconsistent with the rest of the screen and can be misinterpreted. The \"PURCHASE ELITE\" button is gray, which often signifies a disabled state, and it doesn't match the green and gold branding. Change the button's background color to the same green used in the \"Upgrade\" header to make it look like an active primary action and create a cohesive color scheme.",
+          "The button labels have inconsistent capitalization compared to other text elements. The buttons \"CANCEL\", \"MONTHLY\", \"YEARLY\", and \"PURCHASE ELITE\" use all-caps, while the titles \"Upgrade\" and \"Purchase Elite\" use title case. Change the button text to title case (e.g., \"Cancel\", \"Monthly\", \"Purchase Elite\") to create a more consistent and harmonious typographic style."
+        ],
+        "Improve Readability & Accessibility": [
+          "The gold text for the modal actions (\"CANCEL\", \"MONTHLY\", \"YEARLY\") has insufficient contrast against the white background, failing accessibility guidelines and making it difficult for users with visual impairments to read. Change the text color to a dark grey or black to ensure a contrast ratio of at least 4.5:1.",
+          "The descriptive text under each feature title (e.g., \"Track device using GPS.\") is small and has low legibility. Increase the font size of this descriptive text by 1-2pt to make it easier to read for all users.",
+          "The checkmarks in the \"Free\" and \"Elite\" columns use different colors (green and gold). This inconsistency adds visual noise without adding meaning. Make all checkmark icons the same color, preferably the green one, to improve consistency and scannability."
+        ]
+      }
+    },
+    "34": {
+      "example_key": "Participant_7_CaseStudy-34.1",
+      "source_folder": "Participant_7_CaseStudy-34.1-CLAUDE",
+      "categories": {
+        "Reorganize Information Hierarchy": [
+          "Make the \"Annual\" plan appear as the default selection to better guide users. Currently, neither subscription plan is highlighted, forcing the user to make an active choice. Change the UI to show the \"Annual - Best Value\" plan as pre-selected, perhaps with a distinct border or background color, while the \"Quarterly\" plan remains in its current unselected state.",
+          "Restructure the pricing information to prioritize the total cost over the monthly breakdown. The current layout gives equal visual weight to the per-month and total billing amounts, which can be confusing. Increase the font size and weight of the total price (e.g., \"$3\", \"$1\") and make the per-month price (e.g., \"$0.25/month\") smaller and secondary to it.",
+          "Make the \"Subscribe Now\" button's text dynamic to reflect the selected plan. The current static \"Subscribe Now\" label is disconnected from the plan choices above it, creating ambiguity about what the user is committing to. Change the button text to update based on the selected plan, for example, \"Subscribe for $3/year\" when Annual is selected, and \"Subscribe for $1/quarter\" when Quarterly is selected."
+        ],
+        "Refine Layout & Spacing": [
+          "The \"Subscribe Now\" button is too close to the \"Quarterly\" plan box above it, making the call to action feel cramped. Increase the top margin of the \"Subscribe Now\" button to add more vertical space and create better visual separation from the plan selection area.",
+          "The items in the \"Pro Features\" list are too close together vertically, which makes the list feel dense and slightly harder to scan. Increase the line height or bottom margin for each feature item to improve readability and give the list more breathing room.",
+          "The \"Subscribe Now\" button is wider than the plan selection boxes above it, which creates a slight visual imbalance in the vertical stack. Adjust the width of the \"Subscribe Now\" button to match the width of the \"Annual\" and \"Quarterly\" boxes to create a more consistent and aligned column."
+        ],
+        "Clarify Function & State": [
+          "The pricing plan descriptions contain a spelling error (\"Bllled\"), which reduces the screen's professionalism and user trust. Correct the typo from \"Bllled\" to \"Billed\" in both the \"Annual - Best Value\" and \"Quarterly\" plan descriptions.",
+          "The different background colors for the pricing plans don't clearly communicate that they are interactive or which one is selected. Add a radio button to each plan option. The selected plan (\"Annual\") should show a filled radio button, and the unselected plan (\"Quarterly\") should show an empty one, to make the selection state unambiguous.",
+          "The \"Best Value\" message is part of the main title for the annual plan, which diminishes its prominence and makes it look like part of the plan name. Change \"Annual - Best Value\" to just \"Annual\" and add a separate, visually distinct pill-shaped tag that says \"Best Value\" next to it to better highlight the recommendation."
+        ],
+        "Add or Surface Functionality": [
+          "The screen lacks a \"Restore Purchase\" option, which is essential for users who have already subscribed and are reinstalling the app or using a new device. Add a \"Restore Purchase\" text link below the \"Subscribe Now\" button to provide this critical functionality and prevent user frustration.",
+          "The subscription offer is less compelling because it doesn't include a free trial. Add a free trial to increase conversion rates. Update the text within the pricing options (e.g., \"Annual - Best Value\") to include information like \"7-day free trial included, then $3/year\".",
+          "There's no clear way to bypass the paywall and continue using the free version of the app, which can lead to user churn. Add a secondary text link below the \"Subscribe Now\" button that says \"Continue with limited version\" or \"Skip for now\" to provide an exit path for users not ready to subscribe."
+        ],
+        "Simplify & Reduce Clutter": [
+          "The pricing display for each plan is verbose and contains a typo (\"Bllled\"). This makes the options harder to scan and looks unprofessional. Consolidate the pricing information for both the \"Annual\" and \"Quarterly\" plans into a single, clearer format like \"$3 annually\" and \"$1 quarterly\" while correcting the spelling.",
+          "The headings \"Start Like A Pro\" and \"Pro Features\" are redundant. The main title already implies that the listed items are the benefits of the pro version. Remove the \"Pro Features\" subheading to reduce text density and simplify the information hierarchy.",
+          "The monthly equivalent cost and the total billing amount are presented on a single line, which requires more effort to parse. In both the \"Annual\" and \"Quarterly\" plan boxes, place the primary billing information (e.g., \"Annual - Best Value\") and the total price (e.g., \"$3 per year\") on the first line, and move the smaller, parenthetical monthly cost (e.g., \"$0.25/month\") to a second line below it."
+        ],
+        "Strengthen Visual Consistency": [
+          "The pricing details for both subscription plans contain a typo. The text in the \"Annual\" and \"Quarterly\" plan boxes should be corrected from \"Bllled\" to \"Billed\" to improve professionalism and clarity.",
+          "The capitalization in the main headline \"Start Like A Pro\" is inconsistent with standard title case rules. The article \"A\" should be lowercase to read \"Start Like a Pro\" for better typographic consistency.",
+          "The \"Quarterly\" subscription plan uses a light grey background that clashes with the dark theme and the styling of the \"Annual\" plan. Change the background of the \"Quarterly\" plan to a dark grey with a light border to make it visually consistent with the overall dark UI, while still being de-emphasized compared to the \"Best Value\" option."
+        ],
+        "Improve Readability & Accessibility": [
+          "The descriptive text \"$0.25/month, Billed yearly at $3\" within the \"Annual - Best Value\" plan has low contrast against the dark purple background, making it difficult to read. Increase the text color's brightness to pure white (#FFFFFF) to improve legibility and meet accessibility standards.",
+          "The descriptive text \"$0.33/month, Billed Quarterly at $1\" within the \"Quarterly\" plan is light grey on a light grey background, making it almost unreadable. Change this text color to a dark grey or black to provide sufficient contrast and ensure users can easily read the pricing details.",
+          "The word \"Billed\" is misspelled as \"Bllled\" in the pricing descriptions for both the annual and quarterly plans. Correct this typo in both locations to improve clarity and professionalism."
+        ]
+      }
+    }
+  }
+}
