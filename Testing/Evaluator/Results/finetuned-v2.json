@@ -1,0 +1,3021 @@
+{
+  "run_name": "finetuned-v2",
+  "backend": "vertexai",
+  "model": "projects/gen-lang-client-0167253440/locations/us-central1/endpoints/8029399715869097984",
+  "dataset": "/Users/vivek/Projects/GenUI/Datasets/EvaluatorModelDataset",
+  "no_dom_diff": false,
+  "no_step1": false,
+  "timestamp": "2026-05-23T18:41:26.452676+00:00",
+  "examples": [
+    {
+      "folder": "Participant_10_CaseStudy-1.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully added a \"View Pass\" button as requested, but it did so by removing the price and duration options. This is a severe usability regression, as it forces users to click into every item to see critical information, making it impossible to compare passes.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully added a \"View Pass\" button as requested, but it did so by removing the price and duration options. This is a severe usability regression, as it forces users to click into every item to see critical information, making it impossible to compare passes."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-1.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "consistencyOriginal": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "FAIL",
+        "requirementFulfillment": "PASS",
+        "visualUsability": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the task by adding a clear call-to-action button to each card, significantly improving usability. It intelligently reused the existing button style from the \"Open map\" control, ensuring the new element is perfectly consistent with the app's design language.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the task by adding a clear call-to-action button to each card, significantly improving usability. It intelligently reused the existing button style from the \"Open map\" control, ensuring the new element is perfectly consistent with the app's design language."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-1.2-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed a complex, multi-part instruction, resulting in a cleaner and more hierarchically sound UI. It correctly increased the price's prominence while reducing the region label's, and elegantly replaced the cluttered day-selector chips with a compact and conventional dropdown element.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed a complex, multi-part instruction, resulting in a cleaner and more hierarchically sound UI. It correctly increased the price's prominence while reducing the region label's, and elegantly replaced the cluttered day-selector chips with a compact and conventional dropdown element."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-1.2-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed a complex, multi-part instruction, correctly interpreting abstract goals like improving hierarchy and breathability into specific, high-quality UI changes that significantly enhanced the design.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed a complex, multi-part instruction, correctly interpreting abstract goals like improving hierarchy and breathability into specific, high-quality UI changes that significantly enhanced the design."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-10.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the task, moving the specified profile information into a new, dedicated section. This change dramatically improves legibility and visual organization while maintaining the app's design language.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the task, moving the specified profile information into a new, dedicated section. This change dramatically improves legibility and visual organization while maintaining the app's design language."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-10.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully addressed the core usability problem by moving the specified elements from the busy cover photo into a dedicated section with a clean background, dramatically improving legibility. It executed the request precisely without introducing any regressions or unnecessary changes.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully addressed the core usability problem by moving the specified elements from the busy cover photo into a dedicated section with a clean background, dramatically improving legibility. It executed the request precisely without introducing any regressions or unnecessary changes."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-10.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed the core task by relocating the 'Follow' and 'Chat' buttons, a clear usability improvement. However, it failed on secondary reordering instructions, notably leaving the tab navigation in the middle of the layout instead of moving it to the bottom as requested.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed the core task by relocating the 'Follow' and 'Chat' buttons, a clear usability improvement. However, it failed on secondary reordering instructions, notably leaving the tab navigation in the middle of the layout instead of moving it to the bottom as requested."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-10.2-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model failed the primary task, which was a full-page reordering. It only moved the 'Follow' and 'Chat' buttons, while ignoring the explicit instructions to move the tab navigation to the bottom and place the personal info section before it.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model failed the primary task, which was a full-page reordering. It only moved the 'Follow' and 'Chat' buttons, while ignoring the explicit instructions to move the tab navigation to the bottom and place the personal info section before it."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-11.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully accomplished the core goal of scaling down the buttons and improving the layout, resulting in a much better visual balance. It only receives a partial pass for fulfillment because it missed the secondary instruction to scale the text labels, but this was a minor omission in an otherwise excellent revision.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully accomplished the core goal of scaling down the buttons and improving the layout, resulting in a much better visual balance. It only receives a partial pass for fulfillment because it missed the secondary instruction to scale the text labels, but this was a minor omission in an otherwise excellent revision."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-11.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed both parts of the task, adding a clear visual indicator for the selected fuel type and updating the call-to-action button to be specific, which greatly improves user certainty.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed both parts of the task, adding a clear visual indicator for the selected fuel type and updating the call-to-action button to be specific, which greatly improves user certainty."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-11.2-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly addressed the user's request, adding a clear visual selection indicator and updating the button text to remove ambiguity. The result is a significant usability improvement that seamlessly integrates with the existing UI.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly addressed the user's request, adding a clear visual selection indicator and updating the button text to remove ambiguity. The result is a significant usability improvement that seamlessly integrates with the existing UI."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-12.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully consolidated the two header bars as requested, creating a much cleaner and more space-efficient layout. However, it failed because it introduced a critical regression by unnecessarily removing the teal progress bar, resulting in a loss of information for the user.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully consolidated the two header bars as requested, creating a much cleaner and more space-efficient layout. However, it failed because it introduced a critical regression by unnecessarily removing the teal progress bar, resulting in a loss of information for the user."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-12.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "PASS",
+        "minimality": "FAIL",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully consolidated the two header bars into a single, clean navigation row, significantly reducing vertical clutter. It intelligently grouped the social and utility icons and arranged them in a balanced layout, fulfilling the core request perfectly.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully consolidated the two header bars into a single, clean navigation row, significantly reducing vertical clutter. It intelligently grouped the social and utility icons and arranged them in a balanced layout, fulfilling the core request perfectly."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-12.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the consolidation task, merging two cluttered header bars into a single, clean bar. This significantly improves the layout by reducing vertical space and grouping all navigation icons logically.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the consolidation task, merging two cluttered header bars into a single, clean bar. This significantly improves the layout by reducing vertical space and grouping all navigation icons logically."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-12.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully identified the alignment inconsistency and corrected it by stacking and centering the category thumbnail and text, creating a visually cohesive metadata block that matches the centered title.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully identified the alignment inconsistency and corrected it by stacking and centering the category thumbnail and text, creating a visually cohesive metadata block that matches the centered title."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-12.2-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model failed to address the core requirement of center-aligning the entire category block (image and text). It only changed the text alignment within the text container, which had no visible effect and did not fix the overall inconsistent layout.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model failed to address the core requirement of center-aligning the entire category block (image and text). It only changed the text alignment within the text container, which had no visible effect and did not fix the overall inconsistent layout."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-2.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "consistencyOriginal": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL",
+        "requirementFulfillment": "PARTIAL",
+        "visualUsability": "PARTIAL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed all instructions, removing the heavy outline, adding a contextually appropriate icon, and reducing the text size, which significantly improved visual hierarchy and consistency with the surrounding UI.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed all instructions, removing the heavy outline, adding a contextually appropriate icon, and reducing the text size, which significantly improved visual hierarchy and consistency with the surrounding UI."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-2.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully implemented the requested style changes by removing the button's heavy outline and adding an upvote icon. However, it introduced a critical regression by applying inconsistent colors to the vote counts on the two posts, making the UI confusing and visually broken.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully implemented the requested style changes by removing the button's heavy outline and adding an upvote icon. However, it introduced a critical regression by applying inconsistent colors to the vote counts on the two posts, making the UI confusing and visually broken."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-2.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "consistencyOriginal": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS",
+        "requirementFulfillment": "PASS",
+        "visualUsability": "PARTIAL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed a multi-step request, correctly interpreting the user's intent to create a less \"heavy\" but still functional vote button. It successfully added the requested icon, reduced the font size, and delivered a high-quality component that significantly improves the UI's clarity and visual hierarchy.",
+      "response": "REQUIREMENT FFULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed a multi-step request, correctly interpreting the user's intent to create a less \"heavy\" but still functional vote button. It successfully added the requested icon, reduced the font size, and delivered a high-quality component that significantly improves the UI's clarity and visual hierarchy."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-2.2-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed a complex set of hierarchical typography and layout changes. It not only applied the requested styles but also intelligently refactored the DOM structure to achieve the desired compact, single-line metadata layout, which is a significant and positive improvement.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed a complex set of hierarchical typography and layout changes. It not only applied the requested styles but also intelligently refactored the DOM structure to achieve the desired compact, single-line metadata layout, which is a significant and positive improvement."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-2.2-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed a highly complex, multi-part instruction to refactor the post metadata, correctly interpreting the desired visual hierarchy. While it missed one minor detail (the 0px gap between the timestamp and comment count), it correctly restructured the DOM and applied all other styling and layout changes, resulting in a clear visual improvement with no regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed a highly complex, multi-part instruction to refactor the post metadata, correctly interpreting the desired visual hierarchy. While it missed one minor detail (the 0px gap between the timestamp and comment count), it correctly restructured the DOM and applied all other styling and layout changes, resulting in a clear visual improvement with no regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-3.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully addressed the core request by adding a well-designed legend that clarifies the meaning of the yellow lines. While the task also suggested explaining other line colors, solving the primary ambiguity is a successful outcome.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully addressed the core request by adding a well-designed legend that clarifies the meaning of the yellow lines. While the task also suggested explaining other line colors, solving the primary ambiguity is a successful outcome."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-3.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly fulfilled the request by adding a clear and well-designed map legend. This addition significantly improves the map's usability by explaining the different visual elements, directly solving the user's problem.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly fulfilled the request by adding a clear and well-designed map legend. This addition significantly improves the map's usability by explaining the different visual elements, directly solving the user's problem."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-3.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully addressed the core ambiguity by adding a clear, well-designed map legend that explains the meaning of the different colored lines and areas, significantly improving the map's usability.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully addressed the core ambiguity by adding a clear, well-designed map legend that explains the meaning of the different colored lines and areas, significantly improving the map's usability."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-3.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully added a high-quality, standard blue dot location marker, directly addressing the core usability issue and fulfilling the request perfectly.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully added a high-quality, standard blue dot location marker, directly addressing the core usability issue and fulfilling the request perfectly."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-3.2-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the task, adding a user location marker that adheres to established design conventions for maps. The styling of the blue dot, complete with a border and glow, is visually clear and significantly improves the usability of the interface.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the task, adding a user location marker that adheres to established design conventions for maps. The styling of the blue dot, complete with a border and glow, is visually clear and significantly improves the usability of the interface."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-4.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully corrected the grammatical error in the opening sentence as requested, improving the professionalism of the text while perfectly maintaining the original UI's style and layout.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully corrected the grammatical error in the opening sentence as requested, improving the professionalism of the text while perfectly maintaining the original UI's style and layout."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-4.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the requested grammatical correction in the legal text, precisely changing the phrasing as instructed without altering any other part of the UI.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the requested grammatical correction in the legal text, precisely changing the phrasing as instructed without altering any other part of the UI."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-5.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model executed the request perfectly, applying a 20% opacity green to the button to visually disable it. This change correctly reflects that the button is inactive until a departure point is selected, which is a significant usability improvement.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model executed the request perfectly, applying a 20% opacity green to the button to visually disable it. This change correctly reflects that the button is inactive until a departure point is selected, which is a significant usability improvement."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-6.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed the multi-part instruction, correctly reformatting the small, overlapping tag into a clean, full-width header bar and repositioning the headline below it. This change significantly improves the visual hierarchy and resolves the original layout issue without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed the multi-part instruction, correctly reformatting the small, overlapping tag into a clean, full-width header bar and repositioning the headline below it. This change significantly improves the visual hierarchy and resolves the original layout issue without introducing any regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-6.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "FAIL",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully fixed the layout by centering the tag and headline, but it unnecessarily removed the tag's background styling, which was a key part of its identity as a distinct UI component. This broke design consistency and introduced a regression.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully fixed the layout by centering the tag and headline, but it unnecessarily removed the tag's background styling, which was a key part of its identity as a distinct UI component. This broke design consistency and introduced a regression."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-6.2-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model completely failed the core task, leaving the misaligned and cropped circles untouched. Instead, it made a single, incorrect change that increased the gap between the circles, which exacerbated the existing layout imbalance and introduced a new regression.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model completely failed the core task, leaving the misaligned and cropped circles untouched. Instead, it made a single, incorrect change that increased the gap between the circles, which exacerbated the existing layout imbalance and introduced a new regression."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-6.2-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the task by resizing and re-centering the selection circles, successfully resolving the original screen's severe cropping and alignment issues to create a balanced, professional layout.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the task by resizing and re-centering the selection circles, successfully resolving the original screen's severe cropping and alignment issues to create a balanced, professional layout."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-7.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model failed the primary task, as the vertical border line is still visibly present in the 'After' screenshot. Although the DOM diff indicates an attempt to remove the border, the final rendered output does not reflect this change, resulting in no visual improvement.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model failed the primary task, as the vertical border line is still visibly present in the 'After' screenshot. Although the DOM diff indicates an attempt to remove the border, the final rendered output does not reflect this change, resulting in no visual improvement."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-7.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully consolidated all primary actions into a single, consistent FAB pattern in the bottom-right corner, improving both the visual hierarchy and the overall usability of the screen.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully consolidated all primary actions into a single, consistent FAB pattern in the bottom-right corner, improving both the visual hierarchy and the overall usability of the screen."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-7.2-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model failed the primary task by not positioning the new FAB hierarchically with the other actions. Instead, it placed it in a visually broken and unusable location at the top of the screen, creating a severe layout regression.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model failed the primary task by not positioning the new FAB hierarchically with the other actions. Instead, it placed it in a visually broken and unusable location at the top of the screen, creating a severe layout regression."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-8.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the task, standardizing the text style across all three steps and correctly identifying and bolding only the action verbs as requested. This resulted in a much cleaner and more usable set of instructions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the task, standardizing the text style across all three steps and correctly identifying and bolding only the action verbs as requested. This resulted in a much cleaner and more usable set of instructions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-8.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model completely failed to perform the requested task, making no changes to the UI whatsoever. The inconsistent text styling in the numbered steps, which was the target of the revision, remains exactly as it was in the original screenshot.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model completely failed to perform the requested task, making no changes to the UI whatsoever. The inconsistent text styling in the numbered steps, which was the target of the revision, remains exactly as it was in the original screenshot."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-8.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully addressed the core task by increasing the font size and color contrast, significantly improving the heading's visual hierarchy as requested.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully addressed the core task by increasing the font size and color contrast, significantly improving the heading's visual hierarchy as requested."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-9.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model failed the core requirement of the task. While it added the correct text labels with appropriate styling, it placed them in completely the wrong locations, creating a new, illogical grouping that is more confusing than the original UI.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model failed the core requirement of the task. While it added the correct text labels with appropriate styling, it placed them in completely the wrong locations, creating a new, illogical grouping that is more confusing than the original UI."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-9.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the request, adding the specified section labels with styling that matches the existing header, which successfully creates a clear information hierarchy and resolves the original design's ambiguity.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the request, adding the specified section labels with styling that matches the existing header, which successfully creates a clear information hierarchy and resolves the original design's ambiguity."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-9.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model failed on the core logic of the task. While it correctly added an \"OTHER TOOLS\" label, it misunderstood the user's intent for the primary tools and added a redundant \"PRIMARY TOOLS\" label for each row of rectangular buttons instead of a single label for the entire block.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model failed on the core logic of the task. While it correctly added an \"OTHER TOOLS\" label, it misunderstood the user's intent for the primary tools and added a redundant \"PRIMARY TOOLS\" label for each row of rectangular buttons instead of a single label for the entire block."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-9.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly understood the core usability problem and executed the requested fix, moving the overlapping title to a clean, standalone position as a proper section headline. This change significantly improves the visual hierarchy and readability of the screen without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly understood the core usability problem and executed the requested fix, moving the overlapping title to a clean, standalone position as a proper section headline. This change significantly improves the visual hierarchy and readability of the screen without introducing any regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-9.2-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the task, relocating the overlapping title to a new position as a standalone headline, which substantially improves the screen's visual hierarchy and usability.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the task, relocating the overlapping title to a new position as a standalone headline, which substantially improves the screen's visual hierarchy and usability."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-13.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly addressed both parts of the task. It not only corrected the price format to a standard \"$X.XX\" but also correctly interpreted the instruction to 'make the price tag smaller', resulting in a significant improvement to the UI's visual hierarchy and professionalism.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly addressed both parts of the task. It not only corrected the price format to a standard \"$X.XX\" but also correctly interpreted the instruction to 'make the price tag smaller', resulting in a significant improvement to the UI's visual hierarchy and professionalism."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-13.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The model failed to follow a direct instruction. While it correctly reformatted the price from a non-standard format to \"$39.99\", it completely ignored the second part of the request, which was to \"make the price tag smaller.\"",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model failed to follow a direct instruction. While it correctly reformatted the price from a non-standard format to \"$39.99\", it completely ignored the second part of the request, which was to \"make the price tag smaller.\""
+    },
+    {
+      "folder": "Participant_11_CaseStudy-15.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "PARTIAL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed all parts of the multi-step instruction, correctly removing the icon, restructuring the text into a title/subtitle format, and adjusting the text styling as requested. This resulted in a cleaner, more hierarchical, and improved UI.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed all parts of the multi-step instruction, correctly removing the icon, restructuring the text into a title/subtitle format, and adjusting the text styling as requested. This resulted in a cleaner, more hierarchical, and improved UI."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-15.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed a multi-step instruction, correctly removing an element and restructuring the remaining content to improve visual hierarchy and declutter the interface.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed a multi-step instruction, correctly removing an element and restructuring the remaining content to improve visual hierarchy and declutter the interface."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-15.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully removed the edit icon and repositioned the \"Headline & Weather\" text, but it failed by introducing a regression: it unnecessarily removed the three-dot menu icon, which was not part of the request.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully removed the edit icon and repositioned the \"Headline & Weather\" text, but it failed by introducing a regression: it unnecessarily removed the three-dot menu icon, which was not part of the request."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-22.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model made no changes to the UI whatsoever. The 'After' screenshot is identical to the 'Before' screenshot, and the DOM diff confirms that no modifications were applied to the interface.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model made no changes to the UI whatsoever. The 'After' screenshot is identical to the 'Before' screenshot, and the DOM diff confirms that no modifications were applied to the interface."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-22.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully reordered the elements as requested, but it also unnecessarily changed the container's vertical alignment from 'center' to 'start'. This introduced a new regression, breaking the alignment between the title, the ad label, and the description text, resulting in a visually unbalanced and lower-quality layout.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully reordered the elements as requested, but it also unnecessarily changed the container's vertical alignment from 'center' to 'start'. This introduced a new regression, breaking the alignment between the title, the ad label, and the description text, resulting in a visually unbalanced and lower-quality layout."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-23.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the task, reducing the font size of the logo text so that it fits neatly within the circular boundary, which resolves the original visual defect.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the task, reducing the font size of the logo text so that it fits neatly within the circular boundary, which resolves the original visual defect."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-24.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model failed to achieve the core visual goal of the task. While it correctly changed the text content in the DOM, it did not account for a CSS `text-transform: uppercase` rule, which resulted in the button text remaining in all-caps and visually unchanged.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model failed to achieve the core visual goal of the task. While it correctly changed the text content in the DOM, it did not account for a CSS `text-transform: uppercase` rule, which resulted in the button text remaining in all-caps and visually unchanged."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-25.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PARTIAL PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully applied the 16px side margins as requested, which is confirmed by the computed style changes in the DOM diff, even though the change is not visible in the screenshot. It made a minor, unrequested change by adding letter-spacing, but this did not cause a regression.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PARTIAL PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully applied the 16px side margins as requested, which is confirmed by the computed style changes in the DOM diff, even though the change is not visible in the screenshot. It made a minor, unrequested change by adding letter-spacing, but this did not cause a regression."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-25.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the request by adding the specified 16px horizontal margins to the button. This change improves the visual hierarchy and aesthetics of the screen without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the request by adding the specified 16px horizontal margins to the button. This change improves the visual hierarchy and aesthetics of the screen without introducing any regressions."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-25.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model made no changes whatsoever, completely failing to address the core task of removing the background colors from the two specified sections. The 'After' screenshot is identical to the 'Before' screenshot, and the DOM diff confirms that no code was modified.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model made no changes whatsoever, completely failing to address the core task of removing the background colors from the two specified sections. The 'After' screenshot is identical to the 'Before' screenshot, and the DOM diff confirms that no code was modified."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-25.3-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully added an underline to the specified text, which correctly improves its interactive affordance and makes the UI more consistent with other link styles on the screen.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully added an underline to the specified text, which correctly improves its interactive affordance and makes the UI more consistent with other link styles on the screen."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-26.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model correctly restyled the phone number as an outline button and moved the 'CLOSED' status to a more prominent label above the restaurant name. However, it introduced a significant regression by failing to remove the original status text, instead converting it into a second, redundant 'CLOSED' label, which clutters the UI.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model correctly restyled the phone number as an outline button and moved the 'CLOSED' status to a more prominent label above the restaurant name. However, it introduced a significant regression by failing to remove the original status text, instead converting it into a second, redundant 'CLOSED' label, which clutters the UI."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-26.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed all three distinct parts of the request, significantly improving the visual hierarchy and usability of the restaurant card. The new \"CLOSED\" label is much clearer, and the outlined call button provides a better tap target.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed all three distinct parts of the request, significantly improving the visual hierarchy and usability of the restaurant card. The new \"CLOSED\" label is much clearer, and the outlined call button provides a better tap target."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-26.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully executed the requested changes but introduced a significant regression by adding a redundant 'Closed' label, resulting in the status being displayed twice on the card.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully executed the requested changes but introduced a significant regression by adding a redundant 'Closed' label, resulting in the status being displayed twice on the card."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-29.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed all parts of the request, resulting in a significantly improved user experience. It correctly simplified the dialog's intent and clarified the available actions for the user.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed all parts of the request, resulting in a significantly improved user experience. It correctly simplified the dialog's intent and clarified the available actions for the user."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-29.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the multi-part task, correctly interpreting the intent to simplify the dialog and create a clear primary and secondary action. The resulting UI is a significant usability improvement over the original.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the multi-part task, correctly interpreting the intent to simplify the dialog and create a clear primary and secondary action. The resulting UI is a significant usability improvement over the original."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-29.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model failed the primary task by not removing the specified buttons. Instead, it created a confusing interface with two identical \"Exit anyways\" buttons, which is a significant usability regression.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model failed the primary task by not removing the specified buttons. Instead, it created a confusing interface with two identical \"Exit anyways\" buttons, which is a significant usability regression."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-30.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully removed the \"hi, there!\" element as requested, which improved the tonal consistency between the greeting and the main announcement without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully removed the \"hi, there!\" element as requested, which improved the tonal consistency between the greeting and the main announcement without introducing any regressions."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-31.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed all three parts of the request by changing the button to an outline style, making it smaller, and updating the text to a more actionable phrase, resulting in a clear usability improvement.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed all three parts of the request by changing the button to an outline style, making it smaller, and updating the text to a more actionable phrase, resulting in a clear usability improvement."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-31.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully fulfilled all parts of the request by converting the button to an outline style, changing its text, and reducing its size, resulting in a clear visual and usability improvement.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully fulfilled all parts of the request by converting the button to an outline style, changing its text, and reducing its size, resulting in a clear visual and usability improvement."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-32.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model correctly interpreted the ambiguous instruction that the buttons were \"off,\" replacing the confusing three-button layout with a standard and highly usable radio-button selection pattern, and successfully implemented all other requirements.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model correctly interpreted the ambiguous instruction that the buttons were \"off,\" replacing the confusing three-button layout with a standard and highly usable radio-button selection pattern, and successfully implemented all other requirements."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-32.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the request, replacing the ambiguous three-button layout with a much clearer and more usable radio button selection pattern, significantly improving the dialog's usability.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the request, replacing the ambiguous three-button layout with a much clearer and more usable radio button selection pattern, significantly improving the dialog's usability."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-33.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed the request, creating a cohesive visual grouping for the two primary purchase options and improving the screen's overall hierarchy. It correctly inferred that matching the 'style' included not just the button's background but also the text color, leading to a well-implemented solution.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed the request, creating a cohesive visual grouping for the two primary purchase options and improving the screen's overall hierarchy. It correctly inferred that matching the 'style' included not just the button's background but also the text color, leading to a well-implemented solution."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-34.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "consistencyOriginal": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL",
+        "requirementFulfillment": "PASS",
+        "visualUsability": "PARTIAL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully implemented a much clearer selection state, using a standard and effective solid-fill vs. outline pattern. It intelligently adjusted the text color of the unselected option to maintain readability, a crucial detail for success.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully implemented a much clearer selection state, using a standard and effective solid-fill vs. outline pattern. It intelligently adjusted the text color of the unselected option to maintain readability, a crucial detail for success."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-34.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully applied the requested outline style for the unselected option but introduced a critical regression by failing to adjust the text color, rendering it unreadable against the dark background.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully applied the requested outline style for the unselected option but introduced a critical regression by failing to adjust the text color, rendering it unreadable against the dark background."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-10.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed the core instruction by removing the redundant circular profile icon, resulting in a cleaner interface that directly addressed the 'jarring' visual issue identified in the task.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed the core instruction by removing the redundant circular profile icon, resulting in a cleaner interface that directly addressed the 'jarring' visual issue identified in the task."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-10.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully removed the redundant circular icon as requested, cleaning up the interface. It correctly identified and preserved the associated birthday cake emoji, relocating it to a reasonable position after its parent element was removed.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully removed the redundant circular icon as requested, cleaning up the interface. It correctly identified and preserved the associated birthday cake emoji, relocating it to a reasonable position after its parent element was removed."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-11.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully identified and resized all four target buttons, including correctly scaling the icons within them. This change directly addressed the user's request and resulted in a more balanced and visually pleasing UI.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully identified and resized all four target buttons, including correctly scaling the icons within them. This change directly addressed the user's request and resulted in a more balanced and visually pleasing UI."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-12.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model failed to replicate the requested pattern. While it correctly added an image next to the teacher's name, it center-aligned the entire component, breaking the established left-alignment pattern set by the 'Category' component below it and creating a visually jarring layout.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model failed to replicate the requested pattern. While it correctly added an image next to the teacher's name, it center-aligned the entire component, breaking the established left-alignment pattern set by the 'Category' component below it and creating a visually jarring layout."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-12.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "While the model correctly added an image to the left of the teacher's name, it failed to replicate the centered alignment of the component it was asked to emulate. The resulting left-aligned block breaks the screen's established vertical alignment, creating a significant visual regression.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: While the model correctly added an image to the left of the teacher's name, it failed to replicate the centered alignment of the component it was asked to emulate. The resulting left-aligned block breaks the screen's established vertical alignment, creating a significant visual regression."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-13.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully corrected the superscripted prices, significantly improving readability. It correctly inferred that a standard decimal format was the best way to represent \"regular sizing\" for the prices, which was a smart and helpful interpretation of the request.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully corrected the superscripted prices, significantly improving readability. It correctly inferred that a standard decimal format was the best way to represent \"regular sizing\" for the prices, which was a smart and helpful interpretation of the request."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-13.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "While the model correctly changed the font size as requested, it critically failed by removing the implicit separation between dollars and cents, displaying a massively incorrect price (e.g., $39.99 became $3999).",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: While the model correctly changed the font size as requested, it critically failed by removing the implicit separation between dollars and cents, displaying a massively incorrect price (e.g., $39.99 became $3999)."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-14.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully addressed both parts of the task by decreasing the font size and ensuring equal spacing. It also made a smart, unrequested adjustment by increasing the vertical padding, which further improved the visual balance of the navigation bar.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully addressed both parts of the task by decreasing the font size and ensuring equal spacing. It also made a smart, unrequested adjustment by increasing the vertical padding, which further improved the visual balance of the navigation bar."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-14.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model failed to perform the requested task. The 'Before' and 'After' screenshots are identical, and the DOM diff confirms that no changes were made to either the font size or the spacing in the bottom navigation bar.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model failed to perform the requested task. The 'Before' and 'After' screenshots are identical, and the DOM diff confirms that no changes were made to either the font size or the spacing in the bottom navigation bar."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-5.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully fulfilled the request by transforming the target text into an interactive link. It demonstrated strong design awareness by using the app's existing brand color for the link, ensuring visual consistency and improving usability without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully fulfilled the request by transforming the target text into an interactive link. It demonstrated strong design awareness by using the app's existing brand color for the link, ensuring visual consistency and improving usability without introducing any regressions."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-5.2-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully accomplished the task by correctly identifying the target phrase \"personalized deals\" and converting it into a hyperlink, directly addressing the user's request. The implementation was minimal and introduced no regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully accomplished the task by correctly identifying the target phrase \"personalized deals\" and converting it into a hyperlink, directly addressing the user's request. The implementation was minimal and introduced no regressions."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-5.2-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully added a \"Learn more\" link as requested, using a style that is consistent with the app's existing design language. The change is minimal, targeted, and introduces no regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully added a \"Learn more\" link as requested, using a style that is consistent with the app's existing design language. The change is minimal, targeted, and introduces no regressions."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-6.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully resolved the primary usability issue by differentiating the color of the selection button from the main CTA, which improves the interface's clarity. The new color choice is appropriate and the change was implemented cleanly without regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully resolved the primary usability issue by differentiating the color of the selection button from the main CTA, which improves the interface's clarity. The new color choice is appropriate and the change was implemented cleanly without regressions."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-6.2-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model failed to execute the core task, making no changes to the UI whatsoever. The home button and icon remain unchanged, directly contradicting the request to alter their colors.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model failed to execute the core task, making no changes to the UI whatsoever. The home button and icon remain unchanged, directly contradicting the request to alter their colors."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-6.3-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "FAIL",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully fixed the primary issue by moving the header down, but it did so by incorrectly applying a 30px top margin to multiple individual elements. This introduced a major regression by breaking the original design's vertical spacing, creating an unrequested and visually unbalanced layout.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully fixed the primary issue by moving the header down, but it did so by incorrectly applying a 30px top margin to multiple individual elements. This introduced a major regression by breaking the original design's vertical spacing, creating an unrequested and visually unbalanced layout."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-6.3-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model failed because it introduced a major regression by duplicating the page header. Additionally, its method of adding 30px of margin to multiple individual elements, rather than applying a single padding to a parent container, unnecessarily broke the UI's vertical rhythm.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model failed because it introduced a major regression by duplicating the page header. Additionally, its method of adding 30px of margin to multiple individual elements, rather than applying a single padding to a parent container, unnecessarily broke the UI's vertical rhythm."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-8.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully created a new, correctly styled error alert at the top, but it failed to remove the original footer element. This resulted in a critical regression where the same error message is displayed in two places, making the UI confusing and redundant.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully created a new, correctly styled error alert at the top, but it failed to remove the original footer element. This resulted in a critical regression where the same error message is displayed in two places, making the UI confusing and redundant."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-8.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the task by moving the error message to the top, styling it as a red alert, and correctly pushing down the existing content without any visual regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the task by moving the error message to the top, styling it as a red alert, and correctly pushing down the existing content without any visual regressions."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-9.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the task by removing the distracting floating text, which significantly improved the clarity and usability of the interface without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the task by removing the distracting floating text, which significantly improved the clarity and usability of the interface without introducing any regressions."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-9.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model made no change to the UI, completely failing the core requirement of the task. The distracting floating text \"Create GIF from video in device\" remains in the 'After' screenshot, and the DOM diff confirms no modifications were made.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model made no change to the UI, completely failing the core requirement of the task. The distracting floating text \"Create GIF from video in device\" remains in the 'After' screenshot, and the DOM diff confirms no modifications were made."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-2.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully addressed the ambiguity by adding a clear 'upvote' arrow icon next to the score. This change significantly improves usability, is consistent with the app's design, and was implemented without any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully addressed the ambiguity by adding a clear 'upvote' arrow icon next to the score. This change significantly improves usability, is consistent with the app's design, and was implemented without any regressions."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-2.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "FAIL",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model correctly identified the component and added a relevant icon, but it only modified one of the two instances on the screen. This partial application created a significant regression by making identical UI components appear inconsistent, which is a worse user experience.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model correctly identified the component and added a relevant icon, but it only modified one of the two instances on the screen. This partial application created a significant regression by making identical UI components appear inconsistent, which is a worse user experience."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-3.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully accomplished the task by increasing the margin between the icon and the text, which improved the visual balance and spacing in the header. The change was minimal, targeted, and introduced no regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully accomplished the task by increasing the margin between the icon and the text, which improved the visual balance and spacing in the header. The change was minimal, targeted, and introduced no regressions."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-3.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model completely failed to perform the requested task. The screenshots and DOM diff confirm that no changes were made, and the spacing between the icon and title text remains identical to the original.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model completely failed to perform the requested task. The screenshots and DOM diff confirm that no changes were made, and the spacing between the icon and title text remains identical to the original."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-6.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed the task by reducing the size of both target circles, resulting in a more balanced and visually pleasing layout. The change was implemented minimally and cleanly, with no regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed the task by reducing the size of both target circles, resulting in a more balanced and visually pleasing layout. The change was implemented minimally and cleanly, with no regressions."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-6.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model failed to execute the core task. The \"Gym\" and \"Home\" circles remain unchanged, and the DOM diff confirms that no modifications were made to the code.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model failed to execute the core task. The \"Gym\" and \"Home\" circles remain unchanged, and the DOM diff confirms that no modifications were made to the code."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-6.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed the task by shrinking both the \"Gym\" and \"Home\" circles, resulting in a more balanced and visually pleasing layout without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed the task by shrinking both the \"Gym\" and \"Home\" circles, resulting in a more balanced and visually pleasing layout without introducing any regressions."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-12.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed a complex, multi-part layout refactoring, correctly moving all three requested components. The final design significantly improves usability by adhering to standard mobile UI conventions for the header, content hierarchy, and footer.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed a complex, multi-part layout refactoring, correctly moving all three requested components. The final design significantly improves usability by adhering to standard mobile UI conventions for the header, content hierarchy, and footer."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-12.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model failed because it only addressed one of three distinct instructions. It correctly removed the social media container from the top but failed to move it to the bottom, and it completely ignored the requests to move the category container and the hamburger menu icon.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model failed because it only addressed one of three distinct instructions. It correctly removed the social media container from the top but failed to move it to the bottom, and it completely ignored the requests to move the category container and the hamburger menu icon."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-12.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "FAIL",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed all three parts of the complex instruction, correctly repositioning the social media banner, category block, and hamburger menu. The resulting UI is cleaner, more intuitive, and adheres to common design patterns.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed all three parts of the complex instruction, correctly repositioning the social media banner, category block, and hamburger menu. The resulting UI is cleaner, more intuitive, and adheres to common design patterns."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model completely failed the core task by misinterpreting the request. Instead of fixing the visual hierarchy, it made it worse by reducing the font weight of the dollar value, making the cents even more dominant than before.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model completely failed the core task by misinterpreting the request. Instead of fixing the visual hierarchy, it made it worse by reducing the font weight of the dollar value, making the cents even more dominant than before."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed the task, reversing the visual hierarchy to correctly emphasize the dollar amount over the cents. This change significantly improves the readability and usability of the price display without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed the task, reversing the visual hierarchy to correctly emphasize the dollar amount over the cents. This change significantly improves the readability and usability of the price display without introducing any regressions."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully added clear and appropriately styled navigation arrows to the hero carousel, which greatly improves the component's usability. The implementation was minimal and maintained perfect consistency with the existing design.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully added clear and appropriately styled navigation arrows to the hero carousel, which greatly improves the component's usability. The implementation was minimal and maintained perfect consistency with the existing design."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.2-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model created a usability regression by placing the 'back' button behind an existing image, rendering it invisible and unusable. While the model correctly added a 'next' button, the failure to ensure both controls were visible makes the carousel interaction incomplete.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model created a usability regression by placing the 'back' button behind an existing image, rendering it invisible and unusable. While the model correctly added a 'next' button, the failure to ensure both controls were visible makes the carousel interaction incomplete."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.3-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully identified the target component and correctly applied the requested two-line text layout, improving the badge's visual hierarchy without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully identified the target component and correctly applied the requested two-line text layout, improving the badge's visual hierarchy without introducing any regressions."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.3-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "NA",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model made no changes to the UI. The 'Before' and 'After' states are identical, and the DOM diff confirms no modifications were made, resulting in a complete failure to fulfill the core requirement of the task.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model made no changes to the UI. The 'Before' and 'After' states are identical, and the DOM diff confirms no modifications were made, resulting in a complete failure to fulfill the core requirement of the task."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-14.2-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model completely failed to perform the core task. Instead of moving the \"Try something new\" section to the top of the screen, it made irrelevant changes to spacer elements and padding at the bottom, resulting in no functional or visual difference.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model completely failed to perform the core task. Instead of moving the \"Try something new\" section to the top of the screen, it made irrelevant changes to spacer elements and padding at the bottom, resulting in no functional or visual difference."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-14.2-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the multi-part instruction by relocating the component to the correct position and applying the requested padding, successfully improving the screen's flow and hierarchy as intended.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the multi-part instruction by relocating the component to the correct position and applying the requested padding, successfully improving the screen's flow and hierarchy as intended."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-14.2-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "PARTIAL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "FAIL",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully moved the component as requested, but it also introduced a major regression by incorrectly centering the \"Try something new\" heading and its underline. This unrequested change breaks the original design's alignment and visual hierarchy, resulting in an overall failure.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully moved the component as requested, but it also introduced a major regression by incorrectly centering the \"Try something new\" heading and its underline. This unrequested change breaks the original design's alignment and visual hierarchy, resulting in an overall failure."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-23.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully addressed the core usability issue by increasing the contrast of the input fields. It intelligently used the app's existing brand color for the new borders, resulting in a visually cohesive and significantly more usable design.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully addressed the core usability issue by increasing the contrast of the input fields. It intelligently used the app's existing brand color for the new borders, resulting in a visually cohesive and significantly more usable design."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-23.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully addressed the core usability problem by increasing the contrast of the input field borders, making them clearly identifiable as interactive elements. The change was targeted, minimal, and resulted in a clear visual improvement without any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully addressed the core usability problem by increasing the contrast of the input field borders, making them clearly identifiable as interactive elements. The change was targeted, minimal, and resulted in a clear visual improvement without any regressions."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-23.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision was excellent. By adding a subtle but effective inset box-shadow, the model created a clear outline for the input fields, which significantly improves their affordance and solves the core usability issue of them appearing disabled.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision was excellent. By adding a subtle but effective inset box-shadow, the model created a clear outline for the input fields, which significantly improves their affordance and solves the core usability issue of them appearing disabled."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-25.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model correctly added the `disabled` attribute to the button, but it failed to change the button's visual style to match its new state. This created a major interaction regression: the button now looks enabled but is non-functional, leading to a confusing user experience.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model correctly added the `disabled` attribute to the button, but it failed to change the button's visual style to match its new state. This created a major interaction regression: the button now looks enabled but is non-functional, leading to a confusing user experience."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-25.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully disabled the login button, addressing the core usability issue of a misleading affordance. The greyed-out state is a clear and standard visual cue that provides correct feedback to the user, improving the overall quality of the form.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully disabled the login button, addressing the core usability issue of a misleading affordance. The greyed-out state is a clear and standard visual cue that provides correct feedback to the user, improving the overall quality of the form."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-26.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully executed the task by changing the distance text to a neutral color while keeping the status text red, which significantly improves the UI's clarity and visual hierarchy.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully executed the task by changing the distance text to a neutral color while keeping the status text red, which significantly improves the UI's clarity and visual hierarchy."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-27.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model completely failed the core requirement to visually differentiate the filled input field from the placeholder fields. Instead, it applied a uniform and heavy-handed restyle to all fields, leaving the original usability problem entirely unsolved.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model completely failed the core requirement to visually differentiate the filled input field from the placeholder fields. Instead, it applied a uniform and heavy-handed restyle to all fields, leaving the original usability problem entirely unsolved."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-27.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model failed the core requirement. Instead of creating a visual distinction between the filled field and the placeholder fields, it applied the same style change to all of them, leaving the original usability problem unsolved.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model failed the core requirement. Instead of creating a visual distinction between the filled field and the placeholder fields, it applied the same style change to all of them, leaving the original usability problem unsolved."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-28.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully de-emphasized the floating action button by reducing both its size and opacity, perfectly fulfilling the request to make map pins the primary visual focus. This is an excellent, targeted revision that improves the design's visual hierarchy.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully de-emphasized the floating action button by reducing both its size and opacity, perfectly fulfilling the request to make map pins the primary visual focus. This is an excellent, targeted revision that improves the design's visual hierarchy."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-29.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PARTIAL PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model completely failed to address the core requirement. It did not create a visual hierarchy; instead, it applied a destructive red style to all three buttons, making the user experience significantly worse and more confusing than the original.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: PARTIAL PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model completely failed to address the core requirement. It did not create a visual hierarchy; instead, it applied a destructive red style to all three buttons, making the user experience significantly worse and more confusing than the original."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-30.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "PARTIAL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model completely removed the 'in-store mode' button from the interface, rather than repositioning or reducing its prominence as requested. This introduced a critical functional regression by making the feature inaccessible.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model completely removed the 'in-store mode' button from the interface, rather than repositioning or reducing its prominence as requested. This introduced a critical functional regression by making the feature inaccessible."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-30.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully improved the visual hierarchy by both resizing and repositioning the button, fully resolving the specified overlap issue without introducing any new regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully improved the visual hierarchy by both resizing and repositioning the button, fully resolving the specified overlap issue without introducing any new regressions."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-32.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the task by establishing a clear visual hierarchy, transforming the primary action buttons into a filled, high-contrast style while de-emphasizing the secondary 'Cancel' action, which significantly improves usability.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the task by establishing a clear visual hierarchy, transforming the primary action buttons into a filled, high-contrast style while de-emphasizing the secondary 'Cancel' action, which significantly improves usability."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-33.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully established a clear visual hierarchy by making the \"Yearly Subscribe\" button the undeniable primary call-to-action. It intelligently used color, contrast, and size to draw the user's focus, fully accomplishing the goal of clarifying the intended conversion path.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully established a clear visual hierarchy by making the \"Yearly Subscribe\" button the undeniable primary call-to-action. It intelligently used color, contrast, and size to draw the user's focus, fully accomplishing the goal of clarifying the intended conversion path."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-33.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully established a clear visual hierarchy by making the \"Yearly Subscribe\" button the prominent call-to-action, effectively addressing the ambiguity of the original design. It intelligently repurposed the existing highlight color and de-emphasized the other options, resulting in a more focused and persuasive interface.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully established a clear visual hierarchy by making the \"Yearly Subscribe\" button the prominent call-to-action, effectively addressing the ambiguity of the original design. It intelligently repurposed the existing highlight color and de-emphasized the other options, resulting in a more focused and persuasive interface."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-34.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed the task by precisely modifying the `box-shadow` CSS property to reduce the button's glow. This subtle but effective change successfully rebalanced the visual hierarchy, improving usability by allowing the pricing options to stand out more clearly.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed the task by precisely modifying the `box-shadow` CSS property to reduce the button's glow. This subtle but effective change successfully rebalanced the visual hierarchy, improving usability by allowing the pricing options to stand out more clearly."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-15.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully accomplished the primary task by moving the edit icon to a less ambiguous position and increasing its size. However, it failed on minimality and regressions by unnecessarily swapping the edit icon with the three-dot menu, creating a new, minor ambiguity about the menu's scope. Despite this, the overall verdict is PASS because the revision successfully resolved the critical usability issue from the prompt, resulting in a net positive change.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: PASS\n\nCOMMENT: The model successfully accomplished the primary task by moving the edit icon to a less ambiguous position and increasing its size. However, it failed on minimality and regressions by unnecessarily swapping the edit icon with the three-dot menu, creating a new, minor ambiguity about the menu's scope. Despite this, the overall verdict is PASS because the revision successfully resolved the critical usability issue from the prompt, resulting in a net positive change."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-15.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly addressed the ambiguity by relocating the edit icon to the right side of the component and increasing its size, resulting in a much clearer and more intuitive user interface.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly addressed the ambiguity by relocating the edit icon to the right side of the component and increasing its size, resulting in a much clearer and more intuitive user interface."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-16.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "FAIL",
+        "minimality": "PARTIAL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly addressed all parts of the user's request, successfully fixing the clipped content on the right by reducing font sizes and reallocating layout space. The resulting UI is significantly more usable and information-dense, with no new visual problems introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly addressed all parts of the user's request, successfully fixing the clipped content on the right by reducing font sizes and reallocating layout space. The resulting UI is significantly more usable and information-dense, with no new visual problems introduced."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-16.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed a complex, multi-part request. It correctly identified and fixed the clipped content on the right by resizing the ticker symbols and adjusting the layout grid, leading to a much-improved, fully functional UI.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed a complex, multi-part request. It correctly identified and fixed the clipped content on the right by resizing the ticker symbols and adjusting the layout grid, leading to a much-improved, fully functional UI."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-16.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully fixed the critical layout bug where price data was cut off by correctly squishing the layout and reducing the ticker font size as requested. It missed the secondary instruction to prevent the subheader text from truncating, but the overall result is a significant improvement that solves the main usability problem.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully fixed the critical layout bug where price data was cut off by correctly squishing the layout and reducing the ticker font size as requested. It missed the secondary instruction to prevent the subheader text from truncating, but the overall result is a significant improvement that solves the main usability problem."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-17.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model completely failed the task. Instead of removing the large white space between the image and the 'colorfit' logo, it made a non-visible change to the margin *below* the logo, leaving the target area untouched.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model completely failed the task. Instead of removing the large white space between the image and the 'colorfit' logo, it made a non-visible change to the margin *below* the logo, leaving the target area untouched."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-17.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully removed the excess whitespace as requested, resulting in a much cleaner and more professional-looking layout. It correctly identified and adjusted multiple CSS properties to achieve the result without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully removed the excess whitespace as requested, resulting in a much cleaner and more professional-looking layout. It correctly identified and adjusted multiple CSS properties to achieve the result without introducing any regressions."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-18.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model successfully implemented all requested changes to the header, but it failed overall because it introduced a major regression by unnecessarily restyling the main die element, which was outside the scope of the task.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model successfully implemented all requested changes to the header, but it failed overall because it introduced a major regression by unnecessarily restyling the main die element, which was outside the scope of the task."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-19.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model successfully combined the two separate controls into a single, more usable component, correctly implementing the progress ring, icon, and text placement as requested.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model successfully combined the two separate controls into a single, more usable component, correctly implementing the progress ring, icon, and text placement as requested."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-19.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model failed on the most critical part of the prompt: it superimposed the timer text directly on top of the pause icon, making both elements illegible. This created a significant visual regression and failed to follow the explicit instruction to place the text *above* the icon.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model failed on the most critical part of the prompt: it superimposed the timer text directly on top of the pause icon, making both elements illegible. This created a significant visual regression and failed to follow the explicit instruction to place the text *above* the icon."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-20.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly executed a complex redesign instruction, correctly interpreting the intent to create a standard, modern search bar layout with a primary button and an ellipsis menu.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly executed a complex redesign instruction, correctly interpreting the intent to create a standard, modern search bar layout with a primary button and an ellipsis menu."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-20.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model completely failed to perform the requested action. The 'After' image is identical to the 'Before' image, and the DOM diff confirms that no changes were made to the UI.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The model completely failed to perform the requested action. The 'After' image is identical to the 'Before' image, and the DOM diff confirms that no changes were made to the UI."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-20.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The model failed on a key part of the request, replacing the 'Edit' button with a search icon instead of the specified 'three dots' icon. This introduces a significant usability regression by creating a confusing interface with two search-related icons.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The model failed on a key part of the request, replacing the 'Edit' button with a search icon instead of the specified 'three dots' icon. This introduces a significant usability regression by creating a confusing interface with two search-related icons."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-21.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model perfectly fulfilled the request by adding both a primary call-to-action button and a list of popular items to help the user get started, which is an excellent UX solution for an empty state.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model perfectly fulfilled the request by adding both a primary call-to-action button and a list of popular items to help the user get started, which is an excellent UX solution for an empty state."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-21.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The model excelled by not only adding a primary call-to-action button but also thoughtfully including secondary discovery options, perfectly interpreting the task's flexible guidance to create a highly usable and actionable empty state.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The model excelled by not only adding a primary call-to-action button but also thoughtfully including secondary discovery options, perfectly interpreting the task's flexible guidance to create a highly usable and actionable empty state."
+    },
+    {
+      "folder": "Test",
+      "ground_truth": null,
+      "gt_criteria": {},
+      "predicted": null,
+      "pred_criteria": null,
+      "comment": null,
+      "response": null,
+      "error": "Task.txt not found"
+    },
+    {
+      "folder": "Train",
+      "ground_truth": null,
+      "gt_criteria": {},
+      "predicted": null,
+      "pred_criteria": null,
+      "comment": null,
+      "response": null,
+      "error": "Task.txt not found"
+    }
+  ],
+  "metrics": {
+    "n_scored": 141,
+    "n_no_prediction": 2,
+    "accuracy": 0.766,
+    "macro_f1": 0.7532,
+    "per_class": {
+      "PASS": {
+        "precision": 0.7692,
+        "recall": 0.8537,
+        "f1": 0.8092,
+        "support": 82
+      },
+      "FAIL": {
+        "precision": 0.76,
+        "recall": 0.6441,
+        "f1": 0.6972,
+        "support": 59
+      }
+    },
+    "confusion_matrix": {
+      "PASS": {
+        "PASS": 70,
+        "FAIL": 12
+      },
+      "FAIL": {
+        "PASS": 21,
+        "FAIL": 38
+      }
+    }
+  }
+}

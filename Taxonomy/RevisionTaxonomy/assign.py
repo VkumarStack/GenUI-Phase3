@@ -25,10 +25,9 @@ _ROOT = Path(__file__).parent.parent.parent
 load_dotenv(_ROOT / "Util" / ".env")
 
 sys.path.insert(0, str(_ROOT / "Util"))
-from backends import GeminiBackend
+from backends import get_backend, Backend
 
 _TAXONOMY_JSON = Path(__file__).parent / "Results" / "taxonomy.json"
-_DEFAULT_MODEL = "gemini-2.5-pro"
 
 _ASSIGN_PROMPT = """\
 You are classifying a UI revision task into an existing taxonomy.
@@ -61,7 +60,7 @@ def _parse_response(response: str) -> list[str]:
     return [str(c).strip() for c in json.loads(text)["categories"]]
 
 
-def assign(task: str, screenshot_bytes: bytes, taxonomy: dict, backend: GeminiBackend) -> list[str]:
+def assign(task: str, screenshot_bytes: bytes, taxonomy: dict, backend: "Backend") -> list[str]:
     """Assign task + screenshot to existing taxonomy categories. Returns list of category names."""
     prompt = _ASSIGN_PROMPT.format(
         task=task,
@@ -77,15 +76,17 @@ def main():
     )
     parser.add_argument("--example", metavar="PATH", required=True,
                         help="Path to example folder (must contain Task.txt and Before/screenshot.png).")
-    parser.add_argument("--model", default=_DEFAULT_MODEL,
-                        help=f"Gemini model (default: {_DEFAULT_MODEL}).")
+    parser.add_argument("--backend", default="gemini",
+                        choices=["gemini", "vertexai", "anthropic", "openai"])
+    parser.add_argument("--model", default=None,
+                        help="Override model (optional).")
     args = parser.parse_args()
 
     if not _TAXONOMY_JSON.exists():
         raise SystemExit(f"Taxonomy not found at {_TAXONOMY_JSON} — run consolidate.py first.")
 
     taxonomy = json.loads(_TAXONOMY_JSON.read_text())
-    backend = GeminiBackend(args.model)
+    backend = get_backend(args.backend, args.model)
 
     folder = Path(args.example)
     task_file = folder / "Task.txt"

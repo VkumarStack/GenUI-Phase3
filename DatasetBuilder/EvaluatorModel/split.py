@@ -1,125 +1,132 @@
 """
-Stratified train/test split for evaluation fine-tuning.
+Stratified train/test split for the EvaluatorModelDataset.
 
-Split unit: Participant_X_CaseStudy-Y.Z groups — all model variants of the same
-task stay in the same split to prevent data leakage.
+Grouping:
+  All model variants of the same Participant_X_CaseStudy-Y.Z stay in the same
+  split to prevent data leakage (e.g. CLAUDE/GEMINI/OPENAI for the same task).
 
-Stratification: iterative multi-label stratification over groups using verdict
-types (PASS / PARTIAL / FAIL) as labels, so the verdict distribution is
-proportional across splits.
+Stratification:
+  Binary PASS/FAIL balance only (from RubricEvaluation.json, majority per group).
+  Target: 70% train / 30% test.
 
-Target: ~20% of groups → test, remainder → train.
+Difficult-case handling:
+  Loads a previous full-pipeline evaluator run JSON to find groups where the
+  model was wrong. A configurable fraction of those groups is guaranteed in the
+  training set before the stratified split runs on the remainder — ensuring the
+  model sees the hardest cases during fine-tuning.
 
-Each output example folder contains:
-  before_screenshot.png  — Before/screenshot.png
-  after_screenshot.png   — After/screenshot.png
-  before.html            — Before/index.html  (reference; not used for training)
-  after.html             — After/index.html   (reference; not used for training)
-  dom_diff.txt           — semantic DOM diff (must run cache_dom_diffs.py first)
-  step1_spec.txt         — expected-change spec (must run fill_step1.py first)
-  task.txt               — revision task text
-  label.txt              — expert verdict + reasons (from Output.txt)
-  meta.json              — provenance (source folder name, group key)
+Output:
+  - Datasets/EvaluatorModelDataset/split_manifest.json
+  - Datasets/EvaluatorModelDataset/Train/  (symlinks → flat dataset folders)
+  - Datasets/EvaluatorModelDataset/Test/   (symlinks → flat dataset folders)
 
 Running:
     python DatasetBuilder/EvaluatorModel/split.py
-    python DatasetBuilder/EvaluatorModel/split.py --test-groups 11
-    python DatasetBuilder/EvaluatorModel/split.py --dataset path/to/Datasets/RawDataset
+    python DatasetBuilder/EvaluatorModel/split.py --test-frac 0.30 --difficult-train-frac 0.50 --difficult-test-frac 0.25
+    python DatasetBuilder/EvaluatorModel/split.py \\
+        --difficult-results Testing/Evaluator/Results/gemini-2.5-pro.json
+    python DatasetBuilder/EvaluatorModel/split.py --seed 42 --dry-run
 """
 
 import argparse
 import json
+import os
+import random
 import re
-import shutil
 from collections import Counter, defaultdict
 from pathlib import Path
 
-_ROOT = Path(__file__).parent.parent.parent
-_DATASET = _ROOT / "Datasets" / "RawDataset"
-_OUT_ROOT = _ROOT / "Datasets" / "EvaluatorModelDataset"
-_SUMMARY_FILE = Path(__file__).parent / "split_summary.json"
-_MODEL_SUFFIX = re.compile(r"-(CLAUDE|GEMINI|OPENAI)$")
+_ROOT    = Path(__file__).parent.parent.parent
+_DATASET = _ROOT / "Datasets" / "EvaluatorModelDataset"
+_DEFAULT_DIFFICULT = _ROOT / "Testing" / "Evaluator" / "Results" / "gemini-2.5-pro.json"
+_MANIFEST_FILE     = _DATASET / "split_manifest.json"
+_MODEL_SUFFIX      = re.compile(r"-(CLAUDE|GEMINI|OPENAI)$")
 
 
 # ---------------------------------------------------------------------------
-# Iterative multi-label stratification (same algorithm as RevisionGeneratorModel)
+# Helpers
 # ---------------------------------------------------------------------------
 
-def _iterative_stratify(keys: list[str], labels_map: dict[str, list[str]], n_test: int):
-    n_total = len(keys)
-    n_train = n_total - n_test
-    label_totals = Counter(l for k in keys for l in labels_map[k])
-    desired_test = {l: max(1, round(c * n_test / n_total)) for l, c in label_totals.items()}
-    desired_train = {l: max(1, round(c * n_train / n_total)) for l, c in label_totals.items()}
+def _group_key(folder_name: str) -> str:
+    return _MODEL_SUFFIX.sub("", folder_name)
 
-    remaining = list(keys)
-    test, train = [], []
 
-    while remaining:
-        pool_counts = Counter(l for k in remaining for l in labels_map[k])
-        rarest = min(pool_counts, key=pool_counts.get)
-        candidates = [k for k in remaining if rarest in labels_map[k]]
-        chosen = max(candidates, key=lambda k: len(labels_map[k]))
-        remaining.remove(chosen)
+def _load_label(folder: Path) -> str | None:
+    """PASS or FAIL from RubricEvaluation.json, uppercased."""
+    rubric = folder / "RubricEvaluation.json"
+    if not rubric.exists():
+        return None
+    data = json.loads(rubric.read_text())
+    v = data.get("overallEvaluation", "").strip().upper()
+    return v if v in ("PASS", "FAIL") else None
 
-        test_have = sum(1 for k in test if rarest in labels_map[k])
-        train_have = sum(1 for k in train if rarest in labels_map[k])
-        test_need = desired_test[rarest] - test_have
-        train_need = desired_train[rarest] - train_have
 
-        if test_need > train_need:
-            test.append(chosen)
-        elif train_need > test_need:
-            train.append(chosen)
-        else:
-            test.append(chosen) if len(test) < n_test else train.append(chosen)
+def _group_label(folders: list[Path]) -> str | None:
+    """Majority PASS/FAIL across all variants in a group."""
+    labels = [_load_label(f) for f in folders]
+    labels = [l for l in labels if l]
+    if not labels:
+        return None
+    return Counter(labels).most_common(1)[0][0]
 
+
+def _load_difficult_groups(results_path: Path, all_groups: set[str]) -> set[str]:
+    """Groups (stripped key) where any variant was predicted wrong."""
+    if not results_path.exists():
+        print(f"  Note: difficult-results file not found: {results_path}")
+        return set()
+    data = json.loads(results_path.read_text())
+    wrong_folders = {
+        e["folder"] for e in data.get("examples", [])
+        if e.get("ground_truth") and e.get("predicted")
+        and e["ground_truth"] != e["predicted"]
+    }
+    wrong_groups = {_group_key(f) for f in wrong_folders} & all_groups
+    return wrong_groups
+
+
+def _stratified_split(groups: list[str], label_map: dict[str, str],
+                      test_frac: float, rng: random.Random) -> tuple[list[str], list[str]]:
+    """Simple proportional stratified split by PASS/FAIL label."""
+    pass_groups = [g for g in groups if label_map.get(g) == "PASS"]
+    fail_groups = [g for g in groups if label_map.get(g) == "FAIL"]
+
+    rng.shuffle(pass_groups)
+    rng.shuffle(fail_groups)
+
+    n_test_pass = round(len(pass_groups) * test_frac)
+    n_test_fail = round(len(fail_groups) * test_frac)
+
+    test  = pass_groups[:n_test_pass] + fail_groups[:n_test_fail]
+    train = pass_groups[n_test_pass:] + fail_groups[n_test_fail:]
     return train, test
 
 
-# ---------------------------------------------------------------------------
-# File copying
-# ---------------------------------------------------------------------------
-
-def _copy_example(src: Path, dest: Path) -> bool:
-    """Copy all needed files from a RawDataset folder into dest."""
-    dest.mkdir(parents=True, exist_ok=True)
-
-    copies = [
-        (src / "Before" / "screenshot.png", dest / "before_screenshot.png"),
-        (src / "After"  / "screenshot.png", dest / "after_screenshot.png"),
-        (src / "Before" / "index.html",     dest / "before.html"),
-        (src / "After"  / "index.html",     dest / "after.html"),
-        (src / "Task.txt",                  dest / "task.txt"),
-        (src / "Output.txt",                dest / "label.txt"),
-    ]
-    for src_file, dest_file in copies:
-        if src_file.exists():
-            shutil.copy2(src_file, dest_file)
-
-    for filename, warning in [
-        ("dom_diff.txt",   "(not computed — run cache_dom_diffs.py)"),
-        ("step1_spec.txt", "(not computed — run fill_step1.py)"),
-    ]:
-        src_file = src / filename
-        if src_file.exists():
-            shutil.copy2(src_file, dest / filename)
-        else:
-            (dest / filename).write_text(warning)
-
-    return True
+def _make_symlinks(split_dir: Path, folders: list[Path], dry_run: bool) -> None:
+    """Create symlinks in split_dir pointing back to the flat dataset folders."""
+    if dry_run:
+        return
+    split_dir.mkdir(parents=True, exist_ok=True)
+    # Remove stale symlinks
+    for entry in split_dir.iterdir():
+        if entry.is_symlink():
+            entry.unlink()
+    for folder in folders:
+        link = split_dir / folder.name
+        target = Path("..") / folder.name   # relative to split_dir
+        if not link.exists():
+            link.symlink_to(target)
 
 
-# ---------------------------------------------------------------------------
-# Coverage report
-# ---------------------------------------------------------------------------
-
-def _coverage(groups: list[str], labels_map: dict[str, list[str]], folders_map: dict[str, list[str]], name: str):
-    folder_verdicts = Counter(v for k in groups for v in labels_map[k])
-    n_folders = sum(len(folders_map[k]) for k in groups)
-    print(f"\n{name} ({len(groups)} groups, {n_folders} folders):")
-    for verdict in ("PASS", "PARTIAL", "FAIL"):
-        print(f"  {verdict}: {folder_verdicts.get(verdict, 0)}")
+def _print_split_stats(name: str, groups: list[str], label_map: dict[str, str],
+                       group_folders: dict[str, list[str]], difficult: set[str]) -> None:
+    labels   = [label_map.get(g, "?") for g in groups]
+    n_pass   = labels.count("PASS")
+    n_fail   = labels.count("FAIL")
+    n_diff   = sum(1 for g in groups if g in difficult)
+    n_folder = sum(len(group_folders[g]) for g in groups)
+    print(f"\n  {name}: {len(groups)} groups  ({n_folder} folders)")
+    print(f"    PASS: {n_pass}  FAIL: {n_fail}  difficult: {n_diff}")
 
 
 # ---------------------------------------------------------------------------
@@ -127,77 +134,122 @@ def _coverage(groups: list[str], labels_map: dict[str, list[str]], folders_map: 
 # ---------------------------------------------------------------------------
 
 def main():
-    parser = argparse.ArgumentParser(description="Stratified train/test split for evaluation fine-tuning.")
-    parser.add_argument("--test-groups", type=int, default=11, metavar="N",
-                        help="Number of unique case study groups to reserve for test (default: 11).")
-    parser.add_argument("--dataset", default=str(_DATASET), metavar="PATH")
+    parser = argparse.ArgumentParser(
+        description="Stratified train/test split for EvaluatorModelDataset."
+    )
+    parser.add_argument("--dataset", default=str(_DATASET), metavar="PATH",
+                        help=f"EvaluatorModelDataset directory (default: {_DATASET}).")
+    parser.add_argument("--test-frac", type=float, default=0.30, metavar="F",
+                        help="Fraction of groups reserved for test (default: 0.30).")
+    parser.add_argument("--difficult-results", default=str(_DEFAULT_DIFFICULT), metavar="PATH",
+                        help="Evaluator results JSON used to identify difficult cases.")
+    parser.add_argument("--difficult-train-frac", type=float, default=0.50, metavar="F",
+                        help="Fraction of difficult groups guaranteed in training (default: 0.50).")
+    parser.add_argument("--difficult-test-frac", type=float, default=0.25, metavar="F",
+                        help="Fraction of difficult groups guaranteed in test (default: 0.25).")
+    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--dry-run", action="store_true",
+                        help="Print the split without writing any files.")
     args = parser.parse_args()
 
     dataset = Path(args.dataset)
+    rng     = random.Random(args.seed)
 
-    # Build group → folders map and verdict labels
-    groups: dict[str, list[Path]] = defaultdict(list)
+    # -- Build groups ---------------------------------------------------------
+    group_folders: dict[str, list[Path]] = defaultdict(list)
     for folder in sorted(dataset.iterdir()):
-        if not folder.is_dir():
+        if not folder.is_dir() or folder.name in ("Train", "Test"):
             continue
-        key = _MODEL_SUFFIX.sub("", folder.name)
-        groups[key].append(folder)
+        group_folders[_group_key(folder.name)].append(folder)
 
-    # Per-group label set = all verdict types present in that group's folders
-    labels_map: dict[str, list[str]] = {}
-    folders_map: dict[str, list[str]] = {}
-    for key, folders in groups.items():
-        verdicts = set()
-        for folder in folders:
-            out = folder / "Output.txt"
-            if out.exists():
-                verdict = out.read_text().strip().splitlines()[0].strip()
-                verdicts.add(verdict)
-        labels_map[key] = sorted(verdicts)
-        folders_map[key] = [f.name for f in folders]
+    all_groups = set(group_folders)
+    label_map: dict[str, str] = {
+        g: lbl
+        for g, folders in group_folders.items()
+        if (lbl := _group_label(folders)) is not None
+    }
 
-    all_keys = sorted(groups.keys())
-    train_keys, test_keys = _iterative_stratify(all_keys, labels_map, args.test_groups)
+    unlabeled = [g for g in all_groups if g not in label_map]
+    if unlabeled:
+        print(f"Warning: {len(unlabeled)} group(s) have no label — skipping.")
 
-    _coverage(train_keys, labels_map, folders_map, "Train")
-    _coverage(test_keys,  labels_map, folders_map, "Test")
+    labeled_groups = sorted(label_map)
 
-    # Warn if any expected files are missing in the source dataset
-    for filename, fixer in [
-        ("dom_diff.txt",   "cache_dom_diffs.py"),
-        ("step1_spec.txt", "fill_step1.py"),
-    ]:
-        missing = [
-            folder.name
-            for key in all_keys
-            for folder in groups[key]
-            if not (folder / filename).exists()
-        ]
-        if missing:
-            print(f"\nWARNING: {len(missing)} folder(s) have no {filename} — run {fixer} first.")
+    # -- Identify difficult groups -------------------------------------------
+    difficult = _load_difficult_groups(Path(args.difficult_results), all_groups)
+    n_force_train = round(len(difficult) * args.difficult_train_frac)
+    n_force_test  = round(len(difficult) * args.difficult_test_frac)
+    # Clamp so forced sets don't exceed the total number of difficult groups
+    n_force_train = min(n_force_train, max(0, len(difficult) - n_force_test))
 
-    # Copy files into Train/ and Test/
-    summary = {"train_groups": train_keys, "test_groups": test_keys, "train": [], "test": []}
+    difficult_list = sorted(difficult)
+    rng.shuffle(difficult_list)
+    forced_train = set(difficult_list[:n_force_train])
+    forced_test  = set(difficult_list[n_force_train:n_force_train + n_force_test])
+    difficult_pool = set(difficult_list[n_force_train + n_force_test:])
 
-    for split_name, split_keys in [("Train", train_keys), ("Test", test_keys)]:
-        split_dir = _OUT_ROOT / split_name
-        idx = 0
-        for key in split_keys:
-            for folder in sorted(groups[key]):
-                dest = split_dir / f"Example-{idx:03d}"
-                _copy_example(folder, dest)
-                (dest / "meta.json").write_text(json.dumps({
-                    "source": folder.name,
-                    "group": key,
-                }, indent=2))
-                record = {"folder": dest.name, "source": folder.name, "group": key}
-                summary[split_name.lower()].append(record)
-                idx += 1
+    print(f"\nDataset:   {dataset}  ({len(labeled_groups)} labeled groups)")
+    print(f"Difficult: {len(difficult)} groups identified  "
+          f"→  {len(forced_train)} forced-train,  {len(forced_test)} forced-test,  "
+          f"{len(difficult_pool)} in pool")
 
-        print(f"\nWrote {idx} examples → Datasets/EvaluatorModelDataset/{split_name}/")
+    # -- Stratified split on remaining pool -----------------------------------
+    pool = [g for g in labeled_groups if g not in forced_train and g not in forced_test]
+    rng.shuffle(pool)
 
-    _SUMMARY_FILE.write_text(json.dumps(summary, indent=2))
-    print(f"Saved split_summary.json")
+    pool_train, pool_test = _stratified_split(pool, label_map, args.test_frac, rng)
+
+    train_groups = sorted(set(pool_train) | forced_train)
+    test_groups  = sorted(set(pool_test) | forced_test)
+
+    _print_split_stats("Train", train_groups, label_map, group_folders, difficult)
+    _print_split_stats("Test",  test_groups,  label_map, group_folders, difficult)
+
+    total_folders = sum(len(group_folders[g]) for g in train_groups + test_groups)
+    print(f"\n  Total folders: {total_folders}")
+
+    if args.dry_run:
+        print("\nDry run — no files written.")
+        return
+
+    # -- Write symlinks -------------------------------------------------------
+    train_folders = [f for g in train_groups for f in group_folders[g]]
+    test_folders  = [f for g in test_groups  for f in group_folders[g]]
+
+    _make_symlinks(dataset / "Train", train_folders, dry_run=False)
+    _make_symlinks(dataset / "Test",  test_folders,  dry_run=False)
+
+    print(f"\n  Symlinks written:")
+    print(f"    {dataset / 'Train'}  ({len(train_folders)} links)")
+    print(f"    {dataset / 'Test'}   ({len(test_folders)} links)")
+
+    # -- Write manifest -------------------------------------------------------
+    manifest = {
+        "seed":                   args.seed,
+        "test_frac":              args.test_frac,
+        "difficult_results":      args.difficult_results,
+        "difficult_train_frac":   args.difficult_train_frac,
+        "difficult_test_frac":    args.difficult_test_frac,
+        "n_difficult_groups":     len(difficult),
+        "n_forced_train":         len(forced_train),
+        "n_forced_test":          len(forced_test),
+        "train": {
+            "groups":  train_groups,
+            "folders": [f.name for f in train_folders],
+            "n_pass":  sum(1 for g in train_groups if label_map[g] == "PASS"),
+            "n_fail":  sum(1 for g in train_groups if label_map[g] == "FAIL"),
+            "n_difficult": sum(1 for g in train_groups if g in difficult),
+        },
+        "test": {
+            "groups":  test_groups,
+            "folders": [f.name for f in test_folders],
+            "n_pass":  sum(1 for g in test_groups if label_map[g] == "PASS"),
+            "n_fail":  sum(1 for g in test_groups if label_map[g] == "FAIL"),
+            "n_difficult": sum(1 for g in test_groups if g in difficult),
+        },
+    }
+    _MANIFEST_FILE.write_text(json.dumps(manifest, indent=2))
+    print(f"\n  Manifest: {_MANIFEST_FILE.relative_to(_ROOT)}")
 
 
 if __name__ == "__main__":

@@ -213,6 +213,15 @@ _INLINE_STYLED_JS  = _make_position_js("[style]")  # only elements with inline s
 _ALL_POSITIONS_JS  = _make_position_js("*")         # all elements (for cross-lookup)
 
 
+def _has_class_changes(before_html: str, after_html: str) -> bool:
+    """Return True if any element's class attribute differs between before and after."""
+    before_soup = BeautifulSoup(before_html, "lxml")
+    after_soup = BeautifulSoup(after_html, "lxml")
+    before_classes = [frozenset(el.get("class") or []) for el in before_soup.find_all(True)]
+    after_classes = [frozenset(el.get("class") or []) for el in after_soup.find_all(True)]
+    return before_classes != after_classes
+
+
 # ── Playwright helpers ────────────────────────────────────────────────────────
 
 async def _run_page(html_path: Path, js: str, arg) -> dict:
@@ -301,6 +310,24 @@ def _diff_computed_inline(before_path: Path, after_path: Path) -> list[str]:
     )
 
 
+# ── All-elements computed diff (for class-attribute-only changes) ─────────────
+
+def _diff_computed_all(before_path: Path, after_path: Path) -> list[str]:
+    """Computed style diff across all elements (position-matched).
+
+    Used when class attributes change without inline style changes — Tailwind and
+    other utility-class frameworks alter computed values without touching <style>
+    blocks or style= attributes, so neither of the other two triggers fires.
+    """
+    async def _run():
+        return await asyncio.gather(
+            _run_page(before_path, _ALL_POSITIONS_JS, _COMPUTED_PROPS),
+            _run_page(after_path,  _ALL_POSITIONS_JS, _COMPUTED_PROPS),
+        )
+    before, after = asyncio.run(_run())
+    return _format_diff(before, after)
+
+
 # ── Shared formatter ──────────────────────────────────────────────────────────
 
 def _format_diff(before: dict, after: dict) -> list[str]:
@@ -321,13 +348,21 @@ def _format_diff(before: dict, after: dict) -> list[str]:
 
 def _diff_computed(before_path: Path, after_path: Path,
                    changed_selectors: list[str],
-                   has_inline_changes: bool) -> list[str]:
+                   has_inline_changes: bool,
+                   has_class_changes: bool = False) -> list[str]:
     lines = _diff_computed_css(before_path, after_path, changed_selectors)
-    if has_inline_changes:
-        inline_lines = _diff_computed_inline(before_path, after_path)
-        # Append; de-duplicate identical label blocks that appear in both.
-        existing_labels = {l for l in lines if l.startswith("  [")}
-        lines += [l for l in inline_lines if not (l.startswith("  [") and l in existing_labels)]
+
+    if has_class_changes:
+        # Class-only changes (e.g. Tailwind utility classes added/removed) don't
+        # appear in <style> blocks or style= attributes, so we need a full scan.
+        extra_lines = _diff_computed_all(before_path, after_path)
+    elif has_inline_changes:
+        extra_lines = _diff_computed_inline(before_path, after_path)
+    else:
+        extra_lines = []
+
+    existing_labels = {l for l in lines if l.startswith("  [")}
+    lines += [l for l in extra_lines if not (l.startswith("  [") and l in existing_labels)]
     return lines
 
 
@@ -362,7 +397,7 @@ def _serialize_node(node, indent: int = 0) -> list[str]:
         parts.append(f"#{attrs['id']}")
     if "class" in attrs:
         cls = attrs["class"] if isinstance(attrs["class"], list) else attrs["class"].split()
-        parts.append("." + ".".join(cls[:3]))  # first 3 classes max
+        parts.append("." + ".".join(cls))
 
     # Selected semantic attributes
     for key in sorted(_SHOW_ATTRS - {"id", "class"}):
@@ -429,23 +464,28 @@ def dom_diff(before_path: Path, after_path: Path) -> str:
         if line.startswith("  [")
     ]
 
-    # Detect inline style changes in the DOM structural diff so we can run the
-    # position-path computed diff for those elements as well.
+    # Detect inline style changes in the DOM structural diff.
     has_inline_changes = any(
         "style=" in line
         for line in dom_lines
         if line and line[0] in ("+", "-") and not line.startswith(("---", "+++"))
     )
 
+    # Detect class-attribute changes directly from HTML (not from serialized diff,
+    # which may not show all classes). Catches utility-class-only changes like
+    # Tailwind where neither <style> blocks nor style= attributes change.
+    has_class_changes = _has_class_changes(before_html, after_html)
+
     try:
         computed_lines = _diff_computed(before_path, after_path,
-                                        changed_selectors, has_inline_changes)
+                                        changed_selectors, has_inline_changes,
+                                        has_class_changes)
     except Exception as e:
         computed_lines = [f"  (unavailable — {e})"]
 
     no_computed_reason = (
         "  (none)"
-        if (changed_selectors or has_inline_changes)
+        if (changed_selectors or has_inline_changes or has_class_changes)
         else "  (none — no CSS rule or inline style changes)"
     )
 

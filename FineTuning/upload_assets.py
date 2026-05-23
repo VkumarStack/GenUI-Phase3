@@ -1,9 +1,9 @@
 """
-Upload Before/After screenshots from Datasets/RawDataset/ to Google Cloud Storage.
+Upload Before/After screenshots to Google Cloud Storage for SFT fine-tuning.
 
-The manifest is keyed by RawDataset folder name so both the revision generator
-and evaluator build_dataset.py scripts can resolve GCS URIs from their examples'
-meta.json source fields.
+The manifest is keyed by folder name so build_dataset.py scripts can resolve
+GCS URIs. Works with any dataset that has Before/screenshot.png and
+After/screenshot.png in each subfolder (RawDataset, EvaluatorModelDataset, etc.).
 
 For each example folder, uploads:
     Before/screenshot.png  →  gs://<bucket>/<prefix>/<folder>/before.png
@@ -17,13 +17,17 @@ application-default login). No .env file required.
 Running:
     python FineTuning/upload_assets.py --bucket your-bucket-name
 
+    # Upload EvaluatorModelDataset screenshots (40 not yet in manifest)
+    python FineTuning/upload_assets.py --bucket your-bucket-name \\
+        --dataset Datasets/EvaluatorModelDataset
+
     # Custom dataset path or prefix
     python FineTuning/upload_assets.py --bucket your-bucket-name \\
         --dataset Datasets/RawDataset --prefix sft-assets
 
     # Single folder (for testing)
     python FineTuning/upload_assets.py --bucket your-bucket-name \\
-        --example Datasets/RawDataset/Participant_2_CaseStudy-1.1-CLAUDE
+        --example Datasets/EvaluatorModelDataset/Participant_2_CaseStudy-1.1-CLAUDE
 
     # Reupload everything
     python FineTuning/upload_assets.py --bucket your-bucket-name --force
@@ -48,7 +52,7 @@ def upload_example(example_dir: Path, bucket: storage.Bucket, prefix: str) -> di
         ("before", "Before/screenshot.png"),
         ("after",  "After/screenshot.png"),
     ]:
-        local = example_dir / rel_path
+        local = (example_dir / rel_path).resolve()
         if not local.exists():
             print(f"    [SKIP] {local.relative_to(_ROOT)} not found")
             continue

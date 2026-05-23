@@ -1,0 +1,232 @@
+{
+  "run_name": "finetuned-v1_adjusted_prompt",
+  "backend": "vertexai",
+  "model": "projects/572849789000/locations/us-central1/endpoints/3229301384906014720",
+  "dataset": "/Users/vivek/Projects/GenUI/Datasets/EvaluatorModelDataset/Test",
+  "timestamp": "2026-05-17T01:38:03.486035+00:00",
+  "examples": [
+    {
+      "folder": "Example-000",
+      "ground_truth": "FAIL",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The before and after screenshots are visually identical. The large price numbers on the right side of the screen have not been made smaller, which was the explicit goal of the task.\n\nDOM Reasoning: The DOM diff shows that the font size for the `.price-sup` class was reduced. This only affects the superscript '9' at the end of the price, not the main digits, which explains why there is no noticeable visual change. The revision failed to target the correct elements to resize the entire number.\n\nPass Notes: None\n\nFail Notes: The revision only changed the font size of the superscript digit, not the entire number as requested. This had a negligible visual effect and did not fulfill the user's intent."
+    },
+    {
+      "folder": "Example-001",
+      "ground_truth": "PASS",
+      "predicted": "PASS",
+      "response": "PASS\nImage Reasoning: The after screenshot shows that all three price numbers (`4.68\u2079`, `3.98\u2079`, and `4.68\u2079`) have been visibly reduced in size, fulfilling the request. The new size is more balanced with the surrounding text and improves the visual hierarchy.\nDOM Reasoning: The DOM diff confirms that the font size class was changed from `text-3xl` to `text-2xl` for all three price numbers, correctly targeting the intended elements.\nPass Notes: The revision was executed perfectly, applying the change consistently across all relevant elements and improving the overall design balance without introducing any negative side effects.\nFail Notes: None"
+    },
+    {
+      "folder": "Example-002",
+      "ground_truth": "PASS",
+      "predicted": "PASS",
+      "response": "PASS\n\nImage Reasoning: The space between the logo icon and the \"Distributors\" text in the header has been visibly increased, making the elements look less cramped and improving the overall balance of the header.\n\nDOM Reasoning: The DOM diff confirms the visual change by showing an increase in the `margin-right` property for the `.logo-container` from 10px to 20px. This is the correct way to increase the spacing between the icon and the text next to it.\n\nPass Notes: The revision successfully increased the spacing as requested, leading to a better-balanced header layout. All other elements on the screen remain unchanged.\n\nFail Notes: None"
+    },
+    {
+      "folder": "Example-003",
+      "ground_truth": "FAIL",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The Before and After screenshots are identical. No visual change was made to the position of the icon or the text in the header.\n\nDOM Reasoning: The DOM diff shows no CSS or structural changes were made, which confirms the observation from the screenshots that the revision did not execute the requested task.\n\nPass Notes: None\n\nFail Notes: The revision failed to make any changes. The instruction to move the icon to the left was not followed."
+    },
+    {
+      "folder": "Example-004",
+      "ground_truth": "FAIL",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The before and after screenshots are identical. The prices still have the incorrect visual hierarchy, with the dollar amounts being small and superscripted while the cent amounts are large and on the baseline. The requested change was not made.\n\nDOM Reasoning: The DOM diff only shows a font-weight change to the `sup` element, which incorrectly contains the dollar value. The task required swapping the content of the `sup` element with the baseline text (i.e., putting the cents in the `sup` tag) and adjusting font sizes, none of which was done.\n\nPass Notes: None\n\nFail Notes: The revision failed to execute the core instruction of the task. It did not change the visual hierarchy of the prices by swapping the dollar and cent values' positions and sizes. The only change made was an insignificant font-weight tweak that did not address the user's request."
+    },
+    {
+      "folder": "Example-005",
+      "ground_truth": "FAIL",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The before and after screenshots are identical. The prices have not been changed, and still show the cents as the dominant, larger part of the price, with the dollar amount as a small superscript. The requested change to reverse this hierarchy was not made.\n\nDOM Reasoning: The DOM diff only shows that the font-weight of the superscript element was changed from bold to normal. This is a very minor change that does not address the core task of swapping the size and position of the dollar and cent values.\n\nPass Notes: The revision did not negatively affect any other part of the interface.\n\nFail Notes: The fundamental request to fix the visual hierarchy of the prices was not accomplished. The screenshots show no change, and the DOM diff confirms that only a minor, tangential CSS property was altered."
+    },
+    {
+      "folder": "Example-006",
+      "ground_truth": "PASS",
+      "predicted": "PASS",
+      "response": "PASS\n\nImage Reasoning: The revision successfully corrected the visual hierarchy for both prices shown in the \"Daily Deals\" section. The dollar amounts are now large and on the baseline, while the cent amounts are small and correctly superscripted, which addresses the core request.\n\nDOM Reasoning: The DOM diff confirms that the text content within the price paragraphs was restructured. The dollar values were moved out of the `<sup>` tags and the cent values were moved into them, exactly as required to produce the visual change.\n\nPass Notes: The revision successfully implemented the change for both the single price and the price range, resulting in a much clearer and more conventional price display.\n\nFail Notes: The en-dash in the price range appears to be vertically aligned a little too high, but this is a very minor imperfection."
+    },
+    {
+      "folder": "Example-007",
+      "ground_truth": "FAIL",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The before and after screenshots are identical. The task was to change the visual appearance of the \"LOG IN\" button to a disabled state (gray), but it remains green and appears enabled.\n\nDOM Reasoning: The DOM diff shows that the `disabled` attribute was added to the button element. However, the inline style `background:#a5d6a7` was not removed or changed, meaning the button's visual appearance was not updated to reflect its new disabled state as required by the task.\n\nPass Notes: The `disabled` attribute was correctly added to the button element, which would likely make it functionally non-interactive.\n\nFail Notes: The core visual requirement of the task\u2014changing the button's color to gray to signify its disabled state\u2014was not implemented. The button's appearance is unchanged, failing to solve the misleading affordance problem described in the task."
+    },
+    {
+      "folder": "Example-008",
+      "ground_truth": "PASS",
+      "predicted": "PASS",
+      "response": "PASS\n\nImage Reasoning: The \"LOG IN\" button's background color changed from an active green to a neutral gray. This successfully communicates that the button is disabled, which is the correct state given the empty input fields.\n\nDOM Reasoning: The DOM diff confirms that the button's inline style for `background` was changed from green to gray (`#d1d5db`) and that the `disabled` attribute was added to the button element, correctly implementing the task.\n\nPass Notes: The revision successfully changes the button to a disabled state, both visually and functionally (by adding the `disabled` attribute). The choice of gray is appropriate and consistent with common UI patterns for disabled elements.\n\nFail Notes: None"
+    },
+    {
+      "folder": "Example-009",
+      "ground_truth": "PARTIAL",
+      "predicted": "PARTIAL",
+      "response": "PARTIAL\nImage Reasoning: The revision successfully highlights \"Cancel\" as the primary action by changing its style to a filled white button, which creates a clear visual hierarchy. However, it failed to rearrange the buttons to visually separate the \"Rate Us\" option as requested by the task.\nDOM Reasoning: The diff confirms that a new `.cancel` class was added with a white background and dark text, making it the primary action. However, the DOM structure shows the button order remains unchanged, which contradicts the explicit rearrangement instructions in the task.\nPass Notes: The change is an improvement over the original design because it successfully establishes a visual hierarchy, making the \"Cancel\" action clearly primary and reducing the chance of accidental exit.\nFail Notes: The revision failed to follow key parts of the specification. It did not rearrange the buttons to separate the tertiary action, and it used a filled button style for the primary action instead of the specified bold text button style."
+    },
+    {
+      "folder": "Example-010",
+      "ground_truth": "FAIL",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The Before and After screenshots are identical. No changes have been applied to the exit confirmation modal, leaving the button hierarchy ambiguous and the task unfulfilled.\n\nDOM Reasoning: The DOM diff shows that CSS rules were created for primary, secondary, and tertiary buttons, which aligns with the intent of the task. However, since there is no visual change in the screenshot, it's clear these styles were not successfully applied to the target elements, resulting in a failed execution.\n\nPass Notes: None\n\nFail Notes: The revision made no visible change to the interface. The core problem of the equally weighted buttons in the exit modal persists."
+    },
+    {
+      "folder": "Example-011",
+      "ground_truth": "PARTIAL",
+      "predicted": "PARTIAL",
+      "response": "PARTIAL\nImage Reasoning: The revision successfully creates a visual hierarchy by making \"Cancel\" a filled, primary button, which is a clear improvement. However, it fails to \"visually separate 'Rate Us'\" as requested, leaving it as part of the main button group and not fully accomplishing the task.\nDOM Reasoning: The DOM diff confirms that inline styles were applied to change the background of the \"Cancel\" button and the text color of the \"Exit\" button, correctly matching the visual changes in the After screenshot.\nPass Notes: The revision correctly identified \"Cancel\" as the primary action and used a common design pattern (a filled button) to give it the most visual weight, addressing the main part of the task.\nFail Notes: The revision failed to follow the instruction to \"visually separate 'Rate Us' as a tertiary option.\" It remains in the same group, creating a slightly awkward visual flow of [Destructive] [Primary] [Tertiary]."
+    },
+    {
+      "folder": "Example-012",
+      "ground_truth": "PASS",
+      "predicted": "PASS",
+      "response": "PASS\n\nImage Reasoning: The \"LOG IN\" button in the After screenshot no longer spans the full width of the screen. It now has visible margins on the left and right sides, making it align perfectly with the input fields above it, successfully completing the task.\n\nDOM Reasoning: The DOM diff shows that a `margin: 0 16px;` style was added to the \"LOG IN\" button element, and the `w-full` class (which would force full width) was removed. This directly corresponds to the requested change and the visual result in the screenshot.\n\nPass Notes: The revision correctly identified the target button and applied the specified margin, resulting in a cleaner and more aligned layout.\n\nFail Notes: None"
+    },
+    {
+      "folder": "Example-013",
+      "ground_truth": "PASS",
+      "predicted": "PASS",
+      "response": "PASS\nImage Reasoning: The after screenshot shows the \"LOG IN\" button is no longer full-width. It now has visible margins on the left and right sides, aligning it with the input fields above and fulfilling the task's requirements.\nDOM Reasoning: The DOM diff shows the `w-full` class was removed from the button and replaced with `mx-4`, which corresponds to a horizontal margin. This correctly targets the login button and applies the requested spacing.\nPass Notes: The change was executed perfectly, making the button's alignment consistent with the other elements on the screen, which is a good design improvement.\nFail Notes: None"
+    },
+    {
+      "folder": "Example-014",
+      "ground_truth": "PARTIAL",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The Before and After screenshots are identical. The \"LOG IN\" button still spans the entire width of the screen, indicating that no margin was successfully applied. The visual goal of the task was not achieved.\n\nDOM Reasoning: The DOM diff shows that `margin-left: 16px` and `margin-right: 16px` were added to the button's inline styles. However, this had no visual effect, likely because the button also has a `w-full` class (width: 100%), which overrides or conflicts with the margin's ability to create space.\n\nPass Notes: The correct element was targeted in the code.\n\nFail Notes: The attempted change did not produce any visual result. The button's appearance is unchanged, completely failing to accomplish the task of adding visible side margins."
+    },
+    {
+      "folder": "Example-015",
+      "ground_truth": "PASS",
+      "predicted": "PASS",
+      "response": "PASS\n\nImage Reasoning: The text in the bottom navigation bar is visibly smaller and more spaced out in the after screenshot, directly addressing the request to reduce crowding and make the layout more even.\n\nDOM Reasoning: The DOM diff confirms that the font size for all five navigation labels was reduced (from `.text-xs` to `.text-[0.65rem]`). The change from `tracking-wide` to `tracking-tight` makes the text itself narrower, which correctly increases the perceived space between the items within the existing grid layout.\n\nPass Notes: The revision successfully accomplished both parts of the task: reducing the text size and increasing the spacing between the items for a less cluttered feel. The implementation is accurate and visually effective.\n\nFail Notes: None"
+    },
+    {
+      "folder": "Example-016",
+      "ground_truth": "PASS",
+      "predicted": "PARTIAL",
+      "response": "PARTIAL\nImage Reasoning: The screenshots show that the font size of the text in the navigation bar has been reduced, which is part of the request. However, the horizontal spacing between the navigation items has not been changed, so the task of making them \"more evenly spaced\" was not completed.\nDOM Reasoning: The DOM diff confirms that the font size was changed from `.text-xs` to `.text-[10px]` for all five navigation labels. It does not show any changes to layout properties like padding, margin, or flexbox justification that would alter the spacing between the items.\nPass Notes: The revision correctly identified all five text labels in the navigation bar and successfully reduced their font size.\nFail Notes: The revision failed to increase the spacing between the navigation items, which was a key requirement of the task to reduce crowding."
+    },
+    {
+      "folder": "Example-017",
+      "ground_truth": "PARTIAL",
+      "predicted": "PARTIAL",
+      "response": "PARTIAL\n\nImage Reasoning: The screenshots show a very subtle, almost imperceptible reduction in the font size of the navigation bar text. However, the horizontal spacing between the navigation items has not changed, leaving the layout looking just as crowded as before.\n\nDOM Reasoning: The diff shows that the font size class was correctly changed from `text-xs` to `text-[10px]` for all five navigation labels. It confirms that no changes were made to spacing properties like margin, padding, or flexbox justification, which were necessary to complete the task.\n\nPass Notes: The font size of the navigation bar text was successfully reduced as requested.\n\nFail Notes: The revision failed to increase the spacing between the navigation items, which was a key part of the request to make the layout feel less cluttered and more evenly distributed."
+    },
+    {
+      "folder": "Example-018",
+      "ground_truth": "PASS",
+      "predicted": "PASS",
+      "response": "PASS\n\nImage Reasoning: The After screenshot successfully tones down the glowing effect on the \"Subscribe Now\" button, replacing the wide, bright halo with a much more subtle and contained drop shadow. This change effectively reduces the button's visual dominance and rebalances the hierarchy, allowing the pricing cards above it to feel more prominent.\n\nDOM Reasoning: The DOM diff shows a targeted change to the `box-shadow` property on the `.subscribe-btn` element. The values for blur-radius (18px to 8px) and opacity (0.45 to 0.2) were significantly reduced, which directly corresponds to the less intense glow seen in the After screenshot.\n\nPass Notes: The revision is a perfect execution of the task. It correctly identified the property causing the overpowering glow and adjusted it to create a more balanced and professional-looking CTA, improving the overall visual hierarchy.\n\nFail Notes: None"
+    },
+    {
+      "folder": "Example-019",
+      "ground_truth": "PARTIAL",
+      "predicted": "PASS",
+      "response": "PASS\nImage Reasoning: The glow effect around the \"Subscribe Now\" button has been visibly reduced in intensity and spread, making it less overpowering. This successfully rebalances the visual hierarchy, allowing the pricing cards above to stand out more clearly as the primary decision area.\nDOM Reasoning: The DOM diff confirms the visual change, showing that the opacity of the `box-shadow` on the `.subscribe-btn` element was lowered from `0.45` to `0.25`. This directly and correctly implements the task of reducing the glow's intensity.\nPass Notes: The revision was a precise and effective execution of the task. The change is subtle enough to maintain a premium feel but significant enough to solve the visual hierarchy problem.\nFail Notes: None"
+    },
+    {
+      "folder": "Example-020",
+      "ground_truth": "PASS",
+      "predicted": "PASS",
+      "response": "PASS\nImage Reasoning: The glow effect on the \"Subscribe Now\" button has been visibly toned down, reducing its intensity and spread. This successfully accomplishes the task of making the CTA less overpowering and rebalancing the visual emphasis toward the pricing cards above it.\nDOM Reasoning: The DOM diff shows a change to the `box-shadow` property for the `.subscribe-btn` element. The blur radius was reduced from `18px` to `12px` and the opacity was reduced from `0.45` to `0.25`, directly corresponding to the visual reduction of the glow effect.\nPass Notes: The revision was a textbook execution of the task. It precisely targeted the glow effect, reduced its intensity to a more subtle level, and successfully improved the visual hierarchy without altering any other part of the interface.\nFail Notes: None"
+    },
+    {
+      "folder": "Example-021",
+      "ground_truth": "PARTIAL",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The revision failed to improve the legibility of the text. Instead of increasing contrast by brightening the text and adding a light halo, the revision made the text colors darker, which reduced their contrast against the dark background elements of the map and made them even harder to read.\n\nDOM Reasoning: The DOM diff confirms that the `color` property of most text labels was changed to a darker shade (e.g., green `#1a6b3a` became `#0d4620`), directly contradicting the task. No properties for a text halo (like `text-shadow`) were added.\n\nPass Notes: The revision correctly identified most of the text label elements that needed modification.\n\nFail Notes: This revision is a complete failure. It did the opposite of the core instruction by decreasing text contrast instead of increasing it. The crucial instruction to add a light halo around the text to separate it from the background was completely ignored. The resulting text is even less legible than the original."
+    },
+    {
+      "folder": "Example-022",
+      "ground_truth": "PARTIAL",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The Before and After screenshots are identical. No changes were made to the text labels on the map, meaning the legibility issue was not addressed.\n\nDOM Reasoning: The DOM diff shows changes to the hex color codes of the text labels. However, instead of brightening the colors to increase contrast as requested, the changes made the colors darker (e.g., `#7c4dff` to `#4B0082`, `#555` to `#333`), which is the opposite of the intended goal. The required text \"halo\" was not added.\n\nPass Notes: The model correctly identified some of the text elements that needed modification.\n\nFail Notes: The revision failed on every key point. It did not increase contrast; in fact, the DOM changes would decrease it by making colors darker. It completely failed to implement the critical text \"halo\" or \"outline\" effect. The resulting screenshots show no visible change, indicating a complete failure to accomplish the task."
+    },
+    {
+      "folder": "Example-023",
+      "ground_truth": "PARTIAL",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The Before and After screenshots are visually identical. There is no perceivable change to the color, contrast, or legibility of the text labels on the map, failing to accomplish the core request of the task.\n\nDOM Reasoning: The DOM diff shows that the colors of the text labels were changed. However, they were changed to be darker (e.g., `#1a6b3a` to `#004d1a`), which is the exact opposite of the instruction to increase contrast by brightening the colors. The critical requirement to add a text-halo or outline was also completely ignored.\n\nPass Notes: The revision correctly identified the text elements on the map that needed to be changed.\n\nFail Notes: The revision failed on two primary fronts: it changed the colors in the opposite direction of the request (making them darker and less legible, not brighter) and it completely omitted the crucial instruction to add a light-colored text halo for contrast. This makes the text even harder to read and fundamentally misunderstands the task."
+    },
+    {
+      "folder": "Example-024",
+      "ground_truth": "PASS",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The After screenshot is identical to the Before screenshot. The text for the distance, \"2.07 miles\", remains red, showing that the core requirement of the task\u2014to change its color to a neutral gray\u2014was not accomplished.\n\nDOM Reasoning: The DOM diff shows that the correct element was targeted. The inline style for the red color was removed and a `text-gray-700` class was added. However, this change had no visible effect, as seen in the screenshot, meaning the task ultimately failed.\n\nPass Notes: The revision correctly identified the specific text element (\"2.07 miles\") that needed to be changed and attempted to apply a class for a neutral color.\n\nFail Notes: The attempted change did not result in any visual difference in the interface. The distance text remains red, likely due to another CSS rule overriding the newly added class."
+    },
+    {
+      "folder": "Example-025",
+      "ground_truth": "PASS",
+      "predicted": "FAIL",
+      "response": "FAIL\nImage Reasoning: The Before and After screenshots are identical. The \"2.07 miles\" text is still red in the After screenshot, indicating that the core task of changing its color to a neutral one was not accomplished.\nDOM Reasoning: The DOM diff shows an attempt was made to change the color by adding the `text-gray-700` class to the span containing \"2.07 miles\". However, this change is clearly not reflected in the rendered After screenshot, meaning the change did not take effect visually.\nPass Notes: The revision correctly identified the specific span for \"2.07 miles\" as the element to be modified.\nFail Notes: The attempted change had no visual effect on the interface, which is a critical failure. The text remains red, completely missing the goal of the task."
+    },
+    {
+      "folder": "Example-026",
+      "ground_truth": "PASS",
+      "predicted": "FAIL",
+      "response": "FAIL\n\nImage Reasoning: The Before and After screenshots are identical. The \"2.07 miles\" text remains red in the After screenshot, failing the core requirement of the task to change it to a neutral color.\n\nDOM Reasoning: The DOM diff shows that the inline style for the `<span>` containing \"2.07 miles\" was correctly changed from a red color (`#e8191a`) to a gray color (`#6b7280`). However, this change is not reflected in the After screenshot, indicating that another CSS rule with higher specificity is overriding it and preventing the intended visual change.\n\nPass Notes: The AI correctly identified the HTML element for the distance text and attempted to apply the correct color change in the code.\n\nFail Notes: The revision ultimately fails because the code change had no effect on the rendered UI. The interface is unchanged, and the task was not accomplished."
+    },
+    {
+      "folder": "Example-027",
+      "ground_truth": "PASS",
+      "predicted": "PASS",
+      "response": "PASS\nImage Reasoning: The after screenshot clearly shows that the vertical space between each FAQ item has been reduced and the divider lines are a lighter shade of gray, making the list appear more cohesive as requested.\nDOM Reasoning: The DOM diff confirms the visual changes, showing that the vertical padding on each row was reduced from 20px to 12px and the border color was changed to a lighter gray (#f0f0f0), correctly implementing the task.\nPass Notes: The revision successfully executed both parts of the request. The new spacing and divider color make the list look like a unified component, which is a clear design improvement.\nFail Notes: None"
+    },
+    {
+      "folder": "Example-028",
+      "ground_truth": "PASS",
+      "predicted": "PASS",
+      "response": "PASS\nImage Reasoning: The After screenshot shows a visible reduction in the vertical white space between the accordion rows. Additionally, the horizontal divider lines are a noticeably lighter shade of grey, making them less prominent and fulfilling the task requirements.\nDOM Reasoning: The DOM diff confirms the visual changes. The vertical padding on `.faq-row` was reduced from 20px to 16px, and the `border-bottom` color on `.faq-item` was changed from `#eaecef` to a lighter `#ececec`.\nPass Notes: The revision successfully executed both parts of the instruction, resulting in a more cohesive and visually pleasing FAQ list that is easier to scan as a single unit.\nFail Notes: None"
+    },
+    {
+      "folder": "Example-029",
+      "ground_truth": "PASS",
+      "predicted": "PARTIAL",
+      "response": "PARTIAL\nImage Reasoning: The vertical spacing between the FAQ rows has been successfully reduced, making the list appear more cohesive as requested. However, the divider lines between the items appear darker and more prominent in the After screenshot, which contradicts the instruction to soften their contrast.\nDOM Reasoning: The DOM diff confirms the vertical padding was reduced from 20px to 12px. However, it also shows the divider color was changed from a light grey (#eaecef) to a darker, more saturated grey-blue (#ccd2e1), which is the opposite of the requested change.\nPass Notes: The reduction in vertical spacing was implemented correctly and effectively groups the list items together.\nFail Notes: The revision failed to \"soften the divider contrast.\" The new color is visibly darker and has a higher visual weight than the original, which works against the goal of making the list easier to scan."
+    }
+  ],
+  "metrics": {
+    "n_scored": 30,
+    "n_no_prediction": 0,
+    "accuracy": 0.6667,
+    "macro_f1": 0.6263,
+    "per_class": {
+      "PASS": {
+        "precision": 0.9167,
+        "recall": 0.6875,
+        "f1": 0.7857,
+        "support": 16
+      },
+      "PARTIAL": {
+        "precision": 0.6,
+        "recall": 0.375,
+        "f1": 0.4615,
+        "support": 8
+      },
+      "FAIL": {
+        "precision": 0.4615,
+        "recall": 1.0,
+        "f1": 0.6316,
+        "support": 6
+      }
+    },
+    "confusion_matrix": {
+      "PASS": {
+        "PASS": 11,
+        "PARTIAL": 2,
+        "FAIL": 3
+      },
+      "PARTIAL": {
+        "PASS": 1,
+        "PARTIAL": 3,
+        "FAIL": 4
+      },
+      "FAIL": {
+        "PASS": 0,
+        "PARTIAL": 0,
+        "FAIL": 6
+      }
+    }
+  }
+}

@@ -36,7 +36,7 @@ VERTEXAI_GENERATOR_ENDPOINT_ID=your_generator_endpoint
 
 ```
 Datasets/
-    RawDataset/                     # 176 expert-labeled UI revision examples
+    RawDataset/                     # 139 expert-labeled UI revision examples
     EvaluatorModelDataset/
         Train/                      # evaluator model training examples
         Test/                       # evaluator model test examples (30 examples)

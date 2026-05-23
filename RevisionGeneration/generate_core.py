@@ -42,6 +42,13 @@ _SYSTEM_BASE = (
     "should look like or do after the revision. Leave no room for interpretation — "
     "if a color is changing, say which color; if text is moving, say where it "
     "should end up.\n\n"
+
+    "EXAMPLE OUTPUT (category: Clarify Function & State):\n"
+    "The \"Continue\" button is fully green and active even though no departure "
+    "point has been selected yet. This could lead to errors if the user taps "
+    "Continue without selecting anything. Set the Continue button to a "
+    "disabled/muted state by using a faint green at 20% opacity instead of the "
+    "full green.\n\n"
 )
 
 _FORMAT_SINGLE = (

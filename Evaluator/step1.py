@@ -15,8 +15,8 @@ For running over the full dataset (finding and filling missing entries), use:
     python DatasetBuilder/EvaluatorModel/fill_step1.py
 
 Running standalone (single example, for testing):
-    python Evaluator/step1.py --example Datasets/RawDataset/Participant_2_CaseStudy-1.1-CLAUDE
-    python Evaluator/step1.py --example ... --model gemini-2.5-flash
+    python Evaluator/step1.py --example Datasets/EvaluatorModelDataset/Participant_2_CaseStudy-1.1-CLAUDE
+    python Evaluator/step1.py --example ... --backend gemini --model gemini-2.5-flash
 """
 
 import argparse
@@ -30,7 +30,7 @@ _ROOT = Path(__file__).parent.parent
 load_dotenv(_ROOT / "Util" / ".env")
 
 sys.path.insert(0, str(_ROOT / "Util"))
-from backends import GeminiBackend
+from backends import Backend, get_backend
 
 _PROMPT_FILE = Path(__file__).parent / "step1_prompt.txt"
 _DEFAULT_MODEL = "gemini-2.5-pro"
@@ -42,7 +42,7 @@ def unique_key(folder_name: str) -> str:
     return _MODEL_SUFFIX.sub("", folder_name)
 
 
-def run_one(folder: Path, backend: GeminiBackend) -> dict:
+def run_one(folder: Path, backend: "Backend") -> dict:
     """Generate a Step 1 expected-change spec for one example folder."""
     task = (folder / "Task.txt").read_text().strip()
     screenshot = folder / "Before" / "screenshot.png"
@@ -66,11 +66,14 @@ def main():
     )
     parser.add_argument("--example", metavar="PATH", required=True,
                         help="Path to example folder (must contain Task.txt and Before/screenshot.png).")
-    parser.add_argument("--model", default=_DEFAULT_MODEL,
-                        help=f"Gemini model (default: {_DEFAULT_MODEL}).")
+    parser.add_argument("--backend", default="gemini",
+                        choices=["gemini", "vertexai", "anthropic", "openai"],
+                        help="Model backend (default: gemini).")
+    parser.add_argument("--model", default=None,
+                        help="Override model/endpoint (optional).")
     args = parser.parse_args()
 
-    backend = GeminiBackend(args.model)
+    backend = get_backend(args.backend, args.model)
     result = run_one(Path(args.example), backend)
     if "error" in result:
         raise SystemExit(f"ERROR: {result['error']}")

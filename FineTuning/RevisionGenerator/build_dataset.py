@@ -21,7 +21,7 @@ import json
 from pathlib import Path
 
 _ROOT = Path(__file__).parent.parent.parent
-_DATASET = _ROOT / "Datasets" / "RevisionGeneratorModelDataset" / "Train"
+_DATASET = _ROOT / "Datasets" / "RevisionGeneratorModelDataset" / "All"
 _MANIFEST = _ROOT / "FineTuning" / "manifest.json"
 _OUTPUT = Path(__file__).parent / "train.jsonl"
 
@@ -52,6 +52,13 @@ _SYSTEM_INSTRUCTION = (
     "should look like or do after the revision. Leave no room for interpretation — "
     "if a color is changing, say which color; if text is moving, say where it "
     "should end up.\n\n"
+
+    "EXAMPLE OUTPUT (category: Clarify Function & State):\n"
+    "The \"Continue\" button is fully green and active even though no departure "
+    "point has been selected yet. This could lead to errors if the user taps "
+    "Continue without selecting anything. Set the Continue button to a "
+    "disabled/muted state by using a faint green at 20% opacity instead of the "
+    "full green.\n\n"
 
     "OUTPUT FORMAT:\n"
     "Return a single revision task as a short, self-contained paragraph of two to "
@@ -127,7 +134,7 @@ def main():
         description="Build Vertex AI SFT JSONL for the revision generator model."
     )
     parser.add_argument("--dataset",  default=str(_DATASET),  metavar="PATH",
-                        help=f"RevisionGeneratorModelDataset/Train directory (default: {_DATASET}).")
+                        help=f"RevisionGeneratorModelDataset/All directory (default: {_DATASET}).")
     parser.add_argument("--manifest", default=str(_MANIFEST), metavar="PATH",
                         help=f"GCS URI manifest from upload_assets.py (default: {_MANIFEST}).")
     parser.add_argument("--output",   default=str(_OUTPUT),   metavar="PATH",

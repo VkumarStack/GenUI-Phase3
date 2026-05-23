@@ -32,7 +32,7 @@
   "assignments": {
     "Participant_10_CaseStudy-15.1": [
       "Clarify Function & State",
-      "Reorganize Information Hierarchy"
+      "Refine Layout & Spacing"
     ],
     "Participant_10_CaseStudy-16.1": [
       "Refine Layout & Spacing",
@@ -42,34 +42,36 @@
       "Refine Layout & Spacing"
     ],
     "Participant_10_CaseStudy-18.1": [
-      "Reorganize Information Hierarchy"
+      "Reorganize Information Hierarchy",
+      "Refine Layout & Spacing"
     ],
     "Participant_10_CaseStudy-19.1": [
       "Simplify & Reduce Clutter",
-      "Add or Surface Functionality"
+      "Strengthen Visual Consistency"
     ],
     "Participant_10_CaseStudy-20.1": [
       "Clarify Function & State",
       "Strengthen Visual Consistency"
     ],
     "Participant_10_CaseStudy-21.1": [
-      "Add or Surface Functionality"
+      "Add or Surface Functionality",
+      "Reorganize Information Hierarchy"
     ],
     "Participant_11_CaseStudy-1.1": [
-      "Add or Surface Functionality",
-      "Clarify Function & State"
+      "Clarify Function & State",
+      "Add or Surface Functionality"
     ],
     "Participant_11_CaseStudy-1.2": [
       "Reorganize Information Hierarchy",
       "Refine Layout & Spacing"
     ],
     "Participant_11_CaseStudy-2.1": [
-      "Reorganize Information Hierarchy",
-      "Clarify Function & State"
+      "Clarify Function & State",
+      "Refine Layout & Spacing"
     ],
     "Participant_12_CaseStudy-13.1": [
-      "Strengthen Visual Consistency",
-      "Refine Layout & Spacing"
+      "Refine Layout & Spacing",
+      "Strengthen Visual Consistency"
     ],
     "Participant_12_CaseStudy-15.1": [
       "Simplify & Reduce Clutter",
@@ -82,13 +84,15 @@
       "Refine Layout & Spacing"
     ],
     "Participant_12_CaseStudy-24.1": [
-      "Strengthen Visual Consistency"
+      "Strengthen Visual Consistency",
+      "Improve Readability & Accessibility"
     ],
     "Participant_12_CaseStudy-25.1": [
       "Refine Layout & Spacing"
     ],
     "Participant_12_CaseStudy-25.2": [
-      "Simplify & Reduce Clutter"
+      "Simplify & Reduce Clutter",
+      "Strengthen Visual Consistency"
     ],
     "Participant_12_CaseStudy-25.3": [
       "Clarify Function & State",
@@ -99,7 +103,7 @@
     ],
     "Participant_12_CaseStudy-26.1": [
       "Reorganize Information Hierarchy",
-      "Strengthen Visual Consistency"
+      "Clarify Function & State"
     ],
     "Participant_12_CaseStudy-28.1": [
       "Improve Readability & Accessibility"
@@ -113,11 +117,12 @@
     ],
     "Participant_12_CaseStudy-31.1": [
       "Reorganize Information Hierarchy",
-      "Clarify Function & State"
+      "Clarify Function & State",
+      "Refine Layout & Spacing"
     ],
     "Participant_12_CaseStudy-32.1": [
-      "Strengthen Visual Consistency",
-      "Clarify Function & State"
+      "Clarify Function & State",
+      "Strengthen Visual Consistency"
     ],
     "Participant_12_CaseStudy-33.1": [
       "Strengthen Visual Consistency",
@@ -127,7 +132,7 @@
       "Clarify Function & State"
     ],
     "Participant_2_CaseStudy-1.1": [
-      "Reorganize Information Hierarchy",
+      "Refine Layout & Spacing",
       "Simplify & Reduce Clutter"
     ],
     "Participant_3_CaseStudy-10.1": [
@@ -137,7 +142,8 @@
       "Reorganize Information Hierarchy"
     ],
     "Participant_3_CaseStudy-2.1": [
-      "Clarify Function & State"
+      "Clarify Function & State",
+      "Add or Surface Functionality"
     ],
     "Participant_3_CaseStudy-3.1": [
       "Refine Layout & Spacing"
@@ -155,56 +161,57 @@
       "Reorganize Information Hierarchy"
     ],
     "Participant_6_CaseStudy-13.1": [
-      "Reorganize Information Hierarchy"
+      "Improve Readability & Accessibility",
+      "Refine Layout & Spacing"
     ],
     "Participant_6_CaseStudy-13.2": [
       "Add or Surface Functionality",
       "Clarify Function & State"
     ],
     "Participant_6_CaseStudy-13.3": [
-      "Refine Layout & Spacing",
-      "Improve Readability & Accessibility"
-    ],
-    "Participant_6_CaseStudy-14.1": [
-      "Simplify & Reduce Clutter",
       "Refine Layout & Spacing"
     ],
+    "Participant_6_CaseStudy-14.1": [
+      "Refine Layout & Spacing",
+      "Simplify & Reduce Clutter"
+    ],
     "Participant_6_CaseStudy-14.2": [
-      "Reorganize Information Hierarchy"
+      "Reorganize Information Hierarchy",
+      "Refine Layout & Spacing"
     ],
     "Participant_7_CaseStudy-22.1": [
-      "Simplify & Reduce Clutter",
-      "Reorganize Information Hierarchy"
+      "Refine Layout & Spacing",
+      "Simplify & Reduce Clutter"
     ],
     "Participant_7_CaseStudy-23.1": [
-      "Improve Readability & Accessibility",
-      "Clarify Function & State"
+      "Clarify Function & State",
+      "Improve Readability & Accessibility"
     ],
     "Participant_7_CaseStudy-25.1": [
       "Clarify Function & State"
     ],
     "Participant_7_CaseStudy-26.1": [
       "Clarify Function & State",
-      "Reorganize Information Hierarchy"
+      "Strengthen Visual Consistency"
     ],
     "Participant_7_CaseStudy-27.1": [
-      "Clarify Function & State"
+      "Clarify Function & State",
+      "Improve Readability & Accessibility"
     ],
     "Participant_7_CaseStudy-28.1": [
       "Reorganize Information Hierarchy",
-      "Simplify & Reduce Clutter"
+      "Refine Layout & Spacing"
     ],
     "Participant_7_CaseStudy-29.1": [
       "Reorganize Information Hierarchy",
       "Clarify Function & State"
     ],
     "Participant_7_CaseStudy-30.1": [
-      "Refine Layout & Spacing",
-      "Reorganize Information Hierarchy"
+      "Reorganize Information Hierarchy",
+      "Refine Layout & Spacing"
     ],
     "Participant_7_CaseStudy-31.1": [
-      "Refine Layout & Spacing",
-      "Reorganize Information Hierarchy"
+      "Refine Layout & Spacing"
     ],
     "Participant_7_CaseStudy-32.1": [
       "Reorganize Information Hierarchy",
@@ -214,7 +221,166 @@
       "Reorganize Information Hierarchy"
     ],
     "Participant_7_CaseStudy-34.1": [
+      "Reorganize Information Hierarchy",
+      "Improve Readability & Accessibility"
+    ],
+    "Participant_10_CaseStudy-1.1": [
+      "Add or Surface Functionality",
+      "Clarify Function & State"
+    ],
+    "Participant_10_CaseStudy-1.2": [
+      "Reorganize Information Hierarchy",
+      "Refine Layout & Spacing"
+    ],
+    "Participant_10_CaseStudy-10.1": [
+      "Refine Layout & Spacing"
+    ],
+    "Participant_10_CaseStudy-11.1": [
       "Reorganize Information Hierarchy"
+    ],
+    "Participant_10_CaseStudy-12.1": [
+      "Reorganize Information Hierarchy"
+    ],
+    "Participant_10_CaseStudy-2.1": [
+      "Reorganize Information Hierarchy",
+      "Clarify Function & State"
+    ],
+    "Participant_10_CaseStudy-3.1": [
+      "Refine Layout & Spacing"
+    ],
+    "Participant_10_CaseStudy-6.1": [
+      "Refine Layout & Spacing"
+    ],
+    "Participant_10_CaseStudy-8.1": [
+      "Reorganize Information Hierarchy"
+    ],
+    "Participant_10_CaseStudy-9.1": [
+      "Improve Readability & Accessibility"
+    ],
+    "Participant_11_CaseStudy-13.1": [
+      "Strengthen Visual Consistency",
+      "Refine Layout & Spacing"
+    ],
+    "Participant_11_CaseStudy-15.1": [
+      "Clarify Function & State",
+      "Reorganize Information Hierarchy"
+    ],
+    "Participant_11_CaseStudy-24.1": [
+      "Strengthen Visual Consistency"
+    ],
+    "Participant_11_CaseStudy-27.1": [
+      "Clarify Function & State"
+    ],
+    "Participant_11_CaseStudy-34.1": [
+      "Clarify Function & State"
+    ],
+    "Participant_14_CaseStudy-10.1": [
+      "Refine Layout & Spacing"
+    ],
+    "Participant_14_CaseStudy-11.1": [
+      "Reorganize Information Hierarchy"
+    ],
+    "Participant_14_CaseStudy-12.1": [
+      "Reorganize Information Hierarchy"
+    ],
+    "Participant_14_CaseStudy-13.1": [
+      "Strengthen Visual Consistency",
+      "Refine Layout & Spacing"
+    ],
+    "Participant_14_CaseStudy-14.1": [
+      "Simplify & Reduce Clutter",
+      "Refine Layout & Spacing"
+    ],
+    "Participant_14_CaseStudy-8.1": [
+      "Reorganize Information Hierarchy"
+    ],
+    "Participant_14_CaseStudy-9.1": [
+      "Improve Readability & Accessibility"
+    ],
+    "Participant_9_CaseStudy-15.1": [
+      "Clarify Function & State",
+      "Reorganize Information Hierarchy"
+    ],
+    "Participant_9_CaseStudy-16.1": [
+      "Refine Layout & Spacing",
+      "Reorganize Information Hierarchy"
+    ],
+    "Participant_9_CaseStudy-18.1": [
+      "Reorganize Information Hierarchy"
+    ],
+    "Participant_9_CaseStudy-20.1": [
+      "Clarify Function & State",
+      "Strengthen Visual Consistency"
+    ],
+    "Participant_10_CaseStudy-10.2": [
+      "Reorganize Information Hierarchy"
+    ],
+    "Participant_10_CaseStudy-11.2": [
+      "Clarify Function & State"
+    ],
+    "Participant_10_CaseStudy-12.2": [
+      "Refine Layout & Spacing",
+      "Strengthen Visual Consistency"
+    ],
+    "Participant_10_CaseStudy-2.2": [
+      "Reorganize Information Hierarchy",
+      "Refine Layout & Spacing"
+    ],
+    "Participant_10_CaseStudy-3.2": [
+      "Add or Surface Functionality",
+      "Clarify Function & State"
+    ],
+    "Participant_10_CaseStudy-4.1": [
+      "Improve Readability & Accessibility"
+    ],
+    "Participant_10_CaseStudy-4.2": [
+      "Improve Readability & Accessibility"
+    ],
+    "Participant_10_CaseStudy-5.1": [
+      "Refine Layout & Spacing",
+      "Strengthen Visual Consistency"
+    ],
+    "Participant_10_CaseStudy-5.2": [
+      "Clarify Function & State"
+    ],
+    "Participant_10_CaseStudy-6.2": [
+      "Refine Layout & Spacing"
+    ],
+    "Participant_10_CaseStudy-7.1": [
+      "Strengthen Visual Consistency",
+      "Simplify & Reduce Clutter"
+    ],
+    "Participant_10_CaseStudy-7.2": [
+      "Strengthen Visual Consistency",
+      "Reorganize Information Hierarchy"
+    ],
+    "Participant_10_CaseStudy-8.2": [
+      "Reorganize Information Hierarchy",
+      "Improve Readability & Accessibility"
+    ],
+    "Participant_10_CaseStudy-9.2": [
+      "Reorganize Information Hierarchy",
+      "Refine Layout & Spacing"
+    ],
+    "Participant_14_CaseStudy-5.2": [
+      "Add or Surface Functionality",
+      "Clarify Function & State"
+    ],
+    "Participant_14_CaseStudy-6.2": [
+      "Strengthen Visual Consistency",
+      "Clarify Function & State"
+    ],
+    "Participant_14_CaseStudy-6.3": [
+      "Refine Layout & Spacing",
+      "Improve Readability & Accessibility"
+    ],
+    "Participant_14_CaseStudy-7.1": [
+      "Reorganize Information Hierarchy",
+      "Refine Layout & Spacing"
+    ],
+    "Participant_14_CaseStudy-9.2": [
+      "Strengthen Visual Consistency",
+      "Simplify & Reduce Clutter"
     ]
   }
 }

@@ -1,70 +1,85 @@
 You are a UI/UX evaluator assessing whether an AI-generated revision to a mobile app interface successfully accomplished the requested task.
 
-You are given:
-- The original revision task
-- A grounded expected-change specification describing what the revised interface should look like
-- A DOM diff with three sections (explained below)
-- The Before screenshot (original interface)
-- The After screenshot (revised interface)
-
-DOM DIFF SECTIONS:
-The DOM diff contains up to three sections. Understand what each one tells you:
-
-1. CSS Rule Changes — declarations that changed inside <style> blocks. Shows intent (what was written) but not whether it took effect — a rule can be overridden by a more specific rule or inline style.
-
-2. Computed Style Changes (browser-rendered) — the final resolved CSS value for each directly-targeted element, as a browser's DevTools "Computed" tab would show. This is the authoritative signal for whether a style change actually applied. It only appears for elements directly targeted by changed rules or inline styles, not cascaded descendants.
-
-3. DOM Structure Changes — structural additions, removals, or attribute changes (including inline style= attributes) shown as a unified diff.
-
-VERDICT OPTIONS:
-- PASS: The revision successfully accomplishes the task. Minor imperfections are acceptable — note them, but do not let nitpicks reduce the verdict.
-- PARTIAL: The revision meaningfully but incompletely executes the task, or executes it with noticeable issues that affect quality without being outright wrong.
-- FAIL: The revision fails to accomplish the task, makes no meaningful change, or introduces problems that undermine it. A partial attempt that fundamentally misses the goal is a FAIL, not a PARTIAL.
-
-EVALUATION PRIORITY:
-Weigh each signal based on the nature of the change:
-
-- For broad, clearly visible changes (major layout shifts, element addition/removal, text content, obvious color swaps): rely primarily on the screenshots. The DOM diff confirms which elements were touched.
-- For subtle changes that are easy to miss or hallucinate in screenshots (spacing, padding, margin, font size, minor positioning, colour tweaks): rely primarily on the Computed Style Changes section. Screenshots at mobile resolution often cannot resolve differences of a few pixels or slight colour shifts — do not conclude a task failed just because the screenshots look identical. If the Computed Style Changes section shows the expected property changed on the correct element, treat that as strong evidence the revision was made.
-- If the screenshots and the Computed Style Changes conflict (diff shows a change but screenshots clearly show no visual effect, or screenshots show a clear difference but the diff shows nothing), note the discrepancy and use your best judgment.
-
-EVALUATION DIMENSIONS:
-Assess the revision against all five dimensions below. Use them to build and justify your verdict.
-
-Success dimensions (what the revision should demonstrate):
-1. Faithful Execution — Did the revision accurately and completely implement all explicit instructions? Were all instances and components covered?
-2. Design Improvement — Where the task requires or implies design judgment, did the revision make a sound visual decision?
-3. Contextual Preservation — Did the revision leave unrelated elements untouched? Does the after interface remain consistent with the design system of the before interface?
-
-Failure signals (issues that lower the verdict):
-4. Instruction Following Failure — Did the revision miss components, apply the change incorrectly, or misread the task scope?
-5. Negative Design Impact — Did the revision introduce any new visual, usability, or functional problems — even while attempting to follow the task?
-
-NUANCE:
-A PASS verdict can still include Fail Notes — if there are minor shortcomings worth pointing out for the designer's awareness, note them without penalizing the verdict.
-A FAIL verdict can still include Pass Notes — acknowledge what the revision got right before explaining why the overall verdict is a failure.
-
----
-
-Revision task:
+{dom_diff_block}{step1_block}Revision task:
 {task}
 
-Expected-change specification:
-{step1_spec}
+---
 
-DOM diff:
-{dom_diff}
+EVALUATION NOTES:
+
+**On component context (if provided above):**
+The UI Component Context section above — if present — identifies which elements to look at in the screenshots. It is a visual navigation aid only. Do not treat anything in it as an additional requirement. If it describes specific implementation details (colors, exact positions, sub-elements) that are not stated in the revision task itself, ignore those details when scoring. The revision task above is the sole source of what was required.
+
+**On flexible task language:**
+When the task uses "or," "e.g.," "such as," or "for example," it is offering options or examples — not prescribing one specific approach. Evaluate against the stated intent, not against one particular example. A different but equally valid implementation that achieves the same goal should pass.
+
+**On partial implementations:**
+If the core intent of the task was accomplished and only secondary details are missing, lean toward an overall PASS rather than FAIL. This applies to missing minor details, not to unrequested changes that broke the design.
+
+For tasks with multiple explicit instructions (listed separately or described in multiple sentences), verify that each instruction was addressed. Missing a single minor detail can still be PARTIAL PASS, but missing a complete sub-task — for example, the instruction said "on both sides" but only one side changed, or "above the entire group" but the label was added to sub-sections instead — should lower Requirement Fulfillment to PARTIAL PASS or FAIL, not PASS.
+
+**On the DOM diff as ground truth:**
+The DOM diff is the most reliable signal for what actually changed in the code. Use it as the primary evidence for any claim about additions, removals, or modifications:
+- **Computed Style Changes** are browser-authoritative: if a property appears there, the change is confirmed even if it looks subtle in screenshots. If this section reports a removal (e.g. a background color going to `transparent`), treat it as a real regression or fulfillment signal.
+- **Before asserting that something was removed or changed**, verify it appears in the DOM diff. If the screenshots seem to show a difference but neither the DOM Structure nor Computed Style sections corroborate it, do not assert the change occurred — mobile screenshot resolution can create false impressions.
+- **Before asserting something was NOT changed**, check both sections. A property can change via a CSS class (not visible in DOM Structure) but show up in Computed Styles. Conversely, a very subtle change may be real but visually imperceptible.
+
+**On subtle visual changes:**
+If the screenshots appear unchanged for a task involving text corrections, minor color tweaks, or small CSS adjustments, check the DOM diff carefully before concluding no change was made — small changes are often invisible at screenshot resolution.
+
+Exception for text-only corrections: if the task is to fix a typo, rephrase specific words, or correct text content, text node changes may not appear in any section of the DOM diff. In this case, rely on the Before/After screenshots as the primary signal — if the corrected text is visible in the After screenshot, the task was completed.
+
+**On regressions — actively check for these:**
+Before scoring No Regressions, explicitly look for:
+- New empty or blank areas where content used to be or where the layout now looks unbalanced — pay special attention to blank gaps created when elements are moved out of containers
+- Elements visually clipped or cut off at the screen edge
+- Overlapping elements that obstruct each other
+- Unrequested changes to elements not mentioned in the task (moved, restyled, or removed) — including elements that shifted to a new line or were repositioned. Check the DOM diff for any element that changed but was not part of the requested task; if its change has visible impact (different position, missing background, relocated in the layout), score Minimality or Consistency as FAIL even if the primary requirement was met.
+- Excessive new whitespace or padding that makes the layout feel broken or unbalanced
+- Content changes (text altered, removed, or added beyond the task scope)
+
+Note: do not penalize for implicit layout side-effects not requested in the task (e.g. automatic reflow after an element is removed) — only penalize if the result is visually broken or clearly worse.
+
+When many elements show changed `top`/`left`/`right`/`bottom` values in Computed Style Changes but the DOM Structure shows only one element was added, removed, or resized, this is layout reflow from a single change — treat it as one event, not as multiple individual regressions. Focus on whether the final visible layout is broken, not on how many computed property entries changed.
+
+If a task requires removing or changing a CSS property and an adjacent or coupled property on the same element changes as a result (e.g., removing `border-left` also adjusts `padding-left` on the same element), treat this as a natural side-effect of the primary fix — not a separate regression — unless the visual result is clearly worse.
 
 ---
 
-Assess the Before and After screenshots against the specification and output your verdict using exactly this format:
+Evaluate the revision using the rubric below. Score each criterion as PASS, PARTIAL PASS, or FAIL, then give a single overall verdict of PASS or FAIL.
 
-PASS / PARTIAL / FAIL
+**A. Requirement Fulfillment** *(most important criterion)*
+Did the revision successfully perform the requested UI change? Consider whether the specific task was addressed, the correct element(s) were modified, and all parts of the instruction were followed.
 
-Image Reasoning: <For broad, clearly visible changes, describe what is visually different between the screenshots and whether it satisfies the task. If the screenshots look identical or nearly identical, note that explicitly — do not fabricate a visible difference.>
+**B. Consistency with Original UI**
+Does the revision preserve the original screen's layout, structure, and visual design language? Unrelated sections should remain intact and the revised UI should feel like the same app/screen.
 
-DOM Reasoning: <Cite the specific DOM diff section(s) you relied on. For subtle changes (spacing, colour, font size, minor positioning), state what the Computed Style Changes section shows and whether it confirms the task was completed. For structural changes, cite the DOM Structure diff. Flag any conflict between the screenshots and the computed styles.>
+**C. Visual & Usability Quality**
+Does the revision improve clarity, visual hierarchy, readability, accessibility, or overall usability — not just technically apply the change?
 
-Pass Notes: <What the revision did well across the success dimensions. For a FAIL, still note anything correctly implemented.>
+**D. Minimality of Changes**
+Does the revision avoid unnecessary or unrelated modifications beyond what was requested? Targeted changes are preferred over over-editing.
 
-Fail Notes: <Any issues observed across the failure signals. For a PASS, still note any minor imperfections. Write "None" if there are genuinely no concerns.>
+**E. No New Regressions**
+Does the revision avoid introducing new layout, visual, content, or interaction problems elsewhere in the interface (e.g. overlapping elements, broken alignment, clipped content, removed sections)?
+
+OVERALL VERDICT GUIDANCE:
+The overall verdict is binary — PASS or FAIL only (no PARTIAL PASS at this level). Use judgment:
+- Requirement Fulfillment is the most critical criterion. A FAIL on the core task typically results in an overall FAIL, even if other criteria pass.
+- A PARTIAL PASS on Requirement Fulfillment that accomplished the primary intent of the task often still warrants an overall PASS — use judgment on whether what was missing was central to the designer's goal or a secondary detail.
+- A PASS on Requirement Fulfillment with minor isolated issues elsewhere can still be an overall PASS.
+- A critical regression (e.g. an entire UI section removed, an unusable interface, a significant new visual problem) can override an otherwise passing score even when Requirement Fulfillment is met. Unrequested changes that clearly break design consistency count as regressions.
+- If the revision made unrequested changes with visible impact — beyond natural layout reflow from the requested change — consider whether the net result is coherent or whether the added changes compromise the design. A clearly visible unrequested removal (e.g., a background color gone, an element relocated to a wrong area) can justify an overall FAIL even when the primary requirement was met.
+- The overall verdict should reflect whether the revision was a net positive toward the designer's intent — not a mechanical average of criterion scores.
+
+Assess the Before and After screenshots (and any additional inputs provided above) against the task, then output your evaluation using exactly this format:
+
+REQUIREMENT FULFILLMENT: PASS / PARTIAL PASS / FAIL
+CONSISTENCY: PASS / PARTIAL PASS / FAIL
+VISUAL & USABILITY: PASS / PARTIAL PASS / FAIL
+MINIMALITY: PASS / PARTIAL PASS / FAIL
+NO REGRESSIONS: PASS / PARTIAL PASS / FAIL
+
+OVERALL: PASS / FAIL
+
+COMMENT: <1–3 sentences on the key reason for the overall verdict. Mention anything task-specific that influenced the decision — what was done well, what was missing, or what went wrong.>
