@@ -32,7 +32,8 @@ class Backend(ABC):
     """Abstract base for all model backends."""
 
     @abstractmethod
-    def generate(self, prompt: str, images: list[bytes] | None = None) -> str:
+    def generate(self, prompt: str, images: list[bytes] | None = None,
+                 max_tokens: int | None = None) -> str:
         """Send a prompt (and optional images) to the model and return the response text."""
         ...
 
@@ -43,7 +44,8 @@ class GeminiBackend(Backend):
         self.model = model
         self.client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
 
-    def generate(self, prompt: str, images: list[bytes] | None = None) -> str:
+    def generate(self, prompt: str, images: list[bytes] | None = None,
+                 max_tokens: int | None = None) -> str:
         from google.genai import types
         contents = []
         if images:
@@ -52,7 +54,10 @@ class GeminiBackend(Backend):
                 contents.append(types.Part.from_text(text=label))
                 contents.append(types.Part.from_bytes(data=img_bytes, mime_type="image/png"))
         contents.append(types.Part.from_text(text=prompt))
-        response = self.client.models.generate_content(model=self.model, contents=contents)
+        config = types.GenerateContentConfig(max_output_tokens=max_tokens) if max_tokens else None
+        response = self.client.models.generate_content(
+            model=self.model, contents=contents, config=config
+        )
         return response.text.strip()
 
 
@@ -98,8 +103,9 @@ class VertexAIBackend(Backend):
         vertexai.init(project=project, location=location)
         self._genmodel = GenerativeModel(self.model)
 
-    def generate(self, prompt: str, images: list[bytes] | None = None) -> str:
-        from vertexai.generative_models import Image, Part
+    def generate(self, prompt: str, images: list[bytes] | None = None,
+                 max_tokens: int | None = None) -> str:
+        from vertexai.generative_models import Image, Part, GenerationConfig
 
         parts = []
         if images:
@@ -109,7 +115,8 @@ class VertexAIBackend(Backend):
                 parts.append(Part.from_image(Image.from_bytes(img_bytes)))
         parts.append(Part.from_text(prompt))
 
-        response = self._genmodel.generate_content(parts)
+        config = GenerationConfig(max_output_tokens=max_tokens) if max_tokens else None
+        response = self._genmodel.generate_content(parts, generation_config=config)
         return response.text.strip()
 
 
@@ -119,7 +126,8 @@ class AnthropicBackend(Backend):
         self.model = model
         self.client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
-    def generate(self, prompt: str, images: list[bytes] | None = None) -> str:
+    def generate(self, prompt: str, images: list[bytes] | None = None,
+                 max_tokens: int | None = None) -> str:
         content = []
         if images:
             labels = ["Before screenshot:", "After screenshot:"] + ["Image:"] * max(0, len(images) - 2)
@@ -136,7 +144,7 @@ class AnthropicBackend(Backend):
         content.append({"type": "text", "text": prompt})
         response = self.client.messages.create(
             model=self.model,
-            max_tokens=1024,
+            max_tokens=max_tokens or 4096,
             messages=[{"role": "user", "content": content}],
         )
         return response.content[0].text.strip()
@@ -148,7 +156,8 @@ class OpenAIBackend(Backend):
         self.model = model
         self.client = openai.OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
-    def generate(self, prompt: str, images: list[bytes] | None = None) -> str:
+    def generate(self, prompt: str, images: list[bytes] | None = None,
+                 max_tokens: int | None = None) -> str:
         import base64 as _base64
         content = []
         if images:
@@ -164,7 +173,7 @@ class OpenAIBackend(Backend):
         content.append({"type": "text", "text": prompt})
         response = self.client.chat.completions.create(
             model=self.model,
-            max_tokens=1024,
+            max_tokens=max_tokens or 4096,
             messages=[{"role": "user", "content": content}],
         )
         return response.choices[0].message.content.strip()

@@ -65,14 +65,14 @@ _COMMENT_PATTERN = re.compile(r"^COMMENT\s*:\s*(.+)", re.IGNORECASE | re.DOTALL 
 
 _DOM_DIFF_HEADER = (
     "DOM DIFF SECTIONS:\n"
-    "The DOM diff contains up to three sections:\n"
-    "1. CSS Rule Changes — declarations that changed inside <style> blocks. Shows intent but "
-    "not whether a rule took effect (it may be overridden by a more specific rule).\n"
-    "2. Computed Style Changes (browser-rendered) — the final resolved CSS value for each "
-    "directly-targeted element. This is the authoritative signal for whether a style change "
-    "actually applied.\n"
-    "3. DOM Structure Changes — structural additions, removals, or attribute changes "
-    "(including inline style= attributes) shown as a unified diff.\n\n"
+    "The DOM diff contains two sections:\n"
+    "1. CSS Rule Changes — declarations that changed inside <style> blocks. "
+    "This is the authoritative record of which styles the developer intentionally modified.\n"
+    "2. DOM Structure Changes — structural additions, removals, or attribute changes "
+    "(including inline style= attributes) shown as a unified diff. "
+    "This is the authoritative record of which elements were added, removed, or restructured.\n\n"
+    "Together these two sections define the complete set of intentional changes. "
+    "Anything not reflected in either section was not changed by the developer.\n\n"
 )
 
 
@@ -85,14 +85,24 @@ def _resolve_paths(folder: Path) -> tuple[Path, Path, Path]:
     )
 
 
+def _strip_computed_section(dom_diff_text: str) -> str:
+    """Remove the Computed Style Changes section; keep CSS Rules and DOM Structure only."""
+    return re.sub(
+        r"\n=== Computed Style Changes.*?(?=\n=== DOM Structure Changes)",
+        "",
+        dom_diff_text,
+        flags=re.DOTALL,
+    )
+
+
 def _get_dom_diff(folder: Path) -> str:
     cached = folder / "dom_diff.txt"
     if cached.exists():
-        return cached.read_text()
+        return _strip_computed_section(cached.read_text())
     before_html = folder / "Before" / "index.html"
     after_html  = folder / "After"  / "index.html"
     if before_html.exists() and after_html.exists():
-        return compute_dom_diff(before_html, after_html)
+        return _strip_computed_section(compute_dom_diff(before_html, after_html))
     return "(DOM diff unavailable — HTML files not found)"
 
 
