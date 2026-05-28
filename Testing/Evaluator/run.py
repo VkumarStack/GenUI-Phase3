@@ -5,16 +5,11 @@ PASS/FAIL accuracy against the ground-truth labels in RubricEvaluation.json.
 Raw per-example outputs and metrics are saved to Results/<run-name>.json.
 
 Usage:
-    # Gemini baseline (all inputs)
+    # Gemini baseline
     python Testing/Evaluator/run.py --backend gemini
 
-    # Ablations: omit DOM diff or Step 1 spec
-    python Testing/Evaluator/run.py --no-dom-diff
-    python Testing/Evaluator/run.py --no-step1
-    python Testing/Evaluator/run.py --no-dom-diff --no-step1
-
-    # Fine-tuned evaluator on Vertex AI
-    python Testing/Evaluator/run.py --backend vertexai --run-name finetuned-v1
+    # Override model
+    python Testing/Evaluator/run.py --backend gemini --model gemini-2.5-pro-preview
 
     # Resume an interrupted run
     python Testing/Evaluator/run.py --backend gemini --resume
@@ -161,20 +156,11 @@ def _print_metrics(metrics: dict) -> None:
 # Main
 # ---------------------------------------------------------------------------
 
-def _default_run_name(backend_name: str, model_attr: str | None,
-                      no_dom_diff: bool, no_step1: bool) -> str:
+def _default_run_name(backend_name: str, model_attr: str | None) -> str:
     if model_attr:
         m = re.search(r"/endpoints/(\d+)$", model_attr)
-        base = m.group(1) if m else re.sub(r"[/:]", "_", model_attr)
-    else:
-        base = backend_name
-
-    suffix = ""
-    if no_dom_diff:
-        suffix += "-no_dom_diff"
-    if no_step1:
-        suffix += "-no_step1"
-    return base + suffix
+        return m.group(1) if m else re.sub(r"[/:]", "_", model_attr)
+    return backend_name
 
 
 def main():
@@ -196,20 +182,15 @@ def main():
     parser.add_argument("--rerun-failed", metavar="RESULTS_JSON",
                         help="Load a previous results file and rerun only the examples "
                              "where ground_truth != predicted (the wrong ones).")
-    parser.add_argument("--no-dom-diff", action="store_true",
-                        help="Omit DOM diff from the prompt (ablation).")
-    parser.add_argument("--no-step1", action="store_true",
-                        help="Omit Step 1 spec from the prompt (ablation).")
     args = parser.parse_args()
 
     dataset = Path(args.dataset)
     if not dataset.exists():
         raise SystemExit(f"Dataset not found: {dataset}")
 
-    backend    = get_backend(args.backend, args.model,
-                             endpoint_env_var="VERTEXAI_EVALUATOR_ENDPOINT_ID")
+    backend    = get_backend(args.backend, args.model)
     model_attr = getattr(backend, "model", None)
-    base_name  = _default_run_name(args.backend, model_attr, args.no_dom_diff, args.no_step1)
+    base_name  = _default_run_name(args.backend, model_attr)
     if args.run_name:
         run_name = args.run_name
     elif args.rerun_failed:
@@ -240,10 +221,8 @@ def main():
         print(f"Resuming: {len(existing)} done, "
               f"{len(example_dirs) - len(existing)} remaining")
 
-    print(f"Backend:     {args.backend}  |  Model: {model_attr or '—'}")
-    print(f"DOM diff:    {'off' if args.no_dom_diff else 'on'}")
-    print(f"Step 1 spec: {'off' if args.no_step1 else 'on'}")
-    print(f"Dataset:     {dataset}  ({len(example_dirs)} examples)")
+    print(f"Backend:  {args.backend}  |  Model: {model_attr or '—'}")
+    print(f"Dataset:  {dataset}  ({len(example_dirs)} examples)")
     print(f"Output:      {output_path.relative_to(_ROOT)}")
     print()
 
@@ -263,9 +242,7 @@ def main():
               end="", flush=True)
 
         try:
-            result = _run_one(folder, backend,
-                              no_dom_diff=args.no_dom_diff,
-                              no_step1=args.no_step1)
+            result = _run_one(folder, backend)
             if "error" in result:
                 print(f"SKIP — {result['error']}")
                 examples.append({
@@ -309,8 +286,6 @@ def main():
             "backend":     args.backend,
             "model":       model_attr,
             "dataset":     str(dataset),
-            "no_dom_diff": args.no_dom_diff,
-            "no_step1":    args.no_step1,
             "timestamp":   datetime.now(timezone.utc).isoformat(),
             "examples":    examples,
         }, indent=2))
@@ -319,15 +294,13 @@ def main():
     _print_metrics(metrics)
 
     output_path.write_text(json.dumps({
-        "run_name":    run_name,
-        "backend":     args.backend,
-        "model":       model_attr,
-        "dataset":     str(dataset),
-        "no_dom_diff": args.no_dom_diff,
-        "no_step1":    args.no_step1,
-        "timestamp":   datetime.now(timezone.utc).isoformat(),
-        "examples":    examples,
-        "metrics":     metrics,
+        "run_name":  run_name,
+        "backend":   args.backend,
+        "model":     model_attr,
+        "dataset":   str(dataset),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "examples":  examples,
+        "metrics":   metrics,
     }, indent=2))
 
     print(f"Results saved to {output_path.relative_to(_ROOT)}")

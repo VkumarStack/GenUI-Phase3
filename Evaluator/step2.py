@@ -3,10 +3,9 @@ Step 2 of the two-step evaluation pipeline.
 
 Inputs per example:
   - Task.txt                      — the original revision task
-  - step1_spec.txt (optional)     — expected-change spec from Step 1
+  - step1_spec.txt                — code analysis from Step 1
   - Before/screenshot.png         — original interface
   - After/screenshot.png          — revised interface
-  - dom_diff.txt (optional)       — pre-computed DOM diff; computed on the fly if absent
 
 Produces a structured rubric verdict (5 criteria + overall PASS/FAIL + comment).
 
@@ -18,19 +17,11 @@ Running:
     # Run against the full EvaluatorModelDataset
     python Evaluator/step2.py --dataset Datasets/EvaluatorModelDataset
 
-    # Ablation: omit DOM diff or Step 1 spec
-    python Evaluator/step2.py --no-dom-diff
-    python Evaluator/step2.py --no-step1
-    python Evaluator/step2.py --no-dom-diff --no-step1
-
     # Run on a single example
     python Evaluator/step2.py --example Datasets/EvaluatorModelDataset/Participant_2_CaseStudy-1.1-CLAUDE
 
     # Resume a partially completed run
     python Evaluator/step2.py --resume
-
-    # Use the fine-tuned evaluator model on Vertex AI
-    python Evaluator/step2.py --backend vertexai
 """
 
 import argparse
@@ -47,12 +38,11 @@ load_dotenv(_ROOT / "Util" / ".env")
 sys.path.insert(0, str(_ROOT / "Util"))
 from backends import Backend, get_backend
 
-from dom_diff import dom_diff as compute_dom_diff
-
-_DATASET = _ROOT / "Datasets" / "EvaluatorModelDataset"
-_PROMPT_FILE = Path(__file__).parent / "step2_prompt.txt"
-_OUTPUT_FILE = Path(__file__).parent / "step2_results.json"
+_DATASET      = _ROOT / "Datasets" / "EvaluatorModelDataset"
+_PROMPT_FILE  = Path(__file__).parent / "step2_prompt.txt"
+_OUTPUT_FILE  = Path(__file__).parent / "step2_results.json"
 _DEFAULT_BACKEND = "gemini"
+_DEFAULT_MODEL   = "gemini-3.1-pro-preview"
 
 # Patterns for parsing structured rubric output
 _CRITERION_PATTERN = re.compile(
@@ -63,54 +53,21 @@ _CRITERION_PATTERN = re.compile(
 _OVERALL_PATTERN = re.compile(r"^OVERALL\s*:\s*(PASS|FAIL)", re.IGNORECASE | re.MULTILINE)
 _COMMENT_PATTERN = re.compile(r"^COMMENT\s*:\s*(.+)", re.IGNORECASE | re.DOTALL | re.MULTILINE)
 
-_DOM_DIFF_HEADER = (
-    "DOM DIFF SECTIONS:\n"
-    "The DOM diff contains two sections:\n"
-    "1. CSS Rule Changes — declarations that changed inside <style> blocks. "
-    "This is the authoritative record of which styles the developer intentionally modified.\n"
-    "2. DOM Structure Changes — structural additions, removals, or attribute changes "
-    "(including inline style= attributes) shown as a unified diff. "
-    "This is the authoritative record of which elements were added, removed, or restructured.\n\n"
-    "Together these two sections define the complete set of intentional changes. "
-    "Anything not reflected in either section was not changed by the developer.\n\n"
-)
-
 
 def _resolve_paths(folder: Path) -> tuple[Path, Path, Path]:
     """Return (task_file, before_screenshot, after_screenshot)."""
     return (
         folder / "Task.txt",
         folder / "Before" / "screenshot.png",
-        folder / "After" / "screenshot.png",
+        folder / "After"  / "screenshot.png",
     )
 
 
-def _strip_computed_section(dom_diff_text: str) -> str:
-    """Remove the Computed Style Changes section; keep CSS Rules and DOM Structure only."""
-    return re.sub(
-        r"\n=== Computed Style Changes.*?(?=\n=== DOM Structure Changes)",
-        "",
-        dom_diff_text,
-        flags=re.DOTALL,
-    )
-
-
-def _get_dom_diff(folder: Path) -> str:
-    cached = folder / "dom_diff.txt"
-    if cached.exists():
-        return _strip_computed_section(cached.read_text())
-    before_html = folder / "Before" / "index.html"
-    after_html  = folder / "After"  / "index.html"
-    if before_html.exists() and after_html.exists():
-        return _strip_computed_section(compute_dom_diff(before_html, after_html))
-    return "(DOM diff unavailable — HTML files not found)"
-
-
-def _get_step1_spec(folder: Path) -> str:
+def _get_step1_analysis(folder: Path) -> str:
     spec_file = folder / "step1_spec.txt"
     if spec_file.exists():
-        return spec_file.read_text().strip()
-    return "(Step 1 spec unavailable — run fill_step1.py)"
+        return spec_file.read_text(encoding="utf-8").strip()
+    return "(Step 1 code analysis unavailable — run fill_step1.py)"
 
 
 def _parse_response(response: str) -> dict:
@@ -137,15 +94,12 @@ def _parse_response(response: str) -> dict:
     comment = ""
     comment_match = _COMMENT_PATTERN.search(response)
     if comment_match:
-        comment = comment_match.group(1).strip()
-        # Trim if the model added extra lines after the comment
-        comment = comment.split("\n\n")[0].strip()
+        comment = comment_match.group(1).strip().split("\n\n")[0].strip()
 
     return {"criteria": criteria, "overall": overall, "comment": comment}
 
 
-def _run_one(folder: Path, backend: Backend,
-             no_dom_diff: bool = False, no_step1: bool = False) -> dict:
+def _run_one(folder: Path, backend: Backend) -> dict:
     task_file, before, after = _resolve_paths(folder)
 
     if not task_file.exists():
@@ -153,25 +107,17 @@ def _run_one(folder: Path, backend: Backend,
     if not before.exists() or not after.exists():
         return {"error": "Missing before or after screenshot"}
 
-    task = task_file.read_text().strip()
+    task = task_file.read_text(encoding="utf-8").strip()
 
-    # Build optional blocks
-    if no_dom_diff:
-        dom_diff_block = ""
-    else:
-        dom_diff_text  = _get_dom_diff(folder)
-        dom_diff_block = _DOM_DIFF_HEADER + dom_diff_text + "\n\n---\n\n"
-
-    if no_step1:
-        step1_block = ""
-    else:
-        step1_text  = _get_step1_spec(folder)
-        step1_block = f"UI Component Context (visual navigation aid — not additional requirements):\n{step1_text}\n\n---\n\n"
+    analysis_text        = _get_step1_analysis(folder)
+    step1_analysis_block = (
+        f"Code Analysis (from Step 1 — treat as supplementary context, not a verdict):\n"
+        f"{analysis_text}\n\n---\n\n"
+    )
 
     prompt = _PROMPT_FILE.read_text().format(
         task=task,
-        dom_diff_block=dom_diff_block,
-        step1_block=step1_block,
+        step1_analysis_block=step1_analysis_block,
     )
 
     response = backend.generate(prompt, images=[before.read_bytes(), after.read_bytes()])
@@ -188,7 +134,7 @@ def _run_one(folder: Path, backend: Backend,
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Step 2: produce rubric verdict from screenshots + optional DOM diff / Step 1 spec."
+        description="Step 2: produce rubric verdict from screenshots + Step 1 code analysis."
     )
     target = parser.add_mutually_exclusive_group()
     target.add_argument("--example", metavar="PATH",
@@ -201,10 +147,6 @@ def main():
                         help=f"Model backend (default: {_DEFAULT_BACKEND}).")
     parser.add_argument("--model", default=None,
                         help="Override the model/endpoint (optional).")
-    parser.add_argument("--no-dom-diff", action="store_true",
-                        help="Omit DOM diff from the prompt (ablation).")
-    parser.add_argument("--no-step1", action="store_true",
-                        help="Omit Step 1 spec from the prompt (ablation).")
     parser.add_argument("--resume", action="store_true",
                         help="Skip examples already present in step2_results.json.")
     args = parser.parse_args()
@@ -219,12 +161,11 @@ def main():
         existing = json.loads(_OUTPUT_FILE.read_text())
         print(f"Resuming: {len(existing)} done, {len(folders) - len(existing)} remaining")
 
-    backend = get_backend(args.backend, args.model,
-                          endpoint_env_var="VERTEXAI_EVALUATOR_ENDPOINT_ID")
-    print(f"Backend:     {args.backend} | Model: {backend.model if hasattr(backend, 'model') else '—'}")
-    print(f"DOM diff:    {'off' if args.no_dom_diff else 'on'}")
-    print(f"Step 1 spec: {'off' if args.no_step1 else 'on'}")
-    print(f"Examples:    {len(folders)}")
+    # Use _DEFAULT_MODEL as the gemini default when no --model override is given
+    model   = args.model or (_DEFAULT_MODEL if args.backend == "gemini" else None)
+    backend = get_backend(args.backend, model)
+    print(f"Backend: {args.backend} | Model: {backend.model if hasattr(backend, 'model') else '—'}")
+    print(f"Examples: {len(folders)}")
 
     results = dict(existing)
     n = len(folders)
@@ -234,9 +175,7 @@ def main():
             continue
         print(f"  [{i}/{n}] {folder.name} ... ", end="", flush=True)
         try:
-            result = _run_one(folder, backend,
-                              no_dom_diff=args.no_dom_diff,
-                              no_step1=args.no_step1)
+            result = _run_one(folder, backend)
             if "error" in result:
                 print(f"SKIP — {result['error']}")
             else:
