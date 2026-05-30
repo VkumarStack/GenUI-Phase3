@@ -10,7 +10,7 @@ Outputs:
   EvaluationTaxonomy/fail_taxonomy.json
   EvaluationTaxonomy/taxonomy.md       — human-readable summary of both
 
-Writes back to Datasets/RawDataset/:
+Writes back to Datasets/EvaluatorModelDataset/:
   <folder>/Pass_Taxonomy.txt   (for PASS and PARTIAL entries)
   <folder>/Fail_Taxonomy.txt   (for FAIL and PARTIAL entries)
 
@@ -39,7 +39,7 @@ _FAIL_LABELS = Path(__file__).parent / "fail_raw_labels.json"
 _PASS_TAXONOMY = _RESULTS / "pass_taxonomy.json"
 _FAIL_TAXONOMY = _RESULTS / "fail_taxonomy.json"
 _TAXONOMY_MD = _RESULTS / "taxonomy.md"
-_DATASET = _ROOT / "Datasets" / "RawDataset"
+_DATASET = _ROOT / "Datasets" / "EvaluatorModelDataset"
 _DEFAULT_MODEL = "gemini-2.5-pro"
 
 _CONSOLIDATE_PROMPT = """\

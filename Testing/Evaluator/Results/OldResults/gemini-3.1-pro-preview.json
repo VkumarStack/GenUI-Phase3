@@ -1,0 +1,2549 @@
+{
+  "run_name": "gemini-3.1-pro-preview",
+  "backend": "gemini",
+  "model": "gemini-3.1-pro-preview",
+  "dataset": "/Users/vivek/Projects/GenUI/Datasets/EvaluatorModelDataset",
+  "timestamp": "2026-05-28T02:58:26.389139+00:00",
+  "examples": [
+    {
+      "folder": "Participant_10_CaseStudy-1.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PARTIAL PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully accomplished the main goal by adding a prominent, well-styled \"View Pass\" button to the bottom of the fully rendered cards. The only issue is an unrequested change where the ellipsis (...) menu icon was removed from the bottom right of the cards, which slightly reduces minimality but doesn't break the new layout or core usability.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PARTIAL PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully accomplished the main goal by adding a prominent, well-styled \"View Pass\" button to the bottom of the fully rendered cards. The only issue is an unrequested change where the ellipsis (...) menu icon was removed from the bottom right of the cards, which slightly reduces minimality but doesn't break the new layout or core usability."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-1.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "While the revision successfully updated the typography, spacing, and visually converted the day selector into a compact dropdown format, the implementation method was severely flawed. By using a global CSS pseudo-element to hardcode the text \"7 / 14 / 21 days\", the revision caused a critical data regression on the second card, overriding its correct available options (3 and 5 days) with incorrect information. Displaying inaccurate product details constitutes a major failure.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: While the revision successfully updated the typography, spacing, and visually converted the day selector into a compact dropdown format, the implementation method was severely flawed. By using a global CSS pseudo-element to hardcode the text \"7 / 14 / 21 days\", the revision caused a critical data regression on the second card, overriding its correct available options (3 and 5 days) with incorrect information. Displaying inaccurate product details constitutes a major failure."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-1.2-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully implements all requested changes. The price is larger and bolder, the region labels are less prominent (grey and thinner), the spacing above the price row is increased, and the day selector has been cleanly consolidated into a single dropdown with a chevron, effectively improving the visual hierarchy and breathability of the cards.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully implements all requested changes. The price is larger and bolder, the region labels are less prominent (grey and thinner), the spacing above the price row is increased, and the day selector has been cleanly consolidated into a single dropdown with a chevron, effectively improving the visual hierarchy and breathability of the cards."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-10.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully moved the username, ID, badges, and roles into a new dedicated section below the cover photo with a clean white background and updated text colors for excellent legibility. The profile icon was correctly kept on the cover photo, and the overall layout is much cleaner without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully moved the username, ID, badges, and roles into a new dedicated section below the cover photo with a clean white background and updated text colors for excellent legibility. The profile icon was correctly kept on the cover photo, and the overall layout is much cleaner without introducing any regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-10.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PASS",
+        "minimality": "PARTIAL PASS",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The revision successfully accomplished all core task requirements, extracting the user information into a clean, highly legible white section below the cover photo while retaining the avatar overlay. However, an unnecessary `</div>` tag prematurely closed the main app wrapper, causing the bottom half of the interface to lose its background containment and display an unintended grey background. Since this regression is primarily aesthetic and does not break usability, the overall implementation remains a pass.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PARTIAL PASS\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully accomplished all core task requirements, extracting the user information into a clean, highly legible white section below the cover photo while retaining the avatar overlay. However, an unnecessary `</div>` tag prematurely closed the main app wrapper, causing the bottom half of the interface to lose its background containment and display an unintended grey background. Since this regression is primarily aesthetic and does not break usability, the overall implementation remains a pass."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-10.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully reordered the page layout exactly as requested. The Follow and Chat buttons were moved directly below the stats row, followed by the group card, personal info, and finally the navigation tabs at the bottom, with no unintended changes to the UI components themselves.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully reordered the page layout exactly as requested. The Follow and Chat buttons were moved directly below the stats row, followed by the group card, personal info, and finally the navigation tabs at the bottom, with no unintended changes to the UI components themselves."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-10.2-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully addressed the primary usability problem by moving the \"Follow\" and \"Chat\" buttons directly below the stats row, ensuring key actions are immediately accessible. However, it missed the secondary instruction to reorder the bottom elements, leaving the navigation tabs above the \"Personal info\" section instead of placing them at the very bottom. Since the core intent of the task was accomplished, the overall verdict is a pass.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully addressed the primary usability problem by moving the \"Follow\" and \"Chat\" buttons directly below the stats row, ensuring key actions are immediately accessible. However, it missed the secondary instruction to reorder the bottom elements, leaving the navigation tabs above the \"Personal info\" section instead of placing them at the very bottom. Since the core intent of the task was accomplished, the overall verdict is a pass."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-11.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully scaled down the action buttons and icons, applied equal spacing, and center-aligned the group as requested, significantly improving the layout's proportions. However, it missed the explicit instruction to scale down the text labels beneath the buttons to maintain their visual relationship with the newly sized icons. Despite this minor omission, the core layout and scaling objectives were achieved effectively without introducing regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully scaled down the action buttons and icons, applied equal spacing, and center-aligned the group as requested, significantly improving the layout's proportions. However, it missed the explicit instruction to scale down the text labels beneath the buttons to maintain their visual relationship with the newly sized icons. Despite this minor omission, the core layout and scaling objectives were achieved effectively without introducing regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-11.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully adds a clear visual indicator (a yellow left border) to the selected DIESEL #2 row and accurately updates the call-to-action button text as requested. The changes blend well with the existing UI without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully adds a clear visual indicator (a yellow left border) to the selected DIESEL #2 row and accurately updates the call-to-action button text as requested. The changes blend well with the existing UI without introducing any regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-11.2-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully adds a clear yellow left border to indicate the selected state on the DIESEL #2 row and updates the payment button text as requested. The changes are minimal, consistent with the existing design language, and introduce no regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully adds a clear yellow left border to indicate the selected state on the DIESEL #2 row and updates the payment button text as requested. The changes are minimal, consistent with the existing design language, and introduce no regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-12.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision perfectly implements the requested changes. It successfully consolidates the two header bars into a single yellow bar, correctly groups the social and utility icons on opposite ends with consistent spacing, and effectively reduces the overall header height to give more space to the main content.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision perfectly implements the requested changes. It successfully consolidates the two header bars into a single yellow bar, correctly groups the social and utility icons on opposite ends with consistent spacing, and effectively reduces the overall header height to give more space to the main content."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-12.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully stacked the category thumbnail and text vertically and center-aligned the text, resolving the inconsistent left-anchored layout. The metadata now perfectly matches the center alignment of the course title above it, and no unintended changes were made.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully stacked the category thumbnail and text vertically and center-aligned the text, resolving the inconsistent left-anchored layout. The metadata now perfectly matches the center alignment of the course title above it, and no unintended changes were made."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-12.2-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision correctly center-aligned the text within the Category section, but failed to address the core structural issue. To resolve the complaint about the thumbnail being a \"left-anchored element\" and to fully match the vertically stacked Teacher row above it, the Category block needed to be changed from a horizontal layout to a vertical column. Because the image remains horizontally adjacent to the text, the requested consistent center alignment was not fully achieved.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision correctly center-aligned the text within the Category section, but failed to address the core structural issue. To resolve the complaint about the thumbnail being a \"left-anchored element\" and to fully match the vertically stacked Teacher row above it, the Category block needed to be changed from a horizontal layout to a vertical column. Because the image remains horizontally adjacent to the text, the requested consistent center alignment was not fully achieved."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-2.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully removed the heavy button borders, reduced the font size slightly, and added appropriate upvote icons next to the numbers on both visible posts. The new layout aligns perfectly with the adjacent action icons, maintaining the feel of an interactive element while improving the overall visual hierarchy.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully removed the heavy button borders, reduced the font size slightly, and added appropriate upvote icons next to the numbers on both visible posts. The new layout aligns perfectly with the adjacent action icons, maintaining the feel of an interactive element while improving the overall visual hierarchy."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-2.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "consistencyOriginal": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS",
+        "requirementFulfillment": "PASS",
+        "visualUsability": "PARTIAL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully addressed all parts of the prompt. It made the vote count buttons smaller, added the requested upvote icon for context, applied the changes to all visible instances, and balanced the request to \"let the number stand on its own\" with the instruction to \"still look like a button\" by tightening the button's footprint.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully addressed all parts of the prompt. It made the vote count buttons smaller, added the requested upvote icon for context, applied the changes to all visible instances, and balanced the request to \"let the number stand on its own\" with the instruction to \"still look like a button\" by tightening the button's footprint."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-3.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully adds a clear and well-designed map legend to the top-left corner, explaining the meaning of the yellow lines, white lines, and green terrain. This perfectly fulfills the user's request to provide context for the map's visual features without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully adds a clear and well-designed map legend to the top-left corner, explaining the meaning of the yellow lines, white lines, and green terrain. This perfectly fulfills the user's request to provide context for the map's visual features without introducing any regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-3.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully adds a map legend that clearly explains the meaning of the yellow lines, grey lines, and green background, fulfilling the requested task. The legend is styled appropriately as a floating map overlay without introducing any regressions or unnecessary changes.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully adds a map legend that clearly explains the meaning of the yellow lines, grey lines, and green background, fulfilling the requested task. The legend is styled appropriately as a floating map overlay without introducing any regressions or unnecessary changes."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-3.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The requested standard blue location dot with a faint halo was successfully added to the center of the map, allowing users to orient themselves without altering any existing elements.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The requested standard blue location dot with a faint halo was successfully added to the center of the map, allowing users to orient themselves without altering any existing elements."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-3.2-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully adds a standard blue user location marker to the map, perfectly fulfilling the request to help users orient themselves. The addition is clean, styled appropriately for a map interface, and introduces no regressions to the rest of the UI.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully adds a standard blue user location marker to the map, perfectly fulfilling the request to help users orient themselves. The addition is clean, styled appropriately for a map interface, and introduces no regressions to the rest of the UI."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-4.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The AI successfully identified and corrected the grammatical typo in the opening sentence exactly as requested, changing \"Welcome your joining\" to \"Welcome to\". No unrelated changes or regressions were introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The AI successfully identified and corrected the grammatical typo in the opening sentence exactly as requested, changing \"Welcome your joining\" to \"Welcome to\". No unrelated changes or regressions were introduced."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-4.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The grammatical typo in the Terms and Conditions text was successfully identified and corrected exactly as requested. No other unintended changes were made.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The grammatical typo in the Terms and Conditions text was successfully identified and corrected exactly as requested. No other unintended changes were made."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-5.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully changed the Continue button's background color to a faint 20% green, giving it the requested disabled and muted visual appearance. The change was applied minimally and without introducing unintended layout issues.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully changed the Continue button's background color to a faint 20% green, giving it the requested disabled and muted visual appearance. The change was applied minimally and without introducing unintended layout issues."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-6.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully transforms the overlapping top-left tag into a full-width, centered top banner. The headline is now clearly positioned below it with appropriate spacing, completely resolving the original overlap and off-center visual issues while adhering strictly to all requested instructions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully transforms the overlapping top-left tag into a full-width, centered top banner. The headline is now clearly positioned below it with appropriate spacing, completely resolving the original overlap and off-center visual issues while adhering strictly to all requested instructions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-6.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully resolves the overlapping UI bug by repositioning the \"equipment\" tag above the headline and centering it. The layout is now much cleaner, readable, and properly aligned without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully resolves the overlapping UI bug by repositioning the \"equipment\" tag above the headline and centering it. The layout is now much cleaner, readable, and properly aligned without introducing any regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-6.2-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PARTIAL PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision successfully reduced the size of the icons, but completely failed to reduce the size of the circles themselves. Furthermore, by increasing the gap between the circles without making them smaller, the revision actually worsened the layout issue, causing both the Gym and Home circles to heavily bleed off the edges of the screen.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PARTIAL PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully reduced the size of the icons, but completely failed to reduce the size of the circles themselves. Furthermore, by increasing the gap between the circles without making them smaller, the revision actually worsened the layout issue, causing both the Gym and Home circles to heavily bleed off the edges of the screen."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-6.2-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully resized both the circles and their inner icons, creating a balanced, symmetrical layout. The elements are now properly centered with equal spacing, and neither bleeds off the screen edge, fulfilling all task requirements perfectly.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully resized both the circles and their inner icons, creating a balanced, symmetrical layout. The elements are now properly centered with equal spacing, and neither bleeds off the screen edge, fulfilling all task requirements perfectly."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-7.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully removed the faux-cursor left border from the Title input as requested. The associated padding was correctly removed as well, maintaining a clean layout without introducing any regressions or unrelated changes.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully removed the faux-cursor left border from the Title input as requested. The associated padding was correctly removed as well, maintaining a clean layout without introducing any regressions or unrelated changes."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-7.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully completed all aspects of the task. The inline \"Add item\" button was removed and properly converted into a Floating Action Button (FAB) that matches the style and alignment of the existing actions perfectly.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully completed all aspects of the task. The inline \"Add item\" button was removed and properly converted into a Floating Action Button (FAB) that matches the style and alignment of the existing actions perfectly."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-7.2-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision styled the \"Add item\" action to look like a FAB, but failed to move it to the correct location. It remains stranded at the top left of the screen, breaking the layout and completely missing the requirement to give it a \"hierarchy of positioning among the other actions\" in the bottom right.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision styled the \"Add item\" action to look like a FAB, but failed to move it to the correct location. It remains stranded at the top left of the screen, breaking the layout and completely missing the requirement to give it a \"hierarchy of positioning among the other actions\" in the bottom right."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-8.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully standardized the text styling across all three steps. It correctly removed the blue color from Step 1, removed the incorrect bolding from \"Copy Link\" in Step 3, and applied a uniform bold black style exclusively to the action words (\"Open\", \"Tap\", \"Choose\") while keeping the rest of the text consistently plain and gray.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully standardized the text styling across all three steps. It correctly removed the blue color from Step 1, removed the incorrect bolding from \"Copy Link\" in Step 3, and applied a uniform bold black style exclusively to the action words (\"Open\", \"Tap\", \"Choose\") while keeping the rest of the text consistently plain and gray."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-8.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision completely failed to implement the requested changes. The code diff is empty, and the before and after screenshots are identical, meaning the inconsistent text styles and bold weights in the numbered steps were left entirely unmodified.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision completely failed to implement the requested changes. The code diff is empty, and the before and after screenshots are identical, meaning the inconsistent text styles and bold weights in the numbered steps were left entirely unmodified."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-8.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully increased the font size, changed the color to black, and made the text semi-bold. This effectively transformed the text into a proper section heading, fulfilling all instructions without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully increased the font size, changed the color to black, and made the text semi-bold. This effectively transformed the text into a proper section heading, fulfilling all instructions without introducing any regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-9.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision completely failed the primary layout instructions. \"PRIMARY TOOLS\" was erroneously placed above the circle tiles instead of the rounded rectangle tiles, and \"OTHER TOOLS\" was erroneously placed between the two rows of circle tiles instead of above them. While the styling of the text is correct, the incorrect placement defeats the purpose of the task.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision completely failed the primary layout instructions. \"PRIMARY TOOLS\" was erroneously placed above the circle tiles instead of the rounded rectangle tiles, and \"OTHER TOOLS\" was erroneously placed between the two rows of circle tiles instead of above them. While the styling of the text is correct, the incorrect placement defeats the purpose of the task."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-9.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully added the requested section labels (\"PRIMARY TOOLS\" and \"OTHER TOOLS\") in the correct locations. The styling is subtle, uppercase, and perfectly matches the existing header treatment, achieving the goal without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully added the requested section labels (\"PRIMARY TOOLS\" and \"OTHER TOOLS\") in the correct locations. The styling is subtle, uppercase, and perfectly matches the existing header treatment, achieving the goal without introducing any regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-9.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision failed to properly group the UI elements as requested. Instead of placing a single \"PRIMARY TOOLS\" label above the entire group of rounded rectangle tiles, it placed it above the second and third rows individually, repeating the header twice and leaving the top two purple tools visually orphaned from the group. This creates a confusing hierarchy rather than clarifying it.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision failed to properly group the UI elements as requested. Instead of placing a single \"PRIMARY TOOLS\" label above the entire group of rounded rectangle tiles, it placed it above the second and third rows individually, repeating the header twice and leaving the top two purple tools visually orphaned from the group. This creates a confusing hierarchy rather than clarifying it."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-9.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully repositions the overlapping text from the center of the cards to a standalone headline above the hero section. The text formatting was preserved, and the underlying cards are now fully visible and unobstructed, significantly improving the layout without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully repositions the overlapping text from the center of the cards to a standalone headline above the hero section. The text formatting was preserved, and the underlying cards are now fully visible and unobstructed, significantly improving the layout without introducing any regressions."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-9.2-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully moved the overlapping text to a standalone headline above the hero cards. The new layout is clean, legible, and fulfills all constraints of the task without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully moved the overlapping text to a standalone headline above the hero cards. The new layout is clean, legible, and fulfills all constraints of the task without introducing any regressions."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-13.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully implements both parts of the task. The superscript formatting was removed in favor of standard decimal price formats, and the font size of the prices was noticeably reduced across all product cards without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully implements both parts of the task. The superscript formatting was removed in favor of standard decimal price formats, and the font size of the prices was noticeably reduced across all product cards without introducing any regressions."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-13.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully updated the format and reduced the size of the price for the first product. However, it completely ignored the second product on the same screen, leaving its price tag with the incorrect, larger superscript formatting. When a UI pattern needs fixing, it must be applied consistently to all visible instances.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully updated the format and reduced the size of the price for the first product. However, it completely ignored the second product on the same screen, leaving its price tag with the incorrect, larger superscript formatting. When a UI pattern needs fixing, it must be applied consistently to all visible instances."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-15.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "PARTIAL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The AI successfully completed all parts of the requested task: removing the edit button, stacking the text, and adjusting the font size. However, it unnecessarily removed flex layout classes (`justify-between`) from the parent container, which caused the three-dot menu to lose its proper right-alignment and sit awkwardly next to the secondary text. This is a visible layout regression, though the UI remains functional.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: PASS\n\nCOMMENT: The AI successfully completed all parts of the requested task: removing the edit button, stacking the text, and adjusting the font size. However, it unnecessarily removed flex layout classes (`justify-between`) from the parent container, which caused the three-dot menu to lose its proper right-alignment and sit awkwardly next to the secondary text. This is a visible layout regression, though the UI remains functional."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-15.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully completed all aspects of the prompt. The edit icon was removed, and the \"Headline & Weather\" text was repositioned neatly underneath the main text while retaining its smaller, secondary styling. No regressions were introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully completed all aspects of the prompt. The edit icon was removed, and the \"Headline & Weather\" text was repositioned neatly underneath the main text while retaining its smaller, secondary styling. No regressions were introduced."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-15.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision successfully followed the explicit instructions by moving the \"Headline & Weather\" text to a new line and removing the blue pencil edit icon. However, it also unrequestedly removed the three-dot options menu on the far right. The removal of an unrequested functional/interactive UI element is a significant regression that results in an overall fail, despite fulfilling the primary tasks. Additionally, the new text alignment (aligned under the icon instead of the title text) is visually slightly awkward.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully followed the explicit instructions by moving the \"Headline & Weather\" text to a new line and removing the blue pencil edit icon. However, it also unrequestedly removed the three-dot options menu on the far right. The removal of an unrequested functional/interactive UI element is a significant regression that results in an overall fail, despite fulfilling the primary tasks. Additionally, the new text alignment (aligned under the icon instead of the title text) is visually slightly awkward."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-23.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully reduced the font size of the \"Jio Multi Recharge\" text and constrained its width, ensuring it fits neatly within the circle without overlapping the border. No other elements were affected.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully reduced the font size of the \"Jio Multi Recharge\" text and constrained its width, ensuring it fits neatly within the circle without overlapping the border. No other elements were affected."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-24.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully changed the text casing of both buttons in the modal to Title Case (\"Not Now\" and \"Sounds Great\") as requested. No unrelated changes or visual regressions were introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully changed the text casing of both buttons in the modal to Title Case (\"Not Now\" and \"Sounds Great\") as requested. No unrelated changes or visual regressions were introduced."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-25.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully adds the requested 16px margin to both sides of the \"LOG IN\" button, adjusting its width appropriately. The change is minimal and introduces no regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully adds the requested 16px margin to both sides of the \"LOG IN\" button, adjusting its width appropriately. The change is minimal and introduces no regressions."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-25.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully added the requested 16px margins to both sides of the login button, preventing it from spanning the full width of the screen. Despite retaining the `w-full` class, no clipping or overflow regressions are visibly present, and the layout looks balanced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully added the requested 16px margins to both sides of the login button, preventing it from spanning the full width of the screen. Despite retaining the `w-full` class, no clipping or overflow regressions are visibly present, and the layout looks balanced."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-25.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully removed the background colors from the specified sections (\"Trouble Logging in\" and \"Tap here to access...\") exactly as requested, without introducing any regressions or unrelated changes.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully removed the background colors from the specified sections (\"Trouble Logging in\" and \"Tap here to access...\") exactly as requested, without introducing any regressions or unrelated changes."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-25.3-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully adds an underline to \"Tap here\" in the bottom section, exactly as requested, which improves the clarity of the tap target. No unintended changes or regressions were introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully adds an underline to \"Tap here\" in the bottom section, exactly as requested, which improves the clarity of the tap target. No unintended changes or regressions were introduced."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-26.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision successfully styled the text and components as requested, but it introduced a prominent bug by duplicating the \"CLOSED\" label, displaying it both above the title and below the address. Additionally, when converting the phone number to an outline button, it left the associated phone icon outside of the button's border, resulting in an incomplete component pattern.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully styled the text and components as requested, but it introduced a prominent bug by duplicating the \"CLOSED\" label, displaying it both above the title and below the address. Additionally, when converting the phone number to an outline button, it left the associated phone icon outside of the button's border, resulting in an incomplete component pattern."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-26.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The AI successfully applied the requested styles to the distance text, call button, and the new \"Closed\" label. However, while it correctly placed the new \"Closed\" label above the title, it also erroneously inserted a duplicate copy of the label below the distance text, resulting in a confusing and cluttered UI with two identical status badges.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The AI successfully applied the requested styles to the distance text, call button, and the new \"Closed\" label. However, while it correctly placed the new \"Closed\" label above the title, it also erroneously inserted a duplicate copy of the label below the distance text, resulting in a confusing and cluttered UI with two identical status badges."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-29.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision perfectly executed all requested changes. The dialog title was updated to \"Before you leave\", the standalone \"Exit\" button was removed, and the \"Cancel\" button was successfully updated to \"Exit anyways\", keeping \"Rate Us\" as the primary CTA on the right.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision perfectly executed all requested changes. The dialog title was updated to \"Before you leave\", the standalone \"Exit\" button was removed, and the \"Cancel\" button was successfully updated to \"Exit anyways\", keeping \"Rate Us\" as the primary CTA on the right."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-29.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision successfully updated the dialog header to \"Before you leave\" and introduced the \"Exit anyways\" text. However, it failed to properly remove the \"Cancel\" and \"Exit\" buttons to simplify the UI; instead, it renamed both of them to \"Exit anyways\". This resulted in a severe usability regression by placing two identical secondary buttons on the screen simultaneously.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully updated the dialog header to \"Before you leave\" and introduced the \"Exit anyways\" text. However, it failed to properly remove the \"Cancel\" and \"Exit\" buttons to simplify the UI; instead, it renamed both of them to \"Exit anyways\". This resulted in a severe usability regression by placing two identical secondary buttons on the screen simultaneously."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-30.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully removed the \"hi, there!\" section as requested. The layout correctly adjusted to the removal without introducing any regressions or unnecessary changes.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully removed the \"hi, there!\" section as requested. The layout correctly adjusted to the removal without introducing any regressions or unnecessary changes."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-31.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision perfectly executed all parts of the request. The button text was updated to \"Submit feedback\", it was converted into an outline style using the app's primary blue color, and its size was appropriately reduced without breaking the layout.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision perfectly executed all parts of the request. The button text was updated to \"Submit feedback\", it was converted into an outline style using the app's primary blue color, and its size was appropriately reduced without breaking the layout."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-32.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PARTIAL PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully implements all requested changes: adding radio buttons to the billing options, updating the primary CTA to \"CONFIRM\" (in a disabled, grayed-out state), and keeping \"CANCEL\" as the secondary action. The unrequested removal of the introductory text (\"Please chose your billing cycle.\") is a minor violation of minimality but arguably improves the dialog by removing unnecessary text with a typo.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PARTIAL PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully implements all requested changes: adding radio buttons to the billing options, updating the primary CTA to \"CONFIRM\" (in a disabled, grayed-out state), and keeping \"CANCEL\" as the secondary action. The unrequested removal of the introductory text (\"Please chose your billing cycle.\") is a minor violation of minimality but arguably improves the dialog by removing unnecessary text with a typo."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-32.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully updates the dialog by adding radio buttons for the billing options and replacing the previous action buttons with a single, disabled \"CONFIRM\" CTA alongside the \"CANCEL\" button. While the underlying logic to enable the button upon selection is missing, the static visual UI correctly reflects the requested initial state and significantly improves the usability of the dialog.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully updates the dialog by adding radio buttons for the billing options and replacing the previous action buttons with a single, disabled \"CONFIRM\" CTA alongside the \"CANCEL\" button. While the underlying logic to enable the button upon selection is missing, the static visual UI correctly reflects the requested initial state and significantly improves the usability of the dialog."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-33.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully updated the \"Life-time Purchase\" button to perfectly match the style of the \"Yearly Subscribe\" button, including the background color, typography, and subtext color. No regressions were introduced, and the red badge remains correctly positioned.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully updated the \"Life-time Purchase\" button to perfectly match the style of the \"Yearly Subscribe\" button, including the background color, typography, and subtext color. No regressions were introduced, and the red badge remains correctly positioned."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-34.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision successfully updated the card backgrounds and borders as requested. However, by removing the light gray background from the unselected card without updating its dark text color, the text becomes completely unreadable against the app's dark background. This severe readability regression results in an overall fail.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully updated the card backgrounds and borders as requested. However, by removing the light gray background from the unselected card without updating its dark text color, the text becomes completely unreadable against the app's dark background. This severe readability regression results in an overall fail."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-10.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The circular profile icon and its associated decorative emoji were successfully removed as requested. The UI looks cleaner without the redundant profile picture blocking the background image, and no unintended layout regressions were introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The circular profile icon and its associated decorative emoji were successfully removed as requested. The UI looks cleaner without the redundant profile picture blocking the background image, and no unintended layout regressions were introduced."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-10.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The AI successfully removed the circular profile picture as requested, fulfilling the primary requirement. However, it failed to remove the associated cake emoji (\ud83c\udf82) badge, leaving it orphaned and floating awkwardly on the left edge of the screen, which is a minor visual regression.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: PASS\n\nCOMMENT: The AI successfully removed the circular profile picture as requested, fulfilling the primary requirement. However, it failed to remove the associated cake emoji (\ud83c\udf82) badge, leaving it orphaned and floating awkwardly on the left edge of the screen, which is a minor visual regression."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-11.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully reduced the size of the call, directions, info, and share buttons by scaling down both their circular containers and the inner icons. The layout remains clean and the task was executed exactly as requested without unnecessary changes.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully reduced the size of the call, directions, info, and share buttons by scaling down both their circular containers and the inner icons. The layout remains clean and the task was executed exactly as requested without unnecessary changes."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-12.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully implements the requested layout pattern. A male avatar was added to the left of the \"Teacher\" text, and the text was left-aligned, perfectly matching the style of the \"Category\" block below it.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully implements the requested layout pattern. A male avatar was added to the left of the \"Teacher\" text, and the text was left-aligned, perfectly matching the style of the \"Category\" block below it."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-12.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully updated the layout of the Teacher section to match the Category section below it. A relevant image was added to the left, and the text was properly left-aligned, creating a consistent and visually appealing UI pattern.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully updated the layout of the Teacher section to match the Category section below it. A relevant image was added to the left, and the text was properly left-aligned, creating a consistent and visually appealing UI pattern."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-13.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The developer successfully removed the superscript formatting from the specified numbers and correctly added decimal points to maintain readability of the prices. The rest of the UI remains unchanged.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The developer successfully removed the superscript formatting from the specified numbers and correctly added decimal points to maintain readability of the prices. The rest of the UI remains unchanged."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-14.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully decreased the font size for all navigation labels by introducing a custom class, and adjusted padding, gaps, and alignment on both the container and individual buttons to create equal, uniform spacing. No unintended changes or regressions were introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully decreased the font size for all navigation labels by introducing a custom class, and adjusted padding, gaps, and alignment on both the container and individual buttons to create equal, uniform spacing. No unintended changes or regressions were introduced."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-14.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The requested changes were not visually achieved. The font size reduction was applied to the parent container but was overridden by the individual text elements' existing classes, resulting in no visible change to the font size or spacing in the bottom navigation bar.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The requested changes were not visually achieved. The font size reduction was applied to the parent container but was overridden by the individual text elements' existing classes, resulting in no visible change to the font size or spacing in the bottom navigation bar."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-5.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully converts the text \"personalized deals\" into an interactive link that triggers a modal, directly addressing the task. The styling of the link matches the app's accent color, and no unrelated changes or regressions were introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully converts the text \"personalized deals\" into an interactive link that triggers a modal, directly addressing the task. The styling of the link matches the app's accent color, and no unrelated changes or regressions were introduced."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-5.2-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully appends a \"Learn more\" link to the relevant body text as requested, styled appropriately to match the app's color scheme. The code analysis also confirms the underlying modal functionality is implemented. No unintended changes or regressions were introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully appends a \"Learn more\" link to the relevant body text as requested, styled appropriately to match the app's color scheme. The code analysis also confirms the underlying modal functionality is implemented. No unintended changes or regressions were introduced."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-6.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully changed the background color of the Home button to a distinct light blue, effectively separating it from both the orange \"Next\" button and the darker navy \"Gym\" button. The changes were targeted and introduced no regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully changed the background color of the Home button to a distinct light blue, effectively separating it from both the orange \"Next\" button and the darker navy \"Gym\" button. The changes were targeted and introduced no regressions."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-6.2-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision partially fulfilled the request by changing the home icon to a light blue. However, it failed to change the color of the home button itself (the orange circle), leaving it the exact same color as the 'Next' CTA button, which was explicitly requested. Additionally, the new light blue icon color has poor contrast against the unchanged orange background.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision partially fulfilled the request by changing the home icon to a light blue. However, it failed to change the color of the home button itself (the orange circle), leaving it the exact same color as the 'Next' CTA button, which was explicitly requested. Additionally, the new light blue icon color has poor contrast against the unchanged orange background."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-6.3-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The primary goal of unblocking the header text was successfully achieved. However, the implementation was very sloppy: instead of moving the entire content flow down by 30px from the top, it unnecessarily added `margin-top: 30px` to almost every individual container. This compounded the shift, pushing lower elements down by 60px, 90px, 120px, etc., and resulting in awkwardly stretched vertical gaps throughout the page. Despite this aesthetic regression, the interface remains readable and fully functional.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: PASS\n\nCOMMENT: The primary goal of unblocking the header text was successfully achieved. However, the implementation was very sloppy: instead of moving the entire content flow down by 30px from the top, it unnecessarily added `margin-top: 30px` to almost every individual container. This compounded the shift, pushing lower elements down by 60px, 90px, 120px, etc., and resulting in awkwardly stretched vertical gaps throughout the page. Despite this aesthetic regression, the interface remains readable and fully functional."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-6.3-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "While the revision successfully moved the initial content down to clear the equipment icon, it incorrectly duplicated the main header (\"Where do you exercise?\"). Furthermore, it added 30px of margin to every subsequent section on the page rather than just the top element, resulting in compounding vertical gaps that severely stretch and break the original layout.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: While the revision successfully moved the initial content down to clear the equipment icon, it incorrectly duplicated the main header (\"Where do you exercise?\"). Furthermore, it added 30px of margin to every subsequent section on the page rather than just the top element, resulting in compounding vertical gaps that severely stretch and break the original layout."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-8.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PARTIAL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision successfully created a new error alert at the top of the page with the correct red styling. However, it failed to remove the original dark footer from the bottom of the screen. Because a \"move\" task requires both adding the element to the new location and removing it from the old one, leaving the duplicated error message on the screen results in an incomplete requirement and a severe regression.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully created a new error alert at the top of the page with the correct red styling. However, it failed to remove the original dark footer from the bottom of the screen. Because a \"move\" task requires both adding the element to the new location and removing it from the old one, leaving the duplicated error message on the screen results in an incomplete requirement and a severe regression."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-8.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The error message was successfully relocated from the footer to the top of the page as a header. The background color was also correctly updated to red to clearly indicate an error state, exactly as requested.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The error message was successfully relocated from the footer to the top of the page as a header. The background color was also correctly updated to red to clearly indicate an error state, exactly as requested."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-9.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully removed the specified floating text, clearing the obstruction over the top two buttons. No other elements were unnecessarily modified or negatively affected.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully removed the specified floating text, clearing the obstruction over the top two buttons. No other elements were unnecessarily modified or negatively affected."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-9.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The requested text \"Create GIF from video in device\" is still clearly visible overlapping the top two buttons in the After screenshot. No changes appear to have been made to the UI to address the task.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The requested text \"Create GIF from video in device\" is still clearly visible overlapping the top two buttons in the After screenshot. No changes appear to have been made to the UI to address the task."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-2.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully adds an up-arrow icon next to the vote counts on both posts, which clearly indicates what the numbers represent. The implementation is minimal and introduces no layout regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully adds an up-arrow icon next to the vote counts on both posts, which clearly indicates what the numbers represent. The implementation is minimal and introduces no layout regressions."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-2.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully added an upvote icon next to the number on the second post, improving clarity as requested. However, it explicitly failed the instruction to apply this change to \"each post,\" leaving the first post unchanged and creating an inconsistent user interface. When a task targets repeating UI elements, all visible instances must be updated to earn a passing score.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully added an upvote icon next to the number on the second post, improving clarity as requested. However, it explicitly failed the instruction to apply this change to \"each post,\" leaving the first post unchanged and creating an inconsistent user interface. When a task targets repeating UI elements, all visible instances must be updated to earn a passing score."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-3.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully increased the margin between the logo icon and the \"Distributors\" title, effectively moving the icon further to the left as requested. No other changes were made.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully increased the margin between the logo icon and the \"Distributors\" title, effectively moving the icon further to the left as requested. No other changes were made."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-3.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision completely failed to implement the requested change. The before and after screenshots are identical, and the code analysis confirms no changes were made to move the icon next to \"Distributors\".",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision completely failed to implement the requested change. The before and after screenshots are identical, and the code analysis confirms no changes were made to move the icon next to \"Distributors\"."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-6.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully shrunk both the \"Gym\" and \"Home\" circles as requested. The inner icons were also scaled down proportionally, maintaining the overall visual balance and design intent without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully shrunk both the \"Gym\" and \"Home\" circles as requested. The inner icons were also scaled down proportionally, maintaining the overall visual balance and design intent without introducing any regressions."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-6.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision completely failed to implement the requested task. The before and after screenshots are identical, and the code diff is empty, meaning the size of the \"Gym\" and \"Home\" circles was not changed at all.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision completely failed to implement the requested task. The before and after screenshots are identical, and the code diff is empty, meaning the size of the \"Gym\" and \"Home\" circles was not changed at all."
+    },
+    {
+      "folder": "Participant_3_CaseStudy-6.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully shrunk the \"Gym\" and \"Home\" circles as requested. While the inner icons were not proportionally scaled down (resulting in tighter padding), the core requirement was met without introducing regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully shrunk the \"Gym\" and \"Home\" circles as requested. While the inner icons were not proportionally scaled down (resulting in tighter padding), the core requirement was met without introducing regressions."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-12.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PARTIAL PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully accomplished all three requested layout changes. The social media banner is at the bottom, the category block is above the title, and the hamburger menu is on the left. The unrequested change of centering the social media icons in the bottom banner is minor and fits well visually.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PARTIAL PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully accomplished all three requested layout changes. The social media banner is at the bottom, the category block is above the title, and the hamburger menu is on the left. The unrequested change of centering the social media icons in the bottom banner is minor and fits well visually."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-12.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision failed to accomplish the requested layout changes. The social media container was deleted entirely instead of being moved to the bottom, causing a loss of content (a regression), and the instructions to move the category container and hamburger menu were completely ignored.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision failed to accomplish the requested layout changes. The social media container was deleted entirely instead of being moved to the bottom, causing a loss of content (a regression), and the instructions to move the category container and hamburger menu were completely ignored."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-12.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "FAIL",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PARTIAL PASS",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The revision successfully accomplished all requested tasks: the social media bar is at the bottom, the category is above the title, and the hamburger menu is on the left. However, applying `justify-between` to the top navigation without grouping the cart and user profile icons caused the cart icon to become awkwardly centered, resulting in a minor layout regression.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PARTIAL PASS\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully accomplished all requested tasks: the social media bar is at the bottom, the category is above the title, and the hamburger menu is on the left. However, applying `justify-between` to the top navigation without grouping the cart and user profile icons caused the cart icon to become awkwardly centered, resulting in a minor layout regression."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision failed to accomplish the task. Instead of making the dollars larger than the cents, it only reduced the font weight of the dollars, leaving the cents physically larger and bolder than the dollar amounts.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision failed to accomplish the task. Instead of making the dollars larger than the cents, it only reduced the font weight of the dollars, leaving the cents physically larger and bolder than the dollar amounts."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully corrected the visual hierarchy of the prices by making the cent amounts smaller than the dollar amounts (using superscript). This was applied consistently to all prices on the screen without introducing any unintended changes or regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully corrected the visual hierarchy of the prices by making the cent amounts smaller than the dollar amounts (using superscript). This was applied consistently to all prices on the screen without introducing any unintended changes or regressions."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.2-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully adds both the left and right chevron arrows to the hero banner, fulfilling all aspects of the requested task. The implementation is clean, well-positioned, and introduces no regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully adds both the left and right chevron arrows to the hero banner, fulfilling all aspects of the requested task. The implementation is clean, well-positioned, and introduces no regressions."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.2-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully adds both outward-facing chevron arrows to the left and right edges of the hero container, fulfilling all parts of the request. While the left arrow has relatively low contrast against the light background of the image, the functionality is correctly implemented without introducing any regressions or unnecessary changes.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully adds both outward-facing chevron arrows to the left and right edges of the hero container, fulfilling all parts of the request. While the left arrow has relatively low contrast against the light background of the image, the functionality is correctly implemented without introducing any regressions or unnecessary changes."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.3-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The revision successfully moved \"PRIME\" to its own line above \"Exclusive Store\" as requested. Changing the container from inline-flex to flex caused the dark background to stretch across the full width of the column rather than hugging the text tightly, which is a minor aesthetic regression, but the core requirement was met.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully moved \"PRIME\" to its own line above \"Exclusive Store\" as requested. Changing the container from inline-flex to flex caused the dark background to stretch across the full width of the column rather than hugging the text tightly, which is a minor aesthetic regression, but the core requirement was met."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-13.3-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "NA",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision failed to implement the requested change. The \"PRIME Exclusive Store\" badge remains on a single line in the After screenshot, and the code analysis confirms no changes were made.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision failed to implement the requested change. The \"PRIME Exclusive Store\" badge remains on a single line in the After screenshot, and the code analysis confirms no changes were made."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-14.2-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision completely missed the requested placement. Instead of moving the \"Try something new\" section below the main title (\"Time to crush it\"), it was moved to the very bottom of the screen above the navigation bar, creating a large, awkward empty space in the middle of the screen.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision completely missed the requested placement. Instead of moving the \"Try something new\" section below the main title (\"Time to crush it\"), it was moved to the very bottom of the screen above the navigation bar, creating a large, awkward empty space in the middle of the screen."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-14.2-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision perfectly executes the instructions. The \"Try something new\" text block was moved directly below the main title, and the requested bottom padding was added to provide adequate spacing before the image card, with no unintended side effects.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision perfectly executes the instructions. The \"Try something new\" text block was moved directly below the main title, and the requested bottom padding was added to provide adequate spacing before the image card, with no unintended side effects."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-23.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully increased the border contrast using the app's primary teal color and added a subtle shadow to the input fields. The changes were applied consistently to both inputs and the internal divider, improving visibility and interactivity without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully increased the border contrast using the app's primary teal color and added a subtle shadow to the input fields. The changes were applied consistently to both inputs and the internal divider, improving visibility and interactivity without introducing any regressions."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-25.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "While the \"disabled\" attribute was correctly added to the button, the JavaScript logic intended to enable it was placed prematurely at the top of the body tag. This causes a runtime error because the elements don't exist yet, resulting in a permanently disabled login button that bricks the interface.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: While the \"disabled\" attribute was correctly added to the button, the JavaScript logic intended to enable it was placed prematurely at the top of the body tag. This causes a runtime error because the elements don't exist yet, resulting in a permanently disabled login button that bricks the interface."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-25.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully disabled the \"LOG IN\" button by default, clearly indicated by its new grey color in the initial state. The code analysis verifies that the required JavaScript logic to dynamically enable the button and turn it green only when both fields have input was correctly implemented. No unrelated changes or regressions were introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully disabled the \"LOG IN\" button by default, clearly indicated by its new grey color in the initial state. The code analysis verifies that the required JavaScript logic to dynamically enable the button and turn it green only when both fields have input was correctly implemented. No unrelated changes or regressions were introduced."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-26.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully changes the distance text to a neutral gray color while keeping the \"CLOSED\" status in red, exactly as requested. This improves visual hierarchy and eliminates the confusion of using red for non-status information, with no unrelated changes or regressions introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully changes the distance text to a neutral gray color while keeping the \"CLOSED\" status in red, exactly as requested. This improves visual hierarchy and eliminates the confusion of using red for non-status information, with no unrelated changes or regressions introduced."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-28.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully reduced both the size and opacity of the floating action button, effectively lowering its visual prominence as requested. This allows the map pins to stand out more without removing the button's functionality or breaking the layout.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully reduced both the size and opacity of the floating action button, effectively lowering its visual prominence as requested. This allows the map pins to stand out more without removing the button's functionality or breaking the layout."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-29.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision failed to apply the necessary HTML classes to achieve the requested visual styles. While the CSS was updated and spacing between buttons increased, the \"Cancel\" button was not highlighted and the \"Rate Us\" button was not styled as a tertiary link, leaving the action hierarchy ambiguous.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision failed to apply the necessary HTML classes to achieve the requested visual styles. While the CSS was updated and spacing between buttons increased, the \"Cancel\" button was not highlighted and the \"Rate Us\" button was not styled as a tertiary link, leaving the action hierarchy ambiguous."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-30.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "PARTIAL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "While the AI attempted to adjust the styling and positioning of the button in the CSS, it also added `display: none;` to the button's wrapper. This completely removed the \"in-store mode\" button from the interface rather than repositioning it or reducing its prominence, resulting in a loss of functionality and a failure to meet the task requirements.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: While the AI attempted to adjust the styling and positioning of the button in the CSS, it also added `display: none;` to the button's wrapper. This completely removed the \"in-store mode\" button from the interface rather than repositioning it or reducing its prominence, resulting in a loss of functionality and a failure to meet the task requirements."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-30.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision successfully reduced the size of the \"in-store mode\" button to lower its visual prominence. However, it also incorrectly repositioned the button by moving it significantly higher up the screen rather than lower. This placed the button directly into the main content block right next to the text, causing a layout regression that makes the button interfere more with the core message than it did originally.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully reduced the size of the \"in-store mode\" button to lower its visual prominence. However, it also incorrectly repositioned the button by moving it significantly higher up the screen rather than lower. This placed the button directly into the main content block right next to the text, causing a layout regression that makes the button interfere more with the core message than it did originally."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-32.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully improves the visual hierarchy of the dialog buttons. The primary subscription options are now prominent filled buttons, while the \"Cancel\" action has been appropriately demoted to a secondary gray text style, fulfilling all task requirements perfectly without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully improves the visual hierarchy of the dialog buttons. The primary subscription options are now prominent filled buttons, while the \"Cancel\" action has been appropriately demoted to a secondary gray text style, fulfilling all task requirements perfectly without introducing any regressions."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-33.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully creates a strong visual hierarchy by making the \"Yearly Subscribe\" button significantly more prominent with a bright gradient and larger size, while appropriately de-emphasizing the other two options using opacity and reduced sizing. The layout structure remained perfectly intact without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully creates a strong visual hierarchy by making the \"Yearly Subscribe\" button significantly more prominent with a bright gradient and larger size, while appropriately de-emphasizing the other two options using opacity and reduced sizing. The layout structure remained perfectly intact without introducing any regressions."
+    },
+    {
+      "folder": "Participant_7_CaseStudy-34.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully reduced the overwhelming red glow on the \"Subscribe Now\" button by tweaking its box-shadow properties. This minimal change effectively shifts the visual emphasis back to the pricing cards, achieving the requested rebalancing without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully reduced the overwhelming red glow on the \"Subscribe Now\" button by tweaking its box-shadow properties. This minimal change effectively shifts the visual emphasis back to the pricing cards, achieving the requested rebalancing without introducing any regressions."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-15.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully moved the edit pencil icon to the right side of the screen and increased its size as requested. The layout remains clean and functional without introducing any regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully moved the edit pencil icon to the right side of the screen and increased its size as requested. The layout remains clean and functional without introducing any regressions."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-15.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision successfully moved the edit icon to the right and increased its size as requested. However, it introduced an extra closing HTML tag that prematurely ended the flex row container, causing the \"Headline & Weather\" section to drop to a new line and severely breaking the header layout.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully moved the edit icon to the right and increased its size as requested. However, it introduced an extra closing HTML tag that prematurely ended the flex row container, causing the \"Headline & Weather\" section to drop to a new line and severely breaking the header layout."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-16.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "FAIL",
+        "minimality": "PARTIAL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The revision successfully achieves the primary goals of bringing the right-side price content into the viewport, reducing the main symbol font sizes, and cleanly truncating the subheaders with an ellipsis. However, while the layout grid was squished globally, the hardcoded width of the SVG charts was only updated for the very first row (SPY), causing the remaining charts to visually overflow their container and lose the spacing before the price column.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully achieves the primary goals of bringing the right-side price content into the viewport, reducing the main symbol font sizes, and cleanly truncating the subheaders with an ellipsis. However, while the layout grid was squished globally, the hardcoded width of the SVG charts was only updated for the very first row (SPY), causing the remaining charts to visually overflow their container and lose the spacing before the price column."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-16.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision successfully addressed the explicit requests to make the index titles smaller and adjust the grid layout so the price data on the right is no longer cut off. However, when \"squishing\" the data to fit the narrower columns, the chart image width was only reduced for the first row (SPY). This incomplete implementation caused all subsequent charts to overflow their containers and severely overlap the price text, resulting in a broken layout.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully addressed the explicit requests to make the index titles smaller and adjust the grid layout so the price data on the right is no longer cut off. However, when \"squishing\" the data to fit the narrower columns, the chart image width was only reduced for the first row (SPY). This incomplete implementation caused all subsequent charts to overflow their containers and severely overlap the price text, resulting in a broken layout."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-16.1-OPENAI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully accomplished all requested tasks. The grid columns were narrowed to fit the screen, which revealed the previously cut-off price data on the right (now wrapped nicely) and gave the subheaders more room to fit on fewer lines. The main ticker symbols were also reduced in size as requested.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully accomplished all requested tasks. The grid columns were narrowed to fit the screen, which revealed the previously cut-off price data on the right (now wrapped nicely) and gave the subheaders more room to fit on fewer lines. The main ticker symbols were also reduced in size as requested."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-17.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PARTIAL PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision completely failed to address the core requirement. The large white space between the image and the \"colorfit\" title remains unchanged in the After screenshot. The code analysis confirms the model only adjusted the margin *below* the title, missing the target area entirely.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PARTIAL PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision completely failed to address the core requirement. The large white space between the image and the \"colorfit\" title remains unchanged in the After screenshot. The code analysis confirms the model only adjusted the margin *below* the title, missing the target area entirely."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-17.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully removed the excessive white space between the image and the \"colorfit\" title by adjusting the image container height and removing top padding from the text container. This makes the layout look much more cohesive without introducing any negative side effects.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully removed the excessive white space between the image and the \"colorfit\" title by adjusting the image container height and removing top padding from the text container. This makes the layout look much more cohesive without introducing any negative side effects."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-18.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully completed all parts of the requested task. The \"Go Pro\" button was converted into a top banner, the \"Total\" text was enlarged and centered below it, and the \"Dice Help\" button was effectively replaced with a question mark icon positioned correctly on the right.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully completed all parts of the requested task. The \"Go Pro\" button was converted into a top banner, the \"Total\" text was enlarged and centered below it, and the \"Dice Help\" button was effectively replaced with a question mark icon positioned correctly on the right."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-19.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully combined the separate pause and timer elements into a single circular interface. The pause icon is centered, the time is grey and placed just above it, and the circle features a blue halfway progress ring matching the header bar's color, completely fulfilling all instructions. No regressions were introduced.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully combined the separate pause and timer elements into a single circular interface. The pause icon is centered, the time is grey and placed just above it, and the circle features a blue halfway progress ring matching the header bar's color, completely fulfilling all instructions. No regressions were introduced."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-19.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully merges the timer and pause features into a single circular component with a blue progress ring as requested. However, the implementation inside the circle is visually broken; the timer text severely overlaps the pause icon making it difficult to read, and the circular progress line confusingly starts from the bottom (6 o'clock) rather than the standard top position.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully merges the timer and pause features into a single circular component with a blue progress ring as requested. However, the implementation inside the circle is visually broken; the timer text severely overlaps the pause icon making it difficult to read, and the circular progress line confusingly starts from the bottom (6 o'clock) rather than the standard top position."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-20.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision perfectly followed all instructions: replacing the Symbol button with a central search bar, converting the Groups text into a distinct blue rectangular button on the left, and swapping the Edit text for a three-dot icon on the right. The resulting layout is clean and functional with no visible regressions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision perfectly followed all instructions: replacing the Symbol button with a central search bar, converting the Groups text into a distinct blue rectangular button on the left, and swapping the Edit text for a three-dot icon on the right. The resulting layout is clean and functional with no visible regressions."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-20.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision completely failed to implement the requested changes. The Before and After screenshots are visually identical, and the code analysis confirms no changes were made to the top navigation or any other part of the UI.",
+      "response": "REQUIREMENT FULFILLMENT: FAIL\nCONSISTENCY: PASS\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision completely failed to implement the requested changes. The Before and After screenshots are visually identical, and the code analysis confirms no changes were made to the top navigation or any other part of the UI."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-20.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully implements all parts of the prompt. The \"Groups\" button is now a distinct blue rectangle, the middle area features a proper search input field, and the \"Edit\" text was correctly replaced with a standard three-dots icon. The new layout improves the clarity and usability of the navigation bar.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully implements all parts of the prompt. The \"Groups\" button is now a distinct blue rectangle, the middle area features a proper search input field, and the \"Edit\" text was correctly replaced with a standard three-dots icon. The new layout improves the clarity and usability of the navigation bar."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-21.1-CLAUDE",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision excellently fulfills the task by adding both a clear primary action button (\"Add Food\") and a well-designed \"Popular right now\" section for quick suggestions. The new elements perfectly match the existing design language and significantly improve the usability of the empty state.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision excellently fulfills the task by adding both a clear primary action button (\"Add Food\") and a well-designed \"Popular right now\" section for quick suggestions. The new elements perfectly match the existing design language and significantly improve the usability of the empty state."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-21.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully fulfills the task by adding a primary \"Add Food Now\" button and a set of exploratory category buttons. The new elements are styled consistently with the app's existing color scheme and significantly improve the usability of the empty state.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully fulfills the task by adding a primary \"Add Food Now\" button and a set of exploratory category buttons. The new elements are styled consistently with the app's existing color scheme and significantly improve the usability of the empty state."
+    },
+    {
+      "folder": "Test",
+      "ground_truth": null,
+      "gt_criteria": {},
+      "predicted": null,
+      "pred_criteria": null,
+      "comment": null,
+      "response": null,
+      "error": "Task.txt not found"
+    },
+    {
+      "folder": "Train",
+      "ground_truth": null,
+      "gt_criteria": {},
+      "predicted": null,
+      "pred_criteria": null,
+      "comment": null,
+      "response": null,
+      "error": "Task.txt not found"
+    }
+  ]
+}

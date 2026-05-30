@@ -1,12 +1,12 @@
 """
-Phase 1 — parse all Output.txt files in Datasets/RawDataset/ into raw_data.json.
+Phase 1 — parse all Output.txt files in Datasets/EvaluatorModelDataset/ into raw_data.json.
 
 No API calls; just structured extraction. Validates data before spending
 API credits on labeling.
 
 Running:
     python EvaluationTaxonomy/collect.py
-    python EvaluationTaxonomy/collect.py --dataset path/to/Datasets/RawDataset
+    python EvaluationTaxonomy/collect.py --dataset path/to/Datasets/EvaluatorModelDataset
 """
 
 import argparse
@@ -14,7 +14,7 @@ import json
 from pathlib import Path
 
 _ROOT = Path(__file__).parent.parent.parent
-_DATASET = _ROOT / "Datasets" / "RawDataset"
+_DATASET = _ROOT / "Datasets" / "EvaluatorModelDataset"
 _OUTPUT = Path(__file__).parent / "raw_data.json"
 
 

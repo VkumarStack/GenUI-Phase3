@@ -1,23 +1,19 @@
-# Cloud / API backends
+# LLM API backends
 python-dotenv
 google-genai
+google-cloud-aiplatform     # also provides the vertexai module for Vertex AI SFT endpoints
+google-cloud-storage
 anthropic
-
-# Local backends
-ollama
-torch
-transformers
-accelerate      # required by transformers for device_map="auto"
-bitsandbytes    # 4-bit quantization for HuggingFace backend
-Pillow
-qwen-vl-utils
+openai
 
 # Screenshot rendering
 playwright
 
-# Data labeling server
-flask
+# Data processing / uploads
+pandas
+pyarrow                     # required by pandas for parquet export (MUD HuggingFace upload)
+Pillow
+huggingface-hub
 
-# Fine-tuning pipeline (Vertex AI)
-google-cloud-aiplatform
-google-cloud-storage
+# Web tools (DataFiltering, Validation review app)
+flask

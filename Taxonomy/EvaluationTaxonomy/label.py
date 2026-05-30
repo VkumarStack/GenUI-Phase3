@@ -32,7 +32,7 @@ load_dotenv(_ROOT / "Util" / ".env")
 sys.path.insert(0, str(_ROOT / "Util"))
 from backends import GeminiBackend
 
-_DATASET = _ROOT / "Datasets" / "RawDataset"
+_DATASET = _ROOT / "Datasets" / "EvaluatorModelDataset"
 _RAW_DATA = Path(__file__).parent / "raw_data.json"
 _PASS_LABELS = Path(__file__).parent / "pass_raw_labels.json"
 _FAIL_LABELS = Path(__file__).parent / "fail_raw_labels.json"

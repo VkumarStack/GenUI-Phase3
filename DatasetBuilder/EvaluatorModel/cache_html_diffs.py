@@ -1,20 +1,14 @@
 """
-Compute and cache html_diff.txt for every example in Datasets/RawDataset/.
+Compute and cache html_diff.txt for every example in Datasets/EvaluatorModelDataset/.
 
 Writes <example_folder>/html_diff.txt — a standard unified diff of the raw
 Before/After HTML source.  Safe to re-run: skips folders that already have a
 cached file unless --force is passed.
 
-Run this before split.py so all HTML diffs are available to copy into
-EvaluatorModelDataset.
-
 Running:
     python DatasetBuilder/EvaluatorModel/cache_html_diffs.py
     python DatasetBuilder/EvaluatorModel/cache_html_diffs.py --force
-    python DatasetBuilder/EvaluatorModel/cache_html_diffs.py --dataset path/to/Datasets/RawDataset
-
-To generate html_diff.txt for the EvaluatorModelDataset directly (e.g. after
-filtering), use --dataset Datasets/EvaluatorModelDataset.
+    python DatasetBuilder/EvaluatorModel/cache_html_diffs.py --dataset path/to/dataset
 """
 
 import argparse
@@ -25,7 +19,7 @@ _ROOT = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(_ROOT / "Util"))
 from html_diff import html_diff
 
-_DATASET = _ROOT / "Datasets" / "RawDataset"
+_DATASET = _ROOT / "Datasets" / "EvaluatorModelDataset"
 
 
 def main():

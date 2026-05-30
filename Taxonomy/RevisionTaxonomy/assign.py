@@ -9,7 +9,7 @@ added after the initial taxonomy was generated. Can also be run standalone for
 testing or one-off assignment.
 
 Running:
-    python Taxonomy/RevisionTaxonomy/assign.py --example Datasets/RawDataset/Participant_X_CaseStudy-Y.Z-MODEL
+    python Taxonomy/RevisionTaxonomy/assign.py --example Datasets/RevisionGeneratorModelDataset/All/Example-NNN
     python Taxonomy/RevisionTaxonomy/assign.py --example ... --model gemini-2.5-flash
 """
 
@@ -75,7 +75,7 @@ def main():
         description="Assign an example to existing revision taxonomy categories."
     )
     parser.add_argument("--example", metavar="PATH", required=True,
-                        help="Path to example folder (must contain Task.txt and Before/screenshot.png).")
+                        help="Path to example folder (must contain task.txt and screenshot.png).")
     parser.add_argument("--backend", default="gemini",
                         choices=["gemini", "vertexai", "anthropic", "openai"])
     parser.add_argument("--model", default=None,
@@ -89,13 +89,13 @@ def main():
     backend = get_backend(args.backend, args.model)
 
     folder = Path(args.example)
-    task_file = folder / "Task.txt"
-    screenshot = folder / "Before" / "screenshot.png"
+    task_file  = folder / "task.txt"
+    screenshot = folder / "screenshot.png"
 
     if not task_file.exists():
-        raise SystemExit(f"Task.txt not found in {folder}")
+        raise SystemExit(f"task.txt not found in {folder}")
     if not screenshot.exists():
-        raise SystemExit(f"Before/screenshot.png not found in {folder}")
+        raise SystemExit(f"screenshot.png not found in {folder}")
 
     task = task_file.read_text().strip()
     categories = assign(task, screenshot.read_bytes(), taxonomy, backend)

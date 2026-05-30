@@ -1,14 +1,14 @@
 """
-Phase 1 — extract free-text category labels for each unique example.
+Phase 1 — extract free-text category labels for each unique revision task.
 
-Each folder in Datasets/RawDataset/ is named Participant_X_CaseStudy-Y.Z-MODEL.
-Entries that share the same Participant + CaseStudy prefix represent the same
-revision task evaluated against different models; we deduplicate to one
-representative per unique task before calling the VLM.
+Each folder in Datasets/RevisionGeneratorModelDataset/All/ is named Example-NNN
+and contains task.txt, screenshot.png, and meta.json (with an example_key field).
+Multiple folders may share the same example_key (one per taxonomy label assigned);
+this script deduplicates to one representative per unique example_key.
 
 For each unique example the script sends:
-  - the Before/screenshot.png
-  - the Task.txt text
+  - screenshot.png
+  - task.txt text
 to Gemini and asks for 1–3 short category labels describing the revision type.
 
 Output: RevisionTaxonomy/raw_labels.json
@@ -16,7 +16,7 @@ Output: RevisionTaxonomy/raw_labels.json
 Running:
     python RevisionTaxonomy/label.py
     python RevisionTaxonomy/label.py --model gemini-2.5-flash   # faster/cheaper
-    python RevisionTaxonomy/label.py --dataset path/to/Datasets/RawDataset
+    python RevisionTaxonomy/label.py --dataset path/to/Datasets/RevisionGeneratorModelDataset/All
 """
 
 import argparse
@@ -33,11 +33,9 @@ load_dotenv(_ROOT / "Util" / ".env")
 sys.path.insert(0, str(_ROOT / "Util"))
 from backends import GeminiBackend
 
-_DATASET_DIR = _ROOT / "Datasets" / "RawDataset"
+_DATASET_DIR = _ROOT / "Datasets" / "RevisionGeneratorModelDataset" / "All"
 _OUTPUT_FILE = Path(__file__).parent / "raw_labels.json"
 _DEFAULT_MODEL = "gemini-2.5-pro"
-
-_MODEL_SUFFIX = re.compile(r"-(CLAUDE|GEMINI|OPENAI)$")
 
 _LABEL_PROMPT = """\
 You are categorizing UI revision tasks for a HCI research study.
@@ -62,14 +60,21 @@ Return your answer as JSON with this exact format (no markdown, no explanation):
 
 
 def _unique_examples(dataset_dir: Path) -> dict[str, Path]:
-    """Return {example_key: representative_folder} with one entry per unique task."""
+    """Return {example_key: representative_folder} with one entry per unique task.
+
+    Deduplicates using the example_key field in meta.json; picks the
+    alphabetically first folder name as the representative.
+    """
     groups: dict[str, list[Path]] = {}
     for folder in sorted(dataset_dir.iterdir()):
         if not folder.is_dir():
             continue
-        key = _MODEL_SUFFIX.sub("", folder.name)
+        meta_file = folder / "meta.json"
+        if meta_file.exists():
+            key = json.loads(meta_file.read_text()).get("example_key", folder.name)
+        else:
+            key = folder.name
         groups.setdefault(key, []).append(folder)
-    # Pick the alphabetically first representative (stable across runs)
     return {key: sorted(folders)[0] for key, folders in groups.items()}
 
 
@@ -84,7 +89,7 @@ def _parse_labels(response: str) -> list[str]:
 def main():
     parser = argparse.ArgumentParser(description="Phase 1: label unique revision examples.")
     parser.add_argument("--dataset", default=str(_DATASET_DIR), metavar="PATH",
-                        help=f"Path to RawDataset directory (default: {_DATASET_DIR}).")
+                        help=f"Path to dataset directory (default: {_DATASET_DIR}).")
     parser.add_argument("--model", default=_DEFAULT_MODEL,
                         help=f"Gemini model to use (default: {_DEFAULT_MODEL}).")
     parser.add_argument("--resume", action="store_true",
@@ -107,8 +112,8 @@ def main():
         if args.resume and key in existing:
             continue
 
-        screenshot = folder / "Before" / "screenshot.png"
-        task_file = folder / "Task.txt"
+        screenshot = folder / "screenshot.png"
+        task_file  = folder / "task.txt"
 
         if not screenshot.exists() or not task_file.exists():
             print(f"  [{i}/{len(examples)}] SKIP {key}: missing screenshot or task")

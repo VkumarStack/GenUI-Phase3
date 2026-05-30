@@ -1,0 +1,240 @@
+{
+  "run_name": "gemini-3.1-pro-preview-rerun",
+  "backend": "gemini",
+  "model": "gemini-3.1-pro-preview",
+  "dataset": "/Users/vivek/Projects/GenUI/Datasets/EvaluatorModelDataset",
+  "timestamp": "2026-05-28T03:52:47.745592+00:00",
+  "examples": [
+    {
+      "folder": "Participant_10_CaseStudy-10.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "FAIL",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "comment": "The revision successfully accomplished the core task by moving the user details into a dedicated, clean white section below the cover photo, which drastically improves text legibility. Unfortunately, the code prematurely closed the main layout wrapper in the process. This introduces a severe structural layout regression, visibly causing the entire bottom half of the interface to break out of the white container and render on a gray background.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: FAIL\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully accomplished the core task by moving the user details into a dedicated, clean white section below the cover photo, which drastically improves text legibility. Unfortunately, the code prematurely closed the main layout wrapper in the process. This introduces a severe structural layout regression, visibly causing the entire bottom half of the interface to break out of the white container and render on a gray background."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-10.2-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The primary goal of moving the \"Follow\" and \"Chat\" buttons directly below the stats row was successfully achieved, significantly improving the visibility of core actions. However, the secondary instruction to place \"Personal Info\" above the tab navigation was missed (they remained in their original relative order), and moving the flexible spacer to the very bottom introduced unnecessary empty space below the content. Because the main usability issue was effectively resolved, it is still an overall pass.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: PASS\n\nCOMMENT: The primary goal of moving the \"Follow\" and \"Chat\" buttons directly below the stats row was successfully achieved, significantly improving the visibility of core actions. However, the secondary instruction to place \"Personal Info\" above the tab navigation was missed (they remained in their original relative order), and moving the flexible spacer to the very bottom introduced unnecessary empty space below the content. Because the main usability issue was effectively resolved, it is still an overall pass."
+    },
+    {
+      "folder": "Participant_10_CaseStudy-6.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully repositioned the \"equipment\" tag above the headline and centered it within a full-width container, entirely resolving the overlap issue. While the tag retains the asymmetrical border-radius designed for its previous top-left placement, the layout changes precisely followed the instructions and vastly improved readability.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully repositioned the \"equipment\" tag above the headline and centered it within a full-width container, entirely resolving the overlap issue. While the tag retains the asymmetrical border-radius designed for its previous top-left placement, the layout changes precisely followed the instructions and vastly improved readability."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-15.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "PARTIAL",
+        "minimality": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PASS",
+        "minimality": "PARTIAL PASS",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The revision successfully accomplished all parts of the requested task, removing the edit button and correctly repositioning and styling the \"Headline & Weather\" text. However, by removing the flex layout on the parent container to achieve this, the three-dot menu lost its right-alignment and was moved to the left, which is a minor layout regression.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PARTIAL PASS\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully accomplished all parts of the requested task, removing the edit button and correctly repositioning and styling the \"Headline & Weather\" text. However, by removing the flex layout on the parent container to achieve this, the three-dot menu lost its right-alignment and was moved to the left, which is a minor layout regression."
+    },
+    {
+      "folder": "Participant_11_CaseStudy-25.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The revision added the requested margins in the CSS, which successfully created the left margin. However, because the existing `w-full` (width: 100%) class was not removed, the button's total width became greater than the screen width, causing it to overflow on the right instead of displaying the required right margin. This visually fails half of the prompt and introduces a layout issue.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision added the requested margins in the CSS, which successfully created the left margin. However, because the existing `w-full` (width: 100%) class was not removed, the button's total width became greater than the screen width, causing it to overflow on the right instead of displaying the required right margin. This visually fails half of the prompt and introduces a layout issue."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-10.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The revision successfully removed the circular profile picture as requested. However, it left behind the cake emoji (\ud83c\udf82) that was previously anchored to the avatar, causing it to float awkwardly on the left edge of the screen. This is a minor visual regression, but the core task was completed successfully.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully removed the circular profile picture as requested. However, it left behind the cake emoji (\ud83c\udf82) that was previously anchored to the avatar, causing it to float awkwardly on the left edge of the screen. This is a minor visual regression, but the core task was completed successfully."
+    },
+    {
+      "folder": "Participant_14_CaseStudy-12.1-GEMINI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "PASS",
+        "visualUsability": "PARTIAL PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully restructured the \"Teacher\" section to match the left-aligned flex layout of the \"Category\" section. However, the image link provided for the teacher photo is broken, resulting in a visible broken image icon instead of the requested photo of a male meditation teacher, which causes the revision to fail overall.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PARTIAL PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: FAIL\n\nCOMMENT: The revision successfully restructured the \"Teacher\" section to match the left-aligned flex layout of the \"Category\" section. However, the image link provided for the teacher photo is broken, resulting in a visible broken image icon instead of the requested photo of a male meditation teacher, which causes the revision to fail overall."
+    },
+    {
+      "folder": "Participant_6_CaseStudy-12.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "FAIL",
+        "noRegressions": "PASS"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL PASS",
+        "visualUsability": "PASS",
+        "minimality": "PARTIAL PASS",
+        "noRegressions": "PARTIAL PASS"
+      },
+      "comment": "The revision successfully completed all three requested actions: moving the social media banner to the bottom, placing the category information above the title, and shifting the hamburger menu to the left side of the screen. However, changing the top navigation container to use `justify-between` caused the shopping cart icon to become awkwardly centered instead of remaining grouped with the user profile icon on the right, which is a minor layout regression.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PARTIAL PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PARTIAL PASS\nNO REGRESSIONS: PARTIAL PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully completed all three requested actions: moving the social media banner to the bottom, placing the category information above the title, and shifting the hamburger menu to the left side of the screen. However, changing the top navigation container to use `justify-between` caused the shopping cart icon to become awkwardly centered instead of remaining grouped with the user profile icon on the right, which is a minor layout regression."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-16.1-CLAUDE",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PARTIAL",
+        "visualUsability": "FAIL",
+        "minimality": "PARTIAL",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "While the revision successfully made the index titles smaller, made the right edge visible, and applied ellipsis truncation to the subheaders, it failed to properly apply the layout changes to all repeating elements. Only the first chart (SPY) was resized to fit the narrower grid column, causing all subsequent charts (DIA, QQQ, etc.) to overflow and visually overlap with the red/green price boxes on the right. This is a severe visual regression that makes the interface look broken.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: While the revision successfully made the index titles smaller, made the right edge visible, and applied ellipsis truncation to the subheaders, it failed to properly apply the layout changes to all repeating elements. Only the first chart (SPY) was resized to fit the narrower grid column, causing all subsequent charts (DIA, QQQ, etc.) to overflow and visually overlap with the red/green price boxes on the right. This is a severe visual regression that makes the interface look broken."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-16.1-GEMINI",
+      "ground_truth": "PASS",
+      "gt_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "predicted": "FAIL",
+      "pred_criteria": {
+        "requirementFulfillment": "PARTIAL PASS",
+        "consistency": "FAIL",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "comment": "While the revision successfully made the index titles smaller and adjusted column widths to reveal the previously cut-off prices on the right, it failed to properly resize the line charts for all rows. Because only the first chart was updated to fit the new, narrower column, all subsequent charts overflow their containers and awkwardly overlap the right-hand columns, resulting in a broken layout.",
+      "response": "REQUIREMENT FULFILLMENT: PARTIAL PASS\nCONSISTENCY: FAIL\nVISUAL & USABILITY: FAIL\nMINIMALITY: PASS\nNO REGRESSIONS: FAIL\n\nOVERALL: FAIL\n\nCOMMENT: While the revision successfully made the index titles smaller and adjusted column widths to reveal the previously cut-off prices on the right, it failed to properly resize the line charts for all rows. Because only the first chart was updated to fit the new, narrower column, all subsequent charts overflow their containers and awkwardly overlap the right-hand columns, resulting in a broken layout."
+    },
+    {
+      "folder": "Participant_9_CaseStudy-20.1-OPENAI",
+      "ground_truth": "FAIL",
+      "gt_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistencyOriginal": "PASS",
+        "visualUsability": "FAIL",
+        "minimality": "PASS",
+        "noRegressions": "FAIL"
+      },
+      "predicted": "PASS",
+      "pred_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "visualUsability": "PASS",
+        "minimality": "PASS",
+        "noRegressions": "PASS"
+      },
+      "comment": "The revision successfully implements all requested changes. The text buttons in the top navigation were effectively differentiated: \"Groups\" is now a clear blue rectangular button, the center area features a proper search input field, and the \"Edit\" text was replaced with an icon, vastly improving the clarity of the top bar's functions.",
+      "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully implements all requested changes. The text buttons in the top navigation were effectively differentiated: \"Groups\" is now a clear blue rectangular button, the center area features a proper search input field, and the \"Edit\" text was replaced with an icon, vastly improving the clarity of the top bar's functions."
+    }
+  ]
+}
