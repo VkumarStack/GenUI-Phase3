@@ -3,7 +3,7 @@ Step 2 of the two-step evaluation pipeline.
 
 Inputs per example:
   - Task.txt                      — the original revision task
-  - step1_spec.txt                — code analysis from Step 1
+  - step1_spec.txt                — code analysis from Step 1 (default)
   - Before/screenshot.png         — original interface
   - After/screenshot.png          — revised interface
 
@@ -19,6 +19,9 @@ Running:
 
     # Run on a single example
     python Evaluator/step2.py --example Datasets/EvaluatorModelDataset/Participant_2_CaseStudy-1.1-CLAUDE
+
+    # Ablation: skip Step 1 — pass the raw HTML diff directly instead
+    python Evaluator/step2.py --no-step1
 
     # Resume a partially completed run
     python Evaluator/step2.py --resume
@@ -37,10 +40,12 @@ load_dotenv(_ROOT / "Util" / ".env")
 
 sys.path.insert(0, str(_ROOT / "Util"))
 from backends import Backend, get_backend
+from html_diff import html_diff as compute_html_diff
 
-_DATASET      = _ROOT / "Datasets" / "EvaluatorModelDataset"
-_PROMPT_FILE  = Path(__file__).parent / "step2_prompt.txt"
-_OUTPUT_FILE  = Path(__file__).parent / "step2_results.json"
+_DATASET              = _ROOT / "Datasets" / "EvaluatorModelDataset"
+_PROMPT_FILE          = Path(__file__).parent / "step2_prompt.txt"
+_PROMPT_FILE_NO_STEP1 = Path(__file__).parent / "step2_prompt_no_step1.txt"
+_OUTPUT_FILE          = Path(__file__).parent / "step2_results.json"
 _DEFAULT_BACKEND = "gemini"
 _DEFAULT_MODEL   = "gemini-3.1-pro-preview"
 
@@ -68,6 +73,17 @@ def _get_step1_analysis(folder: Path) -> str:
     if spec_file.exists():
         return spec_file.read_text(encoding="utf-8").strip()
     return "(Step 1 code analysis unavailable — run fill_step1.py)"
+
+
+def _get_html_diff(folder: Path) -> str:
+    cached = folder / "html_diff.txt"
+    if cached.exists():
+        return cached.read_text(encoding="utf-8")
+    before = folder / "Before" / "index.html"
+    after  = folder / "After"  / "index.html"
+    if before.exists() and after.exists():
+        return compute_html_diff(before, after)
+    return "(HTML diff unavailable — index.html files not found)"
 
 
 def _parse_response(response: str) -> dict:
@@ -99,7 +115,7 @@ def _parse_response(response: str) -> dict:
     return {"criteria": criteria, "overall": overall, "comment": comment}
 
 
-def _run_one(folder: Path, backend: Backend) -> dict:
+def _run_one(folder: Path, backend: Backend, no_step1: bool = False) -> dict:
     task_file, before, after = _resolve_paths(folder)
 
     if not task_file.exists():
@@ -109,16 +125,26 @@ def _run_one(folder: Path, backend: Backend) -> dict:
 
     task = task_file.read_text(encoding="utf-8").strip()
 
-    analysis_text        = _get_step1_analysis(folder)
-    step1_analysis_block = (
-        f"Code Analysis (from Step 1 — treat as supplementary context, not a verdict):\n"
-        f"{analysis_text}\n\n---\n\n"
-    )
-
-    prompt = _PROMPT_FILE.read_text().format(
-        task=task,
-        step1_analysis_block=step1_analysis_block,
-    )
+    if no_step1:
+        diff_text      = _get_html_diff(folder)
+        html_diff_block = (
+            f"HTML Diff (unified diff, Before → After — no pre-analysis provided):\n"
+            f"{diff_text}\n\n---\n\n"
+        )
+        prompt = _PROMPT_FILE_NO_STEP1.read_text().format(
+            task=task,
+            html_diff_block=html_diff_block,
+        )
+    else:
+        analysis_text        = _get_step1_analysis(folder)
+        step1_analysis_block = (
+            f"Code Analysis (from Step 1 — treat as supplementary context, not a verdict):\n"
+            f"{analysis_text}\n\n---\n\n"
+        )
+        prompt = _PROMPT_FILE.read_text().format(
+            task=task,
+            step1_analysis_block=step1_analysis_block,
+        )
 
     response = backend.generate(prompt, images=[before.read_bytes(), after.read_bytes()])
     parsed   = _parse_response(response)
@@ -147,6 +173,9 @@ def main():
                         help=f"Model backend (default: {_DEFAULT_BACKEND}).")
     parser.add_argument("--model", default=None,
                         help="Override the model/endpoint (optional).")
+    parser.add_argument("--no-step1", action="store_true",
+                        help="Ablation: skip Step 1 code analysis and pass the raw HTML diff "
+                             "directly to Step 2 instead.")
     parser.add_argument("--resume", action="store_true",
                         help="Skip examples already present in step2_results.json.")
     args = parser.parse_args()
@@ -175,7 +204,7 @@ def main():
             continue
         print(f"  [{i}/{n}] {folder.name} ... ", end="", flush=True)
         try:
-            result = _run_one(folder, backend)
+            result = _run_one(folder, backend, no_step1=args.no_step1)
             if "error" in result:
                 print(f"SKIP — {result['error']}")
             else:

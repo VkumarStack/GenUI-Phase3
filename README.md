@@ -300,9 +300,14 @@ python Evaluator/step2.py
 # Single example
 python Evaluator/step2.py --example Datasets/EvaluatorModelDataset/Participant_2_CaseStudy-1.1-CLAUDE
 
+# Ablation: skip Step 1 — pass the raw HTML diff directly instead of the code analysis
+python Evaluator/step2.py --no-step1
+
 # Resume interrupted run
 python Evaluator/step2.py --resume
 ```
+
+The `--no-step1` flag uses `step2_prompt_no_step1.txt`, a separate prompt that replaces the structured Stage 1 analysis block with the raw unified diff and adjusts all guidance accordingly. This is the ablation condition for measuring the contribution of Stage 1.
 
 Output format:
 
@@ -401,6 +406,9 @@ python Testing/Evaluator/run.py --backend gemini
 
 # Override model
 python Testing/Evaluator/run.py --backend gemini --model gemini-2.5-pro
+
+# Ablation: skip Step 1 (run name is auto-suffixed with -no_step1)
+python Testing/Evaluator/run.py --backend gemini --no-step1
 
 # Resume an interrupted run
 python Testing/Evaluator/run.py --backend gemini --resume

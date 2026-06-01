@@ -2461,26 +2461,36 @@
       },
       "comment": "The revision successfully fulfills the task by adding a prominent primary call-to-action (\"Add Food Now\") and several secondary exploratory options below it. The new layout significantly improves the usability of the empty state without introducing any regressions.",
       "response": "REQUIREMENT FULFILLMENT: PASS\nCONSISTENCY: PASS\nVISUAL & USABILITY: PASS\nMINIMALITY: PASS\nNO REGRESSIONS: PASS\n\nOVERALL: PASS\n\nCOMMENT: The revision successfully fulfills the task by adding a prominent primary call-to-action (\"Add Food Now\") and several secondary exploratory options below it. The new layout significantly improves the usability of the empty state without introducing any regressions."
-    },
-    {
-      "folder": "Test",
-      "ground_truth": null,
-      "gt_criteria": {},
-      "predicted": null,
-      "pred_criteria": null,
-      "comment": null,
-      "response": null,
-      "error": "Task.txt not found"
-    },
-    {
-      "folder": "Train",
-      "ground_truth": null,
-      "gt_criteria": {},
-      "predicted": null,
-      "pred_criteria": null,
-      "comment": null,
-      "response": null,
-      "error": "Task.txt not found"
     }
-  ]
+  ],
+  "metrics": {
+    "n_scored": 117,
+    "n_no_prediction": 0,
+    "accuracy": 0.906,
+    "macro_f1": 0.8935,
+    "per_class": {
+      "PASS": {
+        "precision": 0.9012,
+        "recall": 0.9605,
+        "f1": 0.9299,
+        "support": 76
+      },
+      "FAIL": {
+        "precision": 0.9167,
+        "recall": 0.8049,
+        "f1": 0.8571,
+        "support": 41
+      }
+    },
+    "confusion_matrix": {
+      "PASS": {
+        "PASS": 73,
+        "FAIL": 3
+      },
+      "FAIL": {
+        "PASS": 8,
+        "FAIL": 33
+      }
+    }
+  }
 }

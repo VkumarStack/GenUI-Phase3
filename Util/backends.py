@@ -7,13 +7,16 @@ provider, exposing a single method:
 Backends know nothing about evaluation logic — they just call the model.
 
 Available backends:
-  gemini    — Google Gemini via AI Studio API (requires GOOGLE_API_KEY env var)
-  vertexai  — Vertex AI endpoint, including fine-tuned Gemini models
-              (requires VERTEXAI_PROJECT and VERTEXAI_LOCATION env vars;
-               uses Application Default Credentials — run:
-               gcloud auth application-default login)
-  anthropic — Anthropic Claude via API (requires ANTHROPIC_API_KEY env var)
-  openai    — OpenAI via API (requires OPENAI_API_KEY env var)
+  gemini      — Google Gemini via AI Studio API (requires GOOGLE_API_KEY)
+  vertexai    — Vertex AI endpoint, including fine-tuned Gemini models
+                (requires VERTEXAI_PROJECT and VERTEXAI_LOCATION;
+                 uses Application Default Credentials)
+  anthropic   — Anthropic Claude (requires ANTHROPIC_API_KEY)
+  openai      — OpenAI (requires OPENAI_API_KEY)
+  xai         — xAI / Grok (requires XAI_API_KEY)
+  groq        — Groq inference (Llama etc.) (requires GROQ_API_KEY)
+  deepseek    — DeepSeek (requires DEEPSEEK_API_KEY)
+  openrouter  — OpenRouter aggregator (requires OPENROUTER_API_KEY)
 """
 
 import base64
@@ -21,10 +24,24 @@ import os
 from abc import ABC, abstractmethod
 
 DEFAULTS = {
-    "gemini":    "gemini-2.5-pro",
-    "vertexai":  None,   # no sensible default — model ID must be supplied explicitly
-    "anthropic": "claude-sonnet-4-6",
-    "openai":    "gpt-4o",
+    "gemini":     "gemini-2.5-pro",
+    "vertexai":   None,   # no sensible default — model ID must be supplied explicitly
+    "anthropic":  "claude-sonnet-4-6",
+    "openai":     "gpt-4o",
+    "xai":        "grok-3",
+    "groq":       "meta-llama/llama-4-maverick-17b-128e-instruct-fp8",
+    "deepseek":   "deepseek-chat",
+    "openrouter": None,   # model required
+}
+
+# OpenAI-compatible provider configs: {name: (base_url, api_key_env)}
+_COMPAT_PROVIDERS: dict[str, tuple[str, str]] = {
+    "xai":        ("https://api.x.ai/v1",               "XAI_API_KEY"),
+    "groq":       ("https://api.groq.com/openai/v1",    "GROQ_API_KEY"),
+    "cerebras":   ("https://api.cerebras.ai/v1",        "CEREBRAS_API_KEY"),
+    "together":   ("https://api.together.xyz/v1",       "TOGETHER_API_KEY"),
+    "deepseek":   ("https://api.deepseek.com/v1",       "DEEPSEEK_API_KEY"),
+    "openrouter": ("https://openrouter.ai/api/v1",      "OPENROUTER_API_KEY"),
 }
 
 
@@ -179,6 +196,42 @@ class OpenAIBackend(Backend):
         return response.choices[0].message.content.strip()
 
 
+class OpenAICompatibleBackend(Backend):
+    """OpenAI-compatible API (xAI/Grok, Groq, DeepSeek, OpenRouter, etc.)."""
+
+    def __init__(self, model: str, base_url: str, api_key_env: str):
+        import openai
+        self.model = model
+        self.client = openai.OpenAI(
+            api_key=os.environ[api_key_env],
+            base_url=base_url,
+        )
+
+    def generate(self, prompt: str, images: list[bytes] | None = None,
+                 max_tokens: int | None = None) -> str:
+        content: list = []
+        if images:
+            labels = ["Before screenshot:", "After screenshot:"] + ["Image:"] * max(0, len(images) - 2)
+            for label, img_bytes in zip(labels, images):
+                content.append({"type": "text", "text": label})
+                content.append({
+                    "type": "image_url",
+                    "image_url": {
+                        "url": f"data:image/png;base64,{base64.b64encode(img_bytes).decode()}"
+                    },
+                })
+        content.append({"type": "text", "text": prompt})
+        # Default is 16384 rather than 4096: reasoning models (e.g. Qwen3 on Together AI)
+        # consume thinking tokens out of this budget, so a 4096 ceiling causes empty responses
+        # on larger prompts once the thinking phase exhausts the limit.
+        response = self.client.chat.completions.create(
+            model=self.model,
+            max_tokens=max_tokens or 16384,
+            messages=[{"role": "user", "content": content}],
+        )
+        return (response.choices[0].message.content or "").strip()
+
+
 def get_backend(name: str, model: str | None = None,
                 endpoint_env_var: str = "VERTEXAI_ENDPOINT_ID") -> Backend:
     """Factory: return a Backend instance for the given name.
@@ -196,4 +249,11 @@ def get_backend(name: str, model: str | None = None,
         return AnthropicBackend(model)
     if name == "openai":
         return OpenAIBackend(model)
-    raise ValueError(f"Unknown backend '{name}'. Choose from: {', '.join(DEFAULTS)}")
+    if name in _COMPAT_PROVIDERS:
+        base_url, api_key_env = _COMPAT_PROVIDERS[name]
+        if not model:
+            raise ValueError(f"--model is required for backend '{name}'.")
+        return OpenAICompatibleBackend(model, base_url, api_key_env)
+    raise ValueError(
+        f"Unknown backend '{name}'. Choose from: {', '.join(list(DEFAULTS) + list(_COMPAT_PROVIDERS))}"
+    )
