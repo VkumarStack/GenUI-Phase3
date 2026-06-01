@@ -177,6 +177,9 @@ def main():
     parser.add_argument("--run-name", default=None, metavar="NAME",
                         help="Name for this run (used as output filename). "
                              "Defaults to model name + ablation suffix.")
+    parser.add_argument("--no-step1", action="store_true",
+                        help="Ablation: skip Step 1 code analysis and pass the raw HTML diff "
+                             "directly to Step 2. Appends '-no_step1' to the run name.")
     parser.add_argument("--resume", action="store_true",
                         help="Skip examples already present in the results file.")
     parser.add_argument("--rerun-failed", metavar="RESULTS_JSON",
@@ -191,14 +194,14 @@ def main():
     backend    = get_backend(args.backend, args.model)
     model_attr = getattr(backend, "model", None)
     base_name  = _default_run_name(args.backend, model_attr)
+    ablation_suffix = "-no_step1" if args.no_step1 else ""
     if args.run_name:
         run_name = args.run_name
     elif args.rerun_failed:
-        # Derive a suffix from the source file stem so the original is never clobbered
         source_stem = Path(args.rerun_failed).stem
-        run_name = f"{source_stem}-rerun"
+        run_name = f"{source_stem}-rerun{ablation_suffix}"
     else:
-        run_name = base_name
+        run_name = f"{base_name}{ablation_suffix}"
 
     _RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     output_path  = _RESULTS_DIR / f"{run_name}.json"
@@ -242,7 +245,7 @@ def main():
               end="", flush=True)
 
         try:
-            result = _run_one(folder, backend)
+            result = _run_one(folder, backend, no_step1=args.no_step1)
             if "error" in result:
                 print(f"SKIP — {result['error']}")
                 examples.append({
