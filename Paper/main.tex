@@ -1,0 +1,778 @@
+%% GenreUI Paper — ACM sigconf format
+\documentclass[sigconf,nonacm]{acmart}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage[framemethod=default]{mdframed}
+\mdfdefinestyle{promptbox}{%
+  backgroundcolor=gray!7,
+  hidealllines=true,
+  innerleftmargin=8pt,
+  innerrightmargin=8pt,
+  innertopmargin=6pt,
+  innerbottommargin=6pt,
+  skipabove=6pt,
+  skipbelow=6pt,
+}
+
+\setcopyright{none}
+\acmConference{}{}{}
+
+\begin{document}
+
+\title{GenreUI: A Benchmark Dataset and Automatic Evaluation Pipeline for LLM-Based UI Revision Tasks}
+
+\author{Vivek Kumar}
+\thanks{Advisor: Xiang ``Anthony'' Chen, Department of Electrical and Computer Engineering, University of California, Los Angeles.}
+\affiliation{%
+  \institution{University of California, Los Angeles}
+  \department{Department of Computer Science}
+  \city{Los Angeles}
+  \state{California}
+  \country{USA}
+}
+
+\begin{abstract}
+Evaluating large language models on UI revision tasks—incremental, targeted changes to an existing interface ($n \to n+1$)—requires both a diverse corpus of grounded starting screens and a reliable automated judge. This paper presents \textbf{GenreUI}, a benchmark dataset and two-component evaluation pipeline for this task, built on 100 mobile app screens drawn from the MUD dataset and reverse-engineered into HTML/CSS. A formative user study with nine UX designers produced 80 high-quality revision tasks, which were categorized into a seven-category revision taxonomy and used to fine-tune a vision-language revision task generator on Vertex AI. The fine-tuned model was then applied to all 100 screens to produce a dataset of \textbf{477 revision tasks}, released publicly on Hugging Face. In parallel, 117 human-labeled model revision attempts from the formative study were used to develop a two-stage automatic evaluator: Stage 1 performs structured code-level reasoning over a unified HTML diff; Stage 2 combines that analysis with rendered screenshots to assign five rubric criteria and a binary PASS/FAIL verdict. On this development set, the full pipeline (Gemini 3.1 Pro Preview) reaches \textbf{90.6\% PASS/FAIL accuracy} (macro F1 0.89); an ablation shows that both the Stage 1 code-analysis step and the stronger base model improve accuracy, with the largest gains in detecting failed revisions. As an end-to-end demonstration, the evaluator was used to benchmark ten LLMs across six families on the revision task, where frontier proprietary models (Claude, Gemini) performed best while the smaller GPT and open-weight models lagged. External validation of the evaluator on independently collected data is ongoing.
+\end{abstract}
+
+\maketitle
+
+%%
+%% SECTION 1: INTRODUCTION
+%%
+\section{Introduction}
+\label{sec:intro}
+
+Large language models (LLMs) have demonstrated impressive generative UI capabilities, producing interface mockups from high-level natural language descriptions and, in some cases, generating entire multi-screen application flows~\cite{leviathan2026genui}. Such abilities are most impactful in ``0-to-1'' design scenarios, where a team explores early-stage ideas for a brand-new feature or product. However, in day-to-day software development the more common challenge is the opposite: performing \emph{UI revisions}—incrementally adding or modifying a specific element in an existing interface to address a usability issue, a new requirement, or a design inconsistency. These ``$n \to n+1$'' tasks require a model to understand the current state of the interface in code, interpret a targeted natural-language instruction, and produce a change that improves the design without disrupting what surrounds it.
+
+Prior evaluations of GenUI tools have concentrated on the 0-to-1 setting, leaving a gap in understanding how well LLMs perform on UI revision tasks. Addressing this gap requires both (i) a sufficiently large set of revision tasks grounded in real-world mobile apps, and (ii) a reliable, scalable way to judge whether a model's output successfully fulfills a given task.
+
+This paper presents \textbf{GenreUI}, a dataset and automatic evaluation pipeline built around mobile UI revision tasks. The dataset is sourced from the MUD dataset~\cite{feng2024mud}, a large-scale collection of over 18,000 annotated mobile app screenshots drawn from high-quality, user-reviewed apps across 33 categories. From MUD, 100 screens spanning 10 app categories were sampled and reverse-engineered into HTML/CSS representations that serve as the starting points for revision. On top of these screens, the contribution proceeds along two tracks: a \emph{revision task generator} and an \emph{auto-evaluator}.
+
+The revision task generator is a fine-tuned vision-language model that takes a rendered screenshot and a taxonomy category as input and produces a concrete, well-formed revision instruction. The taxonomy was derived from a formative user study in which nine UX designers each authored revision tasks for a subset of the screens; those tasks were then labeled and consolidated into seven categories (e.g., \emph{Refine Layout \& Spacing}, \emph{Clarify Function \& State}). After fine-tuning on 152 (screenshot, taxonomy, task) training pairs, the model was applied to all 100 MUD screens, generating a dataset of 477 revision tasks.
+
+The auto-evaluator is a two-stage pipeline that scores a model's revision attempt against the original task. The first stage performs code-level reasoning: given the revision task, the before HTML, and a unified diff of the changes, it identifies which requirements were addressed, flags unrelated or potentially harmful changes, and produces a structured checklist for the next stage. The second stage uses this analysis alongside the rendered before/after screenshots to assign five rubric scores—Requirement Fulfillment, Consistency with Original UI, Visual \& Usability Quality, Minimality of Changes, and No New Regressions—and a final binary PASS/FAIL verdict. The pipeline was developed using 117 human-labeled examples from the formative user study, on which the full pipeline reaches 90.6\% accuracy.
+
+During the formative study, three state-of-the-art models—Claude Haiku 4.5, Gemini 2.5 Flash, and GPT-4.1 mini—generated the revision attempts that human annotators graded. A separate, larger model-capability experiment (Section~\ref{sec:results_models}) later applied the auto-evaluator to benchmark ten LLMs across six families on the generated revision tasks.
+
+The remainder of this paper is organized as follows. Section~\ref{sec:related} reviews related work. Section~\ref{sec:background} provides background on vision-language models. Section~\ref{sec:methodology} describes the dataset construction, revision generator, and auto-evaluator in detail. Section~\ref{sec:results} presents quantitative results and qualitative examples. Section~\ref{sec:discussion} discusses the findings. Section~\ref{sec:limitations} addresses limitations and future directions, and Section~\ref{sec:conclusion} concludes.
+
+%%
+%% SECTION 2: RELATED WORK
+%%
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Automated UI Evaluation}
+
+Duan et al.\ introduce UICrit~\cite{duan2024uicrit}, a dataset of 3,059 design critiques and quality ratings for 983 mobile UIs collected from experienced designers. The authors show that incorporating this targeted critique data substantially improves LLM-based UI feedback, yielding a 55\% gain in evaluation quality through few-shot and visual prompting. While UICrit focuses on \emph{critique} of static designs—identifying what is wrong without necessarily prescribing a code-level fix—GenreUI targets \emph{revision}: evaluating whether a model's code-level attempt to implement a specific change actually succeeded. The two tasks are complementary; a critique model could in principle be used to generate revision tasks, while an evaluator like the one proposed here could score the result.
+
+A related system by Duan et al.\ explores generating automatic feedback on UI mockups using GPT-4~\cite{duan2024feedback}. Deployed as a Figma plugin, the system applies heuristic-based prompts to produce actionable design suggestions, evaluated on 51 UIs and studied with 12 professional designers. The work demonstrates that LLM feedback can surface subtle errors and improve text within a designer's workflow. GenreUI differs in scope and in the evaluation paradigm: rather than open-ended heuristic critique, the focus here is on a closed-loop pipeline where the task, the revision attempt, and the outcome are all structured and machine-readable.
+
+\subsection{UI Code Generation and Benchmarks}
+
+Existing benchmarks for LLM-based UI generation largely assess the 0-to-1 scenario. Design2Code~\cite{si2025design2code}, for instance, benchmarks multimodal models on converting a reference screenshot into the HTML/CSS that renders it, assembling 484 real-world webpages and finding that current models struggle with visual element recognition and layout generation. Such benchmarks measure a model's ability to reproduce a target design from scratch, whereas GenreUI measures its ability to make a targeted, intent-driven \emph{change} to an existing design. To the knowledge of the authors, no prior work has constructed a benchmark specifically targeting incremental UI revision ($n \to n+1$) that includes: (i) a diverse corpus of real-world starting screens rendered as code, (ii) natural-language revision tasks grounded in UX rationale, and (iii) a rubric-based automatic evaluator validated against human judgments. GenreUI fills this gap.
+
+%%
+%% SECTION 3: BACKGROUND
+%%
+\section{Background}
+\label{sec:background}
+
+\subsection{Vision-Language Models for UI Tasks}
+
+Modern vision-language models (VLMs) accept both text and images as input and produce text (or, with tool use, structured data or code) as output. Architectures such as Gemini, Claude, and GPT-4 encode images using a vision encoder whose outputs are projected into the same token space as text, allowing the model to reason jointly over pixel-level visual content and symbolic text. This capability is especially relevant for UI tasks, where understanding the \emph{structure} of an interface (from code) and its \emph{appearance} (from a screenshot) must be combined to answer questions like ``was this button added in the right place?'' or ``does the revised component look consistent with the rest of the screen?''
+
+Earlier UI evaluation approaches relied primarily on text—parsing view hierarchies or DOM trees—and struggled to judge visual properties such as alignment, color harmony, and perceived affordance. Current VLMs bridge this gap by conditioning on rendered screenshots, making them natural candidates for UI evaluation tasks where ground truth is inherently perceptual.
+
+The two-stage evaluation pipeline proposed in this work exploits complementary strengths of these models: the code-reasoning stage leverages the model's ability to parse and interpret diffs (a text-heavy task), while the visual verification stage leverages its vision capabilities to confirm or refute what the code suggests.
+
+%%
+%% SECTION 4: METHODOLOGY
+%%
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Screen Collection and Preparation}
+
+The starting screens for GenreUI were drawn from MUD~\cite{feng2024mud}, a large-scale dataset of annotated mobile UI screenshots from high-quality apps. From the full MUD corpus, 100 screenshots were selected to ensure diversity across app categories and UI patterns. The selected screens span 10 app categories: Social Media (15), Productivity (13), Health/Fitness (12), Streaming Media (11), Maps/Navigation (10), E-commerce (9), Finance/Banking (9), News/Publishing (8), Travel/Booking (7), and Food Delivery (6). They cover nine UI patterns including Form (33), Detail Page (18), List (13), Menu/Navigation (10), Feed (7), Grid (5), Map (5), and Other (8).
+
+Each screenshot was reverse-engineered into an HTML/CSS document using a large language model, producing a rendered representation of the original screen that can be modified programmatically. These HTML representations serve as the \emph{before} state for all revision tasks. It is worth noting that the reverse-engineering process is imperfect: images in the original screenshots were often approximated using SVGs, and icon choices sometimes differed from the originals. The generated HTML nonetheless captures the layout, typography, and component structure of the source screen with sufficient fidelity for revision evaluation purposes.
+
+\subsection{Formative User Study}
+\label{sec:userstudy}
+
+To ground the dataset in real UX practice, a formative user study was conducted with nine UX designers. Each participant was assigned a subset of the 100 screens and asked to author revision tasks—natural-language instructions describing a design improvement they would want implemented. For each task, three state-of-the-art LLMs—Claude Haiku 4.5, Gemini 2.5 Flash, and GPT-4.1 mini—were each given the before HTML and the task description and asked to produce a revised version of the screen. The participant then evaluated each model's revision on a binary PASS/FAIL basis, providing free-form reasoning describing what was done correctly and what was missing or broken.
+
+The study produced a total of 141 labeled revision attempts. After removing ambiguous cases (Section~\ref{sec:evaluator_filtering}), 117 examples were retained for evaluator development and evaluation (76 PASS, 41 FAIL), covering responses from all three models (Claude: 59, OpenAI: 33, Gemini: 25).
+
+Through this study, the structure of a high-quality revision task was also identified. Participants and pilot testing indicated that effective revision tasks contain three components: (a) a \emph{motivation}—explaining why the change is needed, whether due to a usability issue or a new requirement; (b) a \emph{location}—specifying where on the screen the revision should occur; and (c) a \emph{specification}—describing concretely what should be changed.
+
+\subsection{Revision Task Taxonomy}
+\label{sec:taxonomy}
+
+The revision tasks collected from the user study were filtered to remove low-quality examples—those that stated a change without providing any justification, or contained grammatical errors that obscured intent. This filtering yielded 80 unique high-quality revision tasks.
+
+To support structured generation of new tasks, a two-pass taxonomy construction process was applied to these 80 tasks. In the first pass, each task was paired with its corresponding before screenshot and sent to Gemini 2.5 Pro, which assigned one to three free-form category labels describing the type of revision at a conceptual level. In the second pass, all tasks and their raw labels were submitted together in a single prompt, and Gemini 2.5 Pro was asked to consolidate the free-form labels into a coherent set of broader categories and re-assign all examples. The resulting taxonomy contains seven categories, shown in Table~\ref{tab:taxonomy}.
+
+\begin{table*}[t]
+\centering
+\caption{Revision Task Taxonomy. Each category is assigned one or more revision tasks; a task may belong to multiple categories.}
+\label{tab:taxonomy}
+\begin{tabular}{p{3.8cm} p{7cm} p{5.5cm}}
+\toprule
+\textbf{Category} & \textbf{Description} & \textbf{Example Task} \\
+\midrule
+Reorganize Information Hierarchy
+  & Changes the high-level structure, positioning, or flow of UI content and components to better guide user attention.
+  & \textit{``The choose your city card has too much content. Remove the edit button. Move `Headline \& Weather' to be underneath `Choose your City' with smaller text.''} \\
+\addlinespace
+Refine Layout \& Spacing
+  & Adjusts the low-level alignment, spacing, sizing, or composition of UI elements for better visual balance.
+  & \textit{``There is extra white space between the image and the title. Remove this space to make the layout look better.''} \\
+\addlinespace
+Clarify Function \& State
+  & Makes an element's purpose, interactive potential, or current state unambiguous.
+  & \textit{``There is no clear CTA on each card. Add a `View Pass' or `Select' button to make the next step obvious.''} \\
+\addlinespace
+Add or Surface Functionality
+  & Introduces a new capability, control, or piece of information, or makes an existing one more discoverable.
+  & \textit{``There is no clear CTA on each card. Add a `View Pass' or `Select' button to make the next step obvious.''} \\
+\addlinespace
+Simplify \& Reduce Clutter
+  & Decreases cognitive load by removing unnecessary elements, consolidating controls, or reducing information density.
+  & \textit{``There is a vertical left border on the Title input that should appear as a text cursor. Remove the vertical left border entirely for a clean presentation.''} \\
+\addlinespace
+Strengthen Visual Consistency
+  & Aligns the styling, terminology, or interaction patterns of components with other parts of the UI or established conventions.
+  & \textit{``The button styles in the modal differ from the buttons in the app. Change the button texts to only capitalize the first letter, matching the app's existing style.''} \\
+\addlinespace
+Improve Readability \& Accessibility
+  & Enhances legibility and contrast to make content easier to perceive and understand.
+  & \textit{``The visual hierarchy when showing prices is difficult to understand; the cents shouldn't be bigger than the dollars.''} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+A single revision task can belong to multiple categories. For example, a task that asks to move a button to a more prominent location could be classified as both \emph{Reorganize Information Hierarchy} and \emph{Clarify Function \& State}. Across the 80 filtered tasks, 152 (task, category) pairs were produced in total, with 1--4 categories assigned per task.
+
+\subsection{Revision Generator Model}
+\label{sec:revgen}
+
+\subsubsection{Fine-Tuning}
+
+A vision-language model was fine-tuned on Vertex AI (Google's Gemini Enterprise Agent Platform) to generate revision tasks conditioned on a taxonomy category. The base model was Gemini 2.5 Pro. Each training instance pairs:
+
+\begin{itemize}[noitemsep]
+  \item \textbf{Input:} the revision taxonomy category (name and description) alongside the rendered screenshot of the before state (image only; the source HTML is withheld to avoid biasing what changes are suggested).
+  \item \textbf{Output:} the corresponding revision task text authored by a UX designer.
+\end{itemize}
+
+The system instruction specifies the three-part task structure (motivation, location, and specification), along with guidelines discouraging both trivial cosmetic changes and sweeping full-screen redesigns. The 152 (screenshot, category, task) pairs from the 80 filtered revision tasks constitute the training set. Fine-tuning used Low-Rank Adaptation (LoRA) with an adapter size of 4 (automatically selected by Vertex AI) for 40 epochs.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{Images/loss_curve.png}
+    \caption{Training loss}
+    \label{fig:training_loss}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.49\linewidth}
+    \includegraphics[width=\linewidth]{Images/accuracy_curve.png}
+    \caption{Training accuracy}
+    \label{fig:training_acc}
+  \end{subfigure}
+  \caption{Training dynamics for the revision generator fine-tuning run on Vertex AI over 40 epochs: total loss (left) and next-token accuracy (right).}
+  \label{fig:training_curves}
+\end{figure}
+
+\subsubsection{Dataset Generation}
+
+After fine-tuning, the revision generator was applied to all 100 MUD screens to produce the full GenreUI revision task dataset. Generation proceeded in two steps:
+
+\begin{enumerate}[noitemsep]
+  \item \textbf{Category applicability filtering.} A separate, non-fine-tuned Gemini 2.5 Pro instance was given the rendered screenshot and the list of seven taxonomy categories and asked to identify which categories are applicable to the given screen. This step avoids generating revision tasks for categories that are conceptually irrelevant to a particular UI (e.g., requesting accessibility improvements on a screen that already has strong contrast).
+  \item \textbf{Task generation.} For each applicable category, the fine-tuned model was prompted to generate three revision tasks. The prompt was adapted from the training format but modified to request multiple tasks per call to reduce compute overhead. This resulted in a total of \textbf{477 revision tasks} across 100 screens, averaging 4.8 tasks per screen (range: 1--7).
+\end{enumerate}
+
+The full dataset has been released publicly on Hugging Face at \url{https://huggingface.co/datasets/VkumarStack/MUD_GenreUI}.
+
+\subsection{Auto-Evaluator Model}
+\label{sec:evaluator}
+
+\subsubsection{Dataset Preparation and Filtering}
+\label{sec:evaluator_filtering}
+
+The 141 labeled examples from the formative user study served as the basis for the auto-evaluator. During analysis, it was observed that some examples received FAIL labels due to criteria that were not specified in the original revision task—for instance, an otherwise correct revision was marked as failing because the newly added component used a color scheme inconsistent with the app's palette, even though the task description contained no mention of color. While such judgments reflect valid design intuition, they introduce label ambiguity that is difficult to generalize from: no two designers apply the same unstated criteria, and a model cannot be expected to reliably pass or fail on requirements that were never articulated. These cases were identified through manual inspection and removed, leaving \textbf{117 examples} (76 PASS, 41 FAIL).
+
+The original free-form pass/fail annotations were then converted into a structured rubric. A taxonomy of common pass and fail reasons was derived from the free-form text, yielding five evaluation criteria:
+
+\begin{itemize}[noitemsep]
+  \item \textbf{Requirement Fulfillment:} Did the revision implement the requested change?
+  \item \textbf{Consistency with Original UI:} Does the revision preserve the surrounding design?
+  \item \textbf{Visual \& Usability Quality:} Does the result improve clarity, hierarchy, or accessibility?
+  \item \textbf{Minimality of Changes:} Were all modifications within the scope of the task?
+  \item \textbf{No New Regressions:} Did the revision introduce layout breakage, missing content, or other new problems?
+\end{itemize}
+
+Each criterion is scored PASS, PARTIAL PASS, or FAIL, and a binary overall PASS/FAIL is determined. Due to the impracticality of running a separate user study to re-annotate all examples under this rubric, Gemini 2.5 Pro was used to convert the original free-form annotations into rubric-structured labels, providing the dataset used for prompt engineering and evaluation. All examples also carry an optional free-text comment explaining the overall verdict.
+
+\subsubsection{Two-Stage Pipeline}
+
+The auto-evaluator operates in two stages. The combined prompt for both stages is reproduced in Appendix~\ref{appendix:prompts}.
+
+\paragraph{Stage 1 — Code Analysis.}
+The first stage receives the revision task, the full before HTML source, a unified diff of the before-to-after HTML changes (produced by \texttt{difflib.unified\_diff}), and the rendered before screenshot. It outputs a structured code analysis report with four sections:
+
+\begin{enumerate}[noitemsep]
+  \item \textbf{Task-Relevant Changes:} For each diff hunk that implements the task, the changed lines are quoted verbatim and the expected visual effect in the rendered output is described.
+  \item \textbf{Unrelated or Potentially Problematic Changes:} Any diff hunk not required by the task—deleted properties, removed elements, unrelated restructuring—is flagged with an assessment of its likely visual or functional impact.
+  \item \textbf{Completeness Check:} Every distinct requirement in the task is listed individually, and the diff is checked against each one. Multi-instance tasks (e.g., ``apply to each card'') are checked for completeness across all visible instances.
+  \item \textbf{Visual Verification Notes:} Two to four items the visual evaluator should look for in the after screenshot to confirm or question the code-level findings.
+\end{enumerate}
+
+This stage is designed to surface evidence, not render verdicts. All findings are phrased as observations (``the diff shows\ldots'', ``this suggests\ldots''), explicitly avoiding pass/fail language. A critical anti-hallucination constraint is enforced: every code snippet quoted must be copied verbatim from the supplied diff; the model is prohibited from reconstructing or paraphrasing hunks that are not present.
+
+\paragraph{Stage 2 — Visual Evaluation.}
+The second stage receives the task, the Stage 1 code analysis, and both the rendered before and after screenshots. It scores the five rubric criteria and produces a binary overall verdict with a one-to-three sentence comment.
+
+The code analysis is framed explicitly as \emph{supplementary context}: it directs visual attention but does not override screenshot evidence. Several prompt engineering adjustments were made based on observed failure patterns:
+
+\begin{itemize}[noitemsep]
+  \item \textbf{Visual verification of completeness:} The evaluator is instructed to go through each item in the Stage 1 Completeness Check and verify it visually, rather than trusting the code analysis alone.
+  \item \textbf{Repeating-element consistency:} When a task applies to a pattern (e.g., ``each card'', ``all buttons of this type''), the fix must be confirmed on every instance visible in the before screenshot.
+  \item \textbf{Active reversal vs.\ omission:} A distinction is drawn between failing to implement a requirement and actively worsening it (e.g., adding \texttt{text-overflow: ellipsis} when the task was to fix truncation). The latter is penalized more severely.
+  \item \textbf{Regression threshold:} Regressions are only flagged when grounded in concrete evidence from either the code analysis or the screenshots; layout reflow caused by an adjacent change is not treated as a regression.
+  \item \textbf{PARTIAL PASS compounding:} A PARTIAL PASS on Requirement Fulfillment combined with any other below-PASS criterion typically yields an overall FAIL, reflecting that multiple shortcomings compound each other.
+\end{itemize}
+
+\subsubsection{Ablation Study Design}
+
+To isolate the contribution of the pipeline's two main design choices, a $2\times2$ ablation was run on the current HTML-diff pipeline, varying:
+
+\begin{itemize}[noitemsep]
+  \item \textbf{Base model:} Gemini 2.5 Pro versus the newer Gemini 3.1 Pro Preview, applied to both stages.
+  \item \textbf{Stage 1 code analysis:} present (full pipeline) versus absent. In the no-Stage-1 condition, the raw unified HTML diff is supplied directly to Stage 2 in place of the structured code-analysis report, so Stage 2 still has access to the code changes but must reason over them in a single pass alongside the screenshots.
+\end{itemize}
+
+\noindent Results are reported in Section~\ref{sec:results_evaluator}. Because the Stage 2 prompt was iteratively refined on the same 117-example set, the absolute numbers are best interpreted as development-set performance rather than held-out generalization; the validation study provides the external measure.
+
+%%
+%% SECTION 5: RESULTS
+%%
+\section{Results}
+\label{sec:results}
+
+\subsection{Revision Generator Model}
+\label{sec:results_revgen}
+
+After fine-tuning, the revision generator produces tasks that correctly reference specific elements by their visual appearance and position on screen, and provides design rationale in terms familiar to UX practitioners. Figure~\ref{fig:revgen_example} shows a representative example from the generated dataset.
+
+\begin{figure}[h]
+  \centering
+  \begin{minipage}[c]{0.33\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{Images/example_4149.png}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{0.63\linewidth}
+    \footnotesize
+    \textbf{Category:} Clarify Function \& State\\[4pt]
+    \textbf{Generated task:} \textit{``The three pricing options use inconsistent visual styles (outline, dark filled, light filled), which makes them difficult to compare and increases cognitive effort. Standardize the button shapes and sizes. Make the `Yearly Subscribe' and `Life-time Purchase' options both outline buttons, and keep the `3 Days FREE TRIAL' as the primary filled CTA. This will create a more uniform and scannable pricing section.''}
+  \end{minipage}
+  \caption{A representative screen from the MUD dataset (screen 4149, left) alongside a revision task generated by the fine-tuned revision generator for the \emph{Clarify Function \& State} category (right). The task identifies the specific elements (the three pricing buttons), explains the design rationale (inconsistent styles increase cognitive effort and hinder comparison), and specifies the concrete change to make.}
+  \label{fig:revgen_example}
+\end{figure}
+
+Manual inspection of generated tasks indicates the model has learned UX design vocabulary from the training data: generated tasks regularly employ terms such as ``visual hierarchy,'' ``CTA (call to action),'' ``affordance,'' and ``information density''—language consistent with professional UX design practice and matching the style used by participants in the formative study.
+
+\subsection{Auto-Evaluator Model}
+\label{sec:results_evaluator}
+
+The two-stage pipeline was evaluated on the 117-example formative-study set under the $2\times2$ ablation described in Section~\ref{sec:methodology}, varying the base model and the presence of the Stage 1 code-analysis step. Table~\ref{tab:ablation} reports binary PASS/FAIL accuracy, macro F1, and per-class F1 for all four configurations. As noted, the Stage 2 prompt was tuned on this set, so these are development-set figures; the validation study (Section~\ref{sec:results_validation}) provides the external check.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Auto-evaluator ablation on the 117-example formative-study set (76 PASS / 41 FAIL). Both base models are Gemini; ``Stage 1'' indicates whether the code-analysis step precedes visual evaluation. ``Macro F1'' is the unweighted mean of the PASS and FAIL F1 scores. Best configuration in bold.}
+\label{tab:ablation}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Base Model} & \textbf{Stage 1} & \textbf{Acc.} & \textbf{Macro F1} & \textbf{PASS F1} & \textbf{FAIL F1} \\
+\midrule
+Gemini 2.5 Pro          & No  & 77.8\% & 0.709 & 0.851 & 0.567 \\
+Gemini 2.5 Pro          & Yes & 89.7\% & 0.886 & 0.922 & 0.850 \\
+Gemini 3.1 Pro Prev.    & No  & 87.2\% & 0.846 & 0.909 & 0.783 \\
+Gemini 3.1 Pro Prev.    & Yes & \textbf{90.6\%} & \textbf{0.894} & \textbf{0.930} & \textbf{0.857} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two trends are visible. First, the Stage 1 code-analysis step improves every configuration, and its effect is concentrated in FAIL detection: for Gemini 2.5 Pro, adding Stage 1 raises accuracy from 77.8\% to 89.7\% and FAIL F1 from 0.567 to 0.850; for Gemini 3.1 Pro Preview it raises accuracy from 87.2\% to 90.6\% and FAIL F1 from 0.783 to 0.857. This supports the design intuition that reasoning over the code diff first lets the model catch failures—particularly small or subtle changes—that are difficult to judge from screenshots alone. Second, the newer base model is consistently stronger and markedly more robust: without Stage 1 it retains 87.2\% accuracy where Gemini 2.5 Pro falls to 77.8\%, indicating improved visual and reasoning capability that partially compensates for the missing code-analysis scaffold. The best configuration—Gemini 3.1 Pro Preview with the full two-stage pipeline—reaches 90.6\% accuracy and 0.894 macro F1, and is the configuration used for the model capability experiment below.
+
+Figure~\ref{fig:evaluator_example} shows representative outputs from Stage 1 and Stage 2 of the full pipeline.
+
+\begin{figure}[h]
+  \centering
+  \footnotesize
+  \fbox{\begin{minipage}{0.95\linewidth}
+  \textbf{Task:} Convert the ``+ Add item'' action to a FAB, like the ``Add location''/``Add contact'' actions, and give it a hierarchy of positioning among the other actions.
+
+  \smallskip
+  \textbf{\textsc{Stage 1 — Code Analysis (excerpt)}}
+  \begin{itemize}[leftmargin=1.2em,noitemsep,topsep=2pt]
+    \item \emph{Task-relevant change:} the diff replaces \texttt{add-item-row} with the other FABs' classes (\texttt{fab-row}, \texttt{fab-btn}, \texttt{fab-label}) and a white plus icon.
+    \item \emph{Potentially problematic:} the element was restyled \emph{in place} rather than moved into the \texttt{.fab-area} container that handles bottom-right positioning. The new \texttt{.fab-row} sits in normal flow $\Rightarrow$ likely stranded at the top-left. \textbf{Regression flag: broken layout.}
+    \item \emph{Completeness check:} ``convert to a FAB'' — partially addressed (styling only); ``give it a hierarchy of positioning'' — \textbf{not addressed} (not grouped with the other FABs).
+    \item \emph{Visual verification:} confirm the FAB styling matches the others; check whether ``Add item'' appears stranded at top-left instead of bottom-right.
+  \end{itemize}
+
+  \smallskip
+  \textbf{\textsc{Stage 2 — Rubric Verdict}}\\[2pt]
+  \begin{tabular}{@{}l l@{\hspace{2em}}l l@{}}
+  Requirement Fulfill. & PARTIAL PASS & Minimality & PASS \\
+  Consistency & FAIL & No Regressions & FAIL \\
+  Visual \& Usability & FAIL & \textbf{Overall} & \textbf{FAIL} \\
+  \end{tabular}\\[3pt]
+  \emph{Comment:} The ``+ Add item'' action was styled to match the other FABs but was not moved into the correct container; it fails the positioning requirement, leaving the new button stranded at the top-left and overlapping the divider line.
+  \end{minipage}}
+  \caption{Example auto-evaluator output for a FAIL case (Participant 10, Case Study 7.2, OpenAI revision). Stage 1 reasons over the HTML diff: it confirms the FAB \emph{styling} was applied but flags that the element was restyled in place rather than moved into the positioning container—predicting a broken layout—and records the unmet positioning requirement in its completeness check. Stage 2 combines this analysis with the before/after screenshots to assign the rubric and a correct overall FAIL verdict.}
+  \label{fig:evaluator_example}
+\end{figure}
+
+\subsection{Validation Study}
+\label{sec:results_validation}
+
+A separate user study was conducted to collect validation data using the automatically generated revision tasks (rather than the human-authored tasks from the formative study). Participants evaluated model revisions under the structured five-criterion rubric described in Section~\ref{sec:evaluator_filtering}. This study serves as the primary external validation of the auto-evaluator's generalization to the generated dataset: because the formative-study metrics in Section~\ref{sec:results_evaluator} were measured on data also used to develop the prompt, this independent study—using a distinct task distribution and the rubric directly—is needed to establish the pipeline's true accuracy. Data collection is complete and analysis is ongoing; the agreement between human rubric judgments and the auto-evaluator's verdicts will be reported in a subsequent revision.
+
+\subsection{Model Capability Experiment}
+\label{sec:results_models}
+
+To demonstrate the GenreUI pipeline end-to-end, the auto-evaluator was used to benchmark a range of contemporary LLMs on the UI revision task. Ten models spanning six families were evaluated: Anthropic (Claude Haiku 4.5, Claude Sonnet 4.5), Google (Gemini 2.5 Flash, Gemini 2.5 Pro), OpenAI (GPT-4.1 mini, GPT-4.1), Meta (Llama 3.3 70B), DeepSeek (DeepSeek-V3), and Alibaba (Qwen3.5-9B, Qwen3.5-397B). Ten screens were sampled at random from the generated dataset, with one revision task per screen. Each model implemented all ten tasks via search-and-replace code generation—conditioned on the before HTML, the task description, and, where the model supports vision, the before screenshot—and the resulting revisions were scored by the full two-stage auto-evaluator (Gemini 3.1 Pro Preview). Table~\ref{tab:models} reports each model's PASS rate.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Model capability experiment: PASS rate on 10 sampled revision tasks, as judged by the full auto-evaluator pipeline. Models are grouped by family; ``Tier'' denotes the relative size within a family where a small/large pair was tested.}
+\label{tab:models}
+\begin{tabular}{llc}
+\toprule
+\textbf{Model} & \textbf{Tier} & \textbf{PASS Rate} \\
+\midrule
+Claude Haiku 4.5   & Small & 10/10 \ (100\%) \\
+Claude Sonnet 4.5  & Large & 10/10 \ (100\%) \\
+\addlinespace
+Gemini 2.5 Flash   & Small & 10/10 \ (100\%) \\
+Gemini 2.5 Pro     & Large & \ 9/10 \ (90\%) \\
+\addlinespace
+GPT-4.1 mini       & Small & \ 6/10 \ (60\%) \\
+GPT-4.1            & Large & \ 9/10 \ (90\%) \\
+\addlinespace
+Llama 3.3 70B      & ---   & \ 7/10 \ (70\%) \\
+DeepSeek-V3        & ---   & \ 9/10 \ (90\%) \\
+\addlinespace
+Qwen3.5-9B         & Small & \ 7/10 \ (70\%) \\
+Qwen3.5-397B       & Large & \ 7/10 \ (70\%) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Several patterns emerge, though the small sample (10 tasks) makes them preliminary. The frontier proprietary families performed best: Claude (both tiers) and Gemini 2.5 Flash each passed every sampled task, and Gemini 2.5 Pro and GPT-4.1 missed only one. Notably, the smaller Claude and Gemini models matched their larger counterparts, suggesting that for the targeted, single-component edits that characterize UI revision, model scale is not the dominant factor for these families. The clearest size effect appeared within the OpenAI family, where GPT-4.1 mini—the weakest model in the study at 60\%—trailed its larger sibling by 30 points. The open-weight models (Llama 3.3 70B and both Qwen variants, all at 70\%) and the text-only DeepSeek-V3 (90\%) lagged the strongest proprietary models but remained broadly competitive.
+
+%%
+%% SECTION 6: DISCUSSION
+%%
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Quality of the Revision Generator}
+
+Manual inspection of generated revision tasks confirms that the fine-tuned model successfully internalized the structure and vocabulary of the training examples. Generated tasks routinely mention the specific element to be changed (e.g., ``the `View Pass' button at the bottom of each card''), provide a design rationale (``the current placement creates ambiguity about which card the action applies to''), and specify a concrete change. Terms like ``CTA,'' ``visual hierarchy,'' and ``information density''—drawn directly from UX professional discourse—appear consistently in generated outputs, indicating that the model learned to reason at the level of design intent rather than merely parroting surface-level descriptions.
+
+\subsection{Effectiveness of the Two-Stage Evaluation Approach}
+
+The ablation isolates two factors that drive evaluator accuracy: the dedicated Stage 1 code-analysis step, and the capability of the underlying base model. Both contribute, and both act most strongly on the harder problem of detecting \emph{failed} revisions.
+
+Stage 1's contribution is consistent across both base models and is concentrated in FAIL detection. For Gemini 2.5 Pro, inserting the code-analysis step lifts accuracy from 77.8\% to 89.7\% and FAIL F1 from 0.567 to 0.850; for Gemini 3.1 Pro Preview it lifts accuracy from 87.2\% to 90.6\% and FAIL F1 from 0.783 to 0.857. Although both conditions expose the model to the same code changes—as structured analysis in the full pipeline, or as the raw diff in the no-Stage-1 condition—separating the reasoning into its own pass yields markedly better judgments. This is consistent with the intended role of Stage 1: by first enumerating, in text, exactly what the diff did and which requirements remain unmet, it converts a hard joint vision-and-code problem into two simpler ones, and it directs Stage 2's visual attention toward specific elements that may appear unchanged in a screenshot but were modified—or should have been modified—at the code level. The step thus acts as a reliability mechanism for cases where the model's vision alone is insufficient, such as subtle padding, color, or text changes.
+
+The base-model upgrade is the second factor. Gemini 3.1 Pro Preview improves on Gemini 2.5 Pro in every configuration, but the gap is most pronounced without Stage 1 (87.2\% vs.\ 77.8\%), where the newer model's stronger visual and reasoning capability partially substitutes for the missing code-analysis scaffold. With the full pipeline the two models converge near the top (90.6\% vs.\ 89.7\%), suggesting that Stage 1 and a stronger base model are partly interchangeable means to the same end—reliable failure detection—and that combining them yields the best result. Confirmation of these trends on the held-out validation data remains for future work.
+
+\subsection{Model Capability Insights}
+
+The capability experiment indicates that contemporary LLMs are, broadly, competent at UI revision: most models passed the majority of sampled tasks. The strongest performers were the proprietary frontier families—Claude and Gemini—whose smaller, cheaper variants (Haiku, Flash) matched their larger counterparts on this sample. This is encouraging for practical deployment, where a smaller model offers lower latency and cost without an apparent quality penalty on targeted single-component edits. The principal underperformer was GPT-4.1 mini, which both made the most task-comprehension errors and showed the largest small-to-large gap of any family, suggesting that OpenAI's capability compression is more lossy for this task than Anthropic's or Google's. The open-weight models (Llama 3.3 70B, both Qwen variants) and the text-only DeepSeek-V3 trailed the strongest proprietary models but were not far behind; DeepSeek-V3 in particular reached 90\% despite receiving no screenshot, implying that for many revision tasks the HTML and task description alone carry enough signal. These observations are necessarily preliminary: the sample is only ten tasks, and the pass/fail labels come from the auto-evaluator, which is itself roughly 90\% accurate. A larger run would be needed to establish firm rankings, and is a natural next step now that the pipeline is in place.
+
+%%
+%% SECTION 7: LIMITATIONS AND FUTURE WORK
+%%
+\section{Limitations and Future Work}
+\label{sec:limitations}
+
+\paragraph{Limited annotator pool.}
+The formative user study involved nine UX designers, each of whom brought their own design preferences and standards. The auto-evaluator reflects a consensus across these participants, but that consensus is shaped by the particular population sampled. Different designer communities—enterprise software, gaming, or accessibility-focused design—may apply different standards. A future direction is to make the evaluator's strictness configurable, allowing researchers to tune how aggressively unstated design criteria are enforced.
+
+\paragraph{Imperfect HTML reconstruction.}
+The MUD screens were reconstructed using LLM-assisted HTML generation, which approximates but does not perfectly reproduce the original. Images were replaced with SVGs, and icon choices sometimes differed from the originals. Revision tasks and model outputs are therefore evaluated against a reconstruction rather than the true source code. This is a fundamental tradeoff in building a scalable benchmark from rasterized screenshots; future work could explore pairing GenreUI with datasets that provide actual source code (e.g., from open-source apps).
+
+\paragraph{Mobile-only scope.}
+All screens in GenreUI are mobile interfaces drawn from the MUD dataset. Desktop UI revision—where larger viewport widths, hover states, and multi-column layouts introduce distinct revision patterns—is not covered. Extending the benchmark to desktop UIs is a straightforward future direction.
+
+\paragraph{No interactivity.}
+The evaluator assesses visual and structural changes in static screenshots. Interactive changes—opening a modal, revealing a dropdown, triggering a hover state—cannot be evaluated. Incorporating browser automation (e.g., Playwright) to capture interaction-triggered states would significantly expand the benchmark's coverage, though it would require a more complex evaluation protocol.
+
+%%
+%% SECTION 8: CONCLUSION
+%%
+\section{Conclusion}
+\label{sec:conclusion}
+
+This paper presented GenreUI, a benchmark dataset and automatic evaluation pipeline for LLM-based UI revision tasks. Starting from 100 diverse mobile app screens drawn from the MUD dataset and reverse-engineered into HTML/CSS, a formative study with nine UX designers produced revision tasks and human-graded model outputs that served as training and evaluation data for two components: a fine-tuned revision task generator and a two-stage auto-evaluator.
+
+The revision generator, fine-tuned on 152 (screenshot, taxonomy, task) pairs, produces revision instructions that correctly reference screen elements and articulate design rationale in professional UX vocabulary, enabling scalable generation of the 477-task GenreUI dataset across all 100 screens. The auto-evaluator, developed against 117 human-labeled examples, reaches 90.6\% accuracy and a macro F1 of 0.89 on this development set with the full two-stage pipeline (Gemini 3.1 Pro Preview); an ablation confirms that both the stronger base model and the intermediate Stage 1 code-analysis step contribute meaningfully—particularly in identifying FAIL cases that are difficult to detect from screenshots alone. Applied as an automatic judge, the pipeline benchmarked ten LLMs across six families on the revision task, finding that frontier proprietary models (Claude, Gemini) performed best—with their smaller variants matching the larger ones—while the smaller GPT and open-weight models lagged. The pipeline, the dataset, and the evaluation methodology together provide infrastructure for systematically benchmarking LLM performance on the underexplored but practically important task of incremental UI revision, pending external validation of the evaluator on independently collected data.
+
+%%
+%% REFERENCES
+%%
+\bibliographystyle{ACM-Reference-Format}
+\begin{thebibliography}{9}
+
+\bibitem{feng2024mud}
+Sidong Feng et al.
+\newblock MUD: Towards a Large-Scale and Noise-Filtered UI Dataset for Modern Style UI Modeling.
+\newblock \textit{GitHub Repository}, 2024.
+\newblock \url{https://github.com/sidongfeng/MUD}
+
+\bibitem{duan2024uicrit}
+Peitong Duan, Chin-yi Chen, Gang Li, Bjoern Hartmann, and Yang Li.
+\newblock UICrit: Enhancing Automated Design Evaluation with a UI Critique Dataset.
+\newblock In \textit{Proceedings of the ACM Symposium on User Interface Software and Technology (UIST)}, 2024.
+
+\bibitem{duan2024feedback}
+Peitong Duan, Jeremy Warner, Yang Li, and Bjoern Hartmann.
+\newblock Generating Automatic Feedback on UI Mockups with Large Language Models.
+\newblock In \textit{Proceedings of the ACM CHI Conference on Human Factors in Computing Systems}, 2024.
+
+\bibitem{leviathan2026genui}
+Yaniv Leviathan, Dani Valevski, Matan Kalman, Danny Lumen, Eyal Segalis, Eyal Molad, Shlomi Pasternak, Vishnu Natchu, Valerie Nygaard, Srinivasan Venkatachary, James Manyika, and Yossi Matias.
+\newblock Generative UI: LLMs are Effective UI Generators.
+\newblock \textit{arXiv preprint arXiv:2604.09577}, 2026.
+
+\bibitem{si2025design2code}
+Chenglei Si, Yanzhe Zhang, Ryan Li, Zhengyuan Yang, Ruibo Liu, and Diyi Yang.
+\newblock Design2Code: Benchmarking Multimodal Code Generation for Automated Front-End Engineering.
+\newblock In \textit{Proceedings of the 2025 Conference of the North American Chapter of the Association for Computational Linguistics (NAACL)}, 2025.
+
+\end{thebibliography}
+
+%%
+%% APPENDIX
+%%
+\onecolumn
+\appendix
+
+\section{Evaluation Prompts}
+\label{appendix:prompts}
+
+The placeholders \texttt{\{task\}}, \texttt{\{before\_html\}}, and \texttt{\{html\_diff\}} in Stage 1 and \texttt{\{step1\_analysis\_block\}} and \texttt{\{task\}} in Stage 2 are filled at inference time. Stage 1 also receives the rendered before screenshot as an image input; Stage 2 receives both the before and after screenshots.
+
+\subsection{Stage 1 --- Code Analysis Prompt}
+
+\begin{mdframed}[style=promptbox]
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily, breaklines=true, breakatwhitespace=true,
+                   xleftmargin=0pt, xrightmargin=0pt]
+You are a code analyst reviewing an AI-generated revision to a mobile app interface.
+
+You will receive:
+  - A revision task describing what UI change was requested
+  - The Before screenshot of the interface (for visual context only -- do not
+    look for the After result here)
+  - The full Before HTML source
+  - A unified diff showing the exact code changes made (Before -> After)
+
+Your role is to analyze the code changes in relation to the task and produce a
+structured report for a downstream visual evaluator. You are NOT making a final
+PASS/FAIL decision -- you are surfacing evidence and flagging what to look for.
+Phrase every finding as an observation ("the diff shows...", "this suggests...",
+"it appears that...") rather than a conclusion ("the task passed", "this fails").
+
+CRITICAL -- no hallucinated diff hunks: Every code snippet you quote must be
+copied verbatim from the diff provided at the end of this prompt. Do not invent,
+reconstruct, or paraphrase hunks that are not literally present in the diff. If
+the diff contains only one hunk, your analysis must reflect only one hunk. If you
+believe the task required a change that is absent from the diff, record that
+absence in the COMPLETENESS CHECK -- do not fabricate a diff entry for it.
+
+CRITICAL -- empty diff means no code was changed: If the diff section below is
+blank, empty, or contains no unified diff hunks (no lines beginning with @@, +,
+or -), then NO code changes were made. In that case you MUST:
+  - State in TASK-RELEVANT CHANGES that the diff is empty and no code changes
+    are present.
+  - Leave UNRELATED OR POTENTIALLY PROBLEMATIC CHANGES empty.
+  - Note in COMPLETENESS CHECK that the diff contains no changes, so the task
+    appears unimplemented at the code level.
+  - Limit VISUAL VERIFICATION NOTES to instructing the evaluator to check
+    whether the Before and After screenshots look identical.
+  Do NOT describe, quote, or infer any code change when the diff is empty. Do not
+  use the Before HTML or the task description to reconstruct what the change
+  "should have been."
+
+---
+
+TASK-RELEVANT CHANGES
+For each diff hunk that appears to implement the requested task:
+- Quote the key changed lines (the + and - lines)
+- Explain what the code change does
+- Describe the expected visual effect in the rendered UI, so the evaluator knows
+  what to confirm in the After screenshot
+
+UNRELATED OR POTENTIALLY PROBLEMATIC CHANGES
+For each diff change that does NOT appear required by the task:
+- Quote the relevant changed lines
+- Explain what was changed and why it seems unrelated to the task
+- Describe the potential visual or functional impact (e.g. an element removed,
+  a layout property deleted, an unrelated style overwritten)
+- Flag explicitly if the change could cause a regression such as broken layout,
+  missing UI element, or degraded usability
+
+If there are no unrelated changes, state that clearly.
+
+COMPLETENESS CHECK
+First, list every distinct requirement stated in the task (each instruction,
+constraint, or named deliverable -- break multi-sentence or comma-separated tasks
+into individual items). Then, for each requirement, state whether the diff
+addresses it, partially addresses it, or does not address it at all. Be thorough:
+do not skip requirements just because they seem minor or because they are not the
+"main" change.
+
+Also answer the following structural checks where applicable:
+- If the task applies to multiple instances (e.g. "each card," "all posts,"
+  "every button of this type"): does the diff apply the change to every instance
+  in the Before HTML, or only a subset?
+- If the task describes a move (e.g. "move X from A to B"): does the diff show
+  both the addition at the new location AND the removal from the original location?
+- If the task names specific elements as required deliverables (e.g. "add a View
+  Pass button," "include a skip link"): does each named element appear in the diff?
+
+VISUAL VERIFICATION NOTES
+Summarize 2-4 specific things the visual evaluator should look for in the After
+screenshot to confirm or question the changes:
+- What should be newly present, absent, or visually different compared to Before
+- Call out subtle changes (minor spacing shifts, slight color changes, small font
+  adjustments) that may be hard to verify at mobile screenshot resolution -- name
+  them explicitly so the evaluator pays close attention
+
+---
+
+Revision task:
+{task}
+
+---
+
+Before HTML:
+{before_html}
+
+---
+
+Code Diff (unified diff, Before -> After):
+{html_diff}
+\end{lstlisting}
+\end{mdframed}
+
+\newpage
+\subsection{Stage 2 --- Visual Evaluation Prompt}
+
+\begin{mdframed}[style=promptbox]
+\begin{lstlisting}[basicstyle=\scriptsize\ttfamily, breaklines=true, breakatwhitespace=true,
+                   xleftmargin=0pt, xrightmargin=0pt]
+You are a UI/UX evaluator assessing whether an AI-generated revision to a mobile
+app interface successfully accomplished the requested task.
+
+{step1_analysis_block}Revision task:
+{task}
+
+---
+
+EVALUATION NOTES:
+
+**On the code analysis:**
+The Code Analysis above summarizes what the developer's code changes do and flags
+any potentially unrelated or problematic changes. Use it as supplementary context
+-- not as a binding verdict:
+- Let it direct your attention to specific areas of the After screenshot for
+  confirmation. In particular, go through each item in the Completeness Check and
+  verify it visually -- do not assume a requirement was met just because the code
+  analysis did not flag it as missing.
+- For changes that are subtle and hard to verify visually (minor padding shifts,
+  small color tweaks, font size adjustments, text corrections), rely more heavily
+  on the code analysis -- if the diff clearly shows a change was made, trust that
+  it happened even if it is hard to see at screenshot resolution.
+- **Exception -- icon identity:** When the task involves changing or replacing an
+  icon, verify visually that the icon in the After screenshot actually looks like
+  the intended icon. A class name or attribute change in the code does not
+  guarantee the correct icon rendered -- use the screenshot to confirm.
+- Do not let the code analysis override clear visual evidence. If the After
+  screenshot contradicts what the code suggests, the screenshot is the ground
+  truth for what the user actually sees.
+- When the code analysis flags an unrelated or potentially problematic change,
+  verify its visual effect in the screenshots before scoring it as a regression.
+  Not every unrelated code change produces a visible problem.
+
+**On flexible task language:**
+When the task uses "or," "e.g.," "such as," or "for example," it is offering
+options or examples -- not prescribing one specific approach. Evaluate against the
+stated intent, not against one particular example.
+
+**On partial implementations:**
+If the core intent of the task was accomplished and only secondary details are
+missing, lean toward an overall PASS rather than FAIL. This applies to missing
+minor details, not to unrequested changes that broke the design.
+
+When a task explicitly names specific visual elements as part of a coordinated
+redesign, each named element is a required deliverable, not an optional detail.
+If one of the explicitly named elements is absent or replaced with a clearly
+different alternative, this constitutes a missing sub-task and should result in
+FAIL on Requirement Fulfillment.
+
+When a task applies to a repeating UI pattern -- such as "each card," "all posts,"
+"every button of this type" -- the fix must be applied consistently to all
+instances that were visible in the Before screenshot. Fixing only a subset of the
+visible instances is a significant omission and should typically result in an
+overall FAIL.
+
+Important: the Before screenshot represents the complete set of elements that exist
+in the underlying HTML. If an element appears partially cut off at the bottom edge
+of the viewport, that is simply where the rendered content ends. Do not penalize
+for "missing" instances that are only partially visible at the viewport boundary.
+
+Omission vs. reversal: there is a critical difference between *not implementing*
+a requirement and *actively worsening* it. If the revision made a named
+requirement worse (e.g., the task said "fix text that is cut off" but the diff
+shows text-overflow: ellipsis was added, enforcing truncation), this is an active
+contradiction of a named sub-task. Score Requirement Fulfillment as FAIL and do
+not allow strong performance on other sub-tasks to mask a direct reversal.
+
+**On move tasks -- addition and removal are both required:**
+When the task describes moving an element from one location to another, a complete
+implementation requires both (1) adding the element at the new location AND (2)
+removing it from the original location. If the element appears in both locations
+after the revision, the move is incomplete.
+
+**On subtle visual changes:**
+If the screenshots appear unchanged for a task involving text corrections, minor
+color tweaks, or small CSS adjustments, consult the code analysis before concluding
+no change was made. If the code analysis confirms the change was made, treat the
+task as completed for that aspect.
+
+**On regressions -- require evidence, do not hallucinate:**
+A regression must be grounded in concrete evidence. Only flag a regression if:
+1. The code analysis flags a change not required by the task AND that change has a
+   clearly visible negative effect in the After screenshot.
+2. The After screenshot shows an obviously broken or degraded layout that is not
+   present in the Before screenshot -- something no reasonable reviewer could miss.
+
+**Regression severity -- FAIL vs PARTIAL PASS on No Regressions:**
+- Score FAIL only when the regression is majorly noticeable AND actively makes the
+  user experience worse (element completely missing, content unreadable, layout
+  broken or unusable, key interactive element removed).
+- Score PARTIAL PASS for regressions that are visible but do not significantly
+  impair usability (slight misalignment, unintentional aesthetic change, spacing
+  off in a way that looks awkward but keeps the interface functional).
+
+Do NOT flag as a regression:
+- Positional shifts of elements not flagged in the code analysis (layout reflow
+  from an adjacent change -- expected browser behavior)
+- Visual differences that are subtle, ambiguous, or could be natural reflow
+- Coupled property side-effects on the same element
+
+**Specific regression patterns to check:**
+*Unrequested removal of interactive elements:* If a button, menu, or icon with an
+action was removed and not mentioned in the task, verify in the After screenshot
+that it is indeed gone. Unrelated removals should lean toward overall FAILURE.
+
+*Unrequested property deletions:* If a CSS property deletion was not required by
+the task and causes a clearly visible layout effect, flag it under Minimality and
+No Regressions.
+
+*Orphaned dependents after removal:* When an element is removed, check whether
+sibling or child elements that depended on it for positioning became displaced.
+
+*Container dissolution and de-nesting:* When elements are de-nested or a container
+is dissolved, check whether elements that previously appeared in the same visual
+group now appear on a different line or in a broken position.
+
+*Large blank areas:* Substantially more blank space in a content area where content
+previously existed is a visible layout regression.
+
+*Named UI patterns must be complete:* When the task requests converting an element
+to a recognizable pattern, verify in the after screenshot that the result actually
+looks like a complete instance of that pattern.
+
+---
+
+Evaluate the revision using the rubric below. Score each criterion as PASS,
+PARTIAL PASS, or FAIL, then give a single overall verdict of PASS or FAIL.
+
+**A. Requirement Fulfillment** (most important criterion)
+Did the revision successfully perform the requested UI change? Consider whether the
+specific task was addressed, the correct element(s) were modified, and all parts of
+the instruction were followed.
+
+**B. Consistency with Original UI**
+Does the revision preserve the original screen's layout, structure, and visual
+design language? Unrelated sections should remain intact.
+
+**C. Visual & Usability Quality**
+Does the revision improve clarity, visual hierarchy, readability, accessibility,
+or overall usability -- not just technically apply the change?
+
+**D. Minimality of Changes**
+Does the revision avoid unnecessary or unrelated modifications beyond what was
+requested?
+
+**E. No New Regressions**
+Does the revision avoid introducing new layout, visual, content, or interaction
+problems elsewhere in the interface?
+
+OVERALL VERDICT GUIDANCE:
+The overall verdict is binary -- PASS or FAIL only. Use judgment:
+- Requirement Fulfillment is the most critical criterion. A FAIL on the core task
+  typically results in an overall FAIL, even if other criteria pass.
+- A PARTIAL PASS on Requirement Fulfillment that accomplished the primary intent
+  often still warrants an overall PASS -- use judgment on whether what was missing
+  was central to the designer's goal or a secondary detail.
+- When a task applies to multiple equivalent/repeating elements and the fix was
+  only applied to some of them, this is a central omission and should typically
+  result in an overall FAIL.
+- A PASS on Requirement Fulfillment with minor isolated issues elsewhere can still
+  be an overall PASS.
+- A critical regression can override an otherwise passing score only when severe:
+  an entire UI section removed, the interface is rendered unusable or unreadable,
+  or a major content element is lost.
+- The overall verdict should reflect whether the revision was a net positive toward
+  the designer's intent -- not a mechanical average of criterion scores.
+
+Assess the Before and After screenshots against the task, using the code analysis
+as supplementary context, then output your evaluation using exactly this format:
+
+REQUIREMENT FULFILLMENT: PASS / PARTIAL PASS / FAIL
+CONSISTENCY: PASS / PARTIAL PASS / FAIL
+VISUAL & USABILITY: PASS / PARTIAL PASS / FAIL
+MINIMALITY: PASS / PARTIAL PASS / FAIL
+NO REGRESSIONS: PASS / PARTIAL PASS / FAIL
+
+OVERALL: PASS / FAIL
+
+COMMENT: <1-3 sentences on the key reason for the overall verdict. Mention
+anything task-specific that influenced the decision -- what was done well, what
+was missing, or what went wrong.>
+\end{lstlisting}
+\end{mdframed}
+
+\end{document}
