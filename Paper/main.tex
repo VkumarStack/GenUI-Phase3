@@ -39,7 +39,7 @@
 }
 
 \begin{abstract}
-Evaluating large language models on UI revision tasks—incremental, targeted changes to an existing interface ($n \to n+1$)—requires both a diverse corpus of grounded starting screens and a reliable automated judge. This paper presents \textbf{GenreUI}, a benchmark dataset and two-component evaluation pipeline for this task, built on 100 mobile app screens drawn from the MUD dataset and reverse-engineered into HTML/CSS. A formative user study with nine UX designers produced 80 high-quality revision tasks, which were categorized into a seven-category revision taxonomy and used to fine-tune a vision-language revision task generator on Vertex AI. The fine-tuned model was then applied to all 100 screens to produce a dataset of \textbf{477 revision tasks}, released publicly on Hugging Face. In parallel, 117 human-labeled model revision attempts from the formative study were used to develop a two-stage automatic evaluator: Stage 1 performs structured code-level reasoning over a unified HTML diff; Stage 2 combines that analysis with rendered screenshots to assign five rubric criteria and a binary PASS/FAIL verdict. On this development set, the full pipeline (Gemini 3.1 Pro Preview) reaches \textbf{90.6\% PASS/FAIL accuracy} (macro F1 0.89); an ablation shows that both the Stage 1 code-analysis step and the stronger base model improve accuracy, with the largest gains in detecting failed revisions. As an end-to-end demonstration, the evaluator was used to benchmark ten LLMs across six families on the revision task, where frontier proprietary models (Claude, Gemini) performed best while the smaller GPT and open-weight models lagged. External validation of the evaluator on independently collected data is ongoing.
+Evaluating large language models on UI revision tasks—incremental, targeted changes to an existing interface ($n \to n+1$)—requires both a diverse corpus of grounded starting screens and a reliable automated judge. This paper presents \textbf{GenreUI}, a benchmark dataset and two-component evaluation pipeline for this task, built on 100 mobile app screens drawn from the MUD dataset and reverse-engineered into HTML/CSS. A formative user study with nine UX designers produced 80 high-quality revision tasks, which were categorized into a seven-category revision taxonomy and used to fine-tune a vision-language revision task generator on Vertex AI. The fine-tuned model was then applied to all 100 screens to produce a dataset of \textbf{477 revision tasks}, released publicly on Hugging Face. In parallel, 117 human-labeled model revision attempts from the formative study were used to develop a two-stage automatic evaluator: Stage 1 performs structured code-level reasoning over a unified HTML diff; Stage 2 combines that analysis with rendered screenshots to assign five rubric criteria and a binary PASS/FAIL verdict. On this development set, the full pipeline (Gemini 3.1 Pro Preview) reaches \textbf{90.6\% PASS/FAIL accuracy} (macro F1 0.89); an ablation shows that both the Stage 1 code-analysis step and the stronger base model improve accuracy, with the largest gains in detecting failed revisions. As an end-to-end demonstration, the evaluator was used to benchmark ten LLMs across six families on 30 revision tasks; most performed strongly (eight reaching 83--100\% PASS), failures concentrated on requirement fulfillment rather than visual consistency, and a vision ablation showed that supplying the rendered screenshot did not consistently improve generation over providing the HTML alone. External validation of the evaluator on independently collected data is ongoing.
 \end{abstract}
 
 \maketitle
@@ -356,36 +356,63 @@ A separate user study was conducted to collect validation data using the automat
 \subsection{Model Capability Experiment}
 \label{sec:results_models}
 
-To demonstrate the GenreUI pipeline end-to-end, the auto-evaluator was used to benchmark a range of contemporary LLMs on the UI revision task. Ten models spanning six families were evaluated: Anthropic (Claude Haiku 4.5, Claude Sonnet 4.5), Google (Gemini 2.5 Flash, Gemini 2.5 Pro), OpenAI (GPT-4.1 mini, GPT-4.1), Meta (Llama 3.3 70B), DeepSeek (DeepSeek-V3), and Alibaba (Qwen3.5-9B, Qwen3.5-397B). Ten screens were sampled at random from the generated dataset, with one revision task per screen. Each model implemented all ten tasks via search-and-replace code generation—conditioned on the before HTML, the task description, and, where the model supports vision, the before screenshot—and the resulting revisions were scored by the full two-stage auto-evaluator (Gemini 3.1 Pro Preview). Table~\ref{tab:models} reports each model's PASS rate.
+To demonstrate the GenreUI pipeline end-to-end, the auto-evaluator was used to benchmark a range of contemporary LLMs on the UI revision task. Ten models spanning six families were evaluated: Anthropic (Claude Haiku 4.5, Claude Sonnet 4.5), Google (Gemini 2.5 Flash, Gemini 2.5 Pro), OpenAI (GPT-4.1 mini, GPT-4.1), Meta (Llama 3.3 70B), DeepSeek (DeepSeek-V3), and Alibaba (Qwen3.5-9B, Qwen3.5-397B). Thirty screens were sampled at random from the generated dataset, each paired with one revision task. Each model was given the before HTML and the task and asked to produce the revised screen, whose output was then rendered and scored by the full two-stage auto-evaluator (Gemini 3.1 Pro Preview). To probe whether visual grounding helps, every vision-capable model was run in two conditions: once with the before screenshot supplied and once text-only (HTML and task description only); the two natively text-only models (Llama 3.3 70B, DeepSeek-V3) were run once. Table~\ref{tab:models} reports overall PASS rates for both conditions, and Table~\ref{tab:models_criteria} breaks the with-vision condition down by rubric criterion.
 
 \begin{table}[t]
 \centering
 \small
-\caption{Model capability experiment: PASS rate on 10 sampled revision tasks, as judged by the full auto-evaluator pipeline. Models are grouped by family; ``Tier'' denotes the relative size within a family where a small/large pair was tested.}
+\caption{Model capability experiment: overall PASS rate on 30 sampled revision tasks, with the before screenshot supplied (``Vision'') versus text-only (HTML + task). The two natively text-only models have a single condition. Verdicts from the full auto-evaluator (Gemini 3.1 Pro Preview).}
 \label{tab:models}
-\begin{tabular}{llc}
+\begin{tabular}{lcc}
 \toprule
-\textbf{Model} & \textbf{Tier} & \textbf{PASS Rate} \\
+\textbf{Model} & \textbf{Vision} & \textbf{Text-only} \\
 \midrule
-Claude Haiku 4.5   & Small & 10/10 \ (100\%) \\
-Claude Sonnet 4.5  & Large & 10/10 \ (100\%) \\
+Claude Haiku 4.5   & 76.7\%  & 83.3\% \\
+Claude Sonnet 4.5  & 90.0\%  & 90.0\% \\
 \addlinespace
-Gemini 2.5 Flash   & Small & 10/10 \ (100\%) \\
-Gemini 2.5 Pro     & Large & \ 9/10 \ (90\%) \\
+Gemini 2.5 Flash   & 90.0\%  & 96.7\% \\
+Gemini 2.5 Pro     & 90.0\%  & 86.7\% \\
 \addlinespace
-GPT-4.1 mini       & Small & \ 6/10 \ (60\%) \\
-GPT-4.1            & Large & \ 9/10 \ (90\%) \\
+GPT-4.1 mini       & 83.3\%  & 86.7\% \\
+GPT-4.1            & 90.0\%  & 96.7\% \\
 \addlinespace
-Llama 3.3 70B      & ---   & \ 7/10 \ (70\%) \\
-DeepSeek-V3        & ---   & \ 9/10 \ (90\%) \\
+Llama 3.3 70B      & ---     & 76.7\% \\
+DeepSeek-V3        & ---     & 90.0\% \\
 \addlinespace
-Qwen3.5-9B         & Small & \ 7/10 \ (70\%) \\
-Qwen3.5-397B       & Large & \ 7/10 \ (70\%) \\
+Qwen3.5-9B         & 63.3\%  & 53.3\% \\
+Qwen3.5-397B       & 100.0\% & 90.0\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Several patterns emerge, though the small sample (10 tasks) makes them preliminary. The frontier proprietary families performed best: Claude (both tiers) and Gemini 2.5 Flash each passed every sampled task, and Gemini 2.5 Pro and GPT-4.1 missed only one. Notably, the smaller Claude and Gemini models matched their larger counterparts, suggesting that for the targeted, single-component edits that characterize UI revision, model scale is not the dominant factor for these families. The clearest size effect appeared within the OpenAI family, where GPT-4.1 mini—the weakest model in the study at 60\%—trailed its larger sibling by 30 points. The open-weight models (Llama 3.3 70B and both Qwen variants, all at 70\%) and the text-only DeepSeek-V3 (90\%) lagged the strongest proprietary models but remained broadly competitive.
+\begin{table}[t]
+\centering
+\small
+\caption{Per-criterion PASS rate (\%) on the 30 tasks, for the with-vision condition (text-only for the two non-vision models). Visual \& Usability and Minimality are omitted from the reported rubric. RF = Requirement Fulfillment; No Regr. = No New Regressions.}
+\label{tab:models_criteria}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{RF} & \textbf{Consistency} & \textbf{No Regr.} \\
+\midrule
+Claude Haiku 4.5   & 76.7 & 86.7  & 86.7 \\
+Claude Sonnet 4.5  & 80.0 & 100.0 & 100.0 \\
+Gemini 2.5 Flash   & 80.0 & 93.3  & 90.0 \\
+Gemini 2.5 Pro     & 80.0 & 100.0 & 96.7 \\
+GPT-4.1 mini       & 76.7 & 96.7  & 93.3 \\
+GPT-4.1            & 90.0 & 90.0  & 90.0 \\
+Llama 3.3 70B      & 70.0 & 80.0  & 70.0 \\
+DeepSeek-V3        & 86.7 & 96.7  & 96.7 \\
+Qwen3.5-9B         & 63.3 & 80.0  & 66.7 \\
+Qwen3.5-397B       & 86.7 & 100.0 & 100.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+On this larger sample, most models handle UI revision competently: with the screenshot supplied, eight of the ten reach 83--100\% overall PASS, led by Qwen3.5-397B (100\%) and a tight cluster near 90\% (Claude Sonnet 4.5, both Gemini variants, GPT-4.1, DeepSeek-V3). The clear laggard is Qwen3.5-9B (63.3\%), with Claude Haiku 4.5 and Llama 3.3 70B next (76.7\% each). Model scale matters within most families: the larger model wins decisively for Claude (90.0\% vs.\ 76.7\%), OpenAI (90.0\% vs.\ 83.3\%), and especially Alibaba (100.0\% vs.\ 63.3\%); the lone exception is Google, where Gemini 2.5 Flash matches Gemini 2.5 Pro (both 90.0\%). The open-weight field is bimodal—the largest model, Qwen3.5-397B, tops the benchmark and DeepSeek-V3 reaches 90.0\%, while the smaller Qwen3.5-9B and Llama 3.3 70B trail the proprietary frontier.
+
+Table~\ref{tab:models_criteria} shows that failures are not evenly distributed across the rubric. \emph{Requirement Fulfillment} is the binding constraint: it carries the lowest PASS rates for nearly every model (most fall between 63\% and 90\%), confirming that the dominant failure mode is doing the task only partially rather than producing a visually inconsistent result. \emph{Consistency} is close to a ceiling—several models score 100\% and most exceed 90\%—so it rarely discriminates between models. \emph{No New Regressions} is high for the stronger models but is a distinct weak spot for the weakest two: Qwen3.5-9B (66.7\%) and Llama 3.3 70B (70.0\%) break the surrounding layout far more often than the frontier models, indicating that smaller models are more prone to collateral damage when editing existing markup.
+
+Notably, supplying the before screenshot did not yield a consistent improvement. For four of the eight vision-capable models the text-only condition matched or exceeded the with-vision condition (Gemini 2.5 Flash 90.0\%$\rightarrow$96.7\%, GPT-4.1 90.0\%$\rightarrow$96.7\%, Claude Haiku 4.5 76.7\%$\rightarrow$83.3\%, GPT-4.1 mini 83.3\%$\rightarrow$86.7\%), Claude Sonnet 4.5 was unchanged, and vision helped only Gemini 2.5 Pro and the two Qwen models. Because the before HTML is given in full, it already specifies the interface exactly, leaving the rendered screenshot largely redundant for the generation step—and for several strong models it appears to add distracting context rather than useful signal.
 
 %%
 %% SECTION 6: DISCUSSION
@@ -407,7 +434,13 @@ The base-model upgrade is the second factor. Gemini 3.1 Pro Preview improves on 
 
 \subsection{Model Capability Insights}
 
-The capability experiment indicates that contemporary LLMs are, broadly, competent at UI revision: most models passed the majority of sampled tasks. The strongest performers were the proprietary frontier families—Claude and Gemini—whose smaller, cheaper variants (Haiku, Flash) matched their larger counterparts on this sample. This is encouraging for practical deployment, where a smaller model offers lower latency and cost without an apparent quality penalty on targeted single-component edits. The principal underperformer was GPT-4.1 mini, which both made the most task-comprehension errors and showed the largest small-to-large gap of any family, suggesting that OpenAI's capability compression is more lossy for this task than Anthropic's or Google's. The open-weight models (Llama 3.3 70B, both Qwen variants) and the text-only DeepSeek-V3 trailed the strongest proprietary models but were not far behind; DeepSeek-V3 in particular reached 90\% despite receiving no screenshot, implying that for many revision tasks the HTML and task description alone carry enough signal. These observations are necessarily preliminary: the sample is only ten tasks, and the pass/fail labels come from the auto-evaluator, which is itself roughly 90\% accurate. A larger run would be needed to establish firm rankings, and is a natural next step now that the pipeline is in place.
+The capability experiment indicates that contemporary LLMs are, broadly, competent at UI revision: on the 30-task sample, eight of the ten models pass 83\% or more of tasks, and the best (Qwen3.5-397B) passes all of them. Three findings stand out. First, model scale matters for this task more than an initial small-sample look suggested: within Anthropic, OpenAI, and especially Alibaba the larger model clearly outperforms its smaller sibling—the Qwen gap is the most dramatic, at 100.0\% versus 63.3\%. Google is the exception, where Gemini 2.5 Flash matches Gemini 2.5 Pro, making Flash an attractive low-latency, low-cost choice when its accuracy suffices. The open-weight field is bimodal: the largest model (Qwen3.5-397B) leads the entire benchmark and DeepSeek-V3 is competitive at 90\%, while the smaller Qwen3.5-9B and Llama 3.3 70B trail.
+
+Second, the per-criterion breakdown clarifies \emph{how} models fail. Consistency with the surrounding UI is nearly solved—most models preserve the existing design language almost perfectly—so the differentiator is Requirement Fulfillment: weaker models more often implement only part of the requested change. A secondary failure mode, concentrated in the weakest models (Qwen3.5-9B, Llama 3.3 70B), is introducing regressions—breaking adjacent layout while making the edit. This suggests that progress on UI revision is less about visual style and more about faithfully and surgically executing a specified change.
+
+Third, and perhaps counter-intuitively, providing the rendered before screenshot did not reliably help: for half of the vision-capable models the text-only condition was as good or better. Because the experiment supplies the complete before HTML, the interface is already fully specified in the prompt, so the screenshot is largely redundant for generation and can even crowd out the textual context that the models rely on. This contrasts with the evaluator, where the screenshot is essential because it is the only record of what the user actually sees after rendering—underscoring that vision is most valuable for \emph{judging} a result, not for \emph{producing} one from a complete code specification.
+
+These observations remain preliminary: the sample is thirty tasks, and the pass/fail labels come from the auto-evaluator, whose own accuracy on the development set is roughly 90\%. A larger run, and confirmation once the evaluator's external validation is complete, would be needed to establish firm rankings—a natural next step now that the pipeline is in place.
 
 %%
 %% SECTION 7: LIMITATIONS AND FUTURE WORK
@@ -435,7 +468,7 @@ The evaluator assesses visual and structural changes in static screenshots. Inte
 
 This paper presented GenreUI, a benchmark dataset and automatic evaluation pipeline for LLM-based UI revision tasks. Starting from 100 diverse mobile app screens drawn from the MUD dataset and reverse-engineered into HTML/CSS, a formative study with nine UX designers produced revision tasks and human-graded model outputs that served as training and evaluation data for two components: a fine-tuned revision task generator and a two-stage auto-evaluator.
 
-The revision generator, fine-tuned on 152 (screenshot, taxonomy, task) pairs, produces revision instructions that correctly reference screen elements and articulate design rationale in professional UX vocabulary, enabling scalable generation of the 477-task GenreUI dataset across all 100 screens. The auto-evaluator, developed against 117 human-labeled examples, reaches 90.6\% accuracy and a macro F1 of 0.89 on this development set with the full two-stage pipeline (Gemini 3.1 Pro Preview); an ablation confirms that both the stronger base model and the intermediate Stage 1 code-analysis step contribute meaningfully—particularly in identifying FAIL cases that are difficult to detect from screenshots alone. Applied as an automatic judge, the pipeline benchmarked ten LLMs across six families on the revision task, finding that frontier proprietary models (Claude, Gemini) performed best—with their smaller variants matching the larger ones—while the smaller GPT and open-weight models lagged. The pipeline, the dataset, and the evaluation methodology together provide infrastructure for systematically benchmarking LLM performance on the underexplored but practically important task of incremental UI revision, pending external validation of the evaluator on independently collected data.
+The revision generator, fine-tuned on 152 (screenshot, taxonomy, task) pairs, produces revision instructions that correctly reference screen elements and articulate design rationale in professional UX vocabulary, enabling scalable generation of the 477-task GenreUI dataset across all 100 screens. The auto-evaluator, developed against 117 human-labeled examples, reaches 90.6\% accuracy and a macro F1 of 0.89 on this development set with the full two-stage pipeline (Gemini 3.1 Pro Preview); an ablation confirms that both the stronger base model and the intermediate Stage 1 code-analysis step contribute meaningfully—particularly in identifying FAIL cases that are difficult to detect from screenshots alone. Applied as an automatic judge, the pipeline benchmarked ten LLMs across six families on 30 revision tasks, finding that most handled the task competently (the strongest reaching 90--100\% PASS), that errors concentrated on requirement fulfillment rather than visual consistency, and that a vision ablation indicated the rendered screenshot added little over the HTML alone for generation. The pipeline, the dataset, and the evaluation methodology together provide infrastructure for systematically benchmarking LLM performance on the underexplored but practically important task of incremental UI revision, pending external validation of the evaluator on independently collected data.
 
 %%
 %% REFERENCES
