@@ -69,7 +69,13 @@ _FORMAT_MULTI = (
 )
 
 
-def _build_prompt(taxonomy_category: dict, count: int) -> str:
+def build_prompt(taxonomy_category: dict, count: int) -> str:
+    """Build the revision-generation prompt for a taxonomy category.
+
+    Public so other entry points (e.g. MUD_Dataset_Utils) reuse this exact prompt
+    instead of duplicating it. taxonomy_category needs 'name' and 'description';
+    count==1 requests a single task, >1 a numbered list.
+    """
     base = _SYSTEM_BASE.format(
         category_name=taxonomy_category["name"],
         category_description=taxonomy_category["description"],
@@ -78,7 +84,8 @@ def _build_prompt(taxonomy_category: dict, count: int) -> str:
     return base + fmt + "\n\nGenerate the revision task(s) for the UI shown in the screenshot."
 
 
-def _parse_tasks(response_text: str, count: int) -> list[str]:
+def parse_tasks(response_text: str, count: int) -> list[str]:
+    """Parse a model response into task strings (single task if count==1, else a numbered list)."""
     if count == 1:
         return [response_text.strip()]
     pattern = re.compile(r"^\s*\d+\.\s+", re.MULTILINE)
@@ -97,6 +104,6 @@ def generate_tasks(
     taxonomy_category: dict with 'name' and 'description' keys (from taxonomy.json).
     count: tasks to generate per call (default 1; >1 returns a numbered list).
     """
-    prompt = _build_prompt(taxonomy_category, count)
+    prompt = build_prompt(taxonomy_category, count)
     response_text = backend.generate(prompt, images=[screenshot_path.read_bytes()])
-    return _parse_tasks(response_text, count)
+    return parse_tasks(response_text, count)

@@ -36,9 +36,11 @@ from dotenv import load_dotenv
 ROOT = Path(__file__).parent.parent  # project root (GenUI/)
 load_dotenv(ROOT / "Util/.env")
 
-# Make Util importable
+# Make Util + RevisionGeneration importable
 sys.path.insert(0, str(ROOT / "Util"))
+sys.path.insert(0, str(ROOT / "RevisionGeneration"))
 from backends import get_backend  # noqa: E402
+from generate_core import build_prompt, parse_tasks  # noqa: E402  (shared generation logic)
 
 DATASET_DIR   = ROOT / "Datasets/MUD_GenreUI"
 SCREENSHOTS   = DATASET_DIR / "screenshots"
@@ -120,76 +122,12 @@ def filter_applicable_categories(
 
 
 # ---------------------------------------------------------------------------
-# Step 2: Task generation (reuses generate_core logic inline)
+# Step 2: Task generation
+#
+# The prompt + parsing are the shared revision-generation logic in
+# RevisionGeneration/generate_core.py (build_prompt / parse_tasks). This step
+# adds the bytes-based call and retry loop specific to the MUD batch run.
 # ---------------------------------------------------------------------------
-
-import re
-
-_SYSTEM_BASE = (
-    "You are a UI/UX product expert generating revision task specifications for "
-    "software engineers. You will be shown a screenshot of a mobile or web UI and "
-    "asked to generate a concrete revision task.\n\n"
-
-    "SCOPE GUIDELINES:\n"
-    "Each task should be a minor, targeted revision — roughly one incremental step "
-    "above the current state of the UI (think n → n+1, not n → n+10). A good task "
-    "touches one to three components. Avoid:\n"
-    "  • Trivially cosmetic changes (e.g. shifting one element by a pixel).\n"
-    "  • Sweeping redesigns that restructure the entire layout or replace multiple "
-    "sections of the page at once.\n\n"
-
-    "REVISION TYPE — your task must belong to this category:\n"
-    "  {category_name}: {category_description}\n\n"
-
-    "EACH TASK MUST CONTAIN ALL THREE OF THE FOLLOWING:\n"
-    "  (a) Motivation: Why is this change needed? Explain what is currently "
-    "suboptimal or what goal the revision serves, framed in terms of the revision "
-    "type above.\n"
-    "  (b) Precise component identification: Name the specific component(s) to be "
-    "changed and describe their current appearance and location in the screenshot "
-    "(e.g. 'the dark blue primary action button labeled \"Continue\" in the bottom "
-    "center of the screen', or 'the row of three icon buttons in the top-right "
-    "corner of the navigation bar').\n"
-    "  (c) Unambiguous change description: Describe exactly what the component "
-    "should look like or do after the revision. Leave no room for interpretation — "
-    "if a color is changing, say which color; if text is moving, say where it "
-    "should end up.\n\n"
-
-    "EXAMPLE OUTPUT (category: Clarify Function & State):\n"
-    "The \"Continue\" button is fully green and active even though no departure "
-    "point has been selected yet. This could lead to errors if the user taps "
-    "Continue without selecting anything. Set the Continue button to a "
-    "disabled/muted state by using a faint green at 20% opacity instead of the "
-    "full green.\n\n"
-)
-
-_FORMAT_MULTI = (
-    "OUTPUT FORMAT:\n"
-    "Return exactly {count} numbered tasks. Each task is a short, self-contained "
-    "paragraph of two to four sentences. Use this format:\n"
-    "1. <task text>\n"
-    "2. <task text>\n"
-    "...\n"
-    "Do not include any preamble, section headers, or closing remarks — only the "
-    "numbered list."
-)
-
-
-def _build_generation_prompt(category: dict, count: int) -> str:
-    base = _SYSTEM_BASE.format(
-        category_name=category["name"],
-        category_description=category["description"],
-    )
-    fmt = _FORMAT_MULTI.format(count=count)
-    return base + fmt + "\n\nGenerate the revision task(s) for the UI shown in the screenshot."
-
-
-def _parse_tasks(text: str, count: int) -> list[str]:
-    pattern = re.compile(r"^\s*\d+\.\s+", re.MULTILINE)
-    splits = pattern.split(text)
-    tasks = [t.strip() for t in splits if t.strip()]
-    return tasks[:count]
-
 
 def generate_tasks_for_category(
     screenshot_bytes: bytes,
@@ -198,12 +136,12 @@ def generate_tasks_for_category(
     count: int = TASKS_PER_CATEGORY,
     retries: int = 3,
 ) -> list[str]:
-    prompt = _build_generation_prompt(category, count)
+    prompt = build_prompt(category, count)
 
     for attempt in range(1, retries + 1):
         try:
             raw = generator_backend.generate(prompt, images=[screenshot_bytes])
-            tasks = _parse_tasks(raw, count)
+            tasks = parse_tasks(raw, count)[:count]
             if tasks:
                 return tasks
             print(f"    gen attempt {attempt}: parsed 0 tasks from response, retrying...")
