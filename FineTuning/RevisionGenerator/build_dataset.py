@@ -6,7 +6,8 @@ Each training example pairs:
   Output — the target revision task text
 
 Reads GCS URIs from the shared manifest produced by FineTuning/upload_assets.py.
-Resolves the source RawDataset folder for each example via meta.json.
+Each example's image URI is resolved via its meta.json `source_folder` →
+manifest[source_folder]["before"].
 
 Running:
     python FineTuning/RevisionGenerator/build_dataset.py
