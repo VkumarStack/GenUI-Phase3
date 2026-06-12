@@ -77,7 +77,6 @@ MODELS: dict[str, tuple[str, str, bool]] = {
     "claude-haiku-4-5":    ("anthropic",   "claude-haiku-4-5-20251001",                          True),
     "gemini-2.5-flash":    ("gemini",      "gemini-2.5-flash",                                   True),
     "gpt-4.1-mini":        ("openai",      "gpt-4.1-mini",                                       True),
-    # llama-3-8b excluded: 8193-token context window too small for large HTML files
     "deepseek-v3":         ("deepseek",    "deepseek-chat",                                      False),
     "qwen3.5-9b":          ("together",    "Qwen/Qwen3.5-9B",                                True),
     # Large models

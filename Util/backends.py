@@ -159,12 +159,18 @@ class AnthropicBackend(Backend):
                     },
                 })
         content.append({"type": "text", "text": prompt})
-        response = self.client.messages.create(
+        # Stream and accumulate: the SDK requires streaming once max_tokens is
+        # large enough that a non-streaming request could exceed the 10-minute
+        # timeout. Streaming returns identical text and is safe for short replies.
+        parts: list[str] = []
+        with self.client.messages.stream(
             model=self.model,
             max_tokens=max_tokens or 4096,
             messages=[{"role": "user", "content": content}],
-        )
-        return response.content[0].text.strip()
+        ) as stream:
+            for chunk in stream.text_stream:
+                parts.append(chunk)
+        return "".join(parts).strip()
 
 
 class OpenAIBackend(Backend):

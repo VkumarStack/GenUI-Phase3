@@ -1,0 +1,3974 @@
+{
+  "run_name": "run_0_30screens",
+  "mode": "search_replace",
+  "seed": 0,
+  "n_screens": 30,
+  "models": [
+    "claude-haiku-4-5",
+    "claude-haiku-4-5-novision",
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-novision",
+    "gpt-4.1-mini",
+    "gpt-4.1-mini-novision",
+    "deepseek-v3",
+    "qwen3.5-9b",
+    "qwen3.5-9b-novision",
+    "claude-sonnet-4-5",
+    "claude-sonnet-4-5-novision",
+    "gemini-2.5-pro",
+    "gemini-2.5-pro-novision",
+    "gpt-4.1",
+    "gpt-4.1-novision",
+    "llama-3.3-70b",
+    "qwen3.5-397b",
+    "qwen3.5-397b-novision"
+  ],
+  "base_models": [
+    "claude-haiku-4-5",
+    "gemini-2.5-flash",
+    "gpt-4.1-mini",
+    "deepseek-v3",
+    "qwen3.5-9b",
+    "claude-sonnet-4-5",
+    "gemini-2.5-pro",
+    "gpt-4.1",
+    "llama-3.3-70b",
+    "qwen3.5-397b"
+  ],
+  "vision_ablation": true,
+  "timestamp": "2026-06-10T02:40:13.533646+00:00",
+  "sampled": [
+    {
+      "screen_id": "12356",
+      "category": "Add or Surface Functionality",
+      "task": "The \"Download\" action doesn't indicate whether the ringtone has already been downloaded, leaving the user unsure about the current state. If the ringtone is already downloaded, change the action to \"Delete from device\" (with a trash icon) and visually indicate the downloaded state, for example, by adding a \"Downloaded\" label or checkmark next to it."
+    },
+    {
+      "screen_id": "17816",
+      "category": "Clarify Function & State",
+      "task": "The header combines a \"back\" action and a \"category type\" selector in a way that creates ambiguity about the screen's primary purpose and navigation hierarchy. This is in the header section at the top of the screen. Separate the actions. Keep the \"<\" for back. Move the \"Expenses\" dropdown to a dedicated component below the header or as a standalone selector, and change the header title to \"Select a Category\"."
+    },
+    {
+      "screen_id": "12638",
+      "category": "Add or Surface Functionality",
+      "task": "The \"Sign in with email\" button does not clearly indicate what action it will perform (e.g., open a new screen, expand to show fields). This can cause user hesitation. Add a chevron icon to the right side of the button text to signal that tapping it will navigate to a new screen."
+    },
+    {
+      "screen_id": "2147",
+      "category": "Refine Layout & Spacing",
+      "task": "The header has a two-tiered layout where the \"Market Index\" title is on one row and the search and menu icons are on a separate row below it. This is an unconventional pattern that wastes vertical space and feels disjointed. Restructure the header to a single-tiered layout by placing the \"Market Index\" title on the left and aligning the search and menu icons to the right on the same row."
+    },
+    {
+      "screen_id": "6766",
+      "category": "Improve Readability & Accessibility",
+      "task": "The body text (\"Quickly capture and organize your ideas as notes and checklists\") has tight line spacing, which makes the text feel cramped and harder to read. This is below the \"CAPTURE\" header. Increase the line height to improve vertical rhythm and legibility."
+    },
+    {
+      "screen_id": "14016",
+      "category": "Strengthen Visual Consistency",
+      "task": "The edit controls at the bottom (\u201cMOVE UP\u201d, \u201cMOVE DOWN\u201d, \u201cMOVE\u201d, \u201cCOPY\u201d, \u201cDELETE\u201d) are arranged in a confusing two-tiered layout. \u201cMOVE\u201d is redundant and unclear next to \u201cMOVE UP\u201d and \u201cMOVE DOWN\u201d. This bottom bar lacks a clear visual hierarchy or conventional pattern for edit actions. Remove the standalone \u201cMOVE\u201d button. Rearrange the remaining actions (\u201cMOVE UP\u201d, \u201cMOVE DOWN\u201d, \u201cCOPY\u201d, \u201cDELETE\u201d) in a single row or a clean grid, with equal spacing and consistent styling."
+    },
+    {
+      "screen_id": "13815",
+      "category": "Strengthen Visual Consistency",
+      "task": "The byline section has a confusing and cluttered visual hierarchy. \"AP\" is presented twice in different styles (\"AP\" logo and \"AP |\" text) right next to each other, which is redundant and looks like a mistake. This is in the attribution section below the subheadline. Remove the standalone \"AP |\" text row. Keep the \"AP\" logo treatment and place the byline \"By Zeke Miller, Tara Copp and Lolita C. Baldor\" directly below it with consistent spacing."
+    },
+    {
+      "screen_id": "12364",
+      "category": "Add or Surface Functionality",
+      "task": "The banner informs users they can \"order ahead\" but provides no direct action to do so. This creates a dead end and requires the user to figure out how to order ahead themselves. Make the \"order ahead\" text a hyperlink or a button that takes the user directly to the schedule-ahead ordering flow."
+    },
+    {
+      "screen_id": "8463",
+      "category": "Strengthen Visual Consistency",
+      "task": "The \"Get Pro $0.99\" and \"Dice Help\" buttons are both styled as heavy, dark grey filled buttons, which makes the header feel cluttered and visually top-heavy. This is at the top-right corner of the screen. Change the \"Get Pro\" button to an outline style (grey border, transparent fill, grey text) and reduce the prominence of the \"Dice Help\" button by styling it as a text button or an icon button."
+    },
+    {
+      "screen_id": "13769",
+      "category": "Add or Surface Functionality",
+      "task": "The password field lacks any guidance on requirements or a strength indicator, leaving users to guess the criteria and potentially face errors after submission. Add helper text below the \"Password\" input field that clearly states the password requirements (e.g., \"Must be at least 8 characters\"). Optionally, implement a dynamic strength meter that provides real-time feedback as the user types."
+    },
+    {
+      "screen_id": "11896",
+      "category": "Improve Readability & Accessibility",
+      "task": "The password requirement helper text (\"1 uppercase, 1 lowercase, 1 number, 6 characters\") below the password field is too small and has low contrast, making it difficult to read. Increase the font size and set the color to a legible secondary text color to improve readability and ensure users see the requirements."
+    },
+    {
+      "screen_id": "14759",
+      "category": "Reorganize Information Hierarchy",
+      "task": "The floating text label \u201cCreate GIF from Video in device\u201d at the top of the grid sits awkwardly over the \u201cGIF Editor\u201d and \u201cQuick GIF Editor\u201d buttons, making them harder to read and interact with. Reposition the label as a headline or section title *above* the buttons, and reduce the font weight/size so it doesn't compete with the button labels."
+    },
+    {
+      "screen_id": "6016",
+      "category": "Simplify & Reduce Clutter",
+      "task": "The passenger and bag selector is visually cluttered. The control to the right of the \"Return\" dropdown, showing a person icon, \"1\", a bag icon, \"0\", and a dropdown arrow. Simplify this selector by improving the layout in the dropdown. The button should only show the number of passengers (e.g., \"1 passenger\") and the bags should be a field within the dropdown."
+    },
+    {
+      "screen_id": "14011",
+      "category": "Add or Surface Functionality",
+      "task": "Group management actions (rename, delete, reorder) are not available on the group headers themselves. The user must rely on the generic \"EDIT\" button at the top, which disconnects the action from the item it affects, making the feature less intuitive and discoverable. Add a \"...\" (more options) menu icon to the right side of each group header. This menu should reveal contextual actions like \"Rename Group\", \"Delete Group\", and \"Add Symbol to Group\"."
+    },
+    {
+      "screen_id": "4555",
+      "category": "Add or Surface Functionality",
+      "task": "The bottom action bar has three equally prominent buttons, which reduces the clarity of the primary action (\"START\") and makes the UI feel cluttered. Increase the visual prominence of the \"START\" button. Reduce the prominence of the \"+\" and menu buttons - the \"+\" should be an outline button, and the menu button should remain a simple icon button."
+    },
+    {
+      "screen_id": "7793",
+      "category": "Strengthen Visual Consistency",
+      "task": "The blue color used for the photo count \"(4184)\" is inconsistent with the rest of the UI, which primarily uses white, grey, and orange, making its meaning unclear. This is at the top left under the header. Change the blue text color to the standard text color (white or light grey) to improve visual harmony and reduce color noise."
+    },
+    {
+      "screen_id": "16379",
+      "category": "Refine Layout & Spacing",
+      "task": "The vertical spacing within the calendar grid is inconsistent. The month header (\"July 2023\") and the day labels (\"Su\", \"Mo\", etc.) are too close together, and the day labels are also too close to the first row of dates, creating a cramped feeling at the top of the grid. Increase the top margin of the day label row to create more space below the month header. Also, increase the top margin of the first date row to create more space below the day labels."
+    },
+    {
+      "screen_id": "4149",
+      "category": "Reorganize Information Hierarchy",
+      "task": "The feature list (\"1000+ Presets for Lr\", \"200+ Overlay Effects\", \"DNG Lr Presets PRO\") is placed just above the pricing section. It lacks a clear header, making it feel like it's floating between the image and the buttons rather than being a deliberate, structured section. Add a headline above the feature list, such as \"What you get\" or \"VIP Features\", to anchor the section and improve its scannability."
+    },
+    {
+      "screen_id": "15397",
+      "category": "Simplify & Reduce Clutter",
+      "task": "The top header bar is crowded with three competing elements: the profile/region icon, the search bar, and the download button. This increases cognitive load at the most prominent part of the screen. Remove the download button from the header and relocate it to a \"more\" menu or a dedicated downloads/saved section, allowing the search bar and profile icon to have more breathing room."
+    },
+    {
+      "screen_id": "6747",
+      "category": "Clarify Function & State",
+      "task": "The icon in the top-right corner of the header is ambiguous; its purpose (a deal tag or alert) is not immediately clear, leaving users uncertain about its function. Replace the current tag icon with a standard bell icon for deal alerts, which aligns with the \"Deal Alerts\" label in the bottom navigation and provides universal clarity."
+    },
+    {
+      "screen_id": "14304",
+      "category": "Refine Layout & Spacing",
+      "task": "The filter dropdowns (\"Number of Days\", \"Collection method\") are too close to the \"Where to?\" and \"Open map\" row above them. This makes the top of the screen feel heavy and cramped. Increase the top margin of the filter dropdown row to create more vertical space and better visual separation from the input/map row."
+    },
+    {
+      "screen_id": "14964",
+      "category": "Refine Layout & Spacing",
+      "task": "The \"Forgot password?\" link is centre-aligned, while the input fields above it have a left-aligned placeholder, creating an inconsistent alignment pattern. This is the text link located below the Password input field. Right-align the \"Forgot password?\" link to anchor it to the same side as the password visibility icon, creating a consistent and intentional layout."
+    },
+    {
+      "screen_id": "4741",
+      "category": "Add or Surface Functionality",
+      "task": "The sub-header \"We'll make this your go-to pharmacy\" forces the user to make a long-term commitment. This can cause hesitation if they only need a one-time pickup. Below the main header, add a checkbox or toggle with the label \"Set as my default pharmacy\", unchecked by default. This separates the immediate action from the long-term setting."
+    },
+    {
+      "screen_id": "8663",
+      "category": "Refine Layout & Spacing",
+      "task": "The icons in the bottom navigation bar are unevenly spaced, resulting in a disorganized and unprofessional appearance. This is on the footer row with the speak, bookmark/tree, save/device, minus, and plus icons. Group the controls logically and space them evenly \u2014 place the speak icon on the far left, group the minus and plus icons together on the far right, and evenly space the bookmark/tree and save/device icons in the center between the left and right groups."
+    },
+    {
+      "screen_id": "15929",
+      "category": "Reorganize Information Hierarchy",
+      "task": "The \u201cHow to Repost\u201d steps have inconsistent styling and the flow is confusing, particularly around step 3. The \u201c\ud83c\udf89 Open Repost\u201d element is out of place and disrupts the sequential instructions. Remove the \u201c\ud83c\udf89 Open Repost\u201d element. Make the numbered steps visually consistent: use the same font weight and color for all step numbers and descriptions, unless an action is interactive (like the \u201cOpen Instagram\u201d link). Ensure each step is clearly a separate line/row."
+    },
+    {
+      "screen_id": "4033",
+      "category": "Simplify & Reduce Clutter",
+      "task": "The heading \"This application will be able to:\" is styled in green, which competes with the blue primary \"Authorize app\" button and introduces an extra color to the UI, making it feel less cohesive. Change the heading color to the standard text color (black/gray). Ensure the bullet point is correctly aligned and the text flows naturally."
+    },
+    {
+      "screen_id": "11622",
+      "category": "Improve Readability & Accessibility",
+      "task": "The list lacks visual hierarchy, as all items are styled identically, making it hard to distinguish the main subject from supporting details. Style the \"Albert Einstein\" item as a section header by increasing the font size and making it bold to create a clear visual hierarchy."
+    },
+    {
+      "screen_id": "13703",
+      "category": "Improve Readability & Accessibility",
+      "task": "The diamond button shapes are unconventional, reduce the effective tap target size, and create awkward visual spacing, which can decrease usability and accessibility. For the \"REGISTER\" and \"LOGIN\" buttons in the center of the screen, change the buttons to a standard rectangular shape with rounded corners. Maintain the existing color scheme and layout (stacked vertically), but improve the tap target and align with conventional button design patterns."
+    },
+    {
+      "screen_id": "14464",
+      "category": "Clarify Function & State",
+      "task": "The info icon next to \"I have a physical limitation\" is orange, the same color as the header and potential warning/error states, which creates ambiguity about its function. Change the icon's color to a standard info/tooltip color (e.g., gray or blue) to clearly distinguish it from brand and alert colors."
+    },
+    {
+      "screen_id": "14813",
+      "category": "Clarify Function & State",
+      "task": "The action buttons on the notification modal have unclear visual hierarchy. \"NOT NOW\" and \"SOUNDS GREAT\" are both styled as text buttons with the same weight and color, making the primary action ambiguous. Make \"SOUNDS GREAT\" the primary action by giving it a solid background (the brand's primary blue) and/or higher contrast. Keep \"NOT NOW\" as a secondary/ghost button."
+    }
+  ],
+  "outputs": [
+    {
+      "screen_id": "12356",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12356",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "17816",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12638",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "qwen3.5-397b",
+      "status": "OK",
+      "n_attempts": 2,
+      "last_response": "<<<FIND>>>\n        .market-index-header {\n            display: flex;\n            justify-content: space-between;\n            align-items: center;\n            padding: 16px 0;\n        }\n<<<REPLACE>>>\n        .market-index-header {\n            display: flex;\n            justify-content: space-between;\n            align-items: center;\n            padding: 10px 0;\n        }\n<<<END>>>"
+    },
+    {
+      "screen_id": "2147",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6766",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14016",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13815",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "12364",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8463",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13769",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11896",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14759",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6016",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14011",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4555",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "7793",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "16379",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4149",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15397",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "6747",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14304",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14964",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4741",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "8663",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "15929",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "4033",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "claude-haiku-4-5",
+      "status": "OK",
+      "n_attempts": 1,
+      "last_response": "<<<FIND>>>\n        .info-list-item {\n            background-color: var(--list-bg);\n            color: var(--list-text);\n            padding: 18px 20px;\n            border-bottom: 1px solid var(--list-border);\n            font-size: 18px;\n        }\n<<<REPLACE>>>\n        .info-list-item {\n            background-color: var(--list-bg);\n            color: var(--list-text);\n            padding: 18px 20px;\n            border-bottom: 1px solid var(--list-border);\n            font-size: 18px;\n        }\n\n        .info-list-item:first-child {\n            font-size: 24px;\n            font-weight: bold;\n        }\n<<<END>>>"
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "OK",
+      "n_attempts": 1,
+      "last_response": "<<<FIND>>>\n                <li class=\"info-list-item\">Albert Einstein</li>\n<<<REPLACE>>>\n                <li class=\"info-list-item\" style=\"font-size: 24px; font-weight: bold;\">Albert Einstein</li>\n<<<END>>>"
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "gemini-2.5-flash",
+      "status": "OK",
+      "n_attempts": 1,
+      "last_response": "<<<FIND>>>\n        .info-list-item {\n            background-color: var(--list-bg);\n            color: var(--list-text);\n            padding: 18px 20px;\n            border-bottom: 1px solid var(--list-border);\n            font-size: 18px;\n        }\n<<<REPLACE>>>\n        .info-list-item {\n            background-color: var(--list-bg);\n            color: var(--list-text);\n            padding: 18px 20px;\n            border-bottom: 1px solid var(--list-border);\n            font-size: 18px;\n        }\n\n        .info-list-header {\n            font-size: 22px;\n            font-weight: bold;\n        }\n<<<END>>>\n<<<FIND>>>\n                <li class=\"info-list-item\">Albert Einstein</li>\n<<<REPLACE>>>\n                <li class=\"info-list-item info-list-header\">Albert Einstein</li>\n<<<END>>>"
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "OK",
+      "n_attempts": 1,
+      "last_response": "<<<FIND>>>\n<li class=\"info-list-item\">Albert Einstein</li>\n<<<REPLACE>>>\n<li class=\"info-list-item\" style=\"font-size: 22px; font-weight: bold;\">Albert Einstein</li>\n<<<END>>>"
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "claude-sonnet-4-5",
+      "status": "OK",
+      "n_attempts": 1,
+      "last_response": "<<<FIND>>>\n        .info-list-item {\n            background-color: var(--list-bg);\n            color: var(--list-text);\n            padding: 18px 20px;\n            border-bottom: 1px solid var(--list-border);\n            font-size: 18px;\n        }\n<<<REPLACE>>>\n        .info-list-item {\n            background-color: var(--list-bg);\n            color: var(--list-text);\n            padding: 18px 20px;\n            border-bottom: 1px solid var(--list-border);\n            font-size: 18px;\n        }\n\n        .info-list-item:first-child {\n            font-size: 24px;\n            font-weight: bold;\n        }\n<<<END>>>"
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "OK",
+      "n_attempts": 1,
+      "last_response": "<<<FIND>>>\n                <li class=\"info-list-item\">Albert Einstein</li>\n<<<REPLACE>>>\n                <li class=\"info-list-item\" style=\"font-size: 22px; font-weight: bold;\">Albert Einstein</li>\n<<<END>>>"
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "llama-3.3-70b",
+      "status": "OK",
+      "n_attempts": 1,
+      "last_response": "<<<FIND>>>\n<li class=\"info-list-item\">Albert Einstein</li>\n<<<REPLACE>>>\n<li class=\"info-list-item\" style=\"font-size: 24px; font-weight: bold;\">Albert Einstein</li>\n<<<END>>>"
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "qwen3.5-397b",
+      "status": "OK",
+      "n_attempts": 1,
+      "last_response": "<<<FIND>>>\n        .info-list-item {\n            background-color: var(--list-bg);\n            color: var(--list-text);\n            padding: 18px 20px;\n            border-bottom: 1px solid var(--list-border);\n            font-size: 18px;\n        }\n    </style>\n<<<REPLACE>>>\n        .info-list-item {\n            background-color: var(--list-bg);\n            color: var(--list-text);\n            padding: 18px 20px;\n            border-bottom: 1px solid var(--list-border);\n            font-size: 18px;\n        }\n\n        .info-list-item:first-child {\n            font-size: 20px;\n            font-weight: bold;\n        }\n    </style>\n<<<END>>>"
+    },
+    {
+      "screen_id": "11622",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "OK",
+      "n_attempts": 1,
+      "last_response": "<<<FIND>>>\n<li class=\"info-list-item\">Albert Einstein</li>\n<<<REPLACE>>>\n<li class=\"info-list-item\" style=\"font-size: 22px; font-weight: bold;\">Albert Einstein</li>\n<<<END>>>"
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "13703",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14464",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "claude-haiku-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "claude-haiku-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "gemini-2.5-flash",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "gemini-2.5-flash-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "gpt-4.1-mini",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "gpt-4.1-mini-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "deepseek-v3",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "qwen3.5-9b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "qwen3.5-9b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "claude-sonnet-4-5",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "claude-sonnet-4-5-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "gemini-2.5-pro",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "gemini-2.5-pro-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "gpt-4.1",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "gpt-4.1-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "llama-3.3-70b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "qwen3.5-397b",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    },
+    {
+      "screen_id": "14813",
+      "model_key": "qwen3.5-397b-novision",
+      "status": "SKIP",
+      "n_attempts": 0,
+      "last_response": null
+    }
+  ]
+}

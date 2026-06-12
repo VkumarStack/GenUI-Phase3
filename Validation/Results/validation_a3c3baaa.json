@@ -1,0 +1,1246 @@
+{
+  "participants": [
+    "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68"
+  ],
+  "eval_model": "gemini-3.1-pro-preview",
+  "timestamp": "2026-06-11T02:36:03.239983+00:00",
+  "n_scored": 60,
+  "n_task_mismatch": 0,
+  "n_auto_error": 0,
+  "overall": {
+    "agreement": {
+      "agree": 51,
+      "total": 60,
+      "pct": 0.85
+    },
+    "confusion": {
+      "PASS": {
+        "PASS": 40,
+        "FAIL": 3
+      },
+      "FAIL": {
+        "PASS": 6,
+        "FAIL": 11
+      }
+    }
+  },
+  "criteria": {
+    "requirementFulfillment": {
+      "label": "Req. Fulfillment",
+      "agreement": {
+        "agree": 52,
+        "total": 60,
+        "pct": 0.8667
+      },
+      "confusion": {
+        "PASS": {
+          "PASS": 38,
+          "PARTIAL": 2,
+          "FAIL": 2
+        },
+        "PARTIAL": {
+          "PASS": 3,
+          "PARTIAL": 3,
+          "FAIL": 0
+        },
+        "FAIL": {
+          "PASS": 0,
+          "PARTIAL": 1,
+          "FAIL": 11
+        }
+      }
+    },
+    "consistency": {
+      "label": "Consistency",
+      "agreement": {
+        "agree": 51,
+        "total": 60,
+        "pct": 0.85
+      },
+      "confusion": {
+        "PASS": {
+          "PASS": 47,
+          "PARTIAL": 2,
+          "FAIL": 0
+        },
+        "PARTIAL": {
+          "PASS": 6,
+          "PARTIAL": 1,
+          "FAIL": 1
+        },
+        "FAIL": {
+          "PASS": 0,
+          "PARTIAL": 0,
+          "FAIL": 3
+        }
+      }
+    },
+    "noRegressions": {
+      "label": "No Regressions",
+      "agreement": {
+        "agree": 55,
+        "total": 60,
+        "pct": 0.9167
+      },
+      "confusion": {
+        "PASS": {
+          "PASS": 52,
+          "PARTIAL": 1,
+          "FAIL": 2
+        },
+        "PARTIAL": {
+          "PASS": 2,
+          "PARTIAL": 0,
+          "FAIL": 0
+        },
+        "FAIL": {
+          "PASS": 0,
+          "PARTIAL": 0,
+          "FAIL": 3
+        }
+      }
+    }
+  },
+  "records": [
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14964",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14964",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PARTIAL",
+        "noRegressions": "FAIL"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14964",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "15339",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "15339",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "15339",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PARTIAL",
+        "noRegressions": "PARTIAL"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14304",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14304",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL",
+        "noRegressions": "PARTIAL"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14304",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL",
+        "noRegressions": "PARTIAL"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14365",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14365",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14365",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14748",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14748",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14748",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13769",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13769",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13769",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14924",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14924",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "noRegressions": "FAIL"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14924",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14251",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14251",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14251",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "15397",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "noRegressions": "FAIL"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "15397",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "noRegressions": "FAIL"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "noRegressions": "FAIL"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "15397",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13969",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13969",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13969",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14464",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14464",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PARTIAL",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "FAIL",
+        "noRegressions": "FAIL"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14464",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14759",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14759",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14759",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14060",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14060",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14060",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14011",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14011",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14011",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14605",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14605",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "PARTIAL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14605",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13703",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13703",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13703",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "FAIL",
+      "human_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "FAIL",
+      "auto_criteria": {
+        "requirementFulfillment": "FAIL",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14352",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14352",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14352",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13815",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13815",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13815",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13610",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13610",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "13610",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14813",
+      "provider": "claude",
+      "model_key": "claude-haiku-4-5",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14813",
+      "provider": "gemini",
+      "model_key": "gemini-2.5-flash",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PARTIAL",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    },
+    {
+      "participant": "p_a3c3baaa-b148-4fe7-8f9a-ad5f178ebb68",
+      "screen_id": "14813",
+      "provider": "openai",
+      "model_key": "gpt-4.1-mini",
+      "task_mismatch": false,
+      "human_overall": "PASS",
+      "human_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      },
+      "auto_overall": "PASS",
+      "auto_criteria": {
+        "requirementFulfillment": "PASS",
+        "consistency": "PASS",
+        "noRegressions": "PASS"
+      }
+    }
+  ]
+}
