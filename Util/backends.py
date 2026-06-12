@@ -13,10 +13,18 @@ Available backends:
                  uses Application Default Credentials)
   anthropic   — Anthropic Claude (requires ANTHROPIC_API_KEY)
   openai      — OpenAI (requires OPENAI_API_KEY)
-  xai         — xAI / Grok (requires XAI_API_KEY)
-  groq        — Groq inference (Llama etc.) (requires GROQ_API_KEY)
+
+OpenAI-compatible providers (all share OpenAICompatibleBackend, selected by base
+URL; see _COMPAT_PROVIDERS):
+  together    — Together AI (requires TOGETHER_API_KEY)
   deepseek    — DeepSeek (requires DEEPSEEK_API_KEY)
+  groq        — Groq inference (requires GROQ_API_KEY)
   openrouter  — OpenRouter aggregator (requires OPENROUTER_API_KEY)
+
+Adding a new provider REQUIRES editing this file. If the provider exposes an
+OpenAI-compatible API, add a (base_url, api_key_env) entry to _COMPAT_PROVIDERS;
+otherwise subclass Backend and wire it into get_backend(). Add a DEFAULTS entry
+if the provider has a sensible default model.
 """
 
 import base64
@@ -28,19 +36,17 @@ DEFAULTS = {
     "vertexai":   None,   # no sensible default — model ID must be supplied explicitly
     "anthropic":  "claude-sonnet-4-6",
     "openai":     "gpt-4o",
-    "xai":        "grok-3",
-    "groq":       "meta-llama/llama-4-maverick-17b-128e-instruct-fp8",
     "deepseek":   "deepseek-chat",
+    "groq":       None,   # model required
+    "together":   None,   # model required
     "openrouter": None,   # model required
 }
 
 # OpenAI-compatible provider configs: {name: (base_url, api_key_env)}
 _COMPAT_PROVIDERS: dict[str, tuple[str, str]] = {
-    "xai":        ("https://api.x.ai/v1",               "XAI_API_KEY"),
-    "groq":       ("https://api.groq.com/openai/v1",    "GROQ_API_KEY"),
-    "cerebras":   ("https://api.cerebras.ai/v1",        "CEREBRAS_API_KEY"),
     "together":   ("https://api.together.xyz/v1",       "TOGETHER_API_KEY"),
     "deepseek":   ("https://api.deepseek.com/v1",       "DEEPSEEK_API_KEY"),
+    "groq":       ("https://api.groq.com/openai/v1",    "GROQ_API_KEY"),
     "openrouter": ("https://openrouter.ai/api/v1",      "OPENROUTER_API_KEY"),
 }
 

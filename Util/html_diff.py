@@ -1,9 +1,9 @@
 """
 Compute a unified diff between two HTML files.
 
-Lighter than dom_diff.py — no browser rendering, no computed styles,
-just a standard line-by-line unified diff of the raw HTML source.
-Used as the code-change signal for the Step 1 code analysis.
+A standard line-by-line unified diff of the raw HTML source — no browser
+rendering and no computed styles. This is the code-change signal that the
+auto-evaluator's Step 1 code analysis reasons over.
 
 Running:
     python Util/html_diff.py --example Datasets/EvaluatorModelDataset/some_folder
