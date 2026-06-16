@@ -1,21 +1,17 @@
 """
-Full-HTML code generation for the v2 CodeGeneration experiment.
+Full-HTML code generation for the CodeGeneration experiment.
 
-Unlike the v1 search-and-replace approach (CodeGeneration/generate_core.py),
-the model is asked to output the entire updated HTML document. If the returned
-document does not parse as a complete HTML file, the call is retried up to
-max_retries times.
-
-This module is self-contained for the v2 experiment and does not modify any
-v1 files; it only reuses the read-only `extract_html` helper.
+The model is asked to output the entire updated HTML document (rather than the
+search-and-replace edits in generate_core.py). If the returned document does not
+parse as a complete HTML file, the call is retried up to max_retries times.
+Reuses the read-only `extract_html` helper from generate_core.
 """
 
 import sys
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-_CODEGEN = Path(__file__).parent.parent
-sys.path.insert(0, str(_CODEGEN))
+sys.path.insert(0, str(Path(__file__).parent))
 from generate_core import extract_html  # read-only reuse
 
 if TYPE_CHECKING:

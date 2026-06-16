@@ -1,14 +1,14 @@
 """
-Render a CodeGenerationExperimentv2 run as a Markdown inspection report.
+Render a CodeGenerationExperiment run as a Markdown inspection report.
 
 For each sampled screen, shows the task, and for each model: its status, the
 Before/After screenshots, and the HTML diff (the same unified diff the auto-
 evaluator's Stage 1 sees) inside a collapsible, default-hidden section.
 
 Usage:
-    python CodeGeneration/Experimentv2/inspect_run.py \\
-        --run CodeGeneration/Experimentv2/Results/run_0_1screens.json
-    python CodeGeneration/Experimentv2/inspect_run.py --run ... --out report.md
+    python CodeGeneration/inspect_run.py \\
+        --run CodeGeneration/Results/run_0_30screens.json
+    python CodeGeneration/inspect_run.py --run ... --out report.md
 """
 
 import argparse
@@ -17,11 +17,11 @@ import os
 import sys
 from pathlib import Path
 
-_ROOT = Path(__file__).parent.parent.parent
+_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(_ROOT / "Util"))
 from html_diff import html_diff as compute_html_diff
 
-_SOURCE      = _ROOT / "Datasets" / "CodeGenerationExperimentv2"
+_SOURCE      = _ROOT / "Datasets" / "CodeGenerationExperiment"
 _RESULTS_DIR = Path(__file__).parent / "Results"
 
 
@@ -70,9 +70,9 @@ def _model_section(md_dir: Path, screen_dir: Path, model_key: str,
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Render a v2 run as a Markdown report.")
+    parser = argparse.ArgumentParser(description="Render a CodeGenerationExperiment run as a Markdown report.")
     parser.add_argument("--run", required=True, metavar="PATH",
-                        help="Path to a run results JSON from Experimentv2/build_dataset.py.")
+                        help="Path to a run results JSON from build_dataset.py.")
     parser.add_argument("--out", default=None, metavar="PATH",
                         help="Output Markdown path (default: Results/inspect_{run_name}.md).")
     args = parser.parse_args()
@@ -107,7 +107,11 @@ def main() -> None:
             parts.append(_model_section(md_dir, screen_dir, model_key, status, n_attempts))
 
     out_path.write_text("\n".join(parts), encoding="utf-8")
-    print(f"Wrote {out_path.relative_to(_ROOT)}")
+    try:
+        shown = out_path.relative_to(_ROOT)
+    except ValueError:
+        shown = out_path
+    print(f"Wrote {shown}")
 
 
 if __name__ == "__main__":

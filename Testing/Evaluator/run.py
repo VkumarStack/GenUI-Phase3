@@ -5,11 +5,11 @@ PASS/FAIL accuracy against the ground-truth labels in RubricEvaluation.json.
 Raw per-example outputs and metrics are saved to Results/<run-name>.json.
 
 Usage:
-    # Gemini baseline
+    # Gemini baseline (defaults to the production evaluator model, gemini-3.1-pro-preview)
     python Testing/Evaluator/run.py --backend gemini
 
     # Override model
-    python Testing/Evaluator/run.py --backend gemini --model gemini-2.5-pro-preview
+    python Testing/Evaluator/run.py --backend gemini --model gemini-2.5-pro
 
     # Resume an interrupted run
     python Testing/Evaluator/run.py --backend gemini --resume
@@ -42,6 +42,10 @@ from step2 import _run_one
 _DATASET     = _ROOT / "Datasets" / "EvaluatorModelDataset"
 _RESULTS_DIR = Path(__file__).parent / "Results"
 _VERDICTS    = ["PASS", "FAIL"]
+# Default Stage 2 evaluator model — matches Evaluator/step2.py so the tester
+# scores the same model the production evaluator uses (get_backend's own gemini
+# default is the older gemini-2.5-pro).
+_EVAL_MODEL  = "gemini-3.1-pro-preview"
 
 
 # ---------------------------------------------------------------------------
@@ -191,7 +195,9 @@ def main():
     if not dataset.exists():
         raise SystemExit(f"Dataset not found: {dataset}")
 
-    backend    = get_backend(args.backend, args.model)
+    # Match the production evaluator's default model when none is given.
+    model      = args.model or (_EVAL_MODEL if args.backend == "gemini" else None)
+    backend    = get_backend(args.backend, model)
     model_attr = getattr(backend, "model", None)
     base_name  = _default_run_name(args.backend, model_attr)
     ablation_suffix = "-no_step1" if args.no_step1 else ""

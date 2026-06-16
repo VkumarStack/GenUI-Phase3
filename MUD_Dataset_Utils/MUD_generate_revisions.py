@@ -167,6 +167,11 @@ def main():
         "--id", metavar="ID",
         help="Process a single screen ID (overwrites any existing entry for that ID).",
     )
+    parser.add_argument(
+        "--tasks-per-category", type=int, default=TASKS_PER_CATEGORY, metavar="N",
+        help=f"Tasks to generate per applicable category (default: {TASKS_PER_CATEGORY}). "
+             "Increase for a larger dataset.",
+    )
     args = parser.parse_args()
 
     categories = load_taxonomy()
@@ -225,7 +230,8 @@ def main():
         for cat_name in applicable:
             cat = next(c for c in categories if c["name"] == cat_name)
             try:
-                cat_tasks = generate_tasks_for_category(screenshot_bytes, generator_backend, cat)
+                cat_tasks = generate_tasks_for_category(
+                    screenshot_bytes, generator_backend, cat, count=args.tasks_per_category)
                 tasks[cat_name] = cat_tasks
                 print(f"    {cat_name}: {len(cat_tasks)} tasks")
             except Exception as e:

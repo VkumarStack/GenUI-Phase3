@@ -1,13 +1,16 @@
 """
 Batch HTML generation for MUD_GenreUI dataset.
 
-Reads Datasets/MUD_GenreUI/results_final_100.csv, finds images that don't yet
-have a corresponding HTML file, and generates them with Gemini 2.5 Pro.
+Finds images in Datasets/MUD_GenreUI/images/ that don't yet have a corresponding
+HTML file and reconstructs each as a self-contained HTML page with Gemini 2.5 Pro.
+(results_final_100.csv is consulted only for a display label; an image with no CSV
+row is still processed.)
 
 Usage:
-    export GEMINI_API_KEY=<your-key>
-    python MUD_generate_html.py
+    python MUD_Dataset_Utils/MUD_generate_html.py
+    python MUD_Dataset_Utils/MUD_generate_html.py --ids 5149 6236   # (re)generate specific ids
 
+Requires GOOGLE_API_KEY in Util/.env (GEMINI_API_KEY also accepted).
 Resume-safe: skips images whose HTML already exists. Re-run freely.
 """
 
@@ -18,6 +21,7 @@ import sys
 import time
 from pathlib import Path
 
+from dotenv import load_dotenv
 from PIL import Image
 from google import genai
 from google.genai import types
@@ -28,6 +32,7 @@ import pandas as pd
 # ---------------------------------------------------------------------------
 
 ROOT = Path(__file__).parent.parent  # project root (GenUI/)
+load_dotenv(ROOT / "Util" / ".env")
 DATASET_DIR = ROOT / "Datasets/MUD_GenreUI"
 CSV_PATH = DATASET_DIR / "results_final_100.csv"
 IMAGES_DIR = DATASET_DIR / "images"
@@ -48,9 +53,9 @@ RETRY_DELAY = 5  # seconds between retries
 # ---------------------------------------------------------------------------
 
 def get_client():
-    api_key = os.getenv("GEMINI_API_KEY")
+    api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
     if not api_key:
-        sys.exit("Error: GEMINI_API_KEY environment variable is not set.")
+        sys.exit("Error: set GOOGLE_API_KEY in Util/.env (GEMINI_API_KEY also accepted).")
     return genai.Client(api_key=api_key)
 
 

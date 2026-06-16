@@ -1,19 +1,13 @@
 """
 Run the auto-evaluator pipeline on CodeGenerationExperiment outputs.
 
-Two modes:
-
-  1. From a run results file (recommended):
-     Pass --run CodeGeneration/Results/{run_name}.json to evaluate every
-     (screen, model) pair from that dataset build run.  Per-model accuracy
-     is computed and saved to CodeGeneration/Results/eval_{run_name}.json.
-
-  2. Standalone (legacy): randomly samples one model per screen from
-     Datasets/CodeGenerationExperiment/ (no per-model accuracy report).
+Reads a run results file from build_dataset and evaluates every (screen, model)
+pair, writing the eval sample dataset to Datasets/CodeGenEvalSample/ and a
+per-model accuracy report to CodeGeneration/Results/eval_{run_name}.json.
 
 For each example, files are copied to Datasets/CodeGenEvalSample/ and the
-html_diff → step1 → step2 pipeline is run in place.  Already-evaluated
-examples are skipped unless --force is passed.
+html_diff -> step1 -> step2 pipeline is run in place. Already-evaluated examples
+are skipped unless --force is passed.
 
 Output folder structure per example:
     {screen_id}_{model_key}/
@@ -25,20 +19,17 @@ Output folder structure per example:
         eval_result.json
 
 Usage:
-    # Evaluate a specific build run (all models for those screens)
-    python CodeGeneration/build_eval_sample.py --run CodeGeneration/Results/run_0_10screens.json
-
-    # Force re-evaluation
+    python CodeGeneration/build_eval_sample.py \\
+        --run CodeGeneration/Results/run_0_30screens.json
     python CodeGeneration/build_eval_sample.py --run ... --force
-
-    # Standalone random sample (legacy)
-    python CodeGeneration/build_eval_sample.py --seed 42
 """
 
 import argparse
 import json
 import shutil
 import sys
+from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -49,18 +40,17 @@ load_dotenv(_ROOT / "Util" / ".env")
 
 sys.path.insert(0, str(_ROOT / "Util"))
 sys.path.insert(0, str(_ROOT / "Evaluator"))
-sys.path.insert(0, str(Path(__file__).parent))
 
 from backends import get_backend
 from html_diff import html_diff as compute_html_diff
 from step1 import run_one as step1_run_one
 from step2 import _run_one as step2_run_one
-from build_dataset import MODELS as _MODEL_REGISTRY
 
 _SOURCE      = _ROOT / "Datasets" / "CodeGenerationExperiment"
 _OUTPUT      = _ROOT / "Datasets" / "CodeGenEvalSample"
 _RESULTS_DIR = Path(__file__).parent / "Results"
 _EVAL_MODEL  = "gemini-3.1-pro-preview"
+_DEFAULT_WORKERS = 8
 
 
 # ---------------------------------------------------------------------------
@@ -89,19 +79,22 @@ def _copy_screen(screen_dir: Path, model_key: str, dest: Path) -> None:
             shutil.copy2(src, after_dest / fname)
 
 
-def _evaluate_one(screen_id: str, model_key: str, backend, force: bool) -> dict:
+def _evaluate_one(screen_id: str, model_key: str, backend, force: bool,
+                  output_dir: Path) -> dict:
     """Evaluate one (screen, model) pair. Returns the eval_result dict."""
     screen_dir  = _SOURCE / screen_id
-    dest        = _OUTPUT / f"{screen_id}_{model_key}"
+    dest        = output_dir / f"{screen_id}_{model_key}"
     result_file = dest / "eval_result.json"
 
-    # Check if generation failed (no usable After HTML)
-    gen_failed = (screen_dir / model_key / "generation_failed.json").exists()
-    after_html  = screen_dir / model_key / "index.html"
-    after_shot  = screen_dir / model_key / "screenshot.png"
-    if gen_failed or not after_html.exists() or not after_shot.exists():
+    # A rendered screenshot only exists when generation produced valid HTML, so
+    # its presence (not a possibly-stale generation_failed.json from an earlier
+    # run) is the source of truth for whether there is something to evaluate.
+    after_html = screen_dir / model_key / "index.html"
+    after_shot = screen_dir / model_key / "screenshot.png"
+    if not after_html.exists() or not after_shot.exists():
         return {"screen_id": screen_id, "model_key": model_key,
-                "overall": "FAIL", "criteria": {}, "comment": "Generation failed — no valid output.",
+                "overall": "FAIL", "criteria": {},
+                "comment": "Generation failed — no valid output.",
                 "error": "generation_failed", "eval_model": None}
 
     if result_file.exists() and not force:
@@ -109,7 +102,6 @@ def _evaluate_one(screen_id: str, model_key: str, backend, force: bool) -> dict:
 
     _copy_screen(screen_dir, model_key, dest)
 
-    # html_diff
     diff_cache = dest / "html_diff.txt"
     if not diff_cache.exists() or force:
         bh = dest / "Before" / "index.html"
@@ -120,7 +112,6 @@ def _evaluate_one(screen_id: str, model_key: str, backend, force: bool) -> dict:
             encoding="utf-8",
         )
 
-    # Step 1
     spec_file = dest / "step1_spec.txt"
     if not spec_file.exists() or force:
         s1 = step1_run_one(dest, backend)
@@ -128,7 +119,6 @@ def _evaluate_one(screen_id: str, model_key: str, backend, force: bool) -> dict:
             raise RuntimeError(f"step1: {s1['error']}")
         spec_file.write_text(s1["code_analysis"], encoding="utf-8")
 
-    # Step 2
     s2 = step2_run_one(dest, backend)
     record = {
         "screen_id":  screen_id,
@@ -144,13 +134,18 @@ def _evaluate_one(screen_id: str, model_key: str, backend, force: bool) -> dict:
     return record
 
 
-# ---------------------------------------------------------------------------
-# Accuracy helpers
-# ---------------------------------------------------------------------------
+def _eval_job(screen_id: str, model_key: str, backend, force: bool,
+              output_dir: Path) -> dict:
+    """Thread worker: evaluate one pair, converting exceptions into error records."""
+    try:
+        return _evaluate_one(screen_id, model_key, backend, force, output_dir)
+    except Exception as e:
+        return {"screen_id": screen_id, "model_key": model_key,
+                "error": str(e), "overall": None}
+
 
 def _compute_accuracy(examples: list[dict]) -> dict:
-    """Compute per-model pass counts and accuracy from a list of eval records."""
-    from collections import defaultdict
+    """Per-model pass counts and accuracy from a list of eval records."""
     stats: dict[str, dict] = defaultdict(lambda: {"pass": 0, "fail": 0, "error": 0})
     for ex in examples:
         mk = ex.get("model_key", "unknown")
@@ -164,7 +159,7 @@ def _compute_accuracy(examples: list[dict]) -> dict:
 
     result = {}
     for mk, s in stats.items():
-        total = s["pass"] + s["fail"] + s["error"]
+        total  = s["pass"] + s["fail"] + s["error"]
         scored = s["pass"] + s["fail"]
         result[mk] = {
             "pass":     s["pass"],
@@ -176,6 +171,55 @@ def _compute_accuracy(examples: list[dict]) -> dict:
     return result
 
 
+# Rubric criteria reported in the final report (visualUsability and minimality
+# are intentionally excluded). (json_key, display_label).
+_REPORT_CRITERIA = [
+    ("requirementFulfillment", "Req. Fulfillment"),
+    ("consistency",            "Consistency"),
+    ("noRegressions",          "No Regressions"),
+]
+_RUBRIC_LEVELS = ["PASS", "PARTIAL PASS", "FAIL"]
+
+
+def _compute_criteria(examples: list[dict]) -> dict:
+    """Per-model PASS/PARTIAL/FAIL split for each reported rubric criterion.
+
+    Examples that errored out of the evaluator (overall is None) are skipped.
+    Generation failures (no rubric, overall=FAIL) count as FAIL on every
+    criterion, matching how the overall accuracy treats them.
+    """
+    counts: dict[str, dict] = defaultdict(
+        lambda: {key: {lvl: 0 for lvl in _RUBRIC_LEVELS} for key, _ in _REPORT_CRITERIA}
+    )
+    for ex in examples:
+        if ex.get("overall") is None:        # evaluator exception — not scorable
+            continue
+        mk   = ex.get("model_key", "unknown")
+        crit = ex.get("criteria") or {}
+        for key, _ in _REPORT_CRITERIA:
+            v = (crit.get(key) or "FAIL").upper()
+            if v not in _RUBRIC_LEVELS:
+                v = "FAIL"
+            counts[mk][key][v] += 1
+
+    result: dict[str, dict] = {}
+    for mk, crits in counts.items():
+        result[mk] = {}
+        for key, _ in _REPORT_CRITERIA:
+            c     = crits[key]
+            total = sum(c.values())
+            result[mk][key] = {
+                "pass":        c["PASS"],
+                "partial":     c["PARTIAL PASS"],
+                "fail":        c["FAIL"],
+                "total":       total,
+                "pass_pct":    round(c["PASS"] / total, 4)         if total else None,
+                "partial_pct": round(c["PARTIAL PASS"] / total, 4) if total else None,
+                "fail_pct":    round(c["FAIL"] / total, 4)         if total else None,
+            }
+    return result
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -184,18 +228,17 @@ def main():
     parser = argparse.ArgumentParser(
         description="Evaluate CodeGenerationExperiment outputs with the auto-evaluator."
     )
-    parser.add_argument("--run", metavar="PATH",
-                        help="Path to a run results JSON from build_dataset.py. "
-                             "Evaluates all (screen, model) pairs in that run and "
-                             "saves per-model accuracy to CodeGeneration/Results/.")
-    parser.add_argument("--seed", type=int, default=42,
-                        help="Seed for legacy standalone mode (ignored when --run is used).")
+    parser.add_argument("--run", required=True, metavar="PATH",
+                        help="Path to a run results JSON from build_dataset.py.")
     parser.add_argument("--backend", default="gemini",
                         choices=["gemini", "vertexai", "anthropic", "openai"])
     parser.add_argument("--model", default=None,
                         help="Override evaluator model (default for gemini: gemini-3.1-pro-preview).")
     parser.add_argument("--force", action="store_true",
                         help="Re-evaluate even if eval_result.json already exists.")
+    parser.add_argument("--workers", type=int, default=_DEFAULT_WORKERS,
+                        help=f"Parallel evaluation workers (default: {_DEFAULT_WORKERS}; "
+                             f"use 1 for sequential).")
     parser.add_argument("--output", default=str(_OUTPUT), metavar="PATH",
                         help=f"Output dataset directory (default: {_OUTPUT}).")
     args = parser.parse_args()
@@ -205,133 +248,99 @@ def main():
     output     = Path(args.output)
     output.mkdir(parents=True, exist_ok=True)
 
-    print(f"Output:   {output}")
+    run_meta = json.loads(Path(args.run).read_text(encoding="utf-8"))
+    run_name = run_meta["run_name"]
+    sampled  = run_meta["sampled"]
+    models   = run_meta["models"]
+
+    n_total = len(sampled) * len(models)
+    print(f"Output:    {output}")
     print(f"Evaluator: {args.backend} | {getattr(backend, 'model', '—')}")
+    print(f"Run:       {run_name}")
+    print(f"Screens:   {len(sampled)}  ×  Models: {len(models)}  =  {n_total} pairs")
+    print(f"Workers:   {args.workers}")
     print()
 
-    # ------------------------------------------------------------------
-    # Mode 1: evaluate all models for all screens in a build run
-    # ------------------------------------------------------------------
-    if args.run:
-        run_meta = json.loads(Path(args.run).read_text(encoding="utf-8"))
-        run_name = run_meta["run_name"]
-        sampled  = run_meta["sampled"]      # [{screen_id, category, task}]
-        models   = run_meta["models"]       # model keys used in the build
+    # Split into cached (skip) vs jobs to run; the auto-evaluator calls are
+    # network-bound, so run them across a thread pool.
+    jobs    = [(entry["screen_id"], mk) for entry in sampled for mk in models]
+    results: dict[tuple, dict] = {}
+    to_run: list[tuple] = []
+    for sid, mk in jobs:
+        cached = output / f"{sid}_{mk}" / "eval_result.json"
+        if cached.exists() and not args.force:
+            results[(sid, mk)] = json.loads(cached.read_text())
+        else:
+            to_run.append((sid, mk))
 
-        n_total = len(sampled) * len(models)
-        print(f"Run:      {run_name}")
-        print(f"Screens:  {len(sampled)}  ×  Models: {len(models)}  =  {n_total} pairs")
-        print()
+    skipped = len(jobs) - len(to_run)
+    print(f"Cached: {skipped}   To evaluate: {len(to_run)}")
 
-        examples: list[dict] = []
-        done = skipped = errors = 0
-        idx  = 0
-
-        for entry in sampled:
-            sid = entry["screen_id"]
-            for model_key in models:
-                idx += 1
-                dest = output / f"{sid}_{model_key}"
-                already = (dest / "eval_result.json").exists()
-                label   = f"  [{idx:>4}/{n_total}] {sid} / {model_key}"
-
-                if already and not args.force:
-                    print(f"{label}  skip")
-                    examples.append(json.loads((dest / "eval_result.json").read_text()))
-                    skipped += 1
-                    continue
-
-                print(f"{label} ... ", end="", flush=True)
-                try:
-                    rec = _evaluate_one(sid, model_key, backend, args.force)
-                    verdict = rec.get("overall") or rec.get("error") or "?"
-                    print(verdict)
-                    examples.append(rec)
-                    if rec.get("error") == "generation_failed":
-                        errors += 1
-                    else:
-                        done += 1
-                except Exception as e:
-                    print(f"ERROR: {e}")
-                    examples.append({"screen_id": sid, "model_key": model_key,
-                                     "error": str(e), "overall": None})
-                    errors += 1
-
-        per_model = _compute_accuracy(examples)
-
-        # Print summary
-        print(f"\n{'─'*55}")
-        print(f"  {'Model':<30}  {'Acc':>6}  {'Pass':>5}  {'Fail':>5}")
-        print(f"  {'─'*30}  {'─'*6}  {'─'*5}  {'─'*5}")
-        for mk in models:
-            s = per_model.get(mk, {})
-            acc = f"{s.get('accuracy', 0):.1%}" if s.get("accuracy") is not None else "  n/a"
-            print(f"  {mk:<30}  {acc:>6}  {s.get('pass',0):>5}  {s.get('fail',0):>5}")
-        print()
-
-        # Save eval results
-        _RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-        eval_name = f"eval_{run_name}"
-        eval_file = _RESULTS_DIR / f"{eval_name}.json"
-        eval_file.write_text(json.dumps({
-            "eval_name":   eval_name,
-            "source_run":  run_name,
-            "eval_model":  getattr(backend, "model", args.backend),
-            "n_screens":   len(sampled),
-            "n_models":    len(models),
-            "timestamp":   datetime.now(timezone.utc).isoformat(),
-            "per_model":   per_model,
-            "examples":    [
-                {k: v for k, v in ex.items() if k != "response"}
-                for ex in examples
-            ],
-        }, indent=2), encoding="utf-8")
-        print(f"Eval results saved to {eval_file.relative_to(_ROOT)}")
-        print(f"Done.  Evaluated: {done}  Skipped: {skipped}  Errors/Failed: {errors}")
-        return
-
-    # ------------------------------------------------------------------
-    # Mode 2: legacy standalone — 1 random model per screen
-    # ------------------------------------------------------------------
-    import random
-    rng         = random.Random(args.seed)
-    model_keys  = list(_MODEL_REGISTRY)
-    screen_dirs = sorted(d for d in _SOURCE.iterdir() if d.is_dir())
-
-    print(f"Screens:  {len(screen_dirs)}  (standalone mode, 1 model/screen)")
-    print()
-
-    done = errors = skipped = 0
-    n = len(screen_dirs)
-
-    for i, screen_dir in enumerate(screen_dirs, 1):
-        available = [m for m in model_keys
-                     if (screen_dir / m / "index.html").exists()
-                     and (screen_dir / m / "screenshot.png").exists()]
-        if not available:
-            print(f"  [{i:>3}/{n}] {screen_dir.name}  SKIP — no model outputs")
-            errors += 1
-            continue
-
-        model_key = rng.choice(available)
-        dest      = output / f"{screen_dir.name}_{model_key}"
-
-        if (dest / "eval_result.json").exists() and not args.force:
-            print(f"  [{i:>3}/{n}] {screen_dir.name}_{model_key}  skip")
-            skipped += 1
-            continue
-
-        print(f"  [{i:>3}/{n}] {screen_dir.name} → {model_key} ... ", end="", flush=True)
-        try:
-            rec = _evaluate_one(screen_dir.name, model_key, backend, args.force)
-            print(rec.get("overall") or "ERROR")
+    done = 0
+    with ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
+        fut_map = {
+            ex.submit(_eval_job, sid, mk, backend, args.force, output): (sid, mk)
+            for sid, mk in to_run
+        }
+        for fut in as_completed(fut_map):
+            sid, mk = fut_map[fut]
+            rec = fut.result()
+            results[(sid, mk)] = rec
             done += 1
-        except Exception as e:
-            print(f"ERROR: {e}")
-            errors += 1
+            verdict = rec.get("overall") or rec.get("error") or "?"
+            print(f"  [{done:>4}/{len(to_run)}] {sid} / {mk}: {verdict}", flush=True)
 
-    print(f"\nDone.  Evaluated: {done}  Skipped: {skipped}  Errors: {errors}")
-    print(f"Dataset: {output}")
+    # Reassemble in deterministic (screen, model) order.
+    examples       = [results[(entry["screen_id"], mk)] for entry in sampled for mk in models]
+    errors         = sum(1 for r in examples if r.get("error"))
+    per_model      = _compute_accuracy(examples)
+    per_model_crit = _compute_criteria(examples)
+
+    # Overall PASS/FAIL accuracy per model
+    print(f"\n{'─'*55}")
+    print("  OVERALL")
+    print(f"  {'Model':<30}  {'Acc':>6}  {'Pass':>5}  {'Fail':>5}")
+    print(f"  {'─'*30}  {'─'*6}  {'─'*5}  {'─'*5}")
+    for mk in models:
+        s = per_model.get(mk, {})
+        acc = f"{s.get('accuracy', 0):.1%}" if s.get("accuracy") is not None else "  n/a"
+        print(f"  {mk:<30}  {acc:>6}  {s.get('pass',0):>5}  {s.get('fail',0):>5}")
+
+    # Per-criterion PASS / PARTIAL / FAIL split per model
+    def _pct(x):
+        return f"{x:.1%}" if x is not None else "  n/a"
+
+    for key, label in _REPORT_CRITERIA:
+        print(f"\n  {label.upper()}  (PASS / PARTIAL / FAIL)")
+        print(f"  {'Model':<30}  {'PASS':>7}  {'PART':>7}  {'FAIL':>7}")
+        print(f"  {'─'*30}  {'─'*7}  {'─'*7}  {'─'*7}")
+        for mk in models:
+            c = per_model_crit.get(mk, {}).get(key, {})
+            print(f"  {mk:<30}  {_pct(c.get('pass_pct')):>7}  "
+                  f"{_pct(c.get('partial_pct')):>7}  {_pct(c.get('fail_pct')):>7}")
+    print()
+
+    _RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    eval_name = f"eval_{run_name}"
+    eval_file = _RESULTS_DIR / f"{eval_name}.json"
+    eval_file.write_text(json.dumps({
+        "eval_name":         eval_name,
+        "source_run":        run_name,
+        "mode":              run_meta.get("mode", "full_html"),
+        "eval_model":        getattr(backend, "model", args.backend),
+        "n_screens":         len(sampled),
+        "n_models":          len(models),
+        "timestamp":         datetime.now(timezone.utc).isoformat(),
+        "per_model":         per_model,
+        "per_model_criteria": per_model_crit,
+        "reported_criteria": [k for k, _ in _REPORT_CRITERIA],
+        "examples":   [
+            {k: v for k, v in ex.items() if k != "response"}
+            for ex in examples
+        ],
+    }, indent=2), encoding="utf-8")
+    print(f"Eval results saved to {eval_file.relative_to(_ROOT)}")
+    print(f"Done.  Evaluated: {len(to_run)}  Cached: {skipped}  Errors/Failed: {errors}")
 
 
 if __name__ == "__main__":
